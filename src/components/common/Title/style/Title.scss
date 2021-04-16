@@ -1,0 +1,26 @@
+.TitleView{
+    width : 100%;
+    max-width : 350px;
+
+    height : auto;
+    align-items: center;
+    min-height : 40px;
+
+    // border : solid red;
+
+    p{
+        font-size : 25px;
+        font-weight : 600;
+        // border : solid red;
+    }
+}
+
+@media only screen and (max-width : 768px){
+    .TitleView{
+
+        p{
+            font-size : 11pt;
+        }
+    }
+
+}

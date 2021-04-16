@@ -1,0 +1,47 @@
+.MainContents {
+    display:grid;
+    grid-template-columns: repeat(36, 1fr);
+    margin : 0 auto;
+}
+
+.MainSection {
+    grid-column-start: 7;
+    grid-column-end: 30;
+}
+
+.MainAside {
+    top: 18%;
+    position: fixed;
+    width: 55px;
+    height: 53%;
+    right: 17%;
+    // grid-column-start: 30;
+    // grid-column-end: 31;
+    //border: solid gray;
+}
+
+.MainSection > div {
+    margin-top: 20px;
+}
+
+.MainAside > div {
+    margin-top: 20px;
+}
+
+
+@media  (max-width:1280px) {
+    .MainContents {
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        margin : 0 auto;
+    }
+    
+    .MainSection {
+        grid-column-start: 3;
+        grid-column-end: 11;
+    }
+    
+    .MainAside {
+        display:none; // fixed button으로 확인
+    }
+}

@@ -1,0 +1,173 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.AllProjectView {
+    font-family: "AppleSDGothicNeoB";
+    grid-template-columns: repeat(24, 1fr); 
+    width: 100%;
+    // border: solid red;
+}
+
+.APVTitle {
+    width: 100%;
+    display:grid;
+    grid-column: 1/25;
+    grid-template-rows: repeat(2, 1fr);
+    height:60px;
+    margin-bottom: 30px;
+}
+
+.APVSearch {
+    grid-column-start: 7;
+    grid-column-end: 22; 
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+
+.BtnAPVSearch:hover {
+    background-color:lightgray;
+}
+
+.APVSort{
+    grid-column: 19/24;
+    grid-row: 2/3;
+    display : flex;
+
+
+
+    .APVSort-container{
+        width : 100%;  
+        display : flex;
+        justify-content: space-between;
+        flex-direction: row;
+        // border: solid red;
+        .sort-wrapper{
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding-top: 12px;
+            font-size: 12px;
+            // border: solid red;
+            .sort-wrapper-sub1{
+                padding-right: 10px;
+            }
+            .sort-wrapper-sub2{
+
+            }
+        }
+        .sort-newproject{
+            // padding-right: 15px;
+            width: 31%;
+            // border: solid red;
+            >input{
+                // width : 100%;
+                width: 90px;
+                height : 25px;
+                border : 1px solid #1C2239;
+                background : #F6F7FC;
+                border-radius: 15px;
+                font-family: "AppleSDGothicNeoB";
+                font-size : 13px;
+                font-weight : 400;
+            }
+        }
+
+        .Main-Sbt{
+            width: 25%;
+            //background: url("../../../../../img/mainpagebutton.png") no-repeat;
+            // background-size: cover;
+            border:none;
+            
+        }
+    }
+
+}
+
+
+// APV Classified SelectionBox
+
+.APVProjectClassified select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background:url("../../../../../img/heart.png") no-repeat 95% 50%; // 화살표 이미지 사용하기
+    width:100%;
+    height: 100%;
+    padding: 5px 2.5px;
+    border-radius: 0px; // ios 둥근모서리 제거
+    border: 1px solid #999;
+    
+    // select font
+    font-family: inherit;
+    font-size: 15px;
+    text-indent: 5px;
+
+    option {
+        background:rgba(0,0,0,0.3);
+        color:#fff;
+        
+    }
+    option:not(:checked) {
+        color:#000;
+        background:#fff;
+    }
+}
+
+select::-ms-expand {display:none;} // IE10,11의 네이티브 화살표 숨기기
+
+
+// APV List
+.APVList{
+    // border: solid red;
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 21px;
+    grid-row-gap: 21px;
+}
+
+
+
+.APVListBtnArea {
+    margin-top: 60px;
+    width:100%;
+    height: 100%;
+    text-align: center;
+    // border: solid red;
+    
+
+    .BtnAPVListAdd{
+        border: solid red;
+        width:35px;
+        height: 35px;
+        background: url(../../../../../img/folder.png) no-repeat;
+        background-size: cover;
+        border:none;
+        
+    }
+}
+
+// 임시 조정 : 세부디자인 결정후 모두 수정할 예정.
+@media (max-width:1290px) {
+    .APVTitle P { 
+        font-size:18px;
+    }
+}
+
+
+@media (max-width:1085px) {
+    .APVTitle P { 
+        font-size:16px;
+    }
+    .InputAPVSearch {
+        font-size:0.8em;
+    }
+    .BtnAPVSearch{
+        font-size:0.75em;
+    }
+}

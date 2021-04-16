@@ -1,0 +1,57 @@
+.Header {
+    display:grid;
+    grid-template-columns: repeat(24, 1fr);
+    margin : 0 auto;
+    max-height: 60px;
+    align-items: center;
+    justify-content: center;
+    background : #F6F7FC;
+}
+
+.Header a a:link a:hover a:visited {
+    color:#000;
+    text-decoration: none;
+}
+
+.LogoArea {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.OptionArea {
+    grid-column-start: 21;
+    grid-column-end: 25;
+}
+
+@media (max-width:1280px) {
+    .Header {
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        margin : 0 auto;
+        height: 60px;
+        margin-top: 5px;
+    }
+
+    .LogoArea {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+        
+    .OptionArea {
+        grid-column-start: 10;
+        grid-column-end: 12;
+    }
+}
+
+@media (max-width:768px) {
+    .LogoArea {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin-left : 15px;
+    }
+
+    .OptionArea {
+        grid-column-start: 9;
+        grid-column-end: 12;
+    }
+}
