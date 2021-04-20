@@ -1,0 +1,97 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.Secess-account-view{
+    padding: 20px;
+    width : 400px;
+    height : 530px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background : #fff;
+    border-radius: 30px;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+
+    .Secess-account-title{
+        height : 50px;
+        font-family: AppleSDGothicNeoB;
+        font-weight: bold;
+        font-size : 20px;
+    }
+    
+    .Secess-account-text-area{
+        width : 80%;
+        margin-bottom: 30px;
+        text-align : center;
+        font-family: AppleSDGothicNeoB;
+        font-size : 15px;
+        line-height : 120%;
+        white-space: pre-line;
+    }
+
+    .Secess-account-input-form{
+        width : auto;
+        height : 250px;
+        display: flex;
+        flex-direction: column;
+        font-family: AppleSDGothicNeoB;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        .Secess-account-input-wrapper{
+            text-align: center;
+            font-size : 15px;
+            white-space: pre-line;
+            line-height: 1.5;
+            
+            >p{
+                text-decoration: underline;
+            }
+    
+            .Secess-account-input-container{
+                width : 300px;
+                height : 45px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+                display : flex;
+                justify-content: center;                
+                border-radius: 35px;
+                box-shadow: 2px 2px 10px 1px #c7c7c7;
+
+                >input{
+                    width : 90%;
+                    border : none;
+                    outline : none;
+                    background : transparent;
+                }
+           
+        }
+        
+            
+        }
+        .Secess-account-submit-button{
+            width : 200px;
+            height : 40px;
+            display : flex;
+            justify-content: center;
+            border-radius: 30px;
+            background : #1C2239;
+            
+            >button{
+                width : 90%;
+                font-family: AppleSDGothicNeoB;
+                color : #FFB600;
+                background : none;
+                outline : none;
+                border : none;
+                font-size : 18px;
+                
+            }
+        }
+    }
+}
