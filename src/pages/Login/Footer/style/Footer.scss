@@ -1,0 +1,48 @@
+.Login-footer-area{
+    grid-column: 1/37;
+    background-color: #1C2239;
+    max-height: 522px;
+    height: 100%;
+    
+    .Login-footer-slider-button{
+        width: 65%;
+        height: 50px;
+        margin: 0 auto;
+        border-bottom: 3px solid #ffffff;
+    }
+
+    .Login-footer-text-main{
+        display: flex;
+        width: 80%;
+        max-height: 300px;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-left: 10%; // 조정 필요
+        margin-top: 50px;
+
+        .Login-footer-text-area{
+        
+            .Login-footer-text{
+                margin-bottom: 50px;
+                
+                >p{
+                    color: white;
+                    font-weight: 400px;
+                    font-size: 15px;
+                    letter-spacing: 5px;
+                }
+            }
+            .Login-footer-hr{
+
+                >p{
+                    letter-spacing: 5px;
+                    margin-bottom: 20px;
+                    color: white;
+                    font-weight: 400px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+}

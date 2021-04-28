@@ -1,0 +1,32 @@
+.Login-body-wrap{
+    display: grid;
+    grid-template-columns: repeat(36, 1fr);
+    height: 100%;
+    width: 100%;
+    
+    .Login-body-background{
+        display: grid;
+        grid-column: 1/37;
+        width: 100%;
+        min-height: 802px;
+        height: 100%;
+        background-image: url(../../../img/loginbackground.png);
+        background-position: center;
+
+        .Login-body-view{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+            // text select prevent
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        
+        }
+    }
+}

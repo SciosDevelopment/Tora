@@ -1,0 +1,175 @@
+.LoginView-main{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+
+    .Login-main-container{    
+        width : 100%;
+        max-width : 400px;
+        min-width : 350px;
+        height : 530px;
+        display : grid;
+        grid-template-rows : 40px repeat(2,1fr) 65px;
+        background : #ffffff;
+        border-radius: 30px;
+        box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    
+        .Login-input-container{
+            height : 330px;
+            grid-row : 2/3;
+            display : flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            >div{
+
+                p{  
+                    margin-left : 10px;
+                    margin-bottom: 4%;
+                    font-size : 1.375em;
+                    font-weight : 800;
+                }
+
+                >div{
+                    width : 300px;
+                    height : 60px;
+                    border-radius: 60px;
+                    background : #ffffff;
+                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+            
+                    input{
+                        font-size : 1.2em;
+                        width : 90%;
+                        height : 100%;
+                        background : rgba(0, 0, 0, 0);
+                        border : none;
+                    }
+
+                    input:focus{
+                        outline : none;
+                    }
+                }
+            }
+
+            >button{
+                width : 300px;
+                height : 60px;
+                border-radius: 60px;
+                background : #1C2239;
+                border : none;
+                color : #ffffff;
+                font-size : 1.5em;
+                margin-top: 7%;
+    
+            }
+
+            button:focus{
+                outline : none;
+            }
+        }
+    
+        .Login-button-etc-info-container{
+            display : flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            grid-row : 3/4;
+            margin-top: 4%;
+            
+            .Login-etc-info{
+
+                p{
+                    text-align: center;
+                    text-decoration: underline;;
+                    font-size : 18px;
+                    margin-bottom : 10px;
+                    
+                }
+
+                p:hover { // 임시 구분
+                    font-size:19px;
+                    cursor:pointer;
+                }
+            }
+
+            .Social-login-container{
+                height : 50px;
+            }
+            
+        }
+    
+    }
+    .Login-main-text-area{
+
+        width: 32%;
+        display : flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-self: center;
+        height : 400px;
+        z-index: 10;
+        padding-left: 4%;
+        
+        .Login-main-title-area{
+            width : auto;
+            white-space: pre-line;
+            font-family: AppleSDGothicNeoB;
+            font-weight: bold;
+            font-size : 75px;
+        }
+
+        .Login-main-description-area{
+            width : auto;
+            font-family: AppleSDGothicNeoM;
+            font-size : 26px;
+            line-height: 1.5em;
+        }
+    }
+}
+
+
+@media only screen and (max-width : 768px){
+    .Login-main-container{
+        width : 280px;
+        height : 450px;
+        border-radius: 25px;
+
+        .Login-input-container{
+
+            >div{
+
+                p{
+                    font-size : 0.938em;    
+                }
+
+                input{
+                    font-size : 0.938em;
+                    height : 35px;
+                }
+              
+            }
+        }
+
+        .Login-button-etc-info-container{
+
+            >input{
+                width : 67%;
+                height : 35px;
+                font-size : 0.938em;
+            }
+
+            .Login-etc-info{
+
+                p{
+                    font-size : 0.938em;
+                }
+            }
+        }
+    }
+}
