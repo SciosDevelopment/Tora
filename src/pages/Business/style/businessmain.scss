@@ -1,0 +1,205 @@
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.Business-main {
+    font-family: "AppleSDGothicNeoB";
+    display: grid;
+    grid-template-columns: repeat(36, 1fr);
+
+    .Business-title {
+        margin-top: 6%;
+        grid-column: 13/26;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .Business-view {
+        margin-top: 4%;
+        grid-column: 7/31;
+        height: 100%;
+
+        .business-view-main {
+            display: grid;
+            grid-template-columns: repeat(26, 1fr);
+            
+            .business-view-free {
+                grid-column: 4/10;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 300px;
+                height: 700px;
+                background-color: #ffffff;
+                border-radius: 15px;
+                box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                border: solid 2px #FFB600;
+
+                .business-view-free-title {
+                    margin-top: 10%;
+                    height: 20%;
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: #FFB600;
+                }
+
+                .business-view-free-price {
+                    height: 9%;
+                    font-size: 50px;
+                    font-weight: bold;
+                    color: #FFB600;
+                }
+
+                .business-view-free-term {
+                    font-size: 20px;
+                    font-weight: bold;
+                    height: 15%;
+                    color: #FFB600;
+                }
+
+                .business-view-free-text {
+                    font-size: 18px;
+                    display: flex;
+                    height: 8%;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .business-view-free-button {
+                    width: 85%;
+                    margin-top: 75%;
+
+                    >input {
+                        font-size: 20px;
+                        border-radius: 30px;
+                        width: 100%;
+                        height: 60px;
+                        color: #ffffff;
+                        border: none;
+                        font-weight: bold;
+                        background-color: #FFB600;
+                    }
+                }
+            }
+
+            .business-view-premium {
+                grid-column: 11/17;
+                height: 700px;
+                max-width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #ffffff;
+                border-radius: 15px;
+                box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                border: solid 2px #AD30FF;
+
+                .business-view-premium-title {
+                    margin-top: 10%;
+                    height: 20%;
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: #AD30FF;
+                }
+
+                .business-view-premium-price {
+                    height: 9%;
+                    font-size: 50px;
+                    font-weight: bold;
+                    color: #AD30FF;
+                }
+
+                .business-view-premium-term {
+                    font-size: 20px;
+                    font-weight: bold;
+                    height: 15%;
+                    color: #AD30FF;
+                }
+
+                .business-view-premium-text {
+                    font-size: 18px;
+                    display: flex;
+                    height: 19%;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .business-view-premium-button {
+                    width: 85%;
+                    margin-top: 49%;
+                
+                    >input {
+                        font-size: 18px;
+                        font-weight: bold;
+                        border-radius: 30px;
+                        width: 100%;
+                        height: 60px;
+                        color: #ffffff;
+                        border: none;
+                        background-color: #AD30FF;
+                    }
+                }
+            }
+
+            .business-view-enterprise {
+                grid-column: 18/24;
+                background-color: #ffffff;
+                max-width: 300px;
+                height: 700px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 15px;
+                box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                border: solid 2px #1700FF;
+
+                .business-view-enterprise-title {
+                    margin-top: 10%;
+                    height: 20%;
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: #1700FF;
+                }
+
+                .business-view-enterprise-price {
+                    height: 9%;
+                    font-size: 50px;
+                    font-weight: bold;
+                    color: #1700FF;
+                }
+
+                .business-view-enterprise-term {
+                    font-size: 20px;
+                    font-weight: bold;
+                    height: 15%;
+                    color: #1700FF;
+                }
+
+                .business-view-enterprise-text {
+                    font-size: 18px;
+                    display: flex;
+                    height: 30%;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .business-view-enterprise-button {
+                    width: 85%;
+                    margin-top: 23%;
+                
+                    >input {
+                        font-size: 18px;
+                        font-weight: bold;
+                        border-radius: 30px;
+                        width: 100%;
+                        height: 60px;
+                        color: #ffffff;
+                        border: none;
+                        background-color: #1700FF;
+                    }
+                }
+            }
+        }
+    }
+}
