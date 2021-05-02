@@ -1,12 +1,12 @@
 import { ActionType } from 'typesafe-actions'
-import { setUserInfo, setTargetUserInfo, clearTargetUserInfo } from './actions'
-// import { UserInfo } from '../../components/User/interfaces/UserInfo.interface'
+import { setUserInfo, clearUserInfo} from './actions'
+//import { UserInfo } from './userInfo.interface' // 필요하면 사용
 
-const userActions = { setUserInfo, setTargetUserInfo, clearTargetUserInfo }
+const userActions = { setUserInfo, clearUserInfo }
 
 export type UserAction = ActionType<typeof userActions>
 
 export type UserState = {
-  userInfo: String | null
-  targetUserInfo: String[]
+  userInfo: String | null // userID
+  
 }
