@@ -1,31 +1,59 @@
+import axios from 'axios'
 import React, {FunctionComponent, useState} from 'react'
 import './style/LoginView.scss'
+import {useCookies} from 'react-cookie'
+import {history} from '../../../configureStore'
+import useUser from '../../../hooks/useUser'
 
 const LoginView:FunctionComponent<any> = () => {
-    const [userEmail, setUserEmail] = useState('')
-    const [userPassword, setUserPassword] = useState('')
+    const [userinfo, setUserinfo] = useState({userID:"", password:""})
+    const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
+    const {onSetUserInfo} = useUser()
 
     const handleChange = (e) => {
-        const{ target : {name, value} } = e
-        console.log(e.target.name);
-        if(name === "email"){
-            setUserEmail(value);
-        }
-        else if(name === "password"){
-            setUserPassword(value);
-        }
+        const{target : {name, value}} = e
+        setUserinfo({...userinfo, [name]:value})
     }
 
-    const gotoRegister = () => {
-        window.location.href = '/register';
-    }
-
-    const gotoReset = () => {
-        window.location.href = '/reset_pw'
-    }
+    const gotoRegister = () => { history.push('/register') }
+    const gotoReset = () => { history.push('/reset_pw') }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
+        login()
+    }
+
+    const login = () => {
+        const data = {user:{email: userinfo.userID, password:userinfo.password}}
+        axios.post('/api/v1/user/login', data)
+        .then((res)=> {
+            // 200
+            const {accessToken} = res.data
+            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+            const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
+
+            setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})
+            setCookie('ToraID', userinfo.userID, {maxAge:TOKEN_EXPIRY_TIME})
+            onSetUserInfo(userinfo.userID)
+            alert(`Welcome ${cookies.ToraID}`)
+        })
+        .catch((e)=>{
+              if(e.response) {
+                var status = e.response.status // or use message
+                if(status === 401) alert("id or password is invalid")
+                if(status === 400) alert(e)
+                
+                // 서버 연결 문제일때 : temp-status
+                if(status >= 500) alert("server is dead")
+            }
+            else if(e.request) {
+                // temp
+                alert("server is dead")
+                console.log(e.request)
+            }
+            else console.log('Error', e.message)
+        })
+
     }
 
     return (
@@ -35,13 +63,13 @@ const LoginView:FunctionComponent<any> = () => {
                 <div>
                     <p>Email Address</p>
                     <div className = "Login-input">
-                        <input name = "email" type = "input" required value = {userEmail} onChange = {handleChange}/>
+                        <input name = "userID" type = "input" required value = {userinfo.userID} onChange = {handleChange}/>
                     </div>
                 </div>
                 <div>
                     <p>Password</p>
                     <div>
-                        <input name = "password" type = "password" required value = {userPassword} onChange = {handleChange}/>
+                        <input name = "password" type = "password" required value = {userinfo.password} onChange = {handleChange}/>
                     </div>
                 </div>
 
