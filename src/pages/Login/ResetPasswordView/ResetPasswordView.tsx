@@ -11,11 +11,7 @@ const ResetPasswordView:React.FC = () => {
     const checkEmailStatus = () => {
         const regex_email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i 
         
-        if(emailinfo.match(regex_email)){
-            setCheckEmail(true) 
-            // send email to 'email'
-            sendMail()        
-        }
+        if(emailinfo.match(regex_email)) sendMail()        
         else{
             alert("email 형식이 다릅니다.")
             setEmailinfo("")
@@ -28,7 +24,7 @@ const ResetPasswordView:React.FC = () => {
         axios.put("/api/v1/user/send_reset_password_email", data)
         .then((res)=>{
             alert("send reset password email to " + emailinfo)
-            history.replace("/")
+            setCheckEmail(true)
         })
         .catch((e)=>{
             // temp status
