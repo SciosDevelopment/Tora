@@ -1,18 +1,24 @@
 import React,{useState} from 'react'
 import './style/Servicemain.scss'
-import ServiceproduceItem from '../../img/serviceitem.png'
-//import ServiceproduceOpen from '../../../img/serviceopen.png'
+import ServiceproduceOpen from '../../img/serviceopen.png'
 import Header from '../../components/common/Header/Header'
+import Searchbar from '../../components/common/Searchbar/Searchbar'
+import MarkdownEditor from '../../components/common/MarkdownEditor'
 const ServiceMain:React.FC = () => {
-    const [openStatus, setOpenStatus] = useState<Boolean>(false);
+    const [openStatus, setOpenStatus] = useState<Boolean>(false)
 
     return (
             <>
             <Header/>
+            
             <div className = "Service-center-main">
                 <div className = "Service-center-view">
+                    <div className="Service-main-view-searchbar">
+                        <Searchbar/>
+                    </div>
                     <div className = "Service-main-view-main">
                         <div className = "Service-main-title">
+                      
                             <div className = "Service-main-maintext">
                                 <p>Welcome to the Tora Help center</p>
                             </div>
@@ -21,36 +27,31 @@ const ServiceMain:React.FC = () => {
                             </div>
                         </div>
 
-                        <div className = "Service-main-produce" onClick = {()=>setOpenStatus(!openStatus)}>
-                            {/* <img src = {ServiceproduceOpen}/> */}
-                        </div>
-                        <div className = "Service-main-produce-main">
-                            {
+                        <div className = "Service-main-produce">
+                             {
                                 openStatus === false ?
 
                                 <div className = "Service-main-produce-close">
                                 </div>
                                 :
                                 <div className = "Service-main-produce-open">
-
-                                    <div className = "Service-main-produce-item">
-                                        <img src = {ServiceproduceItem}/>
-                                    </div>
-                                    <div className = "Service-main-produce-text">
-                                        <p>궁금한 내용을 질문해주세요.</p>
+                                    <div className = "Service-main-produce-textedtior">
+                                        <MarkdownEditor/>
                                     </div>
                                     <div className = "Service-main-produce-button">
-                                        <input type='submit' value="Send"></input>
+                                        <input type='submit' value="Send"/>
                                     </div>
                                 </div>
                             }
+                            <img src = {ServiceproduceOpen} onClick = {()=>setOpenStatus(!openStatus)}/>
                         </div>
+
                         <div className = "Service-main-ask-main">
-                            <div className = "Service-main-ask-view1">
+                            <div className = "Service-main-ask-view">
                                 <div className = "Service-main-ask-text">
                                     <p>Asking</p>
                                 </div>
-                                <div className = "Service-main-ask-text2">  
+                                <div className = "Service-main-ask-subtext">  
                                     <p>What types of questions should I avoid asking?</p>
                                     <p>What topics can I ask about here?</p>
                                     <p>What does it mean if a question is "closed"?</p>
@@ -59,11 +60,11 @@ const ServiceMain:React.FC = () => {
                                 </div>
                             </div>
                             
-                            <div className = "Service-main-ask-view2">
-                                <div className = "Service-main-ask-text3">
+                            <div className = "Service-main-ask-view">
+                                <div className = "Service-main-ask-text">
                                     <p>Answering</p>
                                 </div>
-                                <div className = "Service-main-ask-text4">  
+                                <div className = "Service-main-ask-subtext">  
                                     <p>How do I write a good answer?</p>
                                     <p>What does it mean when an answer is "accepted"?</p>
                                     <p>Why and how are some answers deleted?</p>
@@ -72,18 +73,17 @@ const ServiceMain:React.FC = () => {
                                 </div>
                             </div>
                             
-                            <div className = "Service-main-ask-view3">
-                                <div className = "Service-main-ask-text5">
+                            <div className = "Service-main-ask-view">
+                                <div className = "Service-main-ask-text">
                                     <p>My Account</p>
                                 </div>
-                                <div className = "Service-main-ask-text6">  
+                                <div className = "Service-main-ask-subtext">  
                                     <p>I accidentally created two accounts; how do I merge them?</p>
                                     <p>How do I add or remove login credentials from my account?</p>
                                     <p>I lost my password; how do I reset it?</p>
                                     <p>How do I delete my account?</p>
                                 </div>
                             </div>
-                        
                         </div>
                     </div>
                 </div>
