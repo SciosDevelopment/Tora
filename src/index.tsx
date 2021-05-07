@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals'
 import configureStore, {history} from './configureStore'
 import axios from 'axios'
 
-
-// proxy 설정 필요
-axios.defaults.baseURL = "https://localhost:3001"
 axios.defaults.withCredentials = true
 
 const store = configureStore()

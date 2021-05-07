@@ -4,8 +4,14 @@ import './style/LoginView.scss'
 import {useCookies} from 'react-cookie'
 import {history} from '../../../configureStore'
 import useUser from '../../../hooks/useUser'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const LoginView:FunctionComponent<any> = () => {
+
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
+    
     const [userinfo, setUserinfo] = useState({userID:"", password:""})
     const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
     const {onSetUserInfo} = useUser()
@@ -25,11 +31,11 @@ const LoginView:FunctionComponent<any> = () => {
 
     const login = () => {
         const data = {user:{email: userinfo.userID, password:userinfo.password}}
-        axios.post('/api/v1/user/login', data)
+        axios.post(`${SERVER_IP}/api/v1/user/login`, data)
         .then((res)=> {
             // 200
             const {accessToken} = res.data
-            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+            axios.defaults.headers.common['Authorization'] = `${process.env.REACT_APP_TOKEN_FRONT} ${accessToken} ${process.env.REACT_APP_TOKEN_BACK}`
             const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
 
             setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})

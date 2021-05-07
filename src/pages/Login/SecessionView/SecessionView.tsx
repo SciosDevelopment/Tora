@@ -4,8 +4,12 @@ import './style/SecessionView.scss'
 import useUser from '../../../hooks/useUser'
 import {history} from 'src/configureStore'
 import {useCookies} from 'react-cookie'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const SecessionView:React.FC = () => {
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [inputs, setInputs] = useState({userID:"", password:"", confirmmessage:""})
     const {onSetUserInfo, onGetUserInfo} = useUser()
     const [cookies, _, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
@@ -32,7 +36,7 @@ const SecessionView:React.FC = () => {
         // 400: 오류
         // 404: 유저를 찾을 수 없음
         const data = {user:{id:inputs.userID, password:inputs.password}}
-        axios.put("/api/v1/user/secession", data)
+        axios.put(`${SERVER_IP}/api/v1/user/secession`, data)
         .then((res)=>{ // 204
             alert("success secession")
             logout()

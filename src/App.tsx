@@ -5,11 +5,14 @@ import Router from './routes'
 import {History} from 'history'
 import {useCookies} from 'react-cookie'
 import useUser from './hooks/useUser'
+import dotenv from 'dotenv'
+dotenv.config()
 
 interface Interface { history : History}
 
 const App:FunctionComponent<Interface> = ({history} : Interface) => {
   // Router 사용
+  const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
   const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
   const {onSetUserInfo} = useUser()
   
@@ -27,11 +30,11 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
         var userID_ = cookies.ToraID
         
         // token 유효성 테스트 : 유효하면 재발급
-        axios.post('http://localhost:3001/confirmToken', {userID: userID_})
+        axios.post(`${SERVER_IP}/confirmToken`, {userID: userID_})
         .then((res)=>{
           // 재발급
           const {accessToken} = res.data
-          axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+          axios.defaults.headers.common['Authorization'] = `${process.env.REACT_APP_TOKEN_FRONT} ${accessToken} ${process.env.REACT_APP_TOKEN_BACK}`
           const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
 
           setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})

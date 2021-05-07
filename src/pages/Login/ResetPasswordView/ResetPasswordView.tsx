@@ -1,9 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { history } from '../../../configureStore'
 import './style/ResetPasswordView.scss'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const ResetPasswordView:React.FC = () => {
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [checkEmail, setCheckEmail] = useState<boolean>(false)
     const [emailinfo, setEmailinfo] = useState<string>("example@email.com")
     
@@ -21,7 +24,7 @@ const ResetPasswordView:React.FC = () => {
     const sendMail = async() => {
         // send to email
         const data = {user:{email:emailinfo}}
-        axios.put("/api/v1/user/send_reset_password_email", data)
+        axios.put(`${SERVER_IP}/api/v1/user/send_reset_password_email`, data)
         .then((res)=>{
             alert("send reset password email to " + emailinfo)
             setCheckEmail(true)

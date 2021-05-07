@@ -2,9 +2,13 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import {history} from '../../../configureStore'
 import './style/RegisterView.scss'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const RegisterView:React.FC = () => {
     // input data
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [userInfo, setUserInfo] = useState({ username : "", email : "", pw : "", verify_pw: ""})
 
     const handleChange = (e) => {
@@ -39,7 +43,7 @@ const RegisterView:React.FC = () => {
         const flag = isvalid()
         const data = { user : { email:userInfo.email, password:userInfo.pw, name:"null" }}
         if(!flag) { // send userInfo to server : temp - alert 
-            axios.post("/api/v1/user/signup", data)
+            axios.post(`${SERVER_IP}/api/v1/user/signup`, data)
             .then((res)=> {
                     sendConfirmEmail(res.data)
                     alert("we send confirm email, check mailbox")
