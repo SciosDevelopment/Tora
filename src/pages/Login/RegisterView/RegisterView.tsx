@@ -2,9 +2,6 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import {history} from '../../../configureStore'
 import './style/RegisterView.scss'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const RegisterView:React.FC = () => {
     // input data
@@ -18,6 +15,7 @@ const RegisterView:React.FC = () => {
     
     /* 유효성 검사 */
     enum Valid {PASS, INVALID_USERNAME, INVALID_EMAIL, INVALID_PW, PW_NOTSAME}
+    
     const regex = {
         email_check: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i, 
         pw_check:/^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/ // 8~15자 문자와 숫자, 특수문자
@@ -43,11 +41,10 @@ const RegisterView:React.FC = () => {
         const flag = isvalid()
         const data = { user : { email:userInfo.email, password:userInfo.pw, name:"null" }}
         if(!flag) { // send userInfo to server : temp - alert 
-            axios.post(`${SERVER_IP}/api/v1/user/signup`, data)
+            axios.post(`${SERVER_IP}/api/v1/user/sign_up`, data)
             .then((res)=> {
-                    sendConfirmEmail(res.data)
                     alert("we send confirm email, check mailbox")
-                    history.replace("/signin")
+                    history.replace("/login")
             })
             .catch(e=> {
                 // error : status is not defined.
@@ -73,11 +70,7 @@ const RegisterView:React.FC = () => {
             alert(RegisterErrorMessage[flag]) 
         }
     } 
-    const sendConfirmEmail = (data) => {
-        const token = data
-        // email 인증 메일 전송 : confirm_email
-        // 작성 필요
-    }
+
     const resetInput = () => setUserInfo({ username : "", email : "", pw : "", verify_pw: ""})
     /* 사용자 등록 끝 */
 

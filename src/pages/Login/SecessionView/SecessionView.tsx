@@ -4,9 +4,6 @@ import './style/SecessionView.scss'
 import useUser from '../../../hooks/useUser'
 import {history} from 'src/configureStore'
 import {useCookies} from 'react-cookie'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const SecessionView:React.FC = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST

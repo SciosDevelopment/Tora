@@ -4,16 +4,12 @@ import './style/LoginView.scss'
 import {useCookies} from 'react-cookie'
 import {history} from '../../../configureStore'
 import useUser from '../../../hooks/useUser'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const LoginView:FunctionComponent<any> = () => {
 
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    
     const [userinfo, setUserinfo] = useState({userID:"", password:""})
-    const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
+    const [cookies, setCookie] = useCookies(['ToraLoginToken', 'ToraID'])
     const {onSetUserInfo} = useUser()
 
     const handleChange = (e) => {
@@ -31,7 +27,7 @@ const LoginView:FunctionComponent<any> = () => {
 
     const login = () => {
         const data = {user:{email: userinfo.userID, password:userinfo.password}}
-        axios.post(`${SERVER_IP}/api/v1/user/login`, data)
+        axios.put(`${SERVER_IP}/api/v1/user/login`, data)
         .then((res)=> {
             // 200
             const {accessToken} = res.data

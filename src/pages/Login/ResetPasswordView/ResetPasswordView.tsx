@@ -1,9 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import './style/ResetPasswordView.scss'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const ResetPasswordView:React.FC = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
