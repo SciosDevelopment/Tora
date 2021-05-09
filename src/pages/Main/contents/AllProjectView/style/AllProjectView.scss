@@ -13,31 +13,22 @@
 .APVTitle {
     width: 100%;
     display:grid;
-    grid-column: 1/25;
+    grid-template-columns: repeat(24, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    height:60px;
-    margin-bottom: 30px;
+    height:100px;
 }
 
 .APVSearch {
-    grid-column-start: 7;
-    grid-column-end: 22; 
-    margin-bottom: 10px;
+    grid-column: 6/20;
+    grid-row:1;
+    margin-bottom: 20px;
     width: 100%;
-}
-
-
-
-.BtnAPVSearch:hover {
-    background-color:lightgray;
+    height: 40px;
 }
 
 .APVSort{
-    grid-column: 19/24;
-    grid-row: 2/3;
+    grid-column: 19/25;
     display : flex;
-
-
 
     .APVSort-container{
         width : 100%;  
@@ -46,15 +37,15 @@
         flex-direction: row;
         // border: solid red;
         .sort-wrapper{
-            width: 60%;
+            width: 65%;
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            padding-top: 12px;
+            padding-top: 9px;
             font-size: 12px;
             // border: solid red;
             .sort-wrapper-sub1{
-                padding-right: 10px;
+                padding-right: 15px;
             }
             .sort-wrapper-sub2{
 
@@ -62,7 +53,7 @@
         }
         .sort-newproject{
             // padding-right: 15px;
-            width: 31%;
+            width: 30%;
             // border: solid red;
             >input{
                 // width : 100%;
