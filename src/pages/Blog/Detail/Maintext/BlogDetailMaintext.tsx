@@ -1,7 +1,5 @@
 import React from 'react';
 import './style/BlogDetailMaintext.scss'
-import Modify from '../../../../img/modify.png'
-import Contents from './Contents/BlogDetailContents'
 import Profile from '../../../../img/profile3.png'
 
 const BlogDetailMaintext = () => {
@@ -83,14 +81,10 @@ const BlogDetailMaintext = () => {
                     </div>
                 </div>
             </div>
-            <div className = "Blog-Detail-view-contents-profile">
-                <div className = "Blog-Detail-view-contents">
-                    <Contents/>
-                </div>
-                <div className = "Blog-Detail-view-profile">
-                    <img src = {Profile}/>
-                    <p>Sarah</p>
-                </div>
+
+            <div className = "Blog-Detail-view-profile">
+                <img src = {Profile}/>
+                <p>Sarah</p>
             </div>
         </div>
     );

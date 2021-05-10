@@ -29,44 +29,84 @@
         .Blog-write-produce{
             display: flex;
             justify-content: space-between;
-            width: 50%;
+            width: 100%;
             height: 100%;
             flex-direction: column;
             border-radius: 15px;
-
-            .Blog-write-title-tag{
-                margin-top: 5%;
+            .Blog-write-title{
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
-                align-items: flex-end;
-
-                .Blog-write-title{
-                    font-size: 25px;
-                    font-weight: bold;
-                    color: #585A61;
+                width: 100%;
+                .Blog-write-title-left{
+                    width: 50%;
+                    .Blog-write-title-tag-left{
+                        margin-top: 5%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: flex-end;
+        
+                        .Blog-write-title-left{
+                            font-size: 25px;
+                            font-weight: bold;
+                            color: #585A61;
+                        }
+        
+                        .Blog-write-tag-left{
+                            font-size: 15px;
+                            color: #585A61;
+                        }
+                    }
+        
+                    .Blog-write-toolbar-left{
+                        margin-left: 5%;
+                        margin-top: 10%;
+                        width: 90%;
+                        border: solid 1px #707070;
+                        height: 24px;
+        
+                    }
                 }
 
-                .Blog-write-tag{
-                    font-size: 15px;
-                    color: #585A61;
+                .Blog-write-title-right{
+                    width: 50%;
+                    .Blog-write-title-tag-right{
+                        margin-top: 5%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: flex-end;
+        
+                        .Blog-write-title-right{
+                            font-size: 25px;
+                            font-weight: bold;
+                            color: #585A61;
+                        }
+        
+                        .Blog-write-tag-right{
+                            font-size: 15px;
+                            color: #585A61;
+                        }
+                    }
+        
+                    .Blog-write-toolbar-right{
+                        margin-left: 5%;
+                        margin-top: 10%;
+                        width: 90%;
+                        border: solid 1px #707070;
+                        height: 24px;
+        
+                    }
                 }
             }
-
-            .Blog-write-toolbar{
-                margin-left: 2.5%;
-                margin-top: 10%;
-                width: 95%;
-                border: solid 1px #707070;
-                height: 24px;
-
-            }
+            
 
             .Blog-write-text{
                 width: 95%;
                 height: 100%;
                 margin-left: 2.5%;
                 margin-top: 1%;
+                margin-bottom: 2%;
                 min-height: 620px;
                 display: flex;
                 justify-content: center;
@@ -84,9 +124,9 @@
                 display: flex;
                 justify-content: flex-end;
                 margin-right: 2%;
-                margin-bottom: 3%;
+                margin-bottom: 2%;
                 >input{
-                    width: 17%;
+                    width: 9%;
                     height: 30px;
                     border-radius: 10px;
                     font-weight: bold;
@@ -97,9 +137,5 @@
             }
         }
 
-        .Blog-write-preview{
-            width: 50%;
-            border-left: solid 1px #707070 ;
-        }
     }
 }

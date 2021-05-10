@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: row;
+    flex-direction: column;
 
     .Blog-Detail-view-main{
         display: flex;
@@ -47,9 +47,9 @@
         
 
         .Blog-Detail-view-info{
-            margin-top: 3%;
+            margin-top: 1%;
             margin-right: 2%;
-            width: 45%;
+            width: 30%;
             height: 100%;
             // border: solid red;
             .Blog-Detail-view-tag{
@@ -86,16 +86,12 @@
             }
         }
     }
-    .Blog-Detail-view-contents-profile{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-        .Blog-Detail-view-contents{
 
-        }
+
         .Blog-Detail-view-profile{
-            margin-right: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
             margin-bottom: 5%;
             >img{
                 width: 35px;
@@ -105,6 +101,4 @@
                 font-size: 15px;
             }
         }
-    }
-    
 }

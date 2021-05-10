@@ -1,6 +1,6 @@
 import React from 'react';
 import './style/Comment.scss'
-import Replyicon from '../../../img/heart64.png'
+import Replyicon from '../../../img/replyicon.png'
 import Hearticon from '../../../img/heart64.png'
 import Profile from '../../../img/profile.png'
 

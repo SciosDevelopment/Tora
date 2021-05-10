@@ -29,15 +29,47 @@
         box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
         height: 780px;
 
-        .Service-list-tab {
+        .Service-list-tab{
             width: 100%;
-            height: 6%;
-            border-bottom: solid 1px #707070;
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items : center;
+            flex-direction: column;
             font-size: 18px;
+
+            .Service-list-tab-button{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 50px;
+                border-bottom: solid 2px #1C2239;
+                >div{
+                    height : 100%;
+                    width : 15%;
+                    margin : 0;
+                    text-align: center;
+                    line-height: 60px;
+                    // border : solid red;
+                    
+                }
+                .Service-list-tab{
+                    border : none;
+                    outline : none;
+                    position : relative;
+
+                }
+                .Service-list-tab-clicked{
+                
+                    background : #1C2239;
+                    border : 2px solid #1C2239;
+                    border-bottom : none;
+                    border-top-right-radius: 15px;
+                    border-top-left-radius: 15px;
+                    border-bottom : 0;
+                    outline : none;
+                    color: #ffffff;
+                    position : relative;
+                    line-height: 50px;
+                }
+            }
         }
 
         .Service-list-item {

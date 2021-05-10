@@ -3,8 +3,7 @@
     height: 50px;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
-    border-top: solid 1px #707070;
-    border-bottom: solid 1px #707070;
+    border-bottom: solid 2px #707070;
 
     .Service-listitem-text {
         grid-column: 2/16;
