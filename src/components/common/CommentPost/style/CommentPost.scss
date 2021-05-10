@@ -1,0 +1,39 @@
+.CommentPost-main{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #F8F8FC;
+    border: solid 1px #707070;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .Blog-Detail-commentspost-library{
+        width: 100%;
+        display: flexbox;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .Blog-Detail-commentspost-text{
+            width: 100%;
+            margin-top:10px;
+            >p{
+                font-size: 15px;
+            }
+        }
+        .Blog-Detail-commentspost-button{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            >input{
+                margin-right: 5%;
+                border-radius: 15px;
+                width: 60px;
+                height: 22px;
+                font-size: 8px;
+                font-weight: bold;
+                background-color: #FFB600;
+            }
+        }
+    }
+}

@@ -54,10 +54,9 @@
                 height: auto;
                 display: grid;
                 grid-template-columns: repeat(24, 1fr);
-                border-bottom:solid black;
 
                 > img {
-                    grid-column : 4/22;
+                    grid-column : 5/21;
                     width : 41px;
                     height : 13px;
                     margin : 0 auto;

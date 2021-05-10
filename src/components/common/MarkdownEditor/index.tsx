@@ -38,6 +38,7 @@ const MarkdownEditor = () => {
           initialValue="궁금한 내용을 질문해주세요"
           previewStyle="vertical"
           height="auto"
+          minHeight="120px"
           initialEditType="wysiwyg"
           useCommandShortcut={true}
           usageStatistics={false}

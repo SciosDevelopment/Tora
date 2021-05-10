@@ -1,0 +1,98 @@
+.Blog-Item {
+    width:100%;
+    height:100%;
+    background-color: #FFF;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    display:inline-flex;
+    border-radius: 10px;
+}
+
+.Blog-Item-LeftSide{
+    width:100%;
+    min-width: 75px;
+    // border: solid blue;
+}
+.Blog-Item-profile-name{
+    display: flex;
+    height: 200px;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    .Blog-Item-profile{
+        width: 100%;
+        height: 100%;
+
+        // border: solid whitesmoke;
+        // margin-left: 10px;
+        // margin-top: 5px;
+    }
+
+
+}
+.Blog-Item-text{
+    display: flex;
+    flex-direction: row;
+    height: 87px;
+    justify-content: space-between;
+    // border: solid red;
+
+        .Blog-Item-name{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 9%;
+            // border: solid blue;
+            >p{
+                font-size: 16px;
+                // margin-top: 10%;
+            }
+        }
+        .Blog-Item-Like-personnel{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 3%;
+            height: 85%;
+            .Blog-Item-Like {
+                display : flex;
+                align-items: center;
+                margin-left: 32%;
+                bottom: 0;
+                right:0;
+                font-size: 15px;
+            }
+            
+            .Blog-Item-Like img {
+                margin-right : 2px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .Blog-Item-personnel{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img{
+                    margin-bottom: 3%;
+                    width: 22px;
+                    height: 22px;
+                }
+                >p{
+                    font-size: 9px;
+                }
+                // border: solid red;
+            }
+        }
+        
+    
+    .APV_RightSide {
+        position: relative;
+        // width: 30px;
+        min-width: 70px;
+        // border: solid blue;
+        margin-left: 20px;
+    }   
+}
+
+
+

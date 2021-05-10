@@ -10,16 +10,21 @@ import Register from '../pages/Login/Register'
 import ResetPw from '../pages/Login/ResetPassword'
 import DeleteAccount from '../pages/Login/Secession'
 
-// // Business
+// Business
 import Business from '../pages/Business'
 
-// // Service : ServiceMain, ServiceList, ServiceDetail
+// Service : ServiceMain, ServiceList, ServiceDetail
 import ServiceMain from '../pages/Service'
 import ServiceList from '../pages/Service/ServiceList'
 import ServiceDetail from '../pages/Service/ServiceDetail'
 
-// // License
+// License
 import LicenseMain from '../pages/License'
+
+// Blog
+import Blog from '../pages/Blog'
+import BlogWrite from '../pages/Blog/Write'
+import BlogDetail from '../pages/Blog/Detail'
 
 const Router:React.FC = () => (
     <Switch>
@@ -35,12 +40,18 @@ const Router:React.FC = () => (
         <Route path = "/business" component={Business}/>
 
         {/* Service */}
-        <Route path = "/service" component={ServiceMain}/>
-        <Route path = "/servicelist" component={ServiceList}/>
-        <Route path = "/servicedetail" component={ServiceDetail}/>
+        <Route path = "/service" exact component={ServiceMain}/>
+        <Route path = "/service/list" component={ServiceList}/>
+        <Route path = "/service/detail" component={ServiceDetail}/> {/* service/:id */}
 
         {/* License */ }
         <Route path = "/license" component={LicenseMain}/>      
+
+        {/* Blog */}
+        <Route path = "/blog" exact component={Blog}/>
+        <Route path = "/blog/write" component={BlogWrite}/>
+        <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
+        
     </Switch>
 )
 

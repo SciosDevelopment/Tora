@@ -1,0 +1,46 @@
+.Blog-Main-Contents {
+    display:grid;
+    grid-template-columns: repeat(36, 1fr);
+    margin : 0 auto;
+}
+
+.Blog-Main-Section {
+    grid-column:7/30;
+    margin-top:50px;
+}
+
+.BlogAside {
+    top: 18%;
+    position: fixed;
+    width: 55px;
+    height: 53%;
+    right: 14%;
+    // grid-column: 30/31;
+    border: solid gray;
+}
+
+.BlogSection > div {
+    margin-top: 50px;
+}
+
+.BlogAside > div {
+    margin-top: 50px;
+}
+
+
+@media  (max-width:1280px) {
+    .Blog-Main-Contents {
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        margin : 0 auto;
+    }
+    
+    .Blog-Main-Section {
+        grid-column-start: 3;
+        grid-column-end: 11;
+    }
+    
+    .BlogAside {
+        display:none; // fixed button으로 확인
+    }
+}

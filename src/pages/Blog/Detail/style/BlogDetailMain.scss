@@ -1,0 +1,56 @@
+@font-face{
+    font-family: "AppleSDGothicNeoM";
+    src: url(../../../../fonts/AppleSDGothicNeoM.ttf);
+}
+
+.Blog-Detail{
+    display: grid;
+    font-family: "AppleSDGothicNeoM";
+    grid-template-columns: repeat(36, 1fr);
+
+    .Blog-Detail-left-button{
+        width: 55px;
+        position: fixed;
+        left: 21%;
+        top: 15%;
+        border: solid #707070;
+        height: 400px;
+    }
+    .Blog-Detail-main{
+        grid-column: 10/28;
+        margin-top: 2%;
+        margin-bottom: 20px;
+        .Blog-Detail-view{
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow : 6px 20px 60px -20px rgba(112,112,112,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .Blog-Detail-maintext-view{
+                margin-top: 5%;
+                width: 83%;
+                // height: 5%;
+            }
+            .Blog-Detail-list-view{
+                // border: solid red;
+                margin-top: 5%;
+                margin-bottom: 2%;
+                width: 83%;
+                display: flex;
+            }
+            .Blog-Detail-comments-view{
+                margin-top: 5%;
+                width: 83%;
+            }
+            .Blog-Detail-commentspost-view{
+                width: 83%;
+                margin-top: 3%;
+                margin-bottom: 5%;
+            }
+        }
+    }
+}
