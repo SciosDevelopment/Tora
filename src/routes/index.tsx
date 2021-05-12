@@ -9,6 +9,7 @@ import Login from '../pages/Login/Main'
 import Register from '../pages/Login/Register'
 import ResetPw from '../pages/Login/ResetPassword'
 import DeleteAccount from '../pages/Login/Secession'
+import ChangePw from '../pages/Login/ChangePassword'
 
 // Business
 import Business from '../pages/Business'
@@ -26,6 +27,11 @@ import Blog from '../pages/Blog'
 import BlogWrite from '../pages/Blog/Write'
 import BlogDetail from '../pages/Blog/Detail'
 
+//BulletinBoard
+import BulletinBoard from '../pages/BulletinBoard'
+import BulletinBoardWrite from '../pages/BulletinBoard/Write'
+import BulletinBoardDetail from '../pages/BulletinBoard/Detail'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -35,6 +41,7 @@ const Router:React.FC = () => (
         <Route path = "/signup" component={Register}/>
         <Route path = "/reset_pw" component={ResetPw}/>
         <Route path = "/secess" component={DeleteAccount}/>
+        <Route path = "/change_pw" component={ChangePw}/>
 
         {/* Business */}
         <Route path = "/business" component={Business}/>
@@ -51,6 +58,11 @@ const Router:React.FC = () => (
         <Route path = "/blog" exact component={Blog}/>
         <Route path = "/blog/write" component={BlogWrite}/>
         <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
+
+        {/*BulletinBoard*/}
+        <Route path = "/bulletinboard" exact component={BulletinBoard}/>
+        <Route path = "/bulletinboard/write" component={BulletinBoardWrite}/>
+        <Route path = "/bulletinboard/detail" component={BulletinBoardDetail}/>
         
     </Switch>
 )
