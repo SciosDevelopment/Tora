@@ -1,0 +1,63 @@
+.BulletinBoard-Detail-view-title{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    // >img{
+    //     position: relative;
+    //     left: 97%;
+    //     width: 14px;
+    //     height: 11px;
+    //     margin-top: 1%;
+    // }
+    .BulletinBoard-Detail-view-title-name{
+        margin-top: 3%;
+        margin-bottom: 15%;
+        position: relative;
+        left: 6%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .BulletinBoard-Detail-view-info{
+        margin-top: 2%;
+        position: relative;
+        width: 25%;
+        height: 100%;
+        // border: solid red;
+        right: 4%;
+        top: 10%;
+        .BulletinBoard-Detail-view-tag{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            >p{
+                padding: 1%;
+                font-size: 11px;
+                color: #3f7aa5;
+                font-weight: bold;
+                background-color:   #D5E3F5;
+                
+            }
+        }
+        .BulletinBoard-Detail-view-number{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 3%;
+            margin-left: 30%;
+            width: 70%;
+            .BulletinBoard-Detail-view-hits{
+                font-size: 11px;
+            }
+            .BulletinBoard-Detail-view-comments{
+                font-size: 11px;
+            }
+            .BulletinBoard-Detail-view-date{
+                font-size: 11px;
+                color: #707070;
+            }
+        }
+    }
+}

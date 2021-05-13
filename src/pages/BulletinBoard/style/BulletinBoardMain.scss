@@ -1,0 +1,19 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.BulletinBoard-main{
+    font-family: "AppleSDGothicNeoB";
+    display : grid;
+    grid-template-columns: repeat(36, 1fr);
+    width: 100%;
+    height : 100%;
+
+    .BulletinBoard-tora-result{
+        grid-column: 7/30;
+        margin-top : 50px;
+        width : 100%;
+    }
+    
+}
