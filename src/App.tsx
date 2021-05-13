@@ -12,14 +12,15 @@ interface Interface { history : History}
 
 const App:FunctionComponent<Interface> = ({history} : Interface) => {
   // Router 사용
-  const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-  const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
-  const {onSetUserInfo} = useUser()
+  // const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
+  // const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
+  // const {onSetUserInfo} = useUser()
   
 
   // page이동시 마다 확인 : 임시 체크
-  useEffect(()=> {initializeUserInfo()}, [window.location.href])
+  // useEffect(()=> {initializeUserInfo()}, [window.location.href])
   
+  /* 이부분 추후 논의
   const initializeUserInfo = async() => {
       // Token이 존재하면 return
       if(axios.defaults.headers.common['Authorization'] !== undefined) return
@@ -34,7 +35,7 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
         .then((res)=>{
           // 재발급
           const {accessToken} = res.data
-          axios.defaults.headers.common['Authorization'] = `${process.env.REACT_APP_TOKEN_FRONT} ${accessToken} ${process.env.REACT_APP_TOKEN_BACK}`
+          axios.defaults.headers.common['Authorization'] = `${accessToken}`
           const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
 
           setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})
@@ -48,6 +49,7 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
         })
       }
   }
+  */
  
   return (
     <ConnectedRouter history={history}>

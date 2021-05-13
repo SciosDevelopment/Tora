@@ -39,11 +39,12 @@ const RegisterView:React.FC = () => {
     
     const register = () => {
         const flag = isvalid()
-        const data = { user : { email:userInfo.email, password:userInfo.pw, name:"null" }}
+        const data = { user : { email:userInfo.email, password:userInfo.pw, name:userInfo.username }}
         if(!flag) { // send userInfo to server : temp - alert 
             axios.post(`${SERVER_IP}/api/v1/user/sign_up`, data)
             .then((res)=> {
                     alert("we send confirm email, check mailbox")
+                    //Send mail
                     history.replace("/login")
             })
             .catch(e=> {
@@ -52,7 +53,7 @@ const RegisterView:React.FC = () => {
                     var status = e.response.status // or use message
                     // 이미 등록된 사용자일때 : temp-status
                     if(status === 409) alert("already exist user")
-                    if(status === 400) alert(e)
+                    if(status === 400) console.log(e.request)
                     
                     // 서버 연결 문제일때 : temp-status
                     if(status >= 500) alert("server is dead")

@@ -14,6 +14,7 @@ const SecessionView:React.FC = () => {
     useEffect(()=>{
         // 로그인이 되어있지 않다면, 메인으로 이동
         if(onGetUserInfo === null) {
+            alert("you need to login")
             history.replace("/")
             return
         }
@@ -32,20 +33,29 @@ const SecessionView:React.FC = () => {
         // 204: 성공
         // 400: 오류
         // 404: 유저를 찾을 수 없음
-        const data = {user:{id:inputs.userID, password:inputs.password}}
+        const data = {user:{email:inputs.userID, password:inputs.password}}
+        console.log(data)
+        console.log(axios.defaults.headers.common)
         axios.put(`${SERVER_IP}/api/v1/user/secession`, data)
         .then((res)=>{ // 204
-            alert("success secession")
             logout()
+            alert("success secession")
+            history.replace("/")
         })
         .catch((e)=>{
-            // error : status is not defined.
             if(e.response) {
                 var status = e.response.status // or use message
-                // 이미 등록된 사용자일때 : temp-status
+                
+                // 비밀번호 및 토큰이 유효하지 않을 때,
+                if(status === 401) { 
+                    alert("비밀번호가 맞지 않거나, 로그인 세션이 만료되었습니다.") 
+                }
+                
+                // 이미 삭제된 사용자일때
                 if(status === 404) {
                     alert("already seceded user")
                     logout()
+                    history.replace("/")
                 }
 
                 if(status === 400) alert(e)
@@ -55,9 +65,8 @@ const SecessionView:React.FC = () => {
             }
             else if(e.request) {
                 alert("internal server error")
-                console.log(e.request)
             }
-            else console.log('Error', e.message)
+            else console.log('Client Error', e.message)
         })
     }
     

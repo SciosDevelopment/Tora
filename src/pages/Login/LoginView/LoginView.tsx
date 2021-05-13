@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {FunctionComponent, useState} from 'react'
+import React, {FunctionComponent, useState, useEffect} from 'react'
 import './style/LoginView.scss'
 import {useCookies} from 'react-cookie'
 import {history} from '../../../configureStore'
@@ -10,7 +10,16 @@ const LoginView:FunctionComponent<any> = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [userinfo, setUserinfo] = useState({userID:"", password:""})
     const [cookies, setCookie] = useCookies(['ToraLoginToken', 'ToraID'])
-    const {onSetUserInfo} = useUser()
+    const {onSetUserInfo, onGetUserInfo} = useUser()
+    
+    useEffect(()=>{
+        // 로그인이 되어있으면, 메인으로 이동
+        if(onGetUserInfo !== null) {
+            alert("you alery login")
+            history.replace("/")
+            return
+        }
+    },[])
 
     const handleChange = (e) => {
         const{target : {name, value}} = e
@@ -24,26 +33,34 @@ const LoginView:FunctionComponent<any> = () => {
         e.preventDefault()
         login()
     }
-
+    
     const login = () => {
         const data = {user:{email: userinfo.userID, password:userinfo.password}}
-        axios.put(`${SERVER_IP}/api/v1/user/login`, data)
+        axios.post(`${SERVER_IP}/api/v1/user/login`, data)
         .then((res)=> {
             // 200
-            const {accessToken} = res.data
-            axios.defaults.headers.common['Authorization'] = `${process.env.REACT_APP_TOKEN_FRONT} ${accessToken} ${process.env.REACT_APP_TOKEN_BACK}`
+            const accessToken = res.data[`JWT token`]
+            axios.defaults.headers.common['Authorization'] = `${accessToken}`
             const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
-
             setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})
             setCookie('ToraID', userinfo.userID, {maxAge:TOKEN_EXPIRY_TIME})
             onSetUserInfo(userinfo.userID)
-            alert(`Welcome ${cookies.ToraID}`)
+            alert(`Welcome ${userinfo.userID}`)
+            // history.replace("/")
         })
+
         .catch((e)=>{
               if(e.response) {
                 var status = e.response.status // or use message
-                if(status === 401) alert("id or password is invalid")
-                if(status === 400) alert(e)
+                if(status === 401 || status === 404) {
+                    // id 존재 x : 404, pw 불일치 : 401
+                    // 메일 미인증 : 401
+                    const {message} =JSON.parse(e.request.response)
+                    console.log(message)
+                    alert(message)
+                }
+
+                if(status === 400) console.log(e.response.message)
                 
                 // 서버 연결 문제일때 : temp-status
                 if(status >= 500) alert("server is dead")
