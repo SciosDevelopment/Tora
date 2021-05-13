@@ -1,0 +1,131 @@
+.Mypage_ProjectItem {
+    width:100%;
+    max-width: 88px;
+    height: 95px;
+    border-radius: 15px;
+    background-color: #FFF;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    display:inline-flex;
+   
+
+    
+}
+
+.Mypage_LeftSide{
+    width:100%;
+    min-width: 75px;
+}
+.Mypage-Project-profile-name{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    .Mypage-Project-profile{
+        width: 88px;
+        height: 41px;
+        border: solid 1px #707070;
+        // margin-left: 10px;
+        // margin-top: 5px;
+    }
+
+
+}
+.Mypage-Project-text{
+    display: flex;
+    flex-direction: column;
+    // height: 140px;
+    justify-content: space-between;
+    .Mypage-Project-text-sub{
+        display: flex;
+        flex-direction: column;
+
+        // border: solid red;
+        .Mypage-Project-name{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 4px;
+            >p{
+                font-size: 9px;
+            }
+            .Mypage_Like{
+                height: 10%;
+                // border: solid red;
+                padding-bottom: 20%;
+                >p{
+                    font-size: 10px;
+                }
+                >img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+    .Mypage-Project-participation-related{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .Mypage-Project-personnel{
+            display: flex;
+            flex-direction: row;
+            padding-left: 10px;
+            // justify-content: space-evenly;
+            img{
+                margin-right: 2px;
+                width: 10px;
+                height: 10px;
+            }
+            // border: solid red;
+        }
+        .Mypage-Project-participation{
+            display: flex;
+            flex-direction: row;
+            .Mypage-Project-videomessage{
+                margin-right: 3px;
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+            .Mypage-Project-communication{
+                // border: solid red;
+                margin-right: 5px;
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+        
+    }
+
+
+    .Mypage_RightSide {
+        position: relative;
+        // width: 30px;
+        min-width: 70px;
+        // border: solid blue;
+        margin-left: 20px;
+    }   
+}
+
+
+
+.Mypage_Like {
+    display : flex;
+    align-items: center;
+    // position: absolute;
+    bottom: 0;
+    right:0;
+    font-size: 15px;
+    // margin-bottom: 20px;
+    // border: solid red;
+}
+
+.Mypage_Like img {
+    margin-right : 2px;
+    // width: 14px;
+    width: 20px;
+    height: 20px;
+}

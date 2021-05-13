@@ -1,0 +1,121 @@
+@font-face{
+    font-family: "AppleSDGothicNeoM";
+    src : url('../../../../../fonts/AppleSDGothicNeoM.ttf')
+}
+
+.profile-view-main{
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    .profile-view-img-container{
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-column: 1/17;
+        // border: solid red;
+        >img{
+            grid-column: 1/2;
+            max-width: 66px;
+            height: 63px;
+            // border: solid blue;
+        }
+        .profile-view-profile-main{
+            grid-column: 2/7;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            .profile-view-name{
+                margin-left: 5%;
+                width: 50%;
+                >p{
+                    font-size: 20px;
+                }
+            }
+            .profile-view-info{
+                >p{
+                    font-size: 20px;
+                }
+            }
+        }
+
+    }
+
+
+
+    .profile-view-info-wrapper{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100;
+        grid-column: 18/25;
+        // border: solid blue;
+
+        .profile-view-info-main{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .profile-view-email-main{
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-left: 5%;
+                .profile-view-email{
+                    width: 70%;
+                    // border: solid red;
+                    >p{
+                        font-size: 13px;
+                        font-weight: bold;
+                    }
+                }
+                .profile-view-edit-button-container{
+                    width: 20%;
+                    >p{
+                        font-size: 10px;
+                        font-weight: bold;
+                    }
+                }
+                .profile-view-modify{
+                    >img{
+                    
+                    }
+                }
+            }
+
+
+        }
+
+        .profile-view-follow-like{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10%;
+            // border: solid red;
+            .profile-view-follow{
+                margin-top: 1.5%;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                >p{
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+            }
+            .profile-view-total-like{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                >img{
+                    width: 21px;
+                    height: 21px;
+                }
+                >p{
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

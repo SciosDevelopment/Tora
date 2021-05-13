@@ -32,6 +32,9 @@ import BulletinBoard from '../pages/BulletinBoard'
 import BulletinBoardWrite from '../pages/BulletinBoard/Write'
 import BulletinBoardDetail from '../pages/BulletinBoard/Detail'
 
+//MyPage
+import MyPage from '../pages/MyPage'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -59,10 +62,13 @@ const Router:React.FC = () => (
         <Route path = "/blog/write" component={BlogWrite}/>
         <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
 
-        {/*BulletinBoard*/}
+        {/* BulletinBoard */}
         <Route path = "/bulletinboard" exact component={BulletinBoard}/>
         <Route path = "/bulletinboard/write" component={BulletinBoardWrite}/>
         <Route path = "/bulletinboard/detail" component={BulletinBoardDetail}/>
+
+        {/* MyPage */}
+        <Route path = "/mypage" exact component={MyPage}/>
         
     </Switch>
 )
