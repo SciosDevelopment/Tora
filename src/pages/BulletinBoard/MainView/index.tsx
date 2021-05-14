@@ -1,6 +1,6 @@
 import React, {} from 'react';
 import './style/MainView.scss'
-import Searchbar from '../../../components/common/Searchbar/Searchbar'
+import Searchbar from '../../../components/common/Searchbar'
 import BulletBoardItem from '../../BulletinBoard/MainView/BulletinBoardItem'
 
 const MainView = () => {

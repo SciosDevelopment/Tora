@@ -5,7 +5,7 @@ const BlogDetailList = () => {
     return (
         <div className = "Blog-Detail-List">
             <div className = "Blog-Detail-List-title">
-                <div className = "Blog-Detail-List--title-subject">
+                <div className = "Blog-Detail-List-title-subject">
                     <p>목록</p>
                 </div>
                 <div className = "Blog-Detail-List-title-date">

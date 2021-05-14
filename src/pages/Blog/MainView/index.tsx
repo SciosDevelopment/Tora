@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import './style/MainView.scss'
 import BlogItem from './BlogItem'
-import Searchbar from '../../../components/common/Searchbar/Searchbar'
+import Searchbar from '../../../components/common/Searchbar'
 
 // PC : Pagination, Mobile : Infinite Scroll UI.
 const BlogMainView :FunctionComponent = () =>{

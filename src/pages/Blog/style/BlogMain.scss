@@ -2,6 +2,7 @@
     display:grid;
     grid-template-columns: repeat(36, 1fr);
     margin : 0 auto;
+    
 }
 
 .Blog-Main-Section {
@@ -10,12 +11,7 @@
 }
 
 .BlogAside {
-    top: 18%;
-    position: fixed;
-    width: 55px;
-    height: 53%;
-    right: 14%;
-    // grid-column: 30/31;
+    grid-column: 31/32;
     border: solid gray;
 }
 

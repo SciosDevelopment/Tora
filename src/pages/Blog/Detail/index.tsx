@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import './style/BlogDetailMain.scss'
-import Header from 'src/components/common/Header/Header';
-import Maintext from './Maintext/BlogDetailMaintext'
-import ContentList from './List'
+import Header from 'src/components/common/Header/Header'
+import Maintext from './Maintext'
+import ContentList from './ContentList'
 import Comments from '../../../components/common/Comment'
 import Commentspost from '../../../components/common/CommentPost'
 
@@ -24,15 +24,13 @@ const BlogDetailMain = () => {
                     </div>
                     <div className = "Blog-Detail-comments-view">
                         <Comments/> {/* List로 변경 */}
-                    </div>
-                    <div className = "Blog-Detail-commentspost-view">
                         <Commentspost/>
                     </div>
                 </div>
             </div>
         </div>
         </>
-    );
-};
+    )
+}
 
-export default BlogDetailMain;
+export default BlogDetailMain

@@ -1,40 +1,29 @@
 import React from 'react'
-import './style/BlogWritePage.scss'
+import Header from 'src/components/common/Header/Header';
+import MarkdownEditor from 'src/components/common/MarkdownEditor'
+import './style/BlogWriteMain.scss'
 
 const BlogWritePage = () => {
-    return (
+    return (        
+        <>
+        <Header/>
         <div className = "Blog-write-main">
             <div className = "Blog-write-view">
                 <div className = "Blog-write-produce">
-                    <div className = "Blog-write-title">
-                        <div className = "Blog-write-title-left">
-                            <div className = "Blog-write-title-tag-left">
-                                <div className = "Blog-write-title-left">
-                                    <p>제목을 입력하세요.</p>
-                                </div>
-                                <div className = "Blog-write-tag-left">
-                                    <p>태그를 입력하세요.</p>
-                                </div>
-                            </div>
-                            <div className = "Blog-write-toolbar-left">
-                            </div>
+                    <div className = "Blog-write-top">
+                        <div className = "Blog-write-title">
+                            <input type="text" placeholder="제목을 입력하세요."/>
+                            {/* <p>제목을 입력하세요.</p> */}
                         </div>
-                        <div className = "Blog-write-title-right">
-                            <div className = "Blog-write-title-tag-right">
-                                <div className = "Blog-write-title-right">
-                                    <p>제목을 입력하세요.</p>
-                                </div>
-                                <div className = "Blog-write-tag-right">
-                                    <p>태그를 입력하세요.</p>
-                                </div>
-                            </div>
-                            <div className = "Blog-write-toolbar-right">
-                            </div>
+                        <div className = "Blog-write-tag">
+                            <p>태그를 입력하세요.</p>
                         </div>
                     </div>
+                
+               
 
                     <div className = "Blog-write-text">
-                        <p>Markdown 사용가능</p>
+                       <MarkdownEditor height="100%"/>
                     </div>
 
                     <div className = "Blog-write-button">
@@ -42,8 +31,8 @@ const BlogWritePage = () => {
                     </div>
                 </div>
             </div>
-            
         </div>
+        </>
     );
 };
 
