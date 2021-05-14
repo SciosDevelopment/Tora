@@ -7,26 +7,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    .Blog-Detail-commentspost-library{
+    
+    .CommentPost-container{
         width: 100%;
-        display: flexbox;
-        flex-direction: row;
-        justify-content: space-between;
-
-        .Blog-Detail-commentspost-text{
+        border-radius: 15px;
+        overflow: hidden;
+        
+        .CommentPost-button{
             width: 100%;
-            margin-top:10px;
-            >p{
-                font-size: 15px;
-            }
-        }
-        .Blog-Detail-commentspost-button{
-            width: 100%;
+            height: 0;
             display: flex;
             justify-content: flex-end;
+
             >input{
-                margin-right: 2%;
+                position: relative;
+                right:5px;
+                bottom:25px;
                 border-radius: 15px;
                 width: 60px;
                 height: 22px;

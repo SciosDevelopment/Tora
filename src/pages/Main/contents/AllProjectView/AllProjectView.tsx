@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState} from 'react'
 import {Link} from 'react-router-dom'
 import './style/AllProjectView.scss'
 import AllProjectItem from './AllProjectItem'
-import MainSearchHeader from '../../../../components/common/Searchbar/Searchbar'
+import Searchbar from '../../../../components/common/Searchbar'
 // PC : Pagination, Mobile : Infinite Scroll UI.
 const AllProjectView:FunctionComponent = () =>{
     const ProjectSearchQuery = null // 검색한 결과를 저장하는 변수 : 전역변수로 지정할 예정
@@ -46,11 +46,7 @@ const AllProjectView:FunctionComponent = () =>{
         <div className="APVTitle">
             
             <div className="APVSearch">
-                <MainSearchHeader/>
-                {/* <form>
-                    <input type="input" placeholder="Search"/>
-                    <button type='submit' value="검색"><img src = {searchNavy}/></button>
-                </form> */}
+                <Searchbar/>
             </div>
             <div className = "APVSort">
                 <div className = "APVSort-container">

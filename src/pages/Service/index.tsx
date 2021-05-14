@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import './style/Servicemain.scss'
 import ServiceproduceOpen from '../../img/serviceopen.png'
 import Header from '../../components/common/Header/Header'
-import Searchbar from '../../components/common/Searchbar/Searchbar'
+import Searchbar from '../../components/common/Searchbar'
 import MarkdownEditor from '../../components/common/MarkdownEditor'
 const ServiceMain:React.FC = () => {
     const [openStatus, setOpenStatus] = useState<Boolean>(false)
@@ -36,7 +36,7 @@ const ServiceMain:React.FC = () => {
                                 :
                                 <div className = "Service-main-produce-open">
                                     <div className = "Service-main-produce-textedtior">
-                                        <MarkdownEditor/>
+                                        <MarkdownEditor initialEditType="wysiwyg"/>
                                     </div>
                                     <div className = "Service-main-produce-button">
                                         <input type='submit' value="Send"/>

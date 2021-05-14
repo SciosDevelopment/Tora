@@ -5,12 +5,10 @@ import './style/CommentPost.scss'
 const CommentPost:React.FC = () => {
     return (
         <div className = "CommentPost-main">
-            <div className = "Blog-Detail-commentspost-library">
-                <div className = "Blog-Detail-commentspost-text">
-                    <MarkdownEditor/>
-                </div>
-                <div className = "Blog-Detail-commentspost-button">
-                <input type='submit' value="Comment"/>
+            <div className = "CommentPost-container">
+                <MarkdownEditor initialEditType="wysiwyg"/>
+                <div className = "CommentPost-button">
+                    <input type='submit' value="Comment"/>
                 </div>
             </div>
         </div>

@@ -24,26 +24,40 @@ import React, { useEffect } from 'react'
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+type EditorProps = {
+    initialValue:string
+    height:string
+    minHeight:string
+    initialEditType:string
+}
 
-const MarkdownEditor = () => {
+const MarkdownEditor = (EditorProp) => {
   // https://nhn.github.io/tui.editor/latest/ToastUIEditor
-  var editorRef = React.createRef<Editor>()
-
+  
+  const {initialValue, height, minHeight, initialEditType} = EditorProp
+  const editorRef = React.createRef<Editor>()
   useEffect(()=> {
     editorRef.current.getInstance().getUI().getModeSwitch().hide()
   }, [])
   
   return (
         <Editor
-          initialValue="궁금한 내용을 질문해주세요"
+          initialValue={initialValue}
           previewStyle="vertical"
-          height="auto"
-          minHeight="120px"
-          initialEditType="wysiwyg"
+          height={height}
+          minHeight={minHeight}
+          initialEditType={initialEditType}
           useCommandShortcut={true}
           usageStatistics={false}
-          ref={editorRef} />
+          ref={editorRef}/>
   )
+}
+
+MarkdownEditor.defaultProps = {
+    initialValue:"내용없음",
+    height:"auto",
+    minHeight:"120px",
+    initialEditType:"markdown" // or wysiwyg
 }
 
 export default MarkdownEditor
