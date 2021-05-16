@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './style/BulletinBoardItem.scss'
 import HeartLogo from '../../../../img/heart64.png'
 import Profile11 from '../../../../img/profile11.png'
@@ -46,7 +46,7 @@ const BulletinBoardItemView = () => {
                     </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default BulletinBoardItemView;
+export default BulletinBoardItemView

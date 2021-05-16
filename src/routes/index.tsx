@@ -22,15 +22,15 @@ import ServiceDetail from '../pages/Service/ServiceDetail'
 // License
 import LicenseMain from '../pages/License'
 
-// Blog
+// Blog : BlogMain, BlogWrite, BlogDetail
 import Blog from '../pages/Blog'
 import BlogWrite from '../pages/Blog/Write'
 import BlogDetail from '../pages/Blog/Detail'
 
-//BulletinBoard
-import BulletinBoard from '../pages/BulletinBoard'
-import BulletinBoardWrite from '../pages/BulletinBoard/Write'
-import BulletinBoardDetail from '../pages/BulletinBoard/Detail'
+// Post
+import Post from '../pages/Post'
+import PostWrite from '../pages/Post/Write'
+import PostDetail from '../pages/Post/Detail'
 
 //MyPage
 import MyPage from '../pages/MyPage'
@@ -63,9 +63,9 @@ const Router:React.FC = () => (
         <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
 
         {/* BulletinBoard */}
-        <Route path = "/bulletinboard" exact component={BulletinBoard}/>
-        <Route path = "/bulletinboard/write" component={BulletinBoardWrite}/>
-        <Route path = "/bulletinboard/detail" component={BulletinBoardDetail}/>
+        <Route path = "/post" exact component={Post}/>
+        <Route path = "/post/write" component={PostWrite}/>
+        <Route path = "/post/detail" component={PostDetail}/> {/* blog/:id */}
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>

@@ -14,7 +14,7 @@ const BlogMain:FunctionComponent = () => {
                 <BlogMainView/>     
             </div> 
             
-            <div className="BlogAside">
+            <div className="Blog-Main-Aside">
 
             </div>
         </div>

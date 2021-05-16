@@ -1,0 +1,112 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+@font-face{
+    font-family: "AppleSDGothicNeoM";
+    src : url('../../../../fonts/AppleSDGothicNeoM.ttf')
+}
+
+.Post-write-main {
+    font-family: "AppleSDGothicNeoM";
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    width: 100%;
+    height: auto;
+    
+    .Post-write-view{
+        margin-top: 5%;
+        margin-bottom:1%;
+        grid-column: 2/24;
+        height: 100%;
+        min-height: 872px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+        background-color: #ffffff;
+        border: solid 1px #707070;
+        
+        .Post-write-produce{
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            
+                .Post-write-top {
+                    margin-top: 2%;
+                    width:100%;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                    
+                    .Post-write-title {
+                        margin-left: 15px;
+                        font-size: 25px;
+                        font-weight: bold;
+                        width:100%;
+                        margin-bottom: 10px;
+                        color: #585A61;
+
+                        > input {
+                            width: 97.5%;
+                            font-size:25px;
+                            border:none;
+                            color: #585A61;
+                            font-weight: bold;
+                        }
+                        input::placeholder {
+                            color: #585A61;
+                        }
+                        
+                    }
+    
+                    .Post-write-tag{
+                        margin-left: 18px;
+                        font-size: 15px;
+                        color: #585A61;
+                    }
+                
+            }
+            
+
+            .Post-write-text {
+                width: 98%;
+                height: 83%;
+                margin-left: 1%;
+                margin-top: 1%;
+                display: flex;
+                justify-content: center;
+                
+                > div {
+                    width:100%;
+                }
+                
+                >p{
+                    font-size: 15px;
+                    font-weight: bold;
+                    margin-top: 10%;
+                    color: #707070;
+                }
+            }
+
+            .Post-write-button{
+                display: flex;
+                justify-content: flex-end;
+                margin-right: 1%;
+                margin-top: 1%;
+                margin-bottom: 1%;
+
+                >input{
+                    width: 9%;
+                    height: 30px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    font-size: 15px;
+                    color: #ffffff;
+                    background-color: #1C2239;
+                }
+            }
+        }
+
+    }
+}
