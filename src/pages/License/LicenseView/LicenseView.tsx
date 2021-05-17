@@ -1,19 +1,15 @@
 import React from 'react'
 import '../LicenseItem/LicenseItem'
 import LicenseItem from '../LicenseItem/LicenseItem';
-import searchNavy from '../../../img/search-navy.png'
 import './style/LicenseView.scss'
+import Searchbar from '../../../components/common/Searchbar'
 const LicenseView = () => {
     return (
         <div className = "License-view-main-container">
-
             <div className = "License-view-head-area">
                 <div className = "License-toolbar-area">
                     <div className = "License-searchbar">               
-                    <form>
-                        <input type="input" placeholder="Search"/>
-                        <button type='submit' value="검색"><img src = {searchNavy}/></button>
-                    </form>
+                        <Searchbar/>
                     </div>
                     <div className = "License-select">
                         <div className = "License-selectbox">

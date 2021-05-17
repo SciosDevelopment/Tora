@@ -5,12 +5,8 @@ import './style/LicenseMain.scss'
 const LicenseMain = () => {
     return (
         <div className = "License-main-container">
-            <div className = "License-header">
-                <Header/>
-            </div>
-            <div className = "License-main">
-                <LicenseView/>
-            </div>
+            <Header/>
+            <LicenseView/>   
         </div>
     )
 }
