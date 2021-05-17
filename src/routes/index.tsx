@@ -9,6 +9,8 @@ import Register from '../pages/Login/Register'
 import ResetPw from '../pages/Login/ResetPassword'
 import DeleteAccount from '../pages/Login/Secession'
 import ChangePassword from '../pages/Login/ChangePassword'
+import Confirm from '../pages/Login/Confirm'
+
 // // Business
 // import Business from '../pages/Business'
 
@@ -32,6 +34,8 @@ const Router:React.FC = () => (
         <Route path = "/reset_pw" component={ResetPw}/>
         <Route path = "/secess" component={DeleteAccount}/>
         <Route path = "/change_pw" component={ChangePassword}/>
+        <Route path = "/confirm/signup/:token"  component={Confirm}/>
+        <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
     </Switch>
 )
 
