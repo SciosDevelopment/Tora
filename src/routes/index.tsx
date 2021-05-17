@@ -35,6 +35,9 @@ import PostDetail from '../pages/Post/Detail'
 //MyPage
 import MyPage from '../pages/MyPage'
 
+//ProjectMain
+import ProjectMain from '../pages/Project'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -70,6 +73,8 @@ const Router:React.FC = () => (
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>
         
+        {/* Project */}
+        <Route path = "/project" exact component={ProjectMain}/>
     </Switch>
 )
 
