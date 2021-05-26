@@ -1,36 +1,30 @@
 import React, { FunctionComponent } from 'react'
+import {history} from '../../../../configureStore'
 import './style/OptionContainer.scss'
-import Opt1 from '../../../../img/tora-setting-icon.png'
-import Opt2 from '../../../../img/tora-mypage-icon.png'
-import Opt3 from '../../../../img/tora-logout-icon.png'
+import Setting from '../../../../img/tora-setting-icon.png'
+import Mypage from '../../../../img/tora-mypage-icon.png'
+import Logout from '../../../../img/tora-logout-icon.png'
+import { useCookies } from 'react-cookie'
 
 const OptionContainer:FunctionComponent = ()=> {
 
     // temp function
-    const f_Opt1 = () => {
-        alert("1")
-    }
-    const f_Opt2 = () => {
-        window.location.href="/mypage"
-        // <Link to = "Community"/>
-    }
-    const f_Opt3 = () => {
-        alert("3")
-    }
-
-    const openCommunity = () => {
-        window.location.href= "/community"
-    }
-    const openLogin = () => {
-        window.location.href = "/login"
-    }
+    // userInfo is null ? history.push('/login') : history.push('/logout')
+    const [cookies, _, removeCookie] = useCookies(['ToraID'])
+    const openPage = (url) => { history.push(url) }
 
     return (
         <div className="OptionContainer">
             <div className="optionGroup">
-                <div className="option"><img src={Opt1} onClick={f_Opt1}/></div>
-                <div className="option"><img src={Opt2} onClick={f_Opt2}/></div>
-                <div className="option"><img src={Opt3} onClick={f_Opt3}/></div>
+                <div className="option"><img src={Setting} onClick={()=>openPage('/community')}/></div>
+                <div className="option"><img src={Mypage} onClick={()=>openPage('/mypage')}/></div>
+                {
+                cookies.ToraID !== undefined ?
+                <div className="option"><img src={Logout} onClick={()=>openPage('/logout')}/></div>
+                :
+                <div className="option"><img src={Logout} onClick={()=>openPage('/login')}/></div>
+                }
+                
             </div>
         </div>
     )

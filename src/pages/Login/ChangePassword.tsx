@@ -3,17 +3,20 @@ import ChangePasswordView from './ChangePasswordView/ChangePasswordView'
 import Footer from './Footer/Footer'
 import './style/LoginBody.scss'
 
-const ChangePasswordMain = () => {
+
+const ChangePasswordMain = (props) => {
+    const {token} = props.match.params
+
     return (
         <>
         <Header/>
-        <div className = "Login-body-wrap">
-            <div className = "Login-body-background">
-                <div className = "Login-body-view">
-                        <ChangePasswordView/>
+            <div className = "Login-body-wrap">
+                <div className = "Login-body-background">
+                    <div className = "Login-body-view">
+                            <ChangePasswordView token={token}/>
+                    </div>
                 </div>
             </div>
-        </div>
         <Footer/>
         </>
     )
