@@ -33,7 +33,9 @@ const Router:React.FC = () => (
         <Route path = "/signup" component={Register}/>
         <Route path = "/reset_pw" component={ResetPw}/>
         <Route path = "/secess" component={DeleteAccount}/>
-        <Route path = "/change_pw" component={ChangePassword}/>
+        
+        <Route path = "/change_pw" exact component={ChangePassword}/>
+        <Route path = "/change_pw/:token" component={ChangePassword}/>
         <Route path = "/confirm/signup/:token"  component={Confirm}/>
         <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
     </Switch>
