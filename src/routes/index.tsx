@@ -34,6 +34,7 @@ import PostDetail from '../pages/Post/Detail'
 
 //MyPage
 import MyPage from '../pages/MyPage'
+import MyPageSet from '../pages/MyPage/Set/MyPageSetMain'
 
 //ProjectMain
 import ProjectMain from '../pages/Project'
@@ -90,6 +91,7 @@ const Router:React.FC = () => (
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>
+        <Route path = "/mypage/set" component={MyPageSet}/>
         
         {/* Project */}
         <Route path = "/project" exact component={ProjectMain}/>

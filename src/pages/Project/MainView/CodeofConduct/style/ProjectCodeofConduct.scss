@@ -1,0 +1,62 @@
+.Project-coc-main{
+    width: 100%;
+    min-height: 767px;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    .Project-coc-readme{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 50px;
+        border-bottom: solid 2px #707070;
+        margin-bottom: 3%;
+        >p{
+            font-size: 25px;
+            margin-left: 2%;
+        }
+    }
+    .Project-coc-readme-view{
+        width: 97%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 2%;
+        .Project-coc-readme-title{
+            margin-bottom: 2%;
+            >p{
+                font-size: 23px;
+                font-weight: bold;
+            }
+        }
+        .Project-coc-readme-text{
+            line-height: 150%;
+            margin-bottom: 5%;
+            >p{
+                font-size: 18px;
+            }
+        }
+    }
+    .Project-coc-view{
+        width: 100%;
+        height: 30%;
+        border-top: solid 2px #707070;
+        .Projecct-coc-title{
+            margin: 2% 0 0 2%;
+            width: 98%;
+            >p{
+                font-size: 25px;
+                font-weight: bold;
+                color: #FFB600;
+            }
+        }
+        .Project-coc-text{
+            margin: 2% 0 2% 2%;
+            width: 98%;
+            >p{
+                font-size: 18px;
+            }
+        }
+    }
+}

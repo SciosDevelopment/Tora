@@ -1,0 +1,52 @@
+.Project-info-main{
+    width: 100%;
+    min-height: 767px;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    .Project-info-view{
+        width: 100%;
+        height: 50%;
+        .Project-info-title{
+            display: flex;
+            align-items: center;
+            height: 10%;
+            border-bottom: solid 2px #707070;
+            >p{
+                margin-left: 5%;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+        .Project-info-contents{
+            margin-left: 5%;
+            width: 90%;
+            height: 80%;
+            margin-top: 2%;
+            border: solid 1px #707070;
+        }
+    }
+    .Project-license-view{
+        width: 100%;
+        height: 50%;
+        .Project-license-title{
+            display: flex;
+            align-items: center;
+            height: 10%;
+            border-bottom: solid 2px #707070;
+            >p{
+                margin-left: 5%;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+        .Project-license-contents{
+            margin-left: 5%;
+            width: 90%;
+            height: 80%;
+            margin-top: 2%;
+            border: solid 1px black;
+        }
+    }
+}

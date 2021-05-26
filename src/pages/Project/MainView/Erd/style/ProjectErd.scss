@@ -1,0 +1,136 @@
+.Project-erd-main{
+    width: 100%;
+    min-height: 577px;
+    background-color: #ffffff;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    .Project-erd-title-main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 6%;
+        border-bottom: solid 2px #707070;
+        .Project-erd-title{
+            width: 15%;
+            margin-left: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Project-erd-title-button{
+            width: 14%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            .Project-erd-chat{
+                >img{
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+            .Project-erd-video{
+                >img{
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+            .Project-erd-ide{
+                >img{
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+        }
+    }
+    .Project-erd-info-main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 7%;
+        .Project-erd-info-profile{
+            width: 20%;
+            display: flex;
+            margin-left: 3%;
+            align-items: center;
+            >img{
+                width: 22px;
+                height: 22px;
+            }
+
+        }
+        .Project-erd-info-button{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 17%;
+            .Project-erd-info-like{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                >img{
+                    width: 23px;
+                    height: 23px;
+                }
+                >p{
+                    font-size: 12px;
+                    margin-bottom: 3px;
+                }
+            }
+            .Project-erd-info-save{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                >img{
+                    width: 18px;
+                    height: 18px;
+                }
+                >p{
+                    font-size: 12px;
+                    margin-top: 3px;
+                }
+            }
+            .Project-erd-info-share{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                >img{
+                    width: 18px;
+                    height: 18px;
+                }
+                >p{
+                    font-size: 12px;
+                    margin-top: 3px;
+                }
+            }
+            .Project-erd-info-follow{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                >img{
+                    width: 18px;
+                    height: 18px;
+                }
+                >p{
+                    font-size: 12px;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+    .Project-erd-view-main{
+        width: 100%;
+        height: 490px;
+
+        background-color: #1C2239;
+        border-radius: 15px;
+    }
+}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Header from 'src/components/common/Header/Header';
 import './style/ProjectMain.scss'
-// import MainView from '../Project/MainView'
+import MainView from '../Project/MainView'
 
 const ProjectMain:React.FC = () => {
     const [tabValue, setTabValue] = useState<Number>(0);
@@ -11,6 +11,7 @@ const ProjectMain:React.FC = () => {
             case 0 : {
                 return(
                     <div className = "Project-main-item">
+                        <MainView/>
                     </div>
                 )
             }
