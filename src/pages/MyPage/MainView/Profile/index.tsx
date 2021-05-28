@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
 import './style/MyPageViewProfile.scss'
 import heartlogo from '../../../../img/heart64.png'
 import modify from '../../../../img/tora-setting-icon.png'
 import profile from '../../../../img/profile4.png'
-const MyPageViewProfile = () => {
+
+const MyPageProfile = () => {
     return (
         <div className = "profile-view-main">
             <div className = "profile-view-img-container">
@@ -21,7 +22,6 @@ const MyPageViewProfile = () => {
                 </div>
             </div>
 
-
             <div className = "profile-view-info-wrapper">     
                 <div className = "profile-view-info-main">
                         <div className = "profile-view-follow">
@@ -38,7 +38,7 @@ const MyPageViewProfile = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MyPageViewProfile;
+export default MyPageProfile

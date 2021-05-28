@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
-import MypageViewItem from './MyPageViewItem/MyPageViewItem';
+import MypageViewItem from './MyPageViewItem'
 import './style/MyPageViewList.scss'
-import folder from '../../../../img/mypagefile.png';
+import folder from '../../../../img/mypagefile.png'
 
 const MypageViewList = () => {
-    const [tabValue, setTabValue] = useState(0);
+    
+    const [tabValue, setTabValue] = useState(0)
     const switchTab = (value) => {
         switch(value){
             case 0:{
@@ -15,17 +16,9 @@ const MypageViewList = () => {
                             <div className = "Mypage-view-item-view">
                                 <div className = "Mypage-view-item-close">
                                     <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close2">
                                     <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close3">
                                     <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close4">
                                     <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close5">
                                     <MypageViewItem key={1} like={20}/>
                                 </div>
                             </div>
@@ -139,7 +132,7 @@ const MypageViewList = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MypageViewList;
+export default MypageViewList

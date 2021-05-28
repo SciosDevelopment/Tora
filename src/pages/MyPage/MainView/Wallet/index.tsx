@@ -1,8 +1,8 @@
-import React from 'react';
-import './style/MyPageViewWallet.scss'
+import React from 'react'
+import './style/Wallet.scss'
 import Walleticon from '../../../../img/wallet.png'
 
-const MyPageViewWallet = () => {
+const MyPageWallet = () => {
     return (
         <div className = "Mypage-view-wallet-main">
             <div className = "Mypage-view-wallet-balance">
@@ -18,7 +18,7 @@ const MyPageViewWallet = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MyPageViewWallet;
+export default MyPageWallet

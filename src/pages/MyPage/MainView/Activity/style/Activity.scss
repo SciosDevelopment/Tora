@@ -1,15 +1,16 @@
-.MyActivity-preview-main{
-
-    .MyActivity-container{
+.Mypage-Activity-preview-main{
+    .Mypage-Activity-container{
         width: 100%;
         max-width: 275px;
         height: 144px;
         background:  #EFEFEF;
         border-radius: 15px;
         box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-        .MyActivity-container-text{
+
+        .Mypage-Activity-container-project{
             margin-left: 10%;
             padding-top: 10%;
+            
             >p{
                 font-size: 12px;
                 margin-bottom: 4%;

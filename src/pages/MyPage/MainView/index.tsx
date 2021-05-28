@@ -1,13 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState} from 'react'
 import './style/MyPageView.scss'
-import MyPageList from './List/MyPageViewList'
-import MyPageProfile from './Profile/MyPageViewProfile'
-import MyPageActivity from './Activity/MyPageViewActivity'
-import MyPageWallet from './Wallet/MyPageViewWallet'
-import Title from 'src/components/common/Title/Title';
+import Title from 'src/components/common/Title/Title'
+import MyPageList from './List'
+import MyPageProfile from './Profile'
+import Activity from './Activity'
+import Wallet from './Wallet'
+
 const MypageView = () => {
-
-
     return (
         <div className = "Mypage-view-main">
             <div className = "Mypage-view-profile-container">
@@ -16,24 +15,22 @@ const MypageView = () => {
             <div className = "Mypage-view-list-container">
                 <MyPageList/>
             </div>            
-            <div className = "Mypage-view-bottom-element-container">
+            <div className = "Mypage-view-bottom-container">
                 <div className = "Mypage-view-bottom-myAc">
                     <Title name = "My Activity"/>
-                    <MyPageActivity/>
+                    <Activity/>
                 </div>
                 <div className = "Mypage-view-bottom-projectAc">
                     <Title name = "Follow Activity"/>
-                    <MyPageActivity/>
+                    <Activity/>
                 </div>
                 <div className = "Mypage-view-bottom-helpcenter">
                     <Title name = "My Wallet"/>
-                    <MyPageWallet/>
-                </div>
-                
+                    <Wallet/>
+                </div>           
             </div>
-            
         </div>
-    );
-};
+    )
+}
 
-export default MypageView;
+export default MypageView
