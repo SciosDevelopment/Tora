@@ -14,10 +14,9 @@ import Confirm from '../pages/Login/Confirm'
 // Business
 import Business from '../pages/Business'
 
-// Service : ServiceMain, ServiceList, ServiceDetail
+// Service : ServiceMain, ServiceList
 import ServiceMain from '../pages/Service'
 import ServiceList from '../pages/Service/ServiceList'
-import ServiceDetail from '../pages/Service/ServiceDetail'
 
 // License
 import LicenseMain from '../pages/License'
@@ -38,19 +37,6 @@ import MyPageSet from '../pages/MyPage/Set/MyPageSetMain'
 
 //ProjectMain
 import ProjectMain from '../pages/Project'
-
-// // Business
-// import Business from '../pages/Business'
-
-
-// // Service : ServiceMain, ServiceList, ServiceDetail
-// import ServiceMain from '../pages/Service'
-// import ServiceList from '../pages/Service/ServiceList'
-// import ServiceDetail from '../pages/Service/ServiceDetail'
-
-
-// // License
-// import LicenseMain from '../pages/License'
 
 const Router:React.FC = () => (
     <Switch>
@@ -73,8 +59,8 @@ const Router:React.FC = () => (
 
         {/* Service */}
         <Route path = "/service" exact component={ServiceMain}/>
-        <Route path = "/service/list" component={ServiceList}/>
-        <Route path = "/service/detail" component={ServiceDetail}/> {/* service/:id */}
+        <Route path = "/service/:token" component={ServiceList}/>
+        <Route path = "/service/:token/:id" component={ServiceList}/>
 
         {/* License */ }
         <Route path = "/license" component={LicenseMain}/>      
