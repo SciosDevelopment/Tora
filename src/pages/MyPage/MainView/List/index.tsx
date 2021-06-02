@@ -1,66 +1,72 @@
-import React,{useState} from 'react';
+import React,{FunctionComponent,useState} from 'react';
+import {Link} from 'react-router-dom'
 import MypageViewItem from './MyPageViewItem'
+import MypageFolder from '../Folder/MyPageListFolder'
 import './style/MyPageViewList.scss'
 import folder from '../../../../img/mypagefile.png'
 
-const MypageViewList = () => {
+const MypageViewList:FunctionComponent = () => {
+
+    
+    const ProjectQuery = null
+
+    const initData = () => {
+        if(ProjectQuery != null) return Array()
+        return Array(
+            {key : 0,  like:500},
+            {key : 1,  like:500},
+            {key : 2,  like:500},
+            {key : 3,  like:500},
+            {key : 4,  like:500},
+        )
+    }
+
     
     const [tabValue, setTabValue] = useState(0)
-    const switchTab = (value) => {
+    const SwitchTab = (value) => {
+
+        const [ProjectListView] = useState(initData)
+
         switch(value){
             case 0:{
                 return(
                     <div className = "Mypage-view-item-container">
                         <div className="Mypage-view-item-wrap">
-                            <img src = {folder}/>
+                            <div className = "Mypage-view-item-icon">
+                                <img src = {folder}/>
+                            </div>
                             <div className = "Mypage-view-item-view">
-                                <div className = "Mypage-view-item-close">
-                                    <MypageViewItem key={1} like={20}/>
-                                    <MypageViewItem key={1} like={20}/>
-                                    <MypageViewItem key={1} like={20}/>
-                                    <MypageViewItem key={1} like={20}/>
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
+                                    {
+                                        ProjectListView.map(item => {
+                                            return (
+                                                <MypageViewItem key={item.key} like={item.like}/>
+                                            )
+                                        })
+                                    }
                             </div>
                         </div>
                         <div className="Mypage-view-item-wrap">
                             <img src = {folder}/>
                             <div className = "Mypage-view-item-view">
-                                <div className = "Mypage-view-item-close">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close2">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close3">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close4">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close5">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
+                                    {
+                                        ProjectListView.map(item => {
+                                            return (
+                                                <MypageViewItem key={item.key} like={item.like}/>
+                                            )
+                                        })
+                                    }
                             </div>
                         </div>
                         <div className="Mypage-view-item-wrap">
                             <img src = {folder}/>
                             <div className = "Mypage-view-item-view">
-                                <div className = "Mypage-view-item-close">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close2">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close3">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close4">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close5">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
+                                    {
+                                        ProjectListView.map(item => {
+                                            return (
+                                                <MypageViewItem key={item.key} like={item.like}/>
+                                            )
+                                        })
+                                    }
                             </div>
                         </div>
                     </div>
@@ -71,24 +77,7 @@ const MypageViewList = () => {
                 return(
                     <div>
                         <div className = "Mypage-view-item-container2">
-                            <img src = {folder}/>
-                            <div className="Mypage-view-item-wrap2">
-                                <div className = "Mypage-view-item-close6">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close7">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close8">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close9">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                                <div className = "Mypage-view-item-close10">
-                                    <MypageViewItem key={1} like={20}/>
-                                </div>
-                            </div>
+                            <MypageFolder/>
                         </div>
                     </div>
                 )}
@@ -128,7 +117,7 @@ const MypageViewList = () => {
                 </div>
                 
                 <div className = "Mypage-view-tab-contents">
-                    {switchTab(tabValue)}
+                    {SwitchTab(tabValue)}
                 </div>
             </div>
         </div>

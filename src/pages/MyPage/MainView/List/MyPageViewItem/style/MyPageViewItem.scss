@@ -1,7 +1,8 @@
 .Mypage_ProjectItem {
     width:100%;
-    max-width: 88px;
-    height: 95px;
+    max-width: 94px;
+    height: 100%;
+    max-height: 100px;
     border-radius: 15px;
     background-color: #FFF;
     box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
@@ -18,10 +19,10 @@
 .Mypage-Project-profile-name{
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 
     .Mypage-Project-profile{
-        width: 88px;
+        width: 93px;
         height: 41px;
         border: solid 1px #707070;
         // margin-left: 10px;
@@ -46,7 +47,7 @@
             justify-content: space-between;
             padding-left: 4px;
             >p{
-                font-size: 9px;
+                font-size: 10px;
             }
             .Mypage_Like{
                 height: 10%;
@@ -118,7 +119,7 @@
     // position: absolute;
     bottom: 0;
     right:0;
-    font-size: 15px;
+    font-size: 8px;
     // margin-bottom: 20px;
     // border: solid red;
 }

@@ -7,6 +7,9 @@ import profile from '../../../../img/profile4.png'
 const MyPageProfile = () => {
     return (
         <div className = "profile-view-main">
+            <div className = "profile-view-modify">
+                <img src = {modify}/>
+            </div>
             <div className = "profile-view-img-container">
                 <img src = {profile}/>
                 <div className = "profile-view-profile-main">
@@ -25,17 +28,23 @@ const MyPageProfile = () => {
             <div className = "profile-view-info-wrapper">     
                 <div className = "profile-view-info-main">
                         <div className = "profile-view-follow">
-                            <p>Follower 400</p>
-                            <p>Following 200</p>
+                            <div className = "profile-view-follower">
+                                <p>Follower 400</p>
+                            </div>
+                            <div className = "profile-view-following">
+                                <p>Following 200</p>
+                            </div>
                         </div>
                         <div className = "profile-view-total-like">
-                            <p>Position</p>
-                            <p>Program Language</p>
+                            <div className = "profile-view-total-position">
+                                <p>Position</p>
+                            </div>
+                            <div className = "profile-view-total-language">
+                                <p>Program Language</p>
+                            </div>
                         </div>
                 </div>
-                <div className = "profile-view-modify">
-                    <img src = {modify}/>
-                </div>
+
             </div>
         </div>
     )
