@@ -3,6 +3,7 @@ import './style/OptionContainer.scss'
 import Opt1 from '../../../../img/tora-setting-icon.png'
 import Opt2 from '../../../../img/tora-mypage-icon.png'
 import Opt3 from '../../../../img/tora-logout-icon.png'
+import MyModal from '../../Modal/modal'
 
 const OptionContainer:FunctionComponent = ()=> {
 
@@ -24,6 +25,21 @@ const OptionContainer:FunctionComponent = ()=> {
     const openLogin = () => {
         window.location.href = "/login"
     }
+
+    //modal test
+    const [isModalOpen, setIsOpen] = React.useState(false);
+
+    const openModal = () => {
+        console.log("setIsOpen true")
+        setIsOpen(true);
+    }
+    
+    const closeModal = () => {
+        console.log("setIsOpen false")
+        setIsOpen(false);
+    }
+    //<button className="ModalButton" onClick = {openModal}>Open Modal</button>
+    //<MyModal message = {"Hello"} modalOpen = {isModalOpen} modalClose = {closeModal}></MyModal>
 
     return (
         <div className="OptionContainer">
