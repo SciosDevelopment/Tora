@@ -1,7 +1,8 @@
 import 'codemirror/lib/codemirror.css'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import { Editor } from '@toast-ui/react-editor'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
 
 // MIT License
 
@@ -24,22 +25,33 @@ import React, { useEffect } from 'react'
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+
 type EditorProps = {
-    initialValue:string
     height:string
     minHeight:string
     initialEditType:string
+    editorRef:React.RefAttributes<Editor>,
+    initialValue:string
 }
 
 const MarkdownEditor = (EditorProp) => {
   // https://nhn.github.io/tui.editor/latest/ToastUIEditor
-  
-  const {initialValue, height, minHeight, initialEditType} = EditorProp
-  const editorRef = React.createRef<Editor>()
+  const { height, minHeight, initialEditType, editorRef, initialValue} = EditorProp
+
   useEffect(()=> {
     editorRef.current.getInstance().getUI().getModeSwitch().hide()
+    // console.log(editorRef.current.getInstance().getCodeMirror().getValue())
+    // AddImagebutton 제거
+    // editorRef.current.getInstance().getUI().getToolbar().removeItem(15)
+    // editorRef.current.getInstance().getUI().getToolbar().insertItem(15, "test")    
   }, [])
   
+  const uploadImage = (blob) => { // 06. 01.
+    // 여기서 image url 변환하고 반환
+    console.log(blob)
+    return "www.this.com"
+  }
+
   return (
         <Editor
           initialValue={initialValue}
@@ -49,15 +61,26 @@ const MarkdownEditor = (EditorProp) => {
           initialEditType={initialEditType}
           useCommandShortcut={true}
           usageStatistics={false}
+          hooks = {
+            {
+              addImageBlobHook: async(blob, callback) => {
+                const uploadedImageURL = await uploadImage(blob)
+                callback(uploadedImageURL, "description")
+                return false
+              }
+            }
+          }
           ref={editorRef}/>
   )
+  
 }
 
 MarkdownEditor.defaultProps = {
-    initialValue:"내용없음",
     height:"auto",
     minHeight:"120px",
-    initialEditType:"markdown" // or wysiwyg
+    initialEditType:"markdown", // or wysiwyg
+    editorRef:React.createRef<Editor>(),
+    initialValue:""
 }
 
 export default MarkdownEditor

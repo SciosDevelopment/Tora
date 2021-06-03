@@ -38,7 +38,6 @@ const LoginView:FunctionComponent<any> = () => {
         const data = {user:{email: userinfo.userID, password:userinfo.password}}
         axios.post(`${SERVER_IP}/api/v1/user/login`, data)
         .then((res)=> {
-            // 200
             const accessToken = res.data[`JWT token`]
             axios.defaults.headers.common['Authorization'] = `${accessToken}`
             const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
@@ -46,14 +45,14 @@ const LoginView:FunctionComponent<any> = () => {
             setCookie('ToraID', userinfo.userID, {maxAge:TOKEN_EXPIRY_TIME})
             onSetUserInfo(userinfo.userID)
             alert(`Welcome ${userinfo.userID}`)
-            // history.replace("/")
+            history.replace("/")
         })
 
         .catch((e)=>{
               if(e.response) {
                 var status = e.response.status // or use message
                 if(status === 401 || status === 404) {
-                    // id 존재 x : 404, pw 불일치 : 401
+                    // id 미존재 : 404, pw 불일치 : 401
                     // 메일 미인증 : 401
                     const {message} =JSON.parse(e.request.response)
                     console.log(message)
