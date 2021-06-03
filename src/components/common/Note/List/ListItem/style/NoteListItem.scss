@@ -1,0 +1,54 @@
+.NoteListItem{
+    width: 95%;
+    height: 100%;
+    max-height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFE29A;
+    box-shadow:#FFB600 1px 3px 10px -3px;
+    border-radius: 8px;
+    margin-left: 2.5%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    .NoteListItem-text-main{
+        width: 60%;
+        height: auto;
+        padding: 10px;
+        .NoteListItem-text{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            word-wrap:break-word;
+            line-height: 24px;
+            font-size: 16px;
+        }
+    }
+    .NoteListItem-side{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20%;
+        // border: solid 1px blue;
+        .NoteListItem-set{
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 20%;
+            margin-top: 12%;
+        }
+        .NoteListItem-profile{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            >img{
+                margin-bottom: 2%;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}

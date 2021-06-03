@@ -13,10 +13,18 @@
     top: 18%;
     position: fixed;
     width: 55px;
-    height: 53%;
+    height: 40%;
     right: 14%;
     // grid-column: 30/31;
     // border: solid gray;
+}
+
+.MainNote{
+    position: fixed;
+    top: 61%;
+    width: 14%;
+    height: 22%;
+    right: 4%;
 }
 
 .MainSection > div {
