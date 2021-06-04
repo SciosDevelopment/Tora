@@ -22,22 +22,22 @@ const ServiceList = (props) => {
         }
     }
 
-    const setData = () => setTabValue(setToken())
+    // /const setData = () => setTabValue(setToken())
     const changeURL = async(token) => history.push(`/service/${token}`)
     
-    useEffect(()=>{setData()}, [token])
+    useEffect(()=>{setTabValue(setToken())}, [token])
 
     const switchTab = (tabValue) => {
         switch(tabValue){
             case 0 : {
                 return(
                     <div className = "Service-list-item">
-                        <ServiceListItem/>
-                        <ServiceListItem/>
-                        <ServiceListItem/>
-                        <ServiceListItem/>
-                        <ServiceListItem/>
-                        <ServiceListItem/>
+                        <ServiceListItem isComment={true}/>
+                        <ServiceListItem isComment={true}/>
+                        <ServiceListItem isComment={true}/>
+                        <ServiceListItem isComment={true}/>
+                        <ServiceListItem isComment={false}/>
+                        <ServiceListItem isComment={false}/>
                     </div>
                 )
             }
