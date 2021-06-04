@@ -1,8 +1,9 @@
-import React from 'react';
-import MarkdownEditor from '../MarkdownEditor';
+import MarkdownEditor from '../MarkdownEditor'
 import './style/CommentPost.scss'
 
-const CommentPost:React.FC = () => {
+const CommentPost = (props) => {
+    const {location, id} = props
+
     return (
         <div className = "CommentPost-main">
             <div className = "CommentPost-container">

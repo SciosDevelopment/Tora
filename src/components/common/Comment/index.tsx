@@ -4,7 +4,8 @@ import Replyicon from '../../../img/replyicon.png'
 import Hearticon from '../../../img/heart64.png'
 import Profile from '../../../img/profile.png'
 
-const Comment = () => {
+const Comment = (props) => {
+    const {data} = props
     return (
         <div className = "Comment-main">
             <div className = "Comment-context">

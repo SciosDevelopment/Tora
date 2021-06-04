@@ -1,7 +1,13 @@
-import React from 'react';
+import { useEffect } from 'react'
+//import { history } from '../../../../configureStore'
 import './style/BlogDetailList.scss'
+import moment from 'moment'
 
-const BlogDetailList = () => {
+const ContentList = (props) => {
+    const {data} =  props
+    
+    useEffect(()=>{},[])
+
     return (
         <div className = "Blog-Detail-List">
             <div className = "Blog-Detail-List-title">
@@ -12,40 +18,29 @@ const BlogDetailList = () => {
                     <p>작성일</p>
                 </div>
             </div>
-            <div className = "Blog-Detail-List-text">
-                <div className = "Blog-Detail-List-text-subject">
-                    <p>웹 페이지 공부방법</p>
-                </div>
-                <div className = "Blog-Detail-List-text-date">
-                    <p>2021.10.15</p>
-                </div>
-            </div>
-            <div className = "Blog-Detail-List-text">
-                <div className = "Blog-Detail-List-text-subject">
-                    <p>웹 페이지 공부방법</p>
-                </div>
-                <div className = "Blog-Detail-List-text-date">
-                    <p>2021.10.15</p>
-                </div>
-            </div>
-            <div className = "Blog-Detail-List-text">
-                <div className = "Blog-Detail-List-text-subject">
-                    <p>웹 페이지 공부방법</p>
-                </div>
-                <div className = "Blog-Detail-List-text-date">
-                    <p>2021.10.15</p>
-                </div>
-            </div>
-            <div className = "Blog-Detail-List-text">
-                <div className = "Blog-Detail-List-text-subject">
-                    <p>웹 페이지 공부방법</p>
-                </div>
-                <div className = "Blog-Detail-List-text-date">
-                    <p>2021.10.15</p>
-                </div>
-            </div>
-        </div>
-    );
-};
+            
+            {            
+                data.map((datum) => {
+                    if(datum.kind !== "blog") return
+                    if(datum.state !== "show") return
 
-export default BlogDetailList;
+                    return (
+                        <div className = "Blog-Detail-List-text">
+                            {/* 임시로 a tag 사용 : history.push()시 refresh되지 않는 문제 존재 */}
+                            <a href={`/blog/${datum.id}`}> 
+                                <div className = "Blog-Detail-List-text-subject">
+                                    <p>{datum.title}</p>
+                                </div>
+                            </a>
+                            <div className = "Blog-Detail-List-text-date">
+                                <p>{moment(datum.created_at).format("YYYY.MM.DD")}</p>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </div>
+    )    
+}
+
+export default ContentList

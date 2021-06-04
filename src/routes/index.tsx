@@ -68,12 +68,12 @@ const Router:React.FC = () => (
         {/* Blog */}
         <Route path = "/blog" exact component={Blog}/>
         <Route path = "/blog/write" component={BlogWrite}/>
-        <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
+        <Route path = "/blog/:id" component={BlogDetail}/>
 
         {/* BulletinBoard */}
         <Route path = "/post" exact component={Post}/>
         <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/detail" component={PostDetail}/> {/* blog/:id */}
+        <Route path = "/post/detail" component={PostDetail}/> {/* post/:id */}
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>
