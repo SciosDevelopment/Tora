@@ -1,14 +1,24 @@
 import './style/Maintext.scss'
 import moment from 'moment'
-import ReactMarkdown from 'react-markdown'
 import Profile from '../../../../img/profile3.png'
 import Option from '../../../../img/modify.png'
+import { useEffect } from 'react'
+
+import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer'
+import '@toast-ui/editor/dist/toastui-editor-viewer.css'
 
 /* contents markdown부분 참조 : https://velog.io/@alskt0419/React-markdown-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%8B%9C%EC%BC%9C%EB%B3%B4%EA%B8%B0 */
 
 const BlogDetailMaintext = (props) => {
     const {data} = props
-    
+    useEffect(()=>{
+        const viewer = new Viewer({
+            el: document.querySelector('.Blog-Detail-maintext-contents'),
+            initialValue: data.content,
+          })
+
+        console.log(data.content)
+    },[data.content])
     return (
         <div className = "Blog-Detail-maintext-main">
             <div className = "Blog-Detail-maintext-top">
@@ -38,11 +48,7 @@ const BlogDetailMaintext = (props) => {
                         </div>
                     </div>
             </div>
-            <div className = "Blog-Detail-maintext-contents">
-                {/* ReactMarkdown Style 지정 필요 : 위 참조링크 참고 */}
-                {/* 위 방법으로 해결되지 않을 시, tui editor viewer 사용 고려 */}
-                <ReactMarkdown>{data.content}</ReactMarkdown>
-            </div>
+            <div className = "Blog-Detail-maintext-contents"/>
             <div className = "Blog-Detail-view-profile">
                 <img src = {Profile}/> {/* profile image 경로 및 user_id를 통한 id값을 가져오는 부분이 필요 */}
                 <p>{data.user_id}</p>

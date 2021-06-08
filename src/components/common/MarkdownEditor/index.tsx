@@ -2,6 +2,7 @@ import 'codemirror/lib/codemirror.css'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import { Editor } from '@toast-ui/react-editor'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 
 // MIT License
@@ -36,20 +37,27 @@ type EditorProps = {
 
 const MarkdownEditor = (EditorProp) => {
   // https://nhn.github.io/tui.editor/latest/ToastUIEditor
-  const { height, minHeight, initialEditType, editorRef, initialValue} = EditorProp
-
+  const {placeholder, height, minHeight, initialEditType, editorRef, initialValue} = EditorProp
+  const [tempData, setTempData] = useState("")
   useEffect(()=> {
-    editorRef.current.getInstance().getUI().getModeSwitch().hide()
     // console.log(editorRef.current.getInstance().getCodeMirror().getValue())
     // AddImagebutton 제거
     // editorRef.current.getInstance().getUI().getToolbar().removeItem(15)
     // editorRef.current.getInstance().getUI().getToolbar().insertItem(15, "test")    
   }, [])
-  
-  const uploadImage = (blob) => { // 06. 01.
+  const uploadImage = async(blob) => {
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     // 여기서 image url 변환하고 반환
-    console.log(blob)
-    return "www.this.com"
+    var image = new FormData()
+    image.append("content_image[name]", blob)
+    const res = await axios.post(`${SERVER_IP}/api/v1/content_images/create`,image)
+    .then((res)=>SERVER_IP+res.data.url)
+    .catch((e)=>{
+        alert("이미지 파일이 아닙니다.")
+        return ""
+        }
+    )
+    return res
   }
 
   return (
@@ -61,11 +69,13 @@ const MarkdownEditor = (EditorProp) => {
           initialEditType={initialEditType}
           useCommandShortcut={true}
           usageStatistics={false}
+          hideModeSwitch={true}
+          placeholder={placeholder}
           hooks = {
             {
               addImageBlobHook: async(blob, callback) => {
                 const uploadedImageURL = await uploadImage(blob)
-                callback(uploadedImageURL, "description")
+                if(uploadedImageURL !== "") callback(uploadedImageURL, "description")
                 return false
               }
             }

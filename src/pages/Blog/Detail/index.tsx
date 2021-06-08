@@ -26,9 +26,10 @@ const BlogDetailMain = (props) => {
             setWritingList(posts_attr.user_posts)
             setCommentList(posts_attr.comments_list.data)
 
-        }).catch((e)=>{
+        }).catch(()=>{
             // 404 error : 글이 존재하지 않는 경우
-            history.push("/error")
+            alert("글이 존재하지 않습니다.")
+            history.goBack()
         })
     }, [])
 
