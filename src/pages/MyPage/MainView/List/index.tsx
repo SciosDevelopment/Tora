@@ -46,7 +46,9 @@ const MypageViewList:FunctionComponent = () => {
                             </div>
                         </div>
                         <div className="Mypage-view-item-wrap">
-                            <img src = {folder}/>
+                            <div className = "Mypage-view-item-icon">
+                                <img src = {folder}/>
+                            </div>
                             <div className = "Mypage-view-item-view">
                                     {
                                         ProjectListView.map(item => {
@@ -58,7 +60,9 @@ const MypageViewList:FunctionComponent = () => {
                             </div>
                         </div>
                         <div className="Mypage-view-item-wrap">
-                            <img src = {folder}/>
+                            <div className = "Mypage-view-item-icon">
+                                <img src = {folder}/>
+                            </div>
                             <div className = "Mypage-view-item-view">
                                     {
                                         ProjectListView.map(item => {

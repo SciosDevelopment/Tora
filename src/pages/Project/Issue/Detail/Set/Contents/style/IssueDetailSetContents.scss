@@ -1,0 +1,105 @@
+.IssueDetail-Set-Contents{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    .IssueDetail-Set-Contents-main{
+        display: flex;
+        flex-direction: column;
+        width: 87%;
+        height: auto;
+        .IssueDetail-Set-Contents-title{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 2%;
+            margin-left: 2%;
+            .IssueDetail-Set-Contents-info{
+                font-size: 20px;
+                height: 100%;
+            }
+            .IssueDetail-Set-Contents-object{
+                width: 20%;
+                margin-left: 5px;
+                margin-top: 2%;
+                height: 90%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // height: 50%;
+                background: red;
+                border-radius: 20px;
+                // border : solid blue;
+                >p{
+                    // background-color: white;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 9px;
+                    // border-color: red;     
+                }
+            }
+        }
+        .IssueDetail-Set-Contents-text{
+            margin-left: 2%;
+            margin-top: 2%;
+            width: 95%;
+            height: auto;
+            margin-bottom: 2%;
+        }
+    }
+    .IssueDetail-Set-Contents-side{
+        width: 12%;
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        .IssueDetail-Set-Contents-user{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 5%;
+            .IssueDetail-Set-Contents-reply{
+                .IssueDetail-Set-Contents-like{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    >img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    >p{
+                        margin-left: 1px;
+                        font-size: 8px;
+                    }
+                }
+                .IssueDetail-Set-Contents-reply{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        >p{
+                            margin-left: 5%;
+                            font-size: 8px;
+                        }
+                }
+            }
+            .IssueDetail-Set-Contents-profile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                >img{
+                    width: 22px;
+                    height: 27px;
+                }
+                >p{
+                    margin-top: 5%;
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+}

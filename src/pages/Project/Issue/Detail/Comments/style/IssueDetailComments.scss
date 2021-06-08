@@ -1,0 +1,30 @@
+.IssueDetail-Comments{
+    width: 100%;
+    .IssueDetail-Comments-Header{
+        // border: solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 35px;
+        background-color: #D5D5D5;
+        .IssueDetail-Comments-Header-title{
+            font-size: 16px;
+            color: #4D4E53;
+            display: flex;
+            align-items: center;
+            margin-left: 2%;
+        }
+            .IssueDetail-Comments-Header-branch{
+                font-size: 14px;
+                color: #4D4E53;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 20%;
+            }
+    
+    }
+}
+

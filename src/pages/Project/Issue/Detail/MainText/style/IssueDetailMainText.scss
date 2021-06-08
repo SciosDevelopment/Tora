@@ -1,0 +1,81 @@
+@font-face{
+    font-family: "AppleSDGothicNeoM";
+    src : url('../../../../../../fonts/AppleSDGothicNeoM.ttf')
+}
+
+.IssueDetail-Maintext{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow : 6px 20px 60px -20px rgba(112,112,112,0.4);
+    .IssueDetail-Maintext-main{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1%;
+        .IssueDetail-Maintext-contents{
+            display: flex;
+            flex-direction: column;
+            width: 88%;
+            height: 100%;
+            margin-left: 2.5%;
+            // border: solid red;
+            .IssueDetail-Maintext-title{
+                margin-top: 3%;
+                font-size: 22px;
+            }
+            .IssueDetail-Maintext-text{
+                margin-top: 1.5%;
+                font-family: "AppleSDGothicNeoM";
+                font-size: 16px;
+                line-height: 30px;
+            }
+        }
+    
+        .IssueDetail-Maintext-info{
+            width: 12%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .IssueDetail-Maintext-date{
+                font-family: "AppleSDGothicNeoM";
+                font-size: 12px;
+                color: #707070;
+            }
+    
+            .IssueDetail-Maintext-profile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 5%;
+        
+                > img {
+                    width: 35px;
+                    height: 35px;
+                }
+        
+                > p {
+                    font-size: 15px;
+                }
+            }
+        }   
+    }
+    .IssueDetail-Maintext-button{
+        display: flex;
+        justify-content: flex-end;
+        width: 99%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        >input{
+            cursor: pointer;
+            width: 10%;
+            height: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #FFB600;
+            border-radius: 15px;
+        }
+    }
+}
