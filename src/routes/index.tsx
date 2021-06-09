@@ -67,7 +67,6 @@ const Router:React.FC = () => (
 
         {/* Blog */}
         <Route path = "/blog" exact component={Blog}/>
-        <Route path = "/blog/:sorted/:query" component={Blog}/>
         <Route path = "/blog/write" component={BlogWrite}/>
         <Route path = "/blog/:id" component={BlogDetail}/>
 

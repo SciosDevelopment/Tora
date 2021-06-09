@@ -1,25 +1,24 @@
 import './style/Searchbar.scss'
 import SearchIcon from '../../../img/search-navy.png'
-import {useState} from 'react'
+type SearchProps = {
+    SerachText : string
+    onClick: () => void // props none => void
+}
 
 const Searchbar = (SearchProp) => {
-
     const {onClick} = SearchProp
-    const[queryText, setText]=useState("")
-    const Search = ()=>onClick(queryText)
-    
-    const handleChange = (e) => {
-        const{_,value} = e.target
-        setText(value)    
-    }
     return (
         <div className = "Searchbar-container">
-            <input type = "input" placeholder = 'Search' required value = {queryText} onChange = {handleChange} />
+            <input type = "input" placeholder = 'Search' />
             <div>
-                <img src = {SearchIcon} onClick={Search}/>
+                <img src = {SearchIcon} onClick={onClick}/>
             </div>      
         </div>
     )
 }
 
-export default Searchbar
+Searchbar.defaultProps = {
+    SearchText:"",
+    onClick:()=>{console.log("Searchbar onClick default")}
+}
+export default Searchbar;

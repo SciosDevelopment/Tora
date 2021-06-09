@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { history } from '../../../../configureStore'
+//import { history } from '../../../../configureStore'
 import './style/BlogDetailList.scss'
 import moment from 'moment'
 
@@ -26,14 +26,12 @@ const ContentList = (props) => {
 
                     return (
                         <div className = "Blog-Detail-List-text">
-                            <div className = "Blog-Detail-List-text-subject">
-                                {/* 임시 처리 */}
-                                {/*<p onClick={()=> history.push(`/blog/${datum.id}`)}>{datum.title}</p>*/}
-                                <a href={"/blog/" + datum.id}>
+                            {/* 임시로 a tag 사용 : history.push()시 refresh되지 않는 문제 존재 */}
+                            <a href={`/blog/${datum.id}`}> 
+                                <div className = "Blog-Detail-List-text-subject">
                                     <p>{datum.title}</p>
-                                </a>
-                            </div>
-                            
+                                </div>
+                            </a>
                             <div className = "Blog-Detail-List-text-date">
                                 <p>{moment(datum.created_at).format("YYYY.MM.DD")}</p>
                             </div>
