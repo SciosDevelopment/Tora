@@ -1,0 +1,127 @@
+.SNS-accounts{
+    width: 95.5%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    // border: solid 1px black;
+    margin-left: 2%;
+    .SNS-accounts-google{
+        display: flex;
+        flex-direction: row;
+        grid-column: 1/8;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+    }
+    .SNS-accounts-reddit{
+        display: flex;
+        flex-direction: row;
+        grid-column: 10/17;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+
+    }
+    .SNS-accounts-github{
+        display: flex;
+        flex-direction: row;
+        grid-column: 1/8;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+
+    }
+    .SNS-accounts-stackoverflow{
+        display: flex;
+        flex-direction: row;
+        grid-column: 10/17;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+
+    }
+    .SNS-accounts-facebook{
+        display: flex;
+        flex-direction: row;
+        grid-column: 1/8;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+
+    }
+    .SNS-accounts-twitter{
+        display: flex;
+        flex-direction: row;
+        grid-column: 10/17;
+        height: 30px;
+        >img{
+            width: 25px;
+            height: 25px;
+        }
+        >p{
+            margin-left: 4%;
+            width: 95%;
+            padding: 2%;
+            font-size: 15px;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;
+        }
+
+    }
+}
