@@ -9,18 +9,23 @@ import axios from 'axios'
 
 const BlogDetailMain = (props) => {
     const {id} = props.match.params
-    const [BlogPost, setBlogPost] = useState({title:"", tags:"",content:"", created_at:"", view_cnt:0, score:0, user_id:0, comments_count:0})
+    const [BlogPost, setBlogPost] = useState({title:"0", tags:"0",content:"0", created_at:"0", view_cnt:0, score:0, user_id:0, comments_count:0})
     const [WritingList, setWritingList] = useState(Array())
     const [Comments_List, setCommentList] = useState(Array())
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     
     useEffect(()=>{
+        if(id === "best" || id === "new") {
+            history.replace(`/blog/${id}/\n`) 
+            return
+        }
+
         axios.get(`${SERVER_IP}/api/v1/posts/${id}`).then((res)=>{
             const posts_attr = res.data.data.attributes
             const data_ = { title:posts_attr.title, tags:posts_attr.tags,
                             content:posts_attr.content, created_at:posts_attr.created_at,
                             view_cnt:posts_attr.view_cnt, score:posts_attr.score,
-                            user_id:posts_attr.user_id, comments_count:posts_attr.comments_count}
+                            user_id:posts_attr.user_id, comments_count:posts_attr.comments_count }
             
             setBlogPost(data_)
             setWritingList(posts_attr.user_posts)

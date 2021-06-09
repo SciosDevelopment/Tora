@@ -3,7 +3,7 @@ import './style/BlogMain.scss'
 import BlogMainView from './MainView'
 import Header from '../../components/common/Header/Header'
 
-const BlogMain:FunctionComponent = () => {
+const BlogMain:FunctionComponent = (props) => {
     return (
         <>
         <Header/>
@@ -11,7 +11,7 @@ const BlogMain:FunctionComponent = () => {
             {/* <SidebarContainer message="SideMenu"/> */}
 
             <div className="Blog-Main-Section">
-                <BlogMainView/>     
+                <BlogMainView props={props}/>     
             </div> 
             
             <div className="Blog-Main-Aside">
