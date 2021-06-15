@@ -1,12 +1,15 @@
-import { useEffect } from 'react'
-import { history } from '../../../../configureStore'
+import { useEffect, useState } from 'react'
 import './style/BlogDetailList.scss'
 import moment from 'moment'
 
 const ContentList = (props) => {
     const {data} =  props
-    
-    useEffect(()=>{},[])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(()=>{
+        if(data === undefined) return
+        setLoading(false)
+    },[data])
 
     return (
         <div className = "Blog-Detail-List">
@@ -20,10 +23,7 @@ const ContentList = (props) => {
             </div>
             
             {            
-                data.map((datum) => {
-                    if(datum.kind !== "blog") return
-                    if(datum.state !== "show") return
-
+                !loading && data.map((datum) => {
                     return (
                         <div className = "Blog-Detail-List-text">
                             <div className = "Blog-Detail-List-text-subject">
