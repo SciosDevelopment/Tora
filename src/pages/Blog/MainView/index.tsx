@@ -10,13 +10,15 @@ const BlogMainView = (props) =>{
     var {query, sorted} = props.props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [BlogList, setBlogList] = useState(Array())
-
+    const [mIndex, setmIndex] = useState(16)
+    
     useEffect(()=>{
         if(sorted !== "new" || sorted !== "best") sorted = "new"
         if(query==="\n") query=""
         const data = {"post": {"kind": "blog", "search_text": query, "sort": sorted }}
-        axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => setBlogList(res.data.data))
+        axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => {setBlogList(res.data.data)})
         .catch((e)=>{setBlogList(Array())})
+        window.addEventListener('scroll', infiniteScroll, true)
     }, [query])
     
     
@@ -30,20 +32,13 @@ const BlogMainView = (props) =>{
         history.push('/blog/new/'+ text)
     }
 
-    const addItem = () => { // 검색 결과 더보기 : 이 방식대로 진행
-        const newItem = { 
-            key : 1 + BlogList.length,
-            title : "text",
-            desc: "desc",
-            lang: "java",
-            like: 230    
-        }
-
-        const list_ = [...BlogList]
-        list_.push(newItem)
-        setBlogList(list_)
+    const infiniteScroll = () => {
+        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
+        let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+        let clientHeight = document.documentElement.clientHeight
+        if (scrollTop + clientHeight >= scrollHeight) setmIndex(Math.min(BlogList.length, mIndex+12))
     }
-    
+
     return (
         <div className="Blog-View">
         <div className="Blog-View-Title">
@@ -72,21 +67,19 @@ const BlogMainView = (props) =>{
         <div className="Blog-View-List">
                 {
                     BlogList.length !== 0 ?
-                    BlogList.map(item => {
+                    BlogList.map((item, index) => {
+                    if(index >= mIndex) return
                     return <BlogItem id={item.id}
                                   title={item.attributes.title}
                                   desc={item.attributes.content}
-                                  user_id={item.attributes.user_id}
+                                  user_name={item.attributes.user_name}
+                                  user_image={item.attributes.user_photo.url}
                                   score={item.attributes.score}
                         />})
                     : 
                     /* 임시 : page 중요*/
                     <div>Contents is nothing</div> 
                 }
-        </div>
-        
-        <div className="Blog-View-ListBtnArea">
-                <button onClick={addItem} id="BtnAPVListAdd"/>
         </div>
     </div>
     )
