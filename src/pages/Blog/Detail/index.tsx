@@ -70,7 +70,7 @@ const BlogDetailMain = (props) => {
                         <Pagination postsPerPage={postsPerPage} totalPosts={WritingList.length} paginate={setCurPage}/>
                     </div>
                     <div className = "Blog-Detail-comments-view">
-                        <CommentList list={Comments_List} post_id={id} sorting="blog"/>
+                        <CommentList list={Comments_List} post_id={id}/>
                     </div>
                 </div>
             </div>
