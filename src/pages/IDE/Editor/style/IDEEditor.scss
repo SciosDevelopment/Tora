@@ -1,0 +1,47 @@
+.IDE-Editor{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .IDE-Editor-function{
+        width: 100%;
+        height: 23px;
+        border-bottom: solid 2px #707070;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .IDE-Editor-type{
+            min-width: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-left: 27%;
+            align-items: center;
+            border-right: solid 2px #707070;
+            border-left: solid 2px #707070;
+            >p{
+                margin-left: 3%;
+                margin-top: 0.3%;
+                font-size: 12px;
+                color: #d5d5d5;
+            }
+        }
+        .IDE-Editor-splitscreen{
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+    }
+
+    .IDE-Editor-main{
+
+    }
+
+    .IDE-Editor-miniview{
+        position: absolute;
+        width: 160px;
+        height: 255px;
+        left: 91.3%;
+        bottom: 492px;
+    }
+}

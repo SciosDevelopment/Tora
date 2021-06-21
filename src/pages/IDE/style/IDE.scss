@@ -1,0 +1,37 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+
+.IDE{
+    font-family: "AppleSDGothicNeoB";
+    width: 100%;
+    height: 1080px;
+    background-color: #1C2239;
+    display: flex;
+    flex-direction: column;
+    .IDE-Header{
+        width: 100%;
+    }
+    .IDE-Main{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        .IDE-Sidebar{
+        }
+        .IDE-View{
+            width: 97.5%;
+            display: flex;
+            flex-direction: column;
+            .IDE-editor{
+                height: 820px;
+                border-bottom: solid 2px #707070;
+            }
+            .IDE-terminal{
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+}

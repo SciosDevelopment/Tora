@@ -1,0 +1,91 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.IDEHeader{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 2px #707070;
+    .IDEHeader-left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 0.5%;
+        .IDE-logo{
+            >img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .IDE-function{
+            display: flex;
+            justify-content: space-evenly;
+            width: 250px;
+            .IDE-function-dropdown{
+                position : relative;
+                display : inline-block;
+           }
+           
+           .IDE-function-dropdown-btn{
+               display: flex;
+               justify-content: flex-end;
+               align-items: center;
+               background : transparent;
+               color : #fff;
+               border : none;
+               font-family: "AppleSDGothicNeoB";
+               font-size : 15px;
+               
+           }
+           .IDE-function-dropdown-btn:focus{
+               outline : none;
+               border : none;
+           }
+
+           .IDE-function-dropdown-btn:hover{
+            cursor: pointer;
+            background-color: #30364B;
+        }
+           
+           .IDE-function-dropdown-contents{
+               display : none;
+               position : absolute;
+               min-width : 100px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 99;
+           }
+           .IDE-function-dropdown-contents:hover{
+            display : none;
+        }
+           
+           .IDE-function-dropdown-contents a{
+               // color: black;
+               background : #1C2239;
+               color : #fff;
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+               font-size : 14px;
+               // border : solid red;
+           }
+           
+           .IDE-function-dropdown:hover .IDE-function-dropdown-contents {
+               display: block;
+             }
+        }
+    }
+    .IDE-Header-Git-system{
+        width: 430px;
+        margin-right: 10%;
+    }
+    .IDE-Header-right{
+        width: 60px;
+        height: auto;
+        margin-right: 1%;
+        margin-top: 0.5%;
+    }
+}

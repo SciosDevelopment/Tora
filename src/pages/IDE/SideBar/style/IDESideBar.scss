@@ -1,0 +1,39 @@
+.IDE-SideBar{
+    width: 100%;
+    height: 100%;
+    .IDE-SideBar-button{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        .IDE-SideBar-function{
+            width: 100%;
+            height: 1020px;
+            display: flex;
+            flex-direction: column;
+            border-right: solid 2px #707070;
+            .IDE-SideBar-button-icon{
+                width: 55px;
+                margin-top: 20px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                >img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            .IDE-SideBar-button-icon:hover{
+                background-color: #30364B;;
+                border: none;
+                >img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .IDE-SideBar-contents{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.IDE-SideNav{
+    width: 178px;
+    height: 1020px;
+    border-right: solid 2px #707070;
+    >p{
+        color: #ffffff;
+    }
+}
+
+.IDE-SideNav:active{
+    display: block;
+}
