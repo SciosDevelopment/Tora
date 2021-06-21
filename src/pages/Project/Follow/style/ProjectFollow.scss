@@ -27,6 +27,13 @@
                 width: 13px;
                 height: 13px;
             }
+            >input{
+                width: 100%;
+                border: none;
+            }
+            >input:focus{
+                outline: none;
+            }
         }
         .ProjectFollow-side-tab-button{
             display: flex;

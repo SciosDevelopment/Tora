@@ -96,8 +96,8 @@ const ProjectCodeCalendarList:React.FC = () => {
                     </div>
 
                     <div className = "CodeCalendar-List-Searchbar">
-                        <p>Search</p>
-                        <img src = {Searchicon}/>
+                        <input type = "input" placeholder = 'Search' />
+                                <img src = {Searchicon}/>
                     </div>
                     <div className = "CodeCalendar-List-Modify">
                         <img src = {Modify}/>

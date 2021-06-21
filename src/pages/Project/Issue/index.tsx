@@ -24,13 +24,14 @@ const ProjectIssueMain:React.FC = () => {
                         <a>Closed 1800</a>
                     </div>
                     <div className = "Issue-main-sort-Issuelist">
-                        <p>Iusse list</p>
-                        <div className = "Issuelist-arrow">
-                        </div>
+                    <select>
+                        <option>Issue List</option>
+                        <option>Issue List2</option>
+                    </select>
                     </div>
 
                     <div className = "Issue-main-sort-search">
-                        <p>Search</p>
+                        <input type = "text" placeholder ="Search"/>
                         <img src = {Searchicon}/>
                     </div>
                 </div>
@@ -40,7 +41,7 @@ const ProjectIssueMain:React.FC = () => {
                     <IssueItem
                         title = "Scripts"
                         version = "Version 1.02"
-                        context = {`fix(CLI): Ensure to not fallback to Framework on components run error`}
+                        context = {`fix(CLI): Ensure to not fallback to Framework on components run errorasdasdasdasdasdasdasdasdasd`}
                         tag = "Ruby"
                         time = "21 on 11 Non 2020"
                         counter1 = {1}

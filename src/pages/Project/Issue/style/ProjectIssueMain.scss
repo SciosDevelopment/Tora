@@ -87,15 +87,12 @@
                 width: 80%;
                 align-items: center;
                 justify-content: space-evenly;
-                >p{
+                >select{
+                    border: none;
+                    background-color: #1c2239;
                     font-size: 12px;
+                    font-weight: bold;
                     color: #ffffff;
-                }
-                .Issuelist-arrow{
-                    height: 3px;
-                    border-top: 11px solid #ffffff;/* 화살표 */
-                    border-left: 7px solid transparent;
-                    border-right: 7px solid transparent;
                 }
             }
 
@@ -108,12 +105,17 @@
                 height: 65%;
                 justify-content: space-between;
                 border-bottom: solid 1px #ffffff;
-                >p{
+                >input{
+                    background-color: #1C2239;
+                    width: 100%;
+                    border: none;
                     color: #ffffff;
-                    height: 12px;
-                    font-size: 13px;
-                    margin-top: 14px;
+                    margin-top: 5px;
                 }
+                >input:focus{
+                    outline: none;
+                }
+
                 >img{
                     width: 13px;
                     height: 13px;

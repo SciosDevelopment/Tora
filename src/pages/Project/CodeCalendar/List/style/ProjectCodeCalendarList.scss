@@ -47,6 +47,13 @@
                     width: 13px;
                     height: 13px;
                 }
+                >input{
+                    width: 100%;
+                    border: none;
+                }
+                >input:focus{
+                    outline:none;
+                }
             }
             .CodeCalendar-List-Modify{
                 width: 5%;

@@ -13,12 +13,11 @@
             height : 100%;
             display : flex;
             >select{
-                width : 90%;
+                width : 80%;
                 height : 100%;
                 background : transparent;
                 border : none;
                 outline: none;
-                padding-left: 10%;
                 font-size: 15px;
                 font-weight: bold;
                 >option{
@@ -28,7 +27,7 @@
             }
         }
         .ProjectFile-Header-branch{
-            width : 10%;
+            width : 9%;
             height : 100%;
             display : flex;
             justify-content: center;
@@ -40,7 +39,6 @@
                 background : transparent;
                 border : none;
                 outline: none;
-                padding-left: 10%;
                 font-size: 15px;
                 font-weight: bold;
                 >option{

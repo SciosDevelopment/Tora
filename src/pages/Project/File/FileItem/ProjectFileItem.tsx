@@ -14,7 +14,8 @@ const ProjectFileItem = () => {
                 <p>{`CONTRIBUTING.md`}</p>
             </div>
             <div className = "ProjectFile-Item-commit-message">
-                <p>{`fix(CLI): Ensure to not fallback to Framework on components run error`}</p>
+                <p>{`fix(CLI): Ensure to not fallback to Framework on components run error
+                asdasdasdasdadasdasdasdasdasdasdasdasdasdasasdasdasdasd`}</p>
             </div>
             <div className = "ProjectFile-Item-info">
                 <div className = "ProjectFile-Item-date">

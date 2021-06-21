@@ -66,6 +66,9 @@
         >p{
             font-size : 9px;
             font-weight : 600;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
         }
         // border : solid green;
     }

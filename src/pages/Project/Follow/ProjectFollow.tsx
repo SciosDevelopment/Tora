@@ -9,7 +9,7 @@ const ProjectFollow= () => {
         <div className = "ProjectFollow">
             <div className = "ProjectFollow-side-tab">
                 <div className = "ProjectFollow-side-tab-searchbar">
-                    <p>Search</p>
+                    <input type = "input" placeholder = 'Search' />
                     <img src = {Searchicon}/>
                 </div>
                 <div className = "ProjectFollow-side-tab-button">

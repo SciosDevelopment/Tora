@@ -41,19 +41,18 @@
         }
     }
     .ProjectFile-Item-commit-message{
-        grid-column: 9/22;
+        grid-column: 8/20;
         width: 100%;
         height : 100%;
-        display : flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        display : inline-flex;
         align-items: center;
         margin-top: 0.5%;
-        overflow: hidden;
-
         >p{
             font-size : 12px;
             font-weight : bold;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
             
         }
     }

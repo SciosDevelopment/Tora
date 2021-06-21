@@ -14,10 +14,10 @@ const ProjectFollowIssueRequest = () => {
                     <p>Branch</p>
                 </div>
                 <div className = "ProjectFollow-IssueRequest-branch-list">
-                    <p>Assignees</p>
+                    <label id="b1">Assignees</label>
                     <p>Version 1.0.2</p>
                     <p>Branch select</p>
-                    <input type = "button"/>
+                    <input type = "radio" name="rd_1" id = "b1" value="Assignees"/>
                 </div>
             </div>
             <div className = "ProjectFollow-IssueRequest-button">

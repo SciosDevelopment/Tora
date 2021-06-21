@@ -43,7 +43,7 @@ const ProjectMain = (props) => {
             case "licensewrite":
                 return token_.LicenseWrite
             default:
-                return token_.NOTHING
+                return token_.Main
         }
     }
 
