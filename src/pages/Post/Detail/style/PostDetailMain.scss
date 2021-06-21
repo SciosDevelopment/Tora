@@ -45,4 +45,36 @@
             }
         }
     }
+    .Post-Detail-Option {
+        position:relative;
+        top:30px;
+        left:-10px;
+        width: 65px;
+        height: 70px;
+        z-index: 30;
+        border: 1px solid black;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .btnOption {
+            font-family: "AppleSDGothicNeoM";
+            font-size:18px;
+            width: 100%;
+            margin-left : 0;
+            margin-right: 0;
+            height: 50%;    
+            border:none;
+        }
+    }
+
+    .Post-Detail-Option-disappear {
+        position:relative;
+        top:30px;
+        left:-10px;
+        width: 67px;
+        height: 72px;
+        z-index: 30;
+        border:none;
+        overflow: hidden;
+    }
 }

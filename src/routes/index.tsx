@@ -74,8 +74,10 @@ const Router:React.FC = () => (
 
         {/* Post */}
         <Route path = "/post" exact component={Post}/>
+        <Route path = "/post/edit/:id" component={PostWrite}/>
         <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/detail" component={PostDetail}/> {/* post/:id */}
+        <Route path = "/post/:sorted/:query" component={Post}/>
+        <Route path = "/post/:id" component={PostDetail}/>
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>

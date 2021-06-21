@@ -5,16 +5,7 @@ import profile from '../../../../img/profile.png'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 
-interface ProjectProps {
-    id : number,
-    title : string,
-    desc: string,
-    user_name: string,
-    score: number,
-    user_image: string
-}
-
-const BlogItem:FunctionComponent<ProjectProps> = (Props:ProjectProps) =>{
+const BlogItem = (Props) =>{
 
     const {id, title, desc, user_name, score, user_image} = Props
     useEffect(()=>{console.log(user_image)},[])

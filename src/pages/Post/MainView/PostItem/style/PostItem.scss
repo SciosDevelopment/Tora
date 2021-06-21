@@ -1,4 +1,4 @@
-.BulletinBoard-item-main-container{
+.Post-item-main-container{
     width : 100%;
     height : 62px;
     display : grid;
@@ -6,9 +6,9 @@
     border-top : 2px solid #707070;
     // border: solid red;
     
-    .BulletinBoard-item-name-text-area{
+    .Post-item-name-text-area{
         grid-column: 1/9;
-        .BulletinBoard-item-name-area{
+        .Post-item-name-area{
             // width : 100%;
             display: flex;
             // justify-content: center;
@@ -19,7 +19,7 @@
                 // font-weight : bold;
             }
         }
-        .BulletinBoard-item-text-area{
+        .Post-item-text-area{
             width : 100%;
             display: flex;
             flex-direction: row;
@@ -37,7 +37,7 @@
     
 }
 
-    .BulletinBoard-item-profile-tag{
+    .Post-item-profile-tag{
         grid-column: 9/12;
         width: 100%;
         height: 35%;
@@ -60,7 +60,7 @@
         }
     }
 
-    .BulletinBoard-item-icon-area{
+    .Post-item-icon-area{
         grid-column: 15/19;
         width : 100%;
         display : flex;
@@ -69,7 +69,7 @@
         align-items: center;
         // border: solid red;
 
-        .BulletinBoard-item-img{
+        .Post-item-img{
             width: 10%;
             height : 100%;
             display : flex;
@@ -86,7 +86,7 @@
             }
         }
         
-            .BulletinBoard-item-icon{
+            .Post-item-icon{
                 width: 70%;
                 display: flex;
                 flex-direction: row;
@@ -95,7 +95,7 @@
                 height: 60%;
                 // border: solid red;
                 
-                .BulletinBoard-item-icon2{
+                .Post-item-icon2{
                     height : 100%;
                     display : flex;
                     flex-direction: row;
@@ -109,7 +109,7 @@
                         font-size: 9px;
                     }
                 }
-                .BulletinBoard-item-icon3{
+                .Post-item-icon3{
                     height : 100%;
                     display : flex;
                     flex-direction: row;
@@ -123,7 +123,7 @@
                         font-size: 9px;
                     }
                 }
-                .BulletinBoard-item-icon4{
+                .Post-item-icon4{
                     height : 100%;
                     display : flex;
                     flex-direction: row;
