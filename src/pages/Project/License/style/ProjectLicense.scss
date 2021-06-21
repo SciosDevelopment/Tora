@@ -1,0 +1,148 @@
+.Project-License{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    .Project-License-button{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .Issue-main-existing-license-button{
+            height : 100%;
+            // background : #c0c0c0;
+            border-radius: 10px;
+            color :  #1C2239;
+            border : none;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 20px;
+            background: transparent;
+        }
+        .Issue-main-new-license-button{
+            height : 100%;
+            // background : #c0c0c0;
+            border-radius: 10px;
+            color :  #1C2239;
+            border : none;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            background: transparent;
+        }
+    }
+    .Project-License-tab-main{
+        width : 100%;
+        background: #ffffff;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        .Project-License-tab-title{
+            width : 95%;
+            height : 45px;
+            display : flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            border-bottom : 2px solid #707070;
+            overflow-x : hidden;
+            margin-top: 15px;
+            .tab-left-btn{
+                display : flex;
+                justify-content: center;
+                align-items: center;
+                position : relative;
+                left : 1;
+                background : transparent;
+                border : none;
+                margin-right : 10px;
+                cursor: pointer;
+                >img{
+                    width : 12px;
+                    height: 16px;
+                }
+            }
+            .Project-License-tab{
+                // max-width : 900px;
+                // width : 60vw; 
+                width : 100%;
+                display : flex;
+                flex-direction: row;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                // overflow : -moz-scrollbars-vertical;
+                
+    
+    
+                .Project-License-tab-closed{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width : 150px;
+                    font-size : 16px;
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 5px;
+                    border-bottom: 0;
+                    cursor: pointer;
+                }
+                .Project-License-tab-clicked{
+                    min-width: 150px;
+                    padding: 5px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background : #1C2239;
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                    border : 3px solid #1C2239;
+                    // border-bottom: 0;
+                    cursor: pointer;
+    
+                    //font
+                    font-size : 16px;
+                    text-align: center;
+                    color: #ffffff;
+        
+        
+                }
+            }
+            
+    
+            .tab-right-btn{
+                // position : relative;
+               
+                display : flex;
+                justify-content: center;
+                align-items: center;
+                
+                right : 1;
+                background : transparent;
+                border : none;
+                margin-left : 10px;
+                cursor: pointer;
+                
+                >img{
+                    width : 12px;
+                    height: 16px;
+                }
+            }
+        }
+    
+        .Project-License-tab::-webkit-scrollbar{
+            height : 0px;
+            visibility: hidden;
+        }
+        .Project-License-tab-body{
+            height: auto;
+            margin-top : 10px;
+            width: 95%;
+            min-height : 700px;
+            border : 2px solid #707070;
+        }
+    }
+    
+}

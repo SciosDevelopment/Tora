@@ -22,7 +22,6 @@
             display: flex;
             align-items: flex-end;
             margin-top: 10px;
-            
             .Issue-main-new-issue-button{
                 width : 100%;
                 height : 60%;
@@ -32,9 +31,8 @@
                 border : none;
                 font-size: 15px;
                 font-weight: bold;
-            }
-            .Issue-main-new-issue-button{
-                // outline : none;
+                cursor: pointer;
+                background: transparent;
             }
         }
 
@@ -94,9 +92,8 @@
                     color: #ffffff;
                 }
                 .Issuelist-arrow{
-                    width: 2px;
                     height: 3px;
-                    border-top: 10px solid #ffffff;/* 화살표 */
+                    border-top: 11px solid #ffffff;/* 화살표 */
                     border-left: 7px solid transparent;
                     border-right: 7px solid transparent;
                 }
@@ -130,13 +127,21 @@
                 }
             }
         }
-
         .Issue-main-area{
             width : 100%;
-            height : 700px;
-            overflow-x: hidden;
-            overflow-y : scroll;
-            // border : solid red;
+            height : auto;
+            .Issue-main-Item-button{
+                border: none;
+                width: 100%;
+                background-color: #F6F7FC;
+                cursor: pointer;
+            }
+            .Issue-main-Item-button:hover{
+                border: none;
+                width: 100%;
+                background-color: #E8EAF3;
+                cursor: pointer;
+            }
         }
         .Issue-main-area::-webkit-scrollbar{
             display: block;

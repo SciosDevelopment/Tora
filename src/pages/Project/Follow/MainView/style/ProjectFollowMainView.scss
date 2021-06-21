@@ -1,0 +1,29 @@
+.ProjectFollow-MainView{
+    width: 100%;
+    height: auto;
+    .ProjectFollow-MainView-item{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+    .ProjectFollow-MainView-set{
+        position: relative;
+        width: 35%;
+        height: 300px;
+        left: 110%;
+        bottom: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .ProjectFollow-MainView-issue-request{
+            width: 100%;
+            height: 47%;
+            // border: solid 1px #707070;
+        }
+        .ProjectFollow-MainView-authority{
+            width: 100%;
+            height: 47%;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.CodeCalendar-ListView{
+    width: 88%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    padding-left: 8%;
+    .CodeCalendar-ListView-title{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .CodeCalendar-ListView-name{
+            display: flex;
+            align-items: center;
+            color: red;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .CodeCalendar-ListView-date{
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            color: #707070;
+        }
+    }
+    .CodeCalendar-ListView-text{
+        height: 90%;
+        font-size: 14px;
+        line-height: 25px;
+        .CodeCalendar-ListView-Profile{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 12px;
+            margin-top: 8%;
+            >img{
+                width: 24px;
+                height: 24px;
+                margin-right: 6%;
+            }
+        }
+    }
+}

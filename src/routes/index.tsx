@@ -38,6 +38,9 @@ import MyPageSet from '../pages/MyPage/Set/MyPageSetMain'
 //ProjectMain
 import ProjectMain from '../pages/Project'
 
+//IDE
+import IDE from '../pages/IDE'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -81,6 +84,12 @@ const Router:React.FC = () => (
         
         {/* Project */}
         <Route path = "/project" exact component={ProjectMain}/>
+        <Route path = "/project/:token" component={ProjectMain}/>
+        <Route path = "/project/:token/:id" component={ProjectMain}/>
+
+        {/* IDE */}
+        <Route path = "/ide" exact component={IDE}/>
+
     </Switch>
 )
 

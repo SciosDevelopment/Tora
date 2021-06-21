@@ -12,7 +12,7 @@ const ProjectIssueMain:React.FC = () => {
         <div className = "Issue-main">
             <div className = "Issue-main-function-header">
                 <div className = "Issue-main-function-new-issue-button">
-                    <NavLink exact to = "/project/issue/write"><button className = "Issue-main-new-issue-button">New Issue</button></NavLink>
+                    <NavLink exact to = "/project/issuewrite"><button className = "Issue-main-new-issue-button">New Issue</button></NavLink>
                 </div>
             </div>
             <div className = "Issue-main-area-wrapper">
@@ -36,7 +36,7 @@ const ProjectIssueMain:React.FC = () => {
                 </div>
                 <div className = "Issue-main-area">
 
-
+                    <NavLink exact to = "/project/issuedetail"><button className = "Issue-main-Item-button">
                     <IssueItem
                         title = "Scripts"
                         version = "Version 1.02"
@@ -46,7 +46,7 @@ const ProjectIssueMain:React.FC = () => {
                         counter1 = {1}
                         counter2 = {2}
                     />
-                    
+                    </button></NavLink>
                 </div>
             </div>
         </div>

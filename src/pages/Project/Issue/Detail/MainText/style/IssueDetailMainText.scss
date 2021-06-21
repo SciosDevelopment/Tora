@@ -20,7 +20,6 @@
             width: 88%;
             height: 100%;
             margin-left: 2.5%;
-            // border: solid red;
             .IssueDetail-Maintext-title{
                 margin-top: 3%;
                 font-size: 22px;
@@ -35,6 +34,7 @@
     
         .IssueDetail-Maintext-info{
             width: 12%;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -49,7 +49,6 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-bottom: 5%;
         
                 > img {
                     width: 35px;

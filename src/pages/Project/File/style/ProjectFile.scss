@@ -1,0 +1,90 @@
+.ProjectFile{
+    width: 100%;
+    height: auto;
+    .ProjectFile-Header-select{
+        width : 100%;
+        height: auto;
+        display : flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-bottom: 1%;
+        .ProjectFile-Header-code{
+            width : 10%;
+            height : 100%;
+            display : flex;
+            >select{
+                width : 90%;
+                height : 100%;
+                background : transparent;
+                border : none;
+                outline: none;
+                padding-left: 10%;
+                font-size: 15px;
+                font-weight: bold;
+                >option{
+                    background : transparent;
+                    text-align: center;
+                }
+            }
+        }
+        .ProjectFile-Header-branch{
+            width : 10%;
+            height : 100%;
+            display : flex;
+            justify-content: center;
+            // border : solid red;
+    
+            >select{
+                width : 100%;
+                height : 100%;
+                background : transparent;
+                border : none;
+                outline: none;
+                padding-left: 10%;
+                font-size: 15px;
+                font-weight: bold;
+                >option{
+                    background : transparent;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .ProjectFile-Main{
+        width: 100%;
+        height: 100%;
+        .ProjectFile-Header{
+            width: 100%;
+        }
+        .ProjectFile-List{
+            width: 100%;
+            .ProjectFile-List-Item-button{
+                border: none;
+                width: 100%;
+                background-color: #F6F7FC;
+                cursor: pointer;
+            }
+            .ProjectFile-List-Item-button:hover{
+                border: none;
+                width: 100%;
+                background-color: #E8EAF3;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .ProjectFile-Search{
+        width: 22%;
+        max-height: 215px;
+        position: relative;
+        left: 105%;
+        bottom: 140px;
+    }
+    .ProjectFile-Connect{
+        width: 26%;
+        max-height: 215px;
+        position: relative;
+        left: 105%;
+        bottom: 60px;
+    }
+}

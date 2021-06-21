@@ -36,7 +36,7 @@ const IssueItem:React.FC<IssueMainItem> = (Props) => {
                 </div>
             </div>
             <div className = "Issue-main-item-sub">
-                <div className = "Issue-main-item-time">
+                <div className = "Issue-main-item-date">
                     <p>{time}</p>
                 </div>
                 <div className = "Issue-main-item-sub2">
