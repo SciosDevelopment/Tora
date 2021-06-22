@@ -63,9 +63,19 @@
                     }
     
                     .Blog-write-tag{
-                        margin-left: 18px;
-                        font-size: 15px;
-                        color: #585A61;
+                        margin-left: 15px;
+                        
+                        > input {
+                            width: 97.5%;
+                            font-size:15px;
+                            border:none;
+                            color: #585A61;
+                            font-weight: bold;
+                        }
+
+                        input::placeholder {
+                            color: #585A61;
+                        }
                     }
                 
             }
@@ -106,6 +116,10 @@
                     font-size: 15px;
                     color: #ffffff;
                     background-color: #1C2239;
+                }
+                
+                > input:first-child {
+                   margin-right: 10px;
                 }
             }
         }

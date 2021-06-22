@@ -70,13 +70,17 @@ const Router:React.FC = () => (
 
         {/* Blog */}
         <Route path = "/blog" exact component={Blog}/>
+        <Route path = "/blog/edit/:id" component={BlogWrite}/>
         <Route path = "/blog/write" component={BlogWrite}/>
-        <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
+        <Route path = "/blog/:sorted/:query" component={Blog}/>
+        <Route path = "/blog/:id" component={BlogDetail}/>
 
-        {/* BulletinBoard */}
+        {/* Post */}
         <Route path = "/post" exact component={Post}/>
+        <Route path = "/post/edit/:id" component={PostWrite}/>
         <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/detail" component={PostDetail}/> {/* blog/:id */}
+        <Route path = "/post/:sorted/:query" component={Post}/>
+        <Route path = "/post/:id" component={PostDetail}/>
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>

@@ -16,7 +16,7 @@ const OptionContainer:FunctionComponent = ()=> {
     return (
         <div className="OptionContainer">
             <div className="optionGroup">
-                <div className="option"><img src={Setting} onClick={()=>openPage('/community')}/></div>
+                <div className="option"><img src={Setting} onClick={()=>openPage('/blog/write')}/></div>
                 <div className="option"><img src={Mypage} onClick={()=>openPage('/mypage')}/></div>
                 {
                 cookies.ToraID !== undefined ?

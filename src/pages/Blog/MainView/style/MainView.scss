@@ -95,27 +95,6 @@ select::-ms-expand {display:none;} // IE10,11의 네이티브 화살표 숨기�
     grid-row-gap: 21px;
 }
 
-
-
-.Blog-View-ListBtnArea {
-    margin-top: 60px;
-    width:100%;
-    height: 100%;
-    text-align: center;
-    // border: solid red;
-    
-
-    .BtnAPVListAdd{
-        border: solid red;
-        width:35px;
-        height: 35px;
-        // background: url(../../../../../img/folder.png) no-repeat;
-        background-size: cover;
-        border:none;
-        
-    }
-}
-
 // 임시 조정 : 세부디자인 결정후 모두 수정할 예정.
 @media (max-width:1290px) {
     .Blog-View-Title P { 
@@ -127,8 +106,5 @@ select::-ms-expand {display:none;} // IE10,11의 네이티브 화살표 숨기�
 @media (max-width:1085px) {
     .Blog-View-Title P { 
         font-size:16px;
-    }
-    .InputBlog-View-Search {
-        font-size:0.8em;
     }
 }

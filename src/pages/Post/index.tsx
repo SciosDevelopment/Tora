@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {FunctionComponent} from 'react'
 import './style/PostMain.scss'
 import Header from 'src/components/common/Header/Header'
 import PostMainView from './MainView'
 
-const PostMain:React.FC = () => {
+const PostMain:FunctionComponent = (props) => {
     return (
         <>
         <Header/>
         <div className = "Post-Main">
             <div className = "Post-Main-result">
-                <PostMainView/>
+                <PostMainView props={props}/>
             </div>
         </div>
         </>
