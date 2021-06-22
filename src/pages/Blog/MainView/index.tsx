@@ -36,7 +36,7 @@ const BlogMainView = (props) =>{
         let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
         let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop)
         let clientHeight = document.documentElement.clientHeight
-        if (scrollTop + clientHeight >= scrollHeight) setmIndex(Math.min(BlogList.length, mIndex+12))
+        if (scrollTop + clientHeight >= scrollHeight) setmIndex(mIndex+12)
     }
 
     return (

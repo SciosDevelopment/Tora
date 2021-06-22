@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 const BlogItem = (Props) =>{
 
     const {id, title, desc, user_name, score, user_image} = Props
-    useEffect(()=>{console.log(user_image)},[])
+    
     return (
         <div className="Blog-Item">
             <Link to = {`/blog/${id}`}>
