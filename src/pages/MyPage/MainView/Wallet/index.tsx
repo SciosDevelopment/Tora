@@ -6,11 +6,11 @@ const MyPageWallet = () => {
     return (
         <div className = "Mypage-view-wallet-main">
             <div className = "Mypage-view-wallet-balance">
-                <img src = {Walleticon}/>
+                <img src = {Walleticon} alt=""/>
                 <p>4200</p>
             </div>
             <div className = "Mypage-view-wallet-function">
-                <div className = "Mypage-view-wallet-breakdown">
+                <div className = "Mypage-view-wallet-details">
                     <span>지갑내역</span>
                 </div>
                 <div className = "Mypage-view-wallet-send">

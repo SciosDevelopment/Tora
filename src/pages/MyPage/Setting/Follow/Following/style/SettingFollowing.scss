@@ -1,0 +1,17 @@
+.Setting-following-main{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    width: 100%;
+    
+    .Setting-following-personal-view{
+        margin: 0 0 14% 0;
+        grid-column: 1/16;
+
+        .Setting-following-personal-item{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 21px;
+            grid-row-gap: 21px;
+        }
+    }
+}

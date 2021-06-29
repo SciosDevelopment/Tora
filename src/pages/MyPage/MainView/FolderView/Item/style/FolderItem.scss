@@ -1,0 +1,121 @@
+.Mypage-folder-item {
+    width:100%;
+    max-width: 94px;
+    height: 100%;
+    max-height: 100px;
+    border-radius: 15px;
+    background-color: #FFF;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    display:inline-flex;
+   
+
+    
+}
+
+.Mypage-LeftSide{
+    width:100%;
+    min-width: 75px;
+}
+.Mypage-folder-item-profile{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4px;
+    
+    .Mypage-folder-item-profile-thumbnail{
+        width: 93px;
+        height: 41px;
+        // border: solid 1px #707070;
+        // margin-left: 10px;
+        // margin-top: 5px;
+    }
+}
+
+.Mypage-folder-item-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    .Mypage-folder-item-title{
+        display: flex;
+        flex-direction: column;
+
+        .Mypage-folder-item-name{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 4px;
+            >p{
+                font-size: 10px;
+            }
+            .Mypage-folder-item-Like{
+                height: 10%;
+                // border: solid red;
+                padding-bottom: 20%;
+                >p{
+                    font-size: 10px;
+                }
+                >img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+            .Mypage-folder-item-Like {
+                align-items: center;
+                display : flex;
+                // position: absolute;
+                bottom: 0;
+                right:0;
+                font-size: 8px;
+                // margin-bottom: 20px;
+                // border: solid red;
+            }
+            
+            .Mypage-folder-item-Like img {
+                margin-right : 2px;
+                // width: 14px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    .Mypage-folder-item-participants {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .Mypage-folder-item-personnel{
+            display: flex;
+            flex-direction: row;
+            padding-left: 10px;
+            // justify-content: space-evenly;
+            img{
+                margin-right: 2px;
+                width: 10px;
+                height: 10px;
+            }
+            // border: solid red;
+        }
+        .Mypage-folder-item-participation{
+            display: flex;
+            flex-direction: row;
+            .Mypage-folder-item-videomessage{
+                margin-right: 3px;
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+            .Mypage-folder-item-communication{
+                // border: solid red;
+                margin-right: 5px;
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+        
+    }
+}
+
+
+

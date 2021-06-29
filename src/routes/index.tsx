@@ -33,7 +33,7 @@ import PostDetail from '../pages/Post/Detail'
 
 //MyPage
 import MyPage from '../pages/MyPage'
-import MyPageSet from '../pages/MyPage/Set/MyPageSetMain'
+import MyPageSetting from '../pages/MyPage/Setting'
 
 //ProjectMain
 import ProjectMain from '../pages/Project'
@@ -84,7 +84,7 @@ const Router:React.FC = () => (
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>
-        <Route path = "/mypage/set" component={MyPageSet}/>
+        <Route path = "/mypage/setting" component={MyPageSetting}/>
         
         {/* Project */}
         <Route path = "/project" exact component={ProjectMain}/>

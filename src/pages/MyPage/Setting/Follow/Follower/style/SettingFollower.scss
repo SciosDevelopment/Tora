@@ -1,0 +1,24 @@
+.Setting-follower-main{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    width: 100%;
+    .Setting-follower-project-view{
+        grid-column: 1/16;
+        .Setting-follower-project-item{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 21px;
+            grid-row-gap: 21px;
+        }
+    }
+    .Setting-follower-personal-view{
+        margin: 10% 0 15% 0;
+        grid-column: 1/16;
+        .Setting-follower-personal-item{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 21px;
+            grid-row-gap: 21px;
+        }
+    }
+}
