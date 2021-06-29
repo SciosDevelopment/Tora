@@ -1,0 +1,36 @@
+.ChatRoom-Searchbar{
+    min-width: 411px;
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #FFB600;
+    .ChatRoom-Searchbar-main{
+        width: 70%;
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom:solid 2px #1c2239;
+        margin-left: 10%;
+        >input{
+            border: none;
+            background: transparent;
+        }
+        >input:focus{
+            outline: none;
+        }
+        >img{
+            width: 16px;
+            height: 17px;
+        }
+    }
+    .ChatRoom-Searchbar-exit{
+        position: relative;
+        left: 5%;
+        top: 5%;
+    }
+}

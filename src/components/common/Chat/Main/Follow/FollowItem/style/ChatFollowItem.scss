@@ -1,0 +1,46 @@
+.ChatFollow-Item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2%;
+    .ChatFollow-Item-Profile{
+        margin-left: 3%;
+        font-size: 15px;
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow:hidden;
+        >img{
+            width: 36px;
+            height: 39px;
+            margin-right: 5%;
+        }
+    }
+    .ChatFollow-Item-button{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        >input{
+            width: 48px;
+            height: 23px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: solid 2px #1c2239;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 1px;
+        }
+        >input:hover{
+            background-color: #E2E1E1;
+        }
+        >img{
+            width: 26px;
+            height: 26px;
+        }
+    }
+}

@@ -33,13 +33,16 @@ import PostDetail from '../pages/Post/Detail'
 
 //MyPage
 import MyPage from '../pages/MyPage'
-import MyPageSetting from '../pages/MyPage/Setting'
+// import MyPageSet from '../pages/MyPage/Set/MyPageSetMain'
 
 //ProjectMain
 import ProjectMain from '../pages/Project'
 
 //IDE
 import IDE from '../pages/IDE'
+
+//Chat
+import Chat from '../components/common/Chat'
 
 const Router:React.FC = () => (
     <Switch>
@@ -70,21 +73,17 @@ const Router:React.FC = () => (
 
         {/* Blog */}
         <Route path = "/blog" exact component={Blog}/>
-        <Route path = "/blog/edit/:id" component={BlogWrite}/>
         <Route path = "/blog/write" component={BlogWrite}/>
-        <Route path = "/blog/:sorted/:query" component={Blog}/>
-        <Route path = "/blog/:id" component={BlogDetail}/>
+        <Route path = "/blog/detail" component={BlogDetail}/> {/* blog/:id */}
 
-        {/* Post */}
+        {/* BulletinBoard */}
         <Route path = "/post" exact component={Post}/>
-        <Route path = "/post/edit/:id" component={PostWrite}/>
         <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/:sorted/:query" component={Post}/>
-        <Route path = "/post/:id" component={PostDetail}/>
+        <Route path = "/post/detail" component={PostDetail}/> {/* blog/:id */}
 
         {/* MyPage */}
         <Route path = "/mypage" exact component={MyPage}/>
-        <Route path = "/mypage/setting" component={MyPageSetting}/>
+        {/* <Route path = "/mypage/set" component={MyPageSet}/> */}
         
         {/* Project */}
         <Route path = "/project" exact component={ProjectMain}/>
@@ -93,6 +92,11 @@ const Router:React.FC = () => (
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
+
+        {/* Chat */}
+        <Route path = "/chat" exact component={Chat}/>
+        <Route path = "/chat/:token" component={Chat}/>
+        <Route path = "/chat/:token/:id" component={Chat}/>
 
     </Switch>
 )
