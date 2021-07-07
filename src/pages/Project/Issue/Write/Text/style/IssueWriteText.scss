@@ -83,19 +83,35 @@
             .Issue-write-button{
                 display: flex;
                 justify-content: flex-end;
-                margin-right: 1%;
+                width: 100%;
                 margin-top: 1%;
                 margin-bottom: 1%;
-
-                >input{
-                    width: 9%;
-                    height: 30px;
-                    border-radius: 10px;
-                    font-weight: bold;
-                    font-size: 15px;
-                    color: #ffffff;
-                    background-color: #1C2239;
+                .Issue-write-check-btn{
+                    width: 13%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 12px;
+                    margin-right: 2%;
+                    >p{
+                        margin-top: 1%;
+                    }
                 }
+                .Issue-write-create-btn{
+                    width: 8%;
+                    margin-right: 1%;
+                    >input{
+                        width: 100%;
+                        height: 30px;
+                        border-radius: 10px;
+                        font-weight: bold;
+                        font-size: 15px;
+                        color: #ffffff;
+                        background-color: #1C2239;
+                    }
+                }
+
             }
         }
 

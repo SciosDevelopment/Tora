@@ -11,39 +11,6 @@
         flex-direction: column;
         width: 87%;
         height: auto;
-        .IssueDetail-Set-Contents-title{
-            width: 30%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-top: 2%;
-            margin-left: 2%;
-            .IssueDetail-Set-Contents-info{
-                font-size: 20px;
-                height: 100%;
-            }
-            .IssueDetail-Set-Contents-object{
-                width: 20%;
-                margin-left: 5px;
-                margin-top: 2%;
-                height: 90%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // height: 50%;
-                background: red;
-                border-radius: 20px;
-                // border : solid blue;
-                >p{
-                    // background-color: white;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 9px;
-                    // border-color: red;     
-                }
-            }
-        }
         .IssueDetail-Set-Contents-text{
             margin-left: 2%;
             margin-top: 2%;

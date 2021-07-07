@@ -49,7 +49,7 @@ const ServiceMain:React.FC = () => {
                         <div className = "Service-main-ask-main">
                             <div className = "Service-main-ask-view">
                                 <div className = "Service-main-ask-text">
-                                    <p>Asking</p>
+                                    <p>QnA</p>
                                 </div>
                                 <div className = "Service-main-ask-subtext">  
                                     <p>What types of questions should I avoid asking?</p>
@@ -62,7 +62,7 @@ const ServiceMain:React.FC = () => {
                             
                             <div className = "Service-main-ask-view">
                                 <div className = "Service-main-ask-text">
-                                    <p>Answering</p>
+                                    <p>Use the Tora</p>
                                 </div>
                                 <div className = "Service-main-ask-subtext">  
                                     <p>How do I write a good answer?</p>

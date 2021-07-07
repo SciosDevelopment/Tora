@@ -1,0 +1,97 @@
+.NewProjectMain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .NewProjectMain-enter-info{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        .NewProjectMain-name{
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #707070;
+            >input{
+                margin-top: 4%;
+                width: 97%;
+                height: 65px;
+                border-radius: 35px;
+                border: none;
+                box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+            }
+            >input:focus{
+                outline: none;
+            }
+        }
+
+        .NewProjectMain-language{
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #707070;
+            margin-top: 12%;
+            >select{
+                margin-top: 4%;
+                width: 99%;
+                height: 65px;
+                border-radius: 35px;
+                border: none;
+                box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+            }
+            >select:focus{
+                outline: none;
+            }
+        }
+
+    } 
+    .NewProjectMain-select-btn{
+        width: 50%;
+        height: 97%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        .NewProjectMain-public-btn{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 50%;
+            height: 40px;
+            border-radius: 35px;
+            background-color: #d5d5d5;
+            margin-top: 10%;
+            
+        }
+
+        .NewProjectMain-decision-btn{
+            width: 45%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 15%;
+            .NewProjectMain-cancel-btn{
+                >input{
+                    border-radius: 10px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    padding: 4px 12px 4px 12px;
+                    background-color: #d5d5d5;
+                }
+            }
+
+            .NewProjectMain-create-btn{
+                >input{
+                    border-radius: 10px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    padding: 4px 12px 4px 12px;
+                    background-color: #FFB600;
+                }
+            }
+
+        }
+    }   
+}

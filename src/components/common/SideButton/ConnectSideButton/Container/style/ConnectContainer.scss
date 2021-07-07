@@ -1,0 +1,125 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src: url(../../../../../../fonts/AppleSDGothicNeoB.ttf);
+}
+
+.ConnectContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    font-family: "AppleSDGothicNeoB";
+    .ConnectContainer-post{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        >button{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "AppleSDGothicNeoB";
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            >img{
+                width: 40px;
+                height: 40px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .ConnectContainer-blog{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        >button{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "AppleSDGothicNeoB";
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            >img{
+                width: 40px;
+                height: 40px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .ConnectContainer-license{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        >button{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "AppleSDGothicNeoB";
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            >img{
+                width: 40px;
+                height: 40px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .ConnectContainer-note{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        >button{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "AppleSDGothicNeoB";
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            >img{
+                width: 40px;
+                height: 40px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .ConnectContainer-chat{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        >button{
+            font-family: "AppleSDGothicNeoB";
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            >img{
+                width: 40px;
+                height: 40px;
+                margin-bottom: -10%;
+            }
+        }
+    }
+}

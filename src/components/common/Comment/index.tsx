@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style/Comment.scss'
 import Replyicon from '../../../img/replyicon.png'
-import Hearticon from '../../../img/heart64.png'
+import Hearticon from '../../../img/yellowstar.png'
 import Profile from '../../../img/profile.png'
 import moment from 'moment'
 import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer'

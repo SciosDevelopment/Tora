@@ -5,10 +5,18 @@ import exclamation from '../../../../img/exclamation yellow.png'
 import MainText from './MainText/IssueDetailMainText'
 import Set from './Set/IssueDetailSet'
 import Comments from './Comments/IssueDetailComments'
+import SideButton from '../../../../components/common/SideButton/IssueSideButton/IssueSideButton';
+import ConnectButton from '../../../../components/common/SideButton/ConnectSideButton/ConnectSideButton';
 
 const IssueDetail = () => {
     return (
         <div className = "Issue-Detail-main">
+            <div className  ="Issue-Detail-left-button">
+                <SideButton/>
+            </div>
+            <div className  ="Issue-Detail-right-button">
+                <ConnectButton/>
+            </div>
             <div className = "Issue-Detail-header">
                     <div className = "Issue-Detail-type">
                         <img src = {exclamation}/>

@@ -1,6 +1,6 @@
 .SNS-accounts{
     width: 95.5%;
-    height: 60%;
+    height: 70%;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     // border: solid 1px black;
@@ -8,120 +8,121 @@
     .SNS-accounts-google{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 1/8;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
     }
     .SNS-accounts-reddit{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 10/17;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
-
     }
     .SNS-accounts-github{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 1/8;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
-
     }
     .SNS-accounts-stackoverflow{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 10/17;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
-
     }
     .SNS-accounts-facebook{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 1/8;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
-
     }
     .SNS-accounts-twitter{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         grid-column: 10/17;
         height: 30px;
         >img{
             width: 25px;
             height: 25px;
         }
-        >p{
-            margin-left: 4%;
-            width: 95%;
-            padding: 2%;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-weight: bold;
             font-size: 15px;
-            background-color: #ffffff;
-            border: solid 2px #707070;
+            padding: 3px 9px 3px 9px;
             border-radius: 10px;
+            background-color: #ffffff;
         }
-
     }
 }

@@ -48,6 +48,14 @@ const AllProjectView:FunctionComponent = () =>{
             <div className="APVSearch">
                 <Searchbar/>
             </div>
+            <div className = "APVSubject">
+                <select name="subject" id="select-id">
+                    <option value="Topic">Topic</option>
+                    <option value="Covid-19">Covid-19</option>
+                    <option value="Game">Game</option>
+                    <option value="Study">Study</option>
+                </select>
+            </div>
             <div className = "APVSort">
                 <div className = "APVSort-container">
                     <div className = "sort-wrapper">

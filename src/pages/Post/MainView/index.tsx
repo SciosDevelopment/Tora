@@ -52,18 +52,23 @@ const PostMainView = (props) => {
                     <Searchbar onClick={Search}/>
                 </div>
                 <div className ="Post-Mainview-sort">
+                    <div className = "Post-Mainview-sort-btn">
+                        <input type = "button" value = "All"/>
+                        <input type = "button" value = "Free Topic"/>
+                        <input type = "button" value = "Issue"/>
+                    </div>
                     <div className = "Post-Mainview-container">
-                            <div className = "Post-Mainview-wrapper">
-                                <div className = "Post-Mainview-wrapper-sub1">
-                                <div onClick={()=>history.push('/post/best/\n')}>Best</div>
-                                </div>
-                                <div className = "Post-Mainview-wrapper-sub2">
-                                    <div onClick={()=>history.push('/post')}>Newest</div>
-                                </div>
+                        <div className = "Post-Mainview-wrapper">
+                            <div className = "Post-Mainview-wrapper-sub1">
+                            <div onClick={()=>history.push('/post/best/\n')}>Best</div>
                             </div>
-                            <div className = "Post-Mainview-newproject">
-                                <input type='button' value="Write Post" onClick={()=>history.push('/post/write')}/>
+                            <div className = "Post-Mainview-wrapper-sub2">
+                                <div onClick={()=>history.push('/post')}>Newest</div>
                             </div>
+                        </div>
+                        <div className = "Post-Mainview-newproject">
+                            <input type='button' value="Write Post" onClick={()=>history.push('/post/write')}/>
+                        </div>
                     </div>
                 </div>
             </div>

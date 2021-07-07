@@ -1,25 +1,21 @@
 .Mypage-folder-item {
     width:100%;
-    max-width: 94px;
+    max-width: 80px;
     height: 100%;
-    max-height: 100px;
-    border-radius: 15px;
+    max-height: 85px;
+    border-radius: 10px;
     background-color: #FFF;
     box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
     display:inline-flex;
-   
-
-    
 }
 
 .Mypage-LeftSide{
     width:100%;
-    min-width: 75px;
+    min-width: 74px;
 }
 .Mypage-folder-item-profile{
     display: flex;
     flex-direction: row;
-    margin-bottom: 4px;
     
     .Mypage-folder-item-profile-thumbnail{
         width: 93px;
@@ -40,6 +36,7 @@
         flex-direction: column;
 
         .Mypage-folder-item-name{
+            width: 90%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -55,8 +52,8 @@
                     font-size: 10px;
                 }
                 >img{
-                    width: 10px;
-                    height: 10px;
+                    width: 5px;
+                    height: 5px;
                 }
             }
             .Mypage-folder-item-Like {
@@ -73,8 +70,8 @@
             .Mypage-folder-item-Like img {
                 margin-right : 2px;
                 // width: 14px;
-                width: 20px;
-                height: 20px;
+                width: 10px;
+                height: 10px;
             }
         }
     }
@@ -86,11 +83,12 @@
             display: flex;
             flex-direction: row;
             padding-left: 10px;
+            margin-top: 5%;
             // justify-content: space-evenly;
             img{
                 margin-right: 2px;
-                width: 10px;
-                height: 10px;
+                width: 7px;
+                height: 7px;
             }
             // border: solid red;
         }
@@ -100,16 +98,16 @@
             .Mypage-folder-item-videomessage{
                 margin-right: 3px;
                 img{
-                    width: 10px;
-                    height: 10px;
+                    width: 7px;
+                    height: 7px;
                 }
             }
             .Mypage-folder-item-communication{
                 // border: solid red;
                 margin-right: 5px;
                 img{
-                    width: 10px;
-                    height: 10px;
+                    width: 7px;
+                    height: 7px;
                 }
             }
         }

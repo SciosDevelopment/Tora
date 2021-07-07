@@ -6,7 +6,10 @@ const IssueDetailSetHeader = () => {
     return (
         <div className = "IssueDetail-Set-Header">
             <div className = "IssueDetail-Set-Header-title">
-                <p>DB 저장경로 설정</p>
+                <p>User 데이터</p>
+                <div className = "IssueDetail-Set-Contents-object">
+                <p>Ruby</p>
+            </div>
             </div>
             <div className = "IssueDetail-Set-Header-side">
                 <div className =  "IssueDetail-Set-Header-branch">

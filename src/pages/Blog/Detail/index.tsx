@@ -4,6 +4,7 @@ import Maintext from './Maintext'
 import ContentList from './ContentList'
 import CommentList from '../../../components/common/CommentList'
 import Pagination from '../../../components/common/Pagination'
+import SideButton from 'src/components/common/SideButton/SideButton'
 
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
@@ -58,7 +59,7 @@ const BlogDetailMain = (props) => {
         <Header/>
         <div className = "Blog-Detail">
             <div className = "Blog-Detail-left-button">
-
+                <SideButton/>
             </div>
             <div className = "Blog-Detail-main">
                 <div className = "Blog-Detail-view">

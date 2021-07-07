@@ -12,27 +12,27 @@ const SnsAccounts = () => {
         <div className = "SNS-accounts">
             <div className = "SNS-accounts-google">
                 <img src = {Google} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "Connect"/>
             </div>
             <div className = "SNS-accounts-reddit">
                 <img src = {Reddit} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "Connect"/>
             </div>
             <div className = "SNS-accounts-github">
                 <img src = {Github} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "Connect"/>
             </div>
             <div className = "SNS-accounts-stackoverflow">
                 <img src = {Stackoverflow} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "Connect"/>
             </div>
             <div className = "SNS-accounts-facebook">
                 <img src = {Facebook} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "Connect"/>
             </div>
             <div className = "SNS-accounts-twitter">
                 <img src = {Twitter} alt=""/>
-                <p>gkeoajed@naver.com</p>
+                <input type = "button" value = "DisConnect"/>
             </div>
         </div>
     );

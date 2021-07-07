@@ -16,7 +16,7 @@ const MypageView = () => {
             </div>
 
             {/* footer */}
-            <div className = "Mypage-view-footer">
+            {/* <div className = "Mypage-view-footer">
                 <div className = "Mypage-view-footer-myAc">
                     <Title name = "My Activity"/>
                     <Activity/>
@@ -29,7 +29,7 @@ const MypageView = () => {
                     <Title name = "My Wallet"/>
                     <Wallet/>
                 </div>           
-            </div>
+            </div> */}
         </div>
     )
 }

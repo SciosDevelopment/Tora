@@ -1,136 +1,43 @@
 .Project-erd-main{
-    width: 100%;
-    min-height: 577px;
+    width: 96%;
+    height: 538px;
     background-color: #ffffff;
     box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-    .Project-erd-title-main{
+    font-family: "AppleSDGothicNeoB";
+    .Project-erd-header{
+        width: 100%;
+        height: 44px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        height: 6%;
+        align-items: center;
+        justify-content: center;
         border-bottom: solid 2px #707070;
-        .Project-erd-title{
-            width: 15%;
+        >p{
+            font-size: 20px;
             margin-left: 2%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 0.5%;
         }
-        .Project-erd-title-button{
-            width: 14%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            .Project-erd-chat{
-                >img{
-                    width: 34px;
-                    height: 34px;
-                }
-            }
-            .Project-erd-video{
-                >img{
-                    width: 34px;
-                    height: 34px;
-                }
-            }
-            .Project-erd-ide{
-                >img{
-                    width: 34px;
-                    height: 34px;
-                }
-            }
+        >img{
+            margin-top: 0.2%;
         }
     }
-    .Project-erd-info-main{
+    .Project-erd-body{
+        width: 100%;
+        height: 90%;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        height: 7%;
-        .Project-erd-info-profile{
-            width: 20%;
-            display: flex;
-            margin-left: 3%;
-            align-items: center;
-            >img{
-                width: 22px;
-                height: 22px;
-            }
-
+        justify-content: center;
+        align-items: center;
+        >input{
+            font-family: "AppleSDGothicNeoB";
+            font-size: 30px;
+            font-weight: bold;
+            background: transparent;
+            padding: 7px 14px 7px 14px;
+            border-radius: 10px;
+            border: solid 2px #707070;
         }
-        .Project-erd-info-button{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 17%;
-            .Project-erd-info-like{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                >img{
-                    width: 23px;
-                    height: 23px;
-                }
-                >p{
-                    font-size: 12px;
-                    margin-bottom: 3px;
-                }
-            }
-            .Project-erd-info-save{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                >img{
-                    width: 18px;
-                    height: 18px;
-                }
-                >p{
-                    font-size: 12px;
-                    margin-top: 3px;
-                }
-            }
-            .Project-erd-info-share{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                >img{
-                    width: 18px;
-                    height: 18px;
-                }
-                >p{
-                    font-size: 12px;
-                    margin-top: 3px;
-                }
-            }
-            .Project-erd-info-follow{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                >img{
-                    width: 18px;
-                    height: 18px;
-                }
-                >p{
-                    font-size: 12px;
-                    margin-top: 3px;
-                }
-            }
-        }
-    }
-    .Project-erd-view-main{
-        width: 100%;
-        height: 490px;
-
-        background-color: #1C2239;
-        border-radius: 15px;
     }
 }

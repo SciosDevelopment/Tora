@@ -24,7 +24,12 @@ const IssueWriteText = () => {
                     </div>
 
                     <div className = "Issue-write-button">
-                        <input type='submit' value="Create"/>
+                        <div className = "Issue-write-check-btn">
+                            <input type = "checkbox" value = "check"/><p>자유게시판 자동 등록</p>
+                        </div>
+                        <div className = "Issue-write-create-btn">
+                            <input type='submit' value="Create"/>
+                        </div>
                     </div>
                 </div>
             </div>

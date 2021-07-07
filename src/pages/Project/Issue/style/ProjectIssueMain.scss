@@ -106,11 +106,14 @@
                 justify-content: space-between;
                 border-bottom: solid 1px #ffffff;
                 >input{
-                    background-color: #1C2239;
+                    background: transparent;
                     width: 100%;
                     border: none;
                     color: #ffffff;
-                    margin-top: 5px;
+                    margin-top: 10px;
+                }
+                >input::placeholder{
+                    color: #ffffff;
                 }
                 >input:focus{
                     outline: none;

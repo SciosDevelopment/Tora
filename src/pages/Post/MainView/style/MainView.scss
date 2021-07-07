@@ -23,12 +23,23 @@
     
     .Post-Mainview-sort {
         display: grid;   
-        grid-column: 19/22;
+        grid-column: 3/22;
         grid-row: 2/3;
         display : flex;
-        
+        flex-direction: row;
+        justify-content: space-between;
+
+        .Post-Mainview-sort-btn{
+            >input{
+                font-size: 13px;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                margin-top: 4%;
+            }
+        }
         .Post-Mainview-container {
-            width : 100%;  
+            // width : 100%;  
             display : flex;
             justify-content: space-between;
             flex-direction: row;

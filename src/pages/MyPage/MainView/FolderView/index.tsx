@@ -33,6 +33,7 @@ const FolderView:FunctionComponent = () => {
                         <div className="Mypage-folder-view-wrap">
                             <div className = "Mypage-folder-view-icon">
                                 <img src = {folder}/>
+                                <p>Tora</p>
                             </div>
                             <div className = "Mypage-folder-view-itemlist">
                                     {
@@ -47,6 +48,7 @@ const FolderView:FunctionComponent = () => {
                         <div className="Mypage-folder-view-wrap">
                             <div className = "Mypage-folder-view-icon">
                                 <img src = {folder}/>
+                                <p>Github</p>
                             </div>
                             <div className = "Mypage-folder-view-itemlist">
                                     {
@@ -106,7 +108,7 @@ const FolderView:FunctionComponent = () => {
                     </div>
                 
                     <div className = "Mypage-folder-tab-button">
-                        <input type='submit' value="New project"></input>
+                        <input type='submit' value="New Folder"></input>
                     </div>
                 </div>
                 

@@ -1,0 +1,55 @@
+.MyPage-DeleteAccount{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .MyPage-DeleteAccount-title{
+        width: 82%;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF0000;
+    }
+    .MyPage-DeleteAccount-account-check{
+        width: 73%;
+        font-size: 15px;
+        line-height: 30px;
+        color: #FF0000;
+        margin-top: 4%;
+        >input{
+            position: relative;
+            left: 84%;
+            bottom: 30%;
+        }
+    }
+    .MyPage-DeleteAccount-btn{
+        width: 73%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .MyPage-DeleteAccount-cancel-btn{
+            >input{
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 8px;
+                background-color: #D5D5D5;
+                border: none;
+                padding: 3px 14px 3px 14px;
+            }
+        }
+        .MyPage-DeleteAccount-agree-btn{
+            >input{
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 8px;
+                color: #ffffff;
+                background-color: #19B900;
+                border: none;
+                padding: 3px 14px 3px 14px;
+            }
+        }
+    }
+}

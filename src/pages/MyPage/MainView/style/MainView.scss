@@ -15,6 +15,9 @@
         grid-column: 4/22;
         overflow-y: scroll;
     }
+    .Mypage-view-list-container::-webkit-scrollbar{
+        width: 0;
+    }
 
     .Mypage-view-footer {
         grid-column: 4/22;

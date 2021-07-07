@@ -1,23 +1,15 @@
 import React from 'react';
 import './style/IssueDetailSetContents.scss'
 import Replyicon from '../../../../../../img/replyicon.png'
-import Hearticon from '../../../../../../img/heart64.png'
+import Hearticon from '../../../../../../img/yellowstar.png'
 import Profile from '../../../../../../img/profile.png'
 
 const IssueDetailSetContents = () => {
     return (
         <div className = "IssueDetail-Set-Contents">
             <div className = "IssueDetail-Set-Contents-main">
-                <div className = "IssueDetail-Set-Contents-title">
-                    <div className = "IssueDetail-Set-Contents-info">
-                        <p>User 정보 및 객체 </p>
-                    </div>
-                    <div className = "IssueDetail-Set-Contents-object">
-                        <p>Ruby</p>
-                    </div>
-                </div>
+
                 <div className = "IssueDetail-Set-Contents-text">
-                    <p>asdasdasdasdasdas</p>
                 </div>
             </div>
             <div className = "IssueDetail-Set-Contents-side">

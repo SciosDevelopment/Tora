@@ -1,0 +1,52 @@
+.NewProjectGithub{
+    width: 100%;
+    height: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    .NewProjectGithub-URL{
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        color: #707070;
+        >input{
+            margin-top: 2%;
+            width: 100%;
+            height: 65px;
+            border-radius: 35px;
+            border: none;
+            box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+        }
+        >input:focus{
+            outline: none;
+        }
+    }
+    
+    .NewProjectGithub-btn{
+        width: 35%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 15%;
+        .NewProjectGithub-cancel-btn{
+            >input{
+                font-weight: bold;
+                border-radius: 10px;
+                font-size: 15px;
+                padding: 4px 12px 4px 12px;
+                background-color: #d5d5d5;
+            }
+        }
+
+        .NewProjectGithub-import-btn{
+            >input{
+                font-weight: bold;
+                border-radius: 10px;
+                font-size: 15px;
+                padding: 4px 12px 4px 12px;
+                background-color: #FFB600;
+            }
+        }
+    }
+}

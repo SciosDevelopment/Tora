@@ -6,6 +6,8 @@ import CommentList from '../../../components/common/CommentList'
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
 import axios from 'axios'
+import SideButton from '../../../components/common/SideButton/SideButton'
+import ConnectButton from '../../../components/common/SideButton/ConnectSideButton/ConnectSideButton'
 
 const PostDetailMain = (props) => {
     const {id} = props.match.params
@@ -40,7 +42,12 @@ const PostDetailMain = (props) => {
         <Header/>
         <div className = "Post-Detail">
             <div className = "Post-Detail-left-button">
+                <SideButton/>
             </div>
+            <div className = "Post-Detail-right-button">
+                <ConnectButton/>
+            </div>
+
             <div className = "Post-Detail-main">
                 <div className = "Post-Detail-view">
                     <div className = "Post-Detail-maintext-view">

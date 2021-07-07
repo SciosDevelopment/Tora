@@ -9,14 +9,19 @@
     grid-template-columns: repeat(36, 1fr);
 
     .Post-Detail-left-button{
-        width: 55px;
+        width: 75px;
         position: fixed;
         left: 21%;
-        top: 15%;
-        border: solid #707070;
-        height: 400px;
+        top: 10%;
+        height: 315px;
     }
-
+    .Post-Detail-right-button{
+        top: 10%;
+        position: fixed;
+        width: 75px;
+        height: 53%;
+        right: 15%;
+    }
     .Post-Detail-main{
         grid-column: 11/27;
         margin-top: 2%;
