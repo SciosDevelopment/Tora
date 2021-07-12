@@ -6,42 +6,64 @@
 .Mypage-profile-main{
     display: grid;
     grid-template-columns: repeat(24, 1fr);
+
     .Mypage-profile-modify{
         position: relative;
         left: 2350%;
         top: 50%;
     }
+
     .Mypage-profile-default-wrapper{
         display: grid;
+        height: 100%;
         grid-template-columns: repeat(9, 1fr);
         grid-column: 1/17;
         // border: solid red;
+        
         >img{
             grid-column: 1/2;
             max-width: 66px;
             height: 63px;
             // border: solid blue;
         }
+
         .Mypage-profile-default-main{
-            grid-column: 2/7;
+            grid-column: 2/10;
             grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            
             display: grid;
             align-items: flex-start;
+
             .Mypage-profile-name{
-                grid-column: 1/6;
-                >p{
+                grid-column: 1/5;
+                
+                >p {
                     font-size: 22px;
                 }
             }
+
             .Mypage-profile-desc{
-                grid-column: 6/11;
+                display: -webkit-box;
+                grid-column: 5/11;
+                grid-row: 1/3;
+                word-break: break-all;
+                word-wrap: break-word;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical;
+                line-height: 1.2em;
+                height: 3.6em; 
+
                 >p{
-                    font-size: 22px;
+                    font-size: 18px;
                 }
             }
+
             .Mypage-profile-email{
-                grid-column: 1/11;
-                // border: solid red;
+                grid-column: 1/5;
+
                 >p{
                     font-size: 18px;
                     font-weight: bold;

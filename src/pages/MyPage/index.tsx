@@ -3,7 +3,7 @@ import Header from 'src/components/common/Header/Header'
 import MypageView from './MainView'
 import './style/MyPageMain.scss'
 
-const MyPageMain = () => {
+const MyPageMain = (props) => {
 
     return (
     <>
@@ -11,7 +11,7 @@ const MyPageMain = () => {
 
         <div className = "Mypage-main-container"> 
             <div className = "Mypage-view-container">
-                <MypageView/>
+                <MypageView props={props}/>
             </div>
         </div>
     </>       
