@@ -12,6 +12,7 @@ import axios from 'axios'
 
 const AccountSetting = () => {
     const [userdata, setUserData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
+    const [prevData, setPrevData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
     const [swit, setSwitch] = useState("")
 
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
@@ -23,6 +24,7 @@ const AccountSetting = () => {
                                 followers:info_attr.followers, followings:info_attr.followings,
                                 name:info_attr.name, score:info_attr.score, photo:info_attr.photo.url, pw:""}
                 setUserData(data_)
+                setPrevData(data_)
             })
             .catch((e)=>{
                     // 401 error == 새로고침시, axios header가 사라지는 현상때문에 나타남. 이부분 문제점 해결방안 찾기
@@ -68,6 +70,11 @@ const AccountSetting = () => {
     }
 
     const editInfo = () => {
+
+        if(userdata.name === prevData.name && userdata.about_me === prevData.about_me && userdata.photo === prevData.photo) {
+            alert("변경정보가 없습니다.") 
+            return
+        }
         var userInfo = new FormData()
         userInfo.append("user[password]", userdata.pw)
         userInfo.append("user[name]", userdata.name)
