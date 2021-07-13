@@ -1,11 +1,10 @@
-.Setting-account-main{
+.Setting-account-main {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     
-
-    .Setting-account-profile{
+    .Setting-account-profile {
         margin-top: 7%;
         grid-column: 2/7;
         width: 100%;
@@ -13,7 +12,7 @@
         display: flex;
         flex-direction: column;
         
-        .Setting-account-profile-img{
+        .Setting-account-profile-img {
             width: 100%;
             height: 100%;
             display: flex;
@@ -21,27 +20,33 @@
             justify-content: space-evenly;
             align-items: flex-start;
 
-            >img{
+            >img {
                 width: 100px;
                 height: 100px;
+                border-radius: 50px;
             }
 
-            .Setting-account-profile-set{
+            .Setting-account-profile-set {
                 width: 27%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
+
+                > input {
+                    display: none;
+                }
             }
         }
     }
 
-    .Setting-account-region{
+    .Setting-account-region {
         grid-column: 9/15;
         width: 100%;
         height: auto;
         margin-top: 7%;
-        >input{
+
+        >input {
             margin-left: 5%;
             width: 78%;
             padding: 2% 5% 2% 5%;
@@ -51,17 +56,19 @@
             border: solid 2px #707070;
             border-radius: 10px;
         }
+
         >input:focus {
             outline:none;
         }
     }
 
-    .Setting-account-name{
+    .Setting-account-name {
         grid-column: 2/7;
         width: 100%;
         height: auto;
         margin-top: 5%;
-        >input{
+
+        >input {
             margin-left: 5%;
             width: 93.5%;
             padding: 2% 5% 2% 5%;
@@ -70,12 +77,13 @@
             border: solid 2px #707070;
             border-radius: 10px;
         }
+
         >input:focus {
             outline:none;
         }
     }
 
-    .Setting-account-password{
+    .Setting-account-password {
         grid-column: 2/7;
         width: 100%;
         height: auto;
@@ -90,18 +98,19 @@
             border: solid 2px #707070;
             border-radius: 10px;
         }
+
         >input:focus {
             outline:none;
         }
     }
 
-    .Setting-account-description{
+    .Setting-account-description {
         grid-column: 2/12;
         width: 100%;
         height: auto;
         margin-top: 3%;
 
-        >input{
+        >textarea {
             word-wrap: break-word;
             margin-left: 2.5%;
             width: 90%;
@@ -112,19 +121,21 @@
             border: solid 2px #707070;
             border-radius: 20px;
             line-height: 20px;
+            resize: none;
         }
-        >input:focus {
+
+        >textarea:focus {
             outline:none;
         }
     }
 
-    .Setting-account-program-language{
+    .Setting-account-program-language {
         grid-column: 2/7;
         width: 100%;
         height: auto;
         margin-top: 5%;
 
-        >input{
+        >input {
             margin-left: 5%;
             width: 93.5%;
             padding: 2% 5% 2% 5%;
@@ -133,18 +144,19 @@
             border: solid 2px #707070;
             border-radius: 10px;
         }
+
         >input:focus {
             outline:none;
         }
     }
 
-    .Setting-account-position{
+    .Setting-account-position {
         grid-column: 9/15;
         width: 100%;
         height: auto;
         margin-top: 4%;
 
-        >input{
+        >input {
             margin-left: 5%;
             width: 78%;
             padding: 2% 5% 2% 5%;
@@ -153,25 +165,27 @@
             border: solid 2px #707070;
             border-radius: 10px;
         }
+
         >input:focus {
             outline:none;
         }
     }
 
-    .Setting-account-sns-accounts{
+    .Setting-account-sns-accounts {
         grid-column: 2/15;
         width: 100%;
         height: 100%;
         margin-top: 4%;
     }
     
-    .Setting-account-save-button{
+    .Setting-account-save-button {
         width: 100%;
         grid-column: 12/15;
         margin-left: 2%;
         margin-top: 40%;
         margin-bottom: 10%;
-        >p{
+
+        >p {
             cursor: pointer;
             width: 76%;
             padding: 5%;
@@ -184,14 +198,14 @@
         }
     }
 
-    .Setting-account-button{
+    .Setting-account-button {
         width: 100%;
         grid-column: 1/16;
         display: grid;
         grid-template-columns: repeat(15, 1fr);
         border-top: solid 2px #707070;
 
-        .Setting-account-delete-button{
+        .Setting-account-delete-button {
             grid-column: 2/6;
             margin-top: 10%;
 
@@ -207,7 +221,7 @@
             }
         }
 
-        .Setting-account-change-button{
+        .Setting-account-change-button {
             grid-column: 12/15;
             margin-top: 13%;
             
@@ -224,7 +238,7 @@
         }
     }
 }
-.Setting-account-delete-account{
+.Setting-account-delete-account {
     position: relative;
     width: 38%;
     height: 173px;
@@ -232,7 +246,7 @@
     bottom: 17%;
 }
 
-.Setting-account-change-password{
+.Setting-account-change-password {
     position: relative;
     width: 45%;
     height: 309px;
