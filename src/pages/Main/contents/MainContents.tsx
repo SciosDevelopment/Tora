@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react'
 import './style/MainContents.scss'
 import AllProjectView from './AllProjectView/AllProjectView'
-import SideButton from '../../../components/common/SideButton/ConnectSideButton/ConnectSideButton'
+import SideMenu from '../../../components/common/SideMenu/ConnectSideMenu'
 
 const MainContents:FunctionComponent = () => {
       return (
@@ -10,7 +10,7 @@ const MainContents:FunctionComponent = () => {
                         <AllProjectView/> 
                   </div> 
                   <div className="MainAside">
-                        <SideButton/>
+                        <SideMenu/>
                   </div>
             </div>
       )

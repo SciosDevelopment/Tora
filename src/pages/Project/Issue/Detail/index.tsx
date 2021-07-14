@@ -5,17 +5,17 @@ import exclamation from '../../../../img/exclamation yellow.png'
 import MainText from './MainText/IssueDetailMainText'
 import Set from './Set/IssueDetailSet'
 import Comments from './Comments/IssueDetailComments'
-import SideButton from '../../../../components/common/SideButton/IssueSideButton/IssueSideButton';
-import ConnectButton from '../../../../components/common/SideButton/ConnectSideButton/ConnectSideButton';
+import SideMenu from '../../../../components/common/SideMenu/IssueSideMenu'
+import ConnectMenu from '../../../../components/common/SideMenu/ConnectSideMenu'
 
 const IssueDetail = () => {
     return (
         <div className = "Issue-Detail-main">
             <div className  ="Issue-Detail-left-button">
-                <SideButton/>
+                <SideMenu/>
             </div>
             <div className  ="Issue-Detail-right-button">
-                <ConnectButton/>
+                <ConnectMenu/>
             </div>
             <div className = "Issue-Detail-header">
                     <div className = "Issue-Detail-type">

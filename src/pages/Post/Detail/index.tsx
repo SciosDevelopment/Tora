@@ -6,8 +6,8 @@ import CommentList from '../../../components/common/CommentList'
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
 import axios from 'axios'
-import SideButton from '../../../components/common/SideButton/SideButton'
-import ConnectButton from '../../../components/common/SideButton/ConnectSideButton/ConnectSideButton'
+import SideButton from '../../../components/common/SideMenu'
+import ConnectButton from '../../../components/common/SideMenu/ConnectSideMenu'
 
 const PostDetailMain = (props) => {
     const {id} = props.match.params

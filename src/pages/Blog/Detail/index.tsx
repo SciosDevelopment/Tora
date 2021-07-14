@@ -4,7 +4,7 @@ import Maintext from './Maintext'
 import ContentList from './ContentList'
 import CommentList from '../../../components/common/CommentList'
 import Pagination from '../../../components/common/Pagination'
-import SideButton from 'src/components/common/SideButton/SideButton'
+import SideButton from 'src/components/common/SideMenu'
 
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
