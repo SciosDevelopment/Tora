@@ -1,64 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
+import React,{useState} from 'react'
+import './style/Pagination.scss'
 
-const PageUl = styled.ul`
-  float:left;
-  list-style: none;
-  text-align:center;
-  border-radius:3px;
-  color:white;
-  padding:1px;
-  border-top:3px solid #186EAD;
-  border-bottom:3px solid #186EAD;
-  background-color: rgba( 0, 0, 0, 0.4 );
-`;
-
-const PageLi = styled.li`
-  display:inline-block;
-  font-size:17px;
-  font-weight:600;
-  padding:5px;
-  border-radius:5px;
-  width:25px;
-  &:hover{
-    cursor:pointer;
-    color:white;
-    background-color:#263A6C;
-  }
-  &:focus::after{
-    color:white;
-    background-color:#263A6C;
-  }
-`;
-
-const PageSpan = styled.span`
-  &:hover::after,
-  &:focus::after{
-    border-radius:100%;
-    color:white;
-    background-color:#263A6C;
-  }
-`;
-
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ postsPerPage, totalPosts, paginate}) => {
   const pageNumbers = []
+  const [cur_page,setCur] = useState(1)
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i)
   }
+
   return (
-    <div>
       <nav>
-        <PageUl className="pagination">
+        <ul className="pagination">
           {pageNumbers.map(number => (
-            <PageLi key={number} className="page-item">
-              <PageSpan onClick={() => paginate(number)} className="page-link">
+            <li key={number} className= "page-item">
+              <a onClick={() => {paginate(number); setCur(number);}} className={`page-link ${cur_page === number ? 'active': 'notactive'}`}>
                 {number}
-              </PageSpan>
-            </PageLi>
+              </a>
+            </li>
           ))}
-        </PageUl>
+        </ul>
       </nav>
-    </div>
   )
 }
 
