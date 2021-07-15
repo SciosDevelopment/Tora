@@ -4,7 +4,7 @@ import Maintext from './Maintext'
 import ContentList from './ContentList'
 import CommentList from '../../../components/common/CommentList'
 import Pagination from '../../../components/common/Pagination'
-import SideButton from 'src/components/common/SideMenu'
+import SideButton from 'src/components/common/SideMenu/ContentsSideMenu'
 
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
@@ -67,7 +67,9 @@ const BlogDetailMain = (props) => {
                         <Maintext data={BlogPost} showOptions={()=>setIsOpen(!isOpen)}/>
                     </div>
                     <div className = "Blog-Detail-list-view">
-                        <ContentList data={currentPosts(WritingList)}/>
+                        <ContentList data={currentPosts(WritingList)}/>                        
+                    </div>
+                    <div className  = "Blog-Detail-list-pagination">
                         <Pagination postsPerPage={postsPerPage} totalPosts={WritingList.length} paginate={setCurPage}/>
                     </div>
                     <div className = "Blog-Detail-comments-view">

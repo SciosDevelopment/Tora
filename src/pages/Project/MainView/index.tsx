@@ -5,7 +5,7 @@ import ProjectFeed from './Feed/ProjectFeed'
 import ProjectCodeofConduct from '../MainView/CodeofConduct/ProjectCodeofConduct'
 import ProjectInfo from '../MainView/Info/ProjectInfo'
 import Sidebutton from '../../../components/common/SideMenu/ProjectSideMenu'
-import ConnectButton from '../../../components/common/SideMenu/ConnectSideMenu'
+import ConnectButton from '../../../components/common/SideMenu'
 
 import { NavLink } from 'react-router-dom';
 

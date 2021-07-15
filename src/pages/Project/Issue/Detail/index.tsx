@@ -6,7 +6,7 @@ import MainText from './MainText/IssueDetailMainText'
 import Set from './Set/IssueDetailSet'
 import Comments from './Comments/IssueDetailComments'
 import SideMenu from '../../../../components/common/SideMenu/IssueSideMenu'
-import ConnectMenu from '../../../../components/common/SideMenu/ConnectSideMenu'
+import ConnectMenu from '../../../../components/common/SideMenu'
 
 const IssueDetail = () => {
     return (
