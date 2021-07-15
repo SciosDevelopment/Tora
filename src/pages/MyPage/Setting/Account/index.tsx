@@ -61,14 +61,14 @@ const AccountSetting = () => {
         var image = new FormData()
         image.append("content_image[name]", blob)
         const res = await axios.post(`${SERVER_IP}/api/v1/content_images/create`,image)
-        .then((res)=> { setUserData({...userdata, photo:SERVER_IP+res.data.url})})
+        .then((res)=> { setUserData({...userdata, photo:res.data.url})})
         .catch((e)=>{
                 alert("이미지 파일이 아닙니다.")
                 return ""
         })
         return res
     }
-
+    
     const editInfo = () => {
 
         if(userdata.name === prevData.name && userdata.about_me === prevData.about_me && userdata.photo === prevData.photo) {
@@ -116,7 +116,7 @@ const AccountSetting = () => {
                 <div className = "Setting-account-profile">
                     <Title name = "Profile"/>
                     <div className = "Setting-account-profile-img">
-                        <img src = {userdata.photo === null ? Profile : userdata.photo} alt=""/>
+                        <img src = {userdata.photo === null ? Profile : SERVER_IP+userdata.photo} alt=""/>
                         <div className = "Setting-account-profile-set">
                             <input type="file" name="file" id="Setting-account-profile-input" accept="image/*" onChange={(e)=>getImageLink(e)}/>
                             <img src = {Plus} alt="" onClick={setImage}/>
