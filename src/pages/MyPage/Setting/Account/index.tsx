@@ -9,11 +9,12 @@ import DeleteAccount from './DeleteAccount/MyPageDeletAccount'
 import ChangePassWord from './ChangePassword/MyPageChangePassword'
 import { useEffect ,useState} from 'react'
 import axios from 'axios'
-
+import {history} from '../../../../configureStore'
 const AccountSetting = () => {
     const [userdata, setUserData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
     const [prevData, setPrevData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
     const [swit, setSwitch] = useState("")
+    const [img, setImg] = useState(null)
 
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     useEffect(()=>{
@@ -22,7 +23,7 @@ const AccountSetting = () => {
                 const info_attr = res.data.data.attributes
                 const data_ = { about_me:info_attr.about_me, email:info_attr.email,
                                 followers:info_attr.followers, followings:info_attr.followings,
-                                name:info_attr.name, score:info_attr.score, photo:info_attr.photo.url, pw:""}
+                                name:info_attr.name, score:info_attr.score, photo:SERVER_IP + info_attr.photo.url, pw:""}
                 setUserData(data_)
                 setPrevData(data_)
             })
@@ -33,9 +34,6 @@ const AccountSetting = () => {
             })
     },[])
 
-    useEffect(()=>{
-        console.log(userdata)
-    },[userdata])
     const handleChange = (e) => {
         const {target : {name, value}} = e
         setUserData({...userdata, [name]:value})
@@ -55,37 +53,39 @@ const AccountSetting = () => {
 
     const getImageLink = async(e) => {
         var input = e.target
-        var blob = input.files[0]
-        
-        // 여기서 image url 변환하고 반환
-        var image = new FormData()
-        image.append("content_image[name]", blob)
-        const res = await axios.post(`${SERVER_IP}/api/v1/content_images/create`,image)
-        .then((res)=> { setUserData({...userdata, photo:res.data.url})})
-        .catch((e)=>{
-                alert("이미지 파일이 아닙니다.")
-                return ""
-        })
-        return res
+        setImg(input.files[0])
+        var fileReader = new FileReader()
+        fileReader.readAsDataURL(input.files[0])
+        fileReader.onload = ()=>setUserData({...userdata, photo: fileReader.result})    
     }
     
-    const editInfo = () => {
-
+    const editInfo = async() => {
+        
+        var url = prevData.photo !== null ? prevData.photo : Profile
+        const response = await fetch(url)
+        const data = await response.blob()
+        const ext = url.split(".").pop() 
+        const filename = url.split("/").pop()
+        const metadata = { type: `image/${ext}` }
+        var prevImg = new File([data], filename!, metadata)
+        
+        
         if(userdata.name === prevData.name && userdata.about_me === prevData.about_me && userdata.photo === prevData.photo) {
             alert("변경정보가 없습니다.") 
             return
         }
+        
         var userInfo = new FormData()
         userInfo.append("user[password]", userdata.pw)
         userInfo.append("user[name]", userdata.name)
         userInfo.append("user[email]", userdata.email)
-        userInfo.append("user[photo]", userdata.photo) // 이미지 등록이 안됨.
+        userInfo.append("user[photo]", img === null ? prevImg : img)
         userInfo.append("user[about_me]", userdata.about_me)
 
         axios.put(`${SERVER_IP}/api/v1/user/edit`,userInfo)
         .then((res) => {
              alert("수정이 완료되었습니다.")
-             console.log(res)
+             history.replace("/mypage/me/setting")
         }).catch((e) => {
             if(e.response) {
                 var status = e.response.status // or use message
@@ -98,7 +98,7 @@ const AccountSetting = () => {
                 
                 if(status === 400) { // default error
                     alert("server is dead. try this again.")
-                    console.log(e.response.message)
+                    console.log(e.response)
                 }
                 if(status >= 500) alert("server is dead") // 서버 연결 문제일때 : temp-status
             }
@@ -116,7 +116,7 @@ const AccountSetting = () => {
                 <div className = "Setting-account-profile">
                     <Title name = "Profile"/>
                     <div className = "Setting-account-profile-img">
-                        <img src = {userdata.photo === null ? Profile : SERVER_IP+userdata.photo} alt=""/>
+                        <img src = {userdata.photo === null ? Profile : userdata.photo } alt=""/>
                         <div className = "Setting-account-profile-set">
                             <input type="file" name="file" id="Setting-account-profile-input" accept="image/*" onChange={(e)=>getImageLink(e)}/>
                             <img src = {Plus} alt="" onClick={setImage}/>
