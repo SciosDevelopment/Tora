@@ -3,7 +3,8 @@ import './style/OptionContainer.scss'
 import Opt1 from '../../../../img/tora-setting-icon.png'
 import Opt2 from '../../../../img/tora-mypage-icon.png'
 import Opt3 from '../../../../img/tora-logout-icon.png'
-import MyModal from '../../Modal/modal'
+import CustomModal from '../../Modal/modal'
+import SecessionView from 'src/pages/Login/SecessionView/SecessionView'
 
 const OptionContainer:FunctionComponent = ()=> {
 
@@ -27,26 +28,28 @@ const OptionContainer:FunctionComponent = ()=> {
     }
 
     //modal test
-    const [isModalOpen, setIsOpen] = React.useState(false);
+    const [isModalOpen, setIsOpen] = React.useState(false)
 
     const openModal = () => {
         console.log("setIsOpen true")
-        setIsOpen(true);
+        setIsOpen(true)
     }
     
     const closeModal = () => {
         console.log("setIsOpen false")
-        setIsOpen(false);
+        setIsOpen(false)
     }
-    //<button className="ModalButton" onClick = {openModal}>Open Modal</button>
-    //<MyModal message = {"Hello"} modalOpen = {isModalOpen} modalClose = {closeModal}></MyModal>
-
+    
     return (
         <div className="OptionContainer">
             <div className="optionGroup">
                 <div className="option"><img src={Opt1} onClick={f_Opt1}/></div>
                 <div className="option"><img src={Opt2} onClick={f_Opt2}/></div>
                 <div className="option"><img src={Opt3} onClick={f_Opt3}/></div>
+                <button className="ModalButton" onClick = {openModal}>Open Modal</button>
+                <CustomModal modalOpen = {isModalOpen} modalClose = {closeModal} width={25} height={66}>
+                    <SecessionView/>
+                </CustomModal>
             </div>
         </div>
     )

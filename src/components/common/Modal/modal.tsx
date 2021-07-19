@@ -1,26 +1,24 @@
-import {FunctionComponent} from 'react';
-import Modal from 'react-modal';
+import {FunctionComponent} from 'react'
+import Modal from 'react-modal'
 
-const MyModal:FunctionComponent<any> = (Props) => {
-    const {message} = Props;
-    const {modalOpen} = Props;
-    const {modalClose} = Props;
+const CustomModal:FunctionComponent<any> = (Props) => {
+    const {modalOpen, modalClose, width, height} = Props
 
-    const width = 300;
-    const height = width*2/3;
-
+    // https://reactcommunity.org/react-modal 참고
     const customstyle = {
         content : {
             top: '0',
             bottom: '0',
             left: '0',
-            rigt: '0',
+            right: '0',
             margin: 'auto',
             backgroundColor: '#fefefe',
             boxSizing: 'border-box',
-            width: width + 'px',
-            height: height + 'px'
-        }
+            width: width + '%',
+            height: height + '%',
+        },
+
+        overlay: {zIndex: 999}
     }
 
     const contentstyle = {
@@ -33,26 +31,27 @@ const MyModal:FunctionComponent<any> = (Props) => {
         position: 'absolute' as 'absolute',
         top: '10px',
         right: '15px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        fontSize: '25px'
     }
     
     return (
-        <div className="Modal-main">
-            <Modal
-            portalClassName="modal-design"
-            isOpen={modalOpen}
-            onRequestClose={modalClose}
-            style={customstyle}>
+        <Modal
+        portalClassName="modal-design"
+        isOpen={modalOpen}
+        onRequestClose={modalClose}
+        style={customstyle}
+        centered>
             <div className="modal-contents" style={contentstyle}>
-                <p>{message}</p>
+                    {Props.children}
             </div>
             <div className="modal-close">
                 <span className="close" onClick={modalClose} style={buttonstyle}>
                     &times;
                 </span>
             </div>
-            </Modal>
-        </div>
-    );
-};
-export default MyModal;
+        </Modal>
+    )
+}
+
+export default CustomModal
