@@ -47,7 +47,7 @@ const OptionContainer:FunctionComponent = ()=> {
                 <div className="option"><img src={Opt2} onClick={f_Opt2}/></div>
                 <div className="option"><img src={Opt3} onClick={f_Opt3}/></div>
                 <button className="ModalButton" onClick = {openModal}>Open Modal</button>
-                <CustomModal modalOpen = {isModalOpen} modalClose = {closeModal} width={25} height={66}>
+                <CustomModal modalOpen = {isModalOpen} modalClose = {closeModal}>
                     <SecessionView/>
                 </CustomModal>
             </div>

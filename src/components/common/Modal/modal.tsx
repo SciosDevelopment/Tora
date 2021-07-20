@@ -2,11 +2,13 @@ import {FunctionComponent} from 'react'
 import Modal from 'react-modal'
 
 const CustomModal:FunctionComponent<any> = (Props) => {
-    const {modalOpen, modalClose, width, height} = Props
+    const {modalOpen, modalClose} = Props
 
     // https://reactcommunity.org/react-modal 참고
     const customstyle = {
         content : {
+            display: 'flex',
+            justifyContent:'center',
             top: '0',
             bottom: '0',
             left: '0',
@@ -14,15 +16,15 @@ const CustomModal:FunctionComponent<any> = (Props) => {
             margin: 'auto',
             backgroundColor: '#fefefe',
             boxSizing: 'border-box',
-            width: width + '%',
-            height: height + '%',
+            width: 'max-content',
+            height: 'max-content'
         },
 
         overlay: {zIndex: 999}
     }
 
     const contentstyle = {
-
+        
     }
 
     const buttonstyle = {
@@ -30,7 +32,7 @@ const CustomModal:FunctionComponent<any> = (Props) => {
         display: 'block',
         position: 'absolute' as 'absolute',
         top: '10px',
-        right: '15px',
+        right: '10px',
         cursor: 'pointer',
         fontSize: '25px'
     }
@@ -40,8 +42,7 @@ const CustomModal:FunctionComponent<any> = (Props) => {
         portalClassName="modal-design"
         isOpen={modalOpen}
         onRequestClose={modalClose}
-        style={customstyle}
-        centered>
+        style={customstyle}>
             <div className="modal-contents" style={contentstyle}>
                     {Props.children}
             </div>
