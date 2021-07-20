@@ -13,6 +13,19 @@ const OptionContainer:FunctionComponent = ()=> {
     const [cookies, _, removeCookie] = useCookies(['ToraID'])
     const openPage = (url) => { history.push(url) }
 
+    //modal test
+    const [isModalOpen, setIsOpen] = React.useState(false)
+
+    const openModal = () => {
+        console.log("setIsOpen true")
+        setIsOpen(true)
+    }
+    
+    const closeModal = () => {
+        console.log("setIsOpen false")
+        setIsOpen(false)
+    }
+    
     return (
         <div className="OptionContainer">
             <div className="optionGroup">
