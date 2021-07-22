@@ -9,6 +9,7 @@ import { history } from 'src/configureStore'
 
 const Profile = (props) => {
     const {data, isMe} = props
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const[userdata, setData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null})
     useEffect(()=>{ setData(data) },[data])
 
@@ -18,7 +19,7 @@ const Profile = (props) => {
                 {props.isMe && <img src = {modify} onClick={()=>history.push("/mypage/me/setting")}/>}
             </div>
             <div className = "Mypage-profile-default-wrapper">
-                <img src = {userdata.photo === null ? profile : userdata.photo}/>
+                <img src = {userdata.photo === null ? profile : SERVER_IP + userdata.photo}/>
                 <div className = "Mypage-profile-default-main">
                     <div className = "Mypage-profile-name">
                         <p>{userdata.name}</p>

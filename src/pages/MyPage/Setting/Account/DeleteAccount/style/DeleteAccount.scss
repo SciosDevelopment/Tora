@@ -1,4 +1,4 @@
-.MyPage-DeleteAccount{
+.DeleteAccount-main{
     width: 100%;
     height: 100%;
     background-color: #ffffff;
@@ -8,14 +8,14 @@
     justify-content: center;
     align-items: center;
 
-    .MyPage-DeleteAccount-title{
+    .DeleteAccount-title{
         padding-top:10px;
         width: 82%;
         font-size: 20px;
         font-weight: bold;
         color: #FF0000;
     }
-    .MyPage-DeleteAccount-check{
+    .DeleteAccount-check{
         width: 73%;
         font-size: 15px;
         line-height: 30px;
@@ -28,7 +28,7 @@
         }
     }
 
-    .MyPage-DeleteAccount-password {
+    .DeleteAccount-password {
         width: 78%;
 
         >input{
@@ -49,14 +49,14 @@
 
     }
 
-    .MyPage-DeleteAccount-btn{
+    .DeleteAccount-btn-container{
         width: 73%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         margin: -10px 0 5px 0;
         
-        .MyPage-DeleteAccount-cancel-btn{
+        .DeleteAccount-cancelbtn{
             >input{
                 font-size: 15px;
                 font-weight: bold;
@@ -67,7 +67,7 @@
             }
         }
 
-        .MyPage-DeleteAccount-agree-btn{
+        .DeleteAccount-confirmbtn{
             >input{
                 font-size: 15px;
                 font-weight: bold;

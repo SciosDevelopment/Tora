@@ -6,7 +6,7 @@ import Plus from '../../../../img/plus-gray.png'
 import Minus from '../../../../img/minus-gray.png'
 import SnsAccounts from './SnsAccounts'
 import DeleteAccount from './DeleteAccount'
-import ChangePassWord from './ChangePassword/MyPageChangePassword'
+import ChangePassWord from './ChangePassword'
 import { useEffect ,useState} from 'react'
 import axios from 'axios'
 import {history} from '../../../../configureStore'
@@ -176,7 +176,7 @@ const AccountSetting = () => {
             {
                 swit === "CP" &&
                 <div className = "Setting-account-change-password">
-                    <ChangePassWord/>
+                    <ChangePassWord close = {setSwitch}/>
                 </div>
             }
         </div>
