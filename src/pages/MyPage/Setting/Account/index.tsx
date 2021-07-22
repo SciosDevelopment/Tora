@@ -5,11 +5,12 @@ import Profile from '../../../../img/profile4.png'
 import Plus from '../../../../img/plus-gray.png'
 import Minus from '../../../../img/minus-gray.png'
 import SnsAccounts from './SnsAccounts'
-import DeleteAccount from './DeleteAccount/MyPageDeletAccount'
+import DeleteAccount from './DeleteAccount'
 import ChangePassWord from './ChangePassword/MyPageChangePassword'
 import { useEffect ,useState} from 'react'
 import axios from 'axios'
 import {history} from '../../../../configureStore'
+
 const AccountSetting = () => {
     const [userdata, setUserData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
     const [prevData, setPrevData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
@@ -169,7 +170,7 @@ const AccountSetting = () => {
             {
                 swit === "DA" &&
                 <div className = "Setting-account-delete-account">
-                    <DeleteAccount/>
+                    <DeleteAccount getEmail={()=>{return userdata.email}}/>
                 </div>
             }
             {

@@ -7,29 +7,55 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .MyPage-DeleteAccount-title{
+        padding-top:10px;
         width: 82%;
         font-size: 20px;
         font-weight: bold;
         color: #FF0000;
     }
-    .MyPage-DeleteAccount-account-check{
+    .MyPage-DeleteAccount-check{
         width: 73%;
         font-size: 15px;
         line-height: 30px;
         color: #FF0000;
-        margin-top: 4%;
+        margin-top: 2%;
         >input{
             position: relative;
             left: 84%;
             bottom: 30%;
         }
     }
+
+    .MyPage-DeleteAccount-password {
+        width: 78%;
+
+        >input{
+            position: relative;
+            width: 180px;
+            left: 10%;
+            bottom: 80%;
+            font-size: 15px;
+            color: #1C2239;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;    
+        }
+
+        >input:focus {
+            outline: none;
+        }
+
+    }
+
     .MyPage-DeleteAccount-btn{
         width: 73%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        margin: -10px 0 5px 0;
+        
         .MyPage-DeleteAccount-cancel-btn{
             >input{
                 font-size: 15px;
@@ -40,6 +66,7 @@
                 padding: 3px 14px 3px 14px;
             }
         }
+
         .MyPage-DeleteAccount-agree-btn{
             >input{
                 font-size: 15px;
