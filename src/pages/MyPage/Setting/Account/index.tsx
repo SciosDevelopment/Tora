@@ -24,7 +24,7 @@ const AccountSetting = () => {
                 const info_attr = res.data.data.attributes
                 const data_ = { about_me:info_attr.about_me, email:info_attr.email,
                                 followers:info_attr.followers, followings:info_attr.followings,
-                                name:info_attr.name, score:info_attr.score, photo:SERVER_IP + info_attr.photo.url, pw:""}
+                                name:info_attr.name, score:info_attr.score, photo: info_attr.photo.url ? SERVER_IP + info_attr.photo.url: null, pw:""}
                 setUserData(data_)
                 setPrevData(data_)
             })
@@ -97,10 +97,10 @@ const AccountSetting = () => {
                 if(status === 404) // 이미 인증된 유저 : 404
                     alert("user is not found.")
                 
-                if(status === 400) { // default error
-                    alert("server is dead. try this again.")
-                    console.log(e.response)
-                }
+                if(status === 400) // default error
+                    alert(e.response.data.message[0])
+                
+
                 if(status >= 500) alert("server is dead") // 서버 연결 문제일때 : temp-status
             }
             else if(e.request) {
