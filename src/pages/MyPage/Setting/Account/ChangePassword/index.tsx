@@ -4,7 +4,7 @@ import './style/ChangePassword.scss'
 
 const ChangePassword = (props) => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [data, setData] = useState({curPw:"",chnPw:"",chnVerify:""})
+    const [data, setData] = useState({password:"",new_password:"",confirm_password:""})
     const {close} = props
     
     const handleChange = (e) => {
@@ -13,18 +13,28 @@ const ChangePassword = (props) => {
     }
 
     const changePw = async() => {   
-        // 비밀번호 변경 - api 주소 없음 (구현 요청 필요)
-        console.log("Hello")
-        axios.put(`${SERVER_IP}/api/v1/user/changePassword`, data)
-        .then((res)=>{ 
+        
+        const data_ = {user : {password:data.password, new_password:data.new_password, confirm_password:data.confirm_password}}
+        
+        if(data.new_password !== data.confirm_password) {
+            alert("변경할 비밀번호가 서로 일치하지 않습니다.")
+            return
+        }
+        
+        axios.put(`${SERVER_IP}/api/v1/user/change_password`, data_)
+        .then(()=>{ 
             alert("change Password complete")
         })
         .catch((e)=>{
             if(e.response) {
                 var status = e.response.status // or use message
-                // temp error
-                if(status === 400) alert(e)
-                if(status === 404) alert(e)
+
+                if(status === 400) alert(e) // temp error
+                if(status === 401) alert("현재 비밀번호가 일치하지 않습니다.")
+                if(status === 404) { // re-login
+                    alert("로그인이 필요합니다.")
+                    // history.replace("/login")
+                }
 
                 // 서버 연결 문제일때 : temp-status
                 if(status >= 500) alert("server is dead")
@@ -38,13 +48,13 @@ const ChangePassword = (props) => {
 
     return (
         <div className = "ChangePassword-main">
-            <div className = "ChangePassword-main2">
+            <div className = "ChangePassword-form">
                 <p>Current Password</p>
-                <input type = "password" name="curPw" onChange={handleChange}/>
+                <input type = "password" name="password" onChange={handleChange}/>
                 <p>Change Password</p>
-                <input type = "password" name="chnPw" onChange={handleChange}/>
+                <input type = "password" name="new_password" onChange={handleChange}/>
                 <p>Verify Password</p>
-                <input type = "password" name="chnVerify" onChange={handleChange}/>
+                <input type = "password" name="confirm_password" onChange={handleChange}/>
             </div>
             <div className = "ChangePassword-footer">
                 <div className = "ChangePassword-cancel">
