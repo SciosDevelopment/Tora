@@ -1,26 +1,11 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {useState} from 'react';
 import './style/NoteList.scss'
-import ListItem from './ListItem/NoteListItem'
+import ListItem from './Item'
 
-const NoteList:FunctionComponent  = () => {
+const NoteList  = (props) => {
+    const {list} = props
 
-    const initData = () => {
-        return Array(
-            {key: 0, text : "text", name : "james"},
-            {key: 1, text : "text", name : "kim"},
-            {key: 2, text : "text", name : "back"},
-            {key: 3, text : "text", name : "back"},
-            {key: 4, text : "text", name : "james"},
-            {key: 5, text : "text", name : "kim"},
-            {key: 6, text : "text", name : "back"},
-            {key: 7, text : "text", name : "back"},
-        )
-        
-    }
-
-    const [NoteList, setNoteList] = useState(initData)
-
-
+    const [NoteList, setNoteList] = useState(list)
     const [tabValue, setTabValue] = useState<Number>(0);
 
     const switchTab = (tabValue) => {
@@ -29,10 +14,11 @@ const NoteList:FunctionComponent  = () => {
             case 0 : {
                 return(
                     <div className = "NoteList-Mylist">
-                        {
+                        {   
+                            // MyNote List
                             NoteList.map(item => {
                                 return (
-                            <ListItem key={item.key} text={item.text} name={item.name} />
+                                    <ListItem key={item.key} text={item.text} name={item.name} />
                                 )
                             })
                         }   
@@ -46,7 +32,7 @@ const NoteList:FunctionComponent  = () => {
                         {
                             NoteList.map(item => {
                                 return (
-                            <ListItem key={item.key} text={item.text} name={item.name} />
+                                    <ListItem key={item.key} text={item.text} name={item.name} />
                                 )
                             })
                         }
