@@ -1,4 +1,4 @@
-.MyPage-DeleteAccount{
+.DeleteAccount-main{
     width: 100%;
     height: 100%;
     background-color: #ffffff;
@@ -7,30 +7,56 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .MyPage-DeleteAccount-title{
+
+    .DeleteAccount-title{
+        padding-top:10px;
         width: 82%;
         font-size: 20px;
         font-weight: bold;
         color: #FF0000;
     }
-    .MyPage-DeleteAccount-account-check{
+    .DeleteAccount-check{
         width: 73%;
         font-size: 15px;
         line-height: 30px;
         color: #FF0000;
-        margin-top: 4%;
+        margin-top: 2%;
         >input{
             position: relative;
             left: 84%;
             bottom: 30%;
         }
     }
-    .MyPage-DeleteAccount-btn{
+
+    .DeleteAccount-password {
+        width: 78%;
+
+        >input{
+            position: relative;
+            width: 180px;
+            left: 10%;
+            bottom: 80%;
+            font-size: 15px;
+            color: #1C2239;
+            background-color: #ffffff;
+            border: solid 2px #707070;
+            border-radius: 10px;    
+        }
+
+        >input:focus {
+            outline: none;
+        }
+
+    }
+
+    .DeleteAccount-btn-container{
         width: 73%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        .MyPage-DeleteAccount-cancel-btn{
+        margin: -10px 0 5px 0;
+        
+        .DeleteAccount-cancelbtn{
             >input{
                 font-size: 15px;
                 font-weight: bold;
@@ -40,7 +66,8 @@
                 padding: 3px 14px 3px 14px;
             }
         }
-        .MyPage-DeleteAccount-agree-btn{
+
+        .DeleteAccount-confirmbtn{
             >input{
                 font-size: 15px;
                 font-weight: bold;

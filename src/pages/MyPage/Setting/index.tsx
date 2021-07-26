@@ -14,14 +14,6 @@ const MyPageSetting:React.FC = () => {
 
             case 1 : 
                 return <FollowList/>
-            
-            case 2 : {
-                return(
-                    <div>
-                        <p>3</p>
-                    </div>
-                )
-            }
         }
     }
 
@@ -33,7 +25,6 @@ const MyPageSetting:React.FC = () => {
                 <div className = "Mypage-setting-tab-button">
                     <div className = {tabValue === 0 ? 'Mypage-setting-tab-clicked' : 'Mypage-setting-tab-closed' } onClick = {()=>setTabValue(0)} key = {0}>Account</div>
                     <div className = {tabValue === 1 ? 'Mypage-setting-tab-clicked' : 'Mypage-setting-tab-closed' } onClick = {()=>setTabValue(1)} key = {1}>Follow</div>
-                    <div className = {tabValue === 2 ? 'Mypage-setting-tab-clicked' : 'Mypage-setting-tab-closed' } onClick = {()=>setTabValue(2)} key = {2}>Wallet</div>
                 </div>
                 <div className = "Mypage-setting-tab-body">
                     {
