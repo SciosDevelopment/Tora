@@ -15,11 +15,11 @@ const LoginView:FunctionComponent<any> = () => {
     
     useEffect(()=>{
         // 로그인이 되어있으면, 메인으로 이동
-        // if(onGetUserInfo !== null || cookies.ToraLoginToken || axios.defaults.headers.common['Authorization']) {
-        //     alert("already login")
-        //     history.replace("/")
-        //     return
-        // }
+        if(onGetUserInfo !== null || cookies.ToraLoginToken || axios.defaults.headers.common['Authorization']) {
+            alert("already login")
+            history.replace("/")
+            return
+        }
     },[])
 
     const handleChange = (e) => {
@@ -95,7 +95,7 @@ const LoginView:FunctionComponent<any> = () => {
                         <input name = "userID" type = "input" required value = {userinfo.userID} onChange = {handleChange}/>
                     </div>
                 </div>
-                
+
                 <div>
                     <p>Password</p>
                     <div>
