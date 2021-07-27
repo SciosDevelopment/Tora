@@ -14,6 +14,7 @@ const CustomModal:FunctionComponent<any> = (Props) => {
             left: '0',
             right: '0',
             margin: 'auto',
+            padding:'auto',
             backgroundColor: '#fefefe',
             boxSizing: 'border-box',
             width: 'max-content',
@@ -24,14 +25,13 @@ const CustomModal:FunctionComponent<any> = (Props) => {
     }
 
     const contentstyle = {
-        
+
     }
 
     const buttonstyle = {
         color: 'black',
         display: 'block',
         position: 'absolute' as 'absolute',
-        top: '10px',
         right: '10px',
         cursor: 'pointer',
         fontSize: '25px'

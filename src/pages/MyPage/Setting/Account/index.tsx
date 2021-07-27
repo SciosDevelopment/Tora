@@ -10,6 +10,7 @@ import ChangePassWord from './ChangePassword'
 import { useEffect ,useState} from 'react'
 import axios from 'axios'
 import {history} from '../../../../configureStore'
+import CustomModal from 'src/components/common/Modal/modal'
 
 const AccountSetting = () => {
     const [userdata, setUserData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
@@ -169,15 +170,15 @@ const AccountSetting = () => {
             </div>
             {
                 swit === "DA" &&
-                <div className = "Setting-account-delete-account">
-                    <DeleteAccount getEmail={()=>{return userdata.email}}/>
-                </div>
+                <CustomModal modalOpen={swit === "DA"} modalClose={()=>setSwitch("")}>
+                        <DeleteAccount getEmail={()=>{return userdata.email}} close={setSwitch}/>
+                </CustomModal>
             }
             {
                 swit === "CP" &&
-                <div className = "Setting-account-change-password">
+                <CustomModal modalOpen={swit === "CP"} modalClose={()=>setSwitch("")}>
                     <ChangePassWord close = {setSwitch}/>
-                </div>
+                </CustomModal>
             }
         </div>
     )

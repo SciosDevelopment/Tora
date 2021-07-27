@@ -24,6 +24,7 @@ const ChangePassword = (props) => {
         axios.put(`${SERVER_IP}/api/v1/user/change_password`, data_)
         .then(()=>{ 
             alert("change Password complete")
+            close("") // close modal
         })
         .catch((e)=>{
             if(e.response) {

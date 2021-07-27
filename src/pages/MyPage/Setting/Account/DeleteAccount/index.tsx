@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const DeleteAccount = (props) => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const {getEmail} = props
+    const {getEmail, close} = props
     const [pw, setPw] = useState("")
     const [agree, setAgree] = useState(false)
     const {onSetUserInfo, onGetUserInfo} = useUser()
@@ -40,6 +40,7 @@ const DeleteAccount = (props) => {
         .then((res)=>{ // 204
             logout()
             alert("success secession")
+            close("")
             history.replace("/")
         })
         .catch((e)=>{
@@ -78,7 +79,7 @@ const DeleteAccount = (props) => {
                 </div>
                 <div className = "DeleteAccount-btn-container">
                     <div className = "DeleteAccount-cancelbtn">
-                        <input type = "button" value = "취소"/>
+                        <input type = "button" value = "취소" onClick={()=>close("")}/>
                     </div>
                     <div className = "DeleteAccount-confirmbtn">
                         <input type = "button" value = "확인" onClick={secession}/>
