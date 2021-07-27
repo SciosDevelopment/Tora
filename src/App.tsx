@@ -14,7 +14,7 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
   // Router 사용
   const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
   const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
-  const {onSetUserInfo} = useUser()
+  const {onSetUserInfo, onGetUserInfo} = useUser()
   
 
   // page이동시 마다 확인 : 임시 체크
@@ -22,33 +22,20 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
   
   // 이부분 추후 논의
   const initializeUserInfo = async() => {
-      // Token이 존재하면 return
-      if(axios.defaults.headers.common['Authorization'] !== undefined) return
+      // Cookie가 존재하지 않고 Token이 존재하는경우 : 쿠키가 만료됐지만 로그인한 이력이 있는 경우
+      if(axios.defaults.headers.common['Authorization'] !== undefined && cookies.ToraLoginToken === undefined) {
+        var ExpiryTime = new Date()
+        const TOKEN_EXPIRY_TIME = 10 
+        ExpiryTime.setMinutes(new Date().getMinutes() + TOKEN_EXPIRY_TIME) // 10분 유지
+        setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {expires:ExpiryTime})
+        setCookie('ToraID', onGetUserInfo, {expires:ExpiryTime})
+      }
       
-      // cookie에 있는 토큰이 유효하면 로그인 토큰 재발급, 유효하지않으면 Cookie 제거
-      // 06. 03. 임시로 새로고침시 토큰 및 유저정보 유지
-      if(cookies.ToraLoginToken !== undefined) {
+      // Cookie가 존재하고 Token이 존재하지 않는경우 : 새로고침시 토큰 및 유저정보 유지
+      if(axios.defaults.headers.common['Authorization'] === undefined && cookies.ToraLoginToken !== undefined) {
         axios.defaults.headers.common['Authorization'] = cookies.ToraLoginToken
         var userID_ = cookies.ToraID
         onSetUserInfo(userID_)
-
-        // token 유효성 테스트 : 유효하면 재발급
-        // axios.post(`${SERVER_IP}/confirmToken`, {userID: userID_})
-        // .then((res)=>{
-          //   // 재발급
-          //   const {accessToken} = res.data
-          //   axios.defaults.headers.common['Authorization'] = `${accessToken}`
-          //   const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
-          
-          //   setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})
-          //   setCookie('ToraID', userID_, {maxAge:TOKEN_EXPIRY_TIME})
-          //   onSetUserInfo(userID_)
-          // })
-        // .catch((e) => {
-        //   // 유효하지 않거나, 만료된 토큰 제거
-        //   removeCookie('ToraLoginToken')
-        //   removeCookie('ToraID')
-        // })
       }
   }
   

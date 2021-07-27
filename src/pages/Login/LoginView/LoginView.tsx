@@ -9,16 +9,17 @@ const LoginView:FunctionComponent<any> = () => {
 
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [userinfo, setUserinfo] = useState({userID:"", password:""})
+    const [isChecked, setCheck] = useState(false)
     const [cookies, setCookie] = useCookies(['ToraLoginToken', 'ToraID'])
     const {onSetUserInfo, onGetUserInfo} = useUser()
     
     useEffect(()=>{
         // 로그인이 되어있으면, 메인으로 이동
-        if(onGetUserInfo !== null) {
-            alert("you alery login")
-            history.replace("/")
-            return
-        }
+        // if(onGetUserInfo !== null || cookies.ToraLoginToken || axios.defaults.headers.common['Authorization']) {
+        //     alert("already login")
+        //     history.replace("/")
+        //     return
+        // }
     },[])
 
     const handleChange = (e) => {
@@ -26,7 +27,7 @@ const LoginView:FunctionComponent<any> = () => {
         setUserinfo({...userinfo, [name]:value})
     }
 
-    const gotoRegister = () => { history.push('/register') }
+    const gotoRegister = () => { history.push('/signup') }
     const gotoReset = () => { history.push('/reset_pw') }
 
     const handleSubmit = (e) => {
@@ -40,9 +41,15 @@ const LoginView:FunctionComponent<any> = () => {
         .then((res)=> {
             const accessToken = res.data[`JWT token`]
             axios.defaults.headers.common['Authorization'] = `${accessToken}`
-            const TOKEN_EXPIRY_TIME = 30 * 24 * 3600 * 1000 // 30일 유지
-            setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {maxAge:TOKEN_EXPIRY_TIME})
-            setCookie('ToraID', userinfo.userID, {maxAge:TOKEN_EXPIRY_TIME})
+
+            var ExpiryTime = new Date()
+            const TOKEN_EXPIRY_TIME = 10
+            if(isChecked) ExpiryTime.setDate(new Date().getDate() + TOKEN_EXPIRY_TIME) // 10시간 유지
+            else ExpiryTime.setMinutes(new Date().getMinutes() + TOKEN_EXPIRY_TIME) // 10분 유지
+            
+
+            setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {expires:ExpiryTime})
+            setCookie('ToraID', userinfo.userID, {expires:ExpiryTime})
             onSetUserInfo(userinfo.userID)
             alert(`Welcome ${userinfo.userID}`)
             history.replace("/")
@@ -51,14 +58,18 @@ const LoginView:FunctionComponent<any> = () => {
         .catch((e)=>{
               if(e.response) {
                 var status = e.response.status // or use message
-                if(status === 401 || status === 404) {
-                    // id 미존재 : 404, pw 불일치 : 401
-                    // 메일 미인증 : 401
-                    const {message} =JSON.parse(e.request.response)
-                    console.log(message)
+                const {message} =JSON.parse(e.request.response)
+                // 메일 미인증 : 401
+                if(status === 401) {
+                    // 인증메일 재전송 부분 : 구현 필요
                     alert(message)
                 }
 
+                // id 미존재 혹은 pw 불일치 : 404
+                if(status === 404) {
+                    alert(message)
+                }
+                
                 if(status === 400) console.log(e.response.message)
                 
                 // 서버 연결 문제일때 : temp-status
@@ -84,6 +95,7 @@ const LoginView:FunctionComponent<any> = () => {
                         <input name = "userID" type = "input" required value = {userinfo.userID} onChange = {handleChange}/>
                     </div>
                 </div>
+                
                 <div>
                     <p>Password</p>
                     <div>
@@ -92,7 +104,10 @@ const LoginView:FunctionComponent<any> = () => {
                 </div>
 
                 <button>Login</button>
-               
+
+                <div>
+                    <p><input type="checkbox" checked={isChecked} onChange={()=>setCheck(!isChecked)}/> 로그인유지</p>
+                </div>
             </form>
 
             <div className = "Login-button-etc-info-container">

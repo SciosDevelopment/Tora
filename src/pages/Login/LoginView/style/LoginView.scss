@@ -25,11 +25,16 @@
 
             >div{
 
-                p{  
+                p {  
                     margin-left : 10px;
                     margin-bottom: 4%;
                     font-size : 1.375em;
                     font-weight : 800;
+                    
+                    >input { // checkbox size.
+                        width:18px;
+                        height: 18px;
+                    }
                 }
 
                 >div{
