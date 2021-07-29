@@ -20,7 +20,7 @@ const DeleteAccount = (props) => {
 
     const logout = () => {
         // remove client data
-        onSetUserInfo("")
+        onSetUserInfo(null)
         removeCookie('ToraLoginToken')
         removeCookie('ToraID')
         axios.defaults.headers.common['Authorization'] = null
