@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react'
 import {history} from '../../../../configureStore'
 import './style/IDEHeaderOption.scss'
 import { useCookies } from 'react-cookie'
@@ -7,7 +7,7 @@ import Logout from '../../../../img/idelogout.png'
 
 const IDEHeaderOption:FunctionComponent = () => {
 
-    const [cookies, _, removeCookie] = useCookies(['ToraID'])
+    const [cookies] = useCookies(['ToraID'])
     const openPage = (url) => { history.push(url) }
 
     return (
@@ -23,4 +23,4 @@ const IDEHeaderOption:FunctionComponent = () => {
     );
 };
 
-export default IDEHeaderOption;
+export default IDEHeaderOption

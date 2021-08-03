@@ -1,32 +1,32 @@
-import React from 'react';
+import React from 'react'
 import './style/IDE.scss'
-import Header from './Header/IDEHeader'
-import SideBar from './SideBar/IDESideBar'
-import Editor from './Editor/IDEEditor'
-import Terminal from './Terminal/IDETerminal'
+import Header from './Header'
+import SideBar from './SideBar'
+import Editor from './Editor'
+import Terminal from './Terminal'
 
-const IDE = () => {
+const IdePage = () => {
     return (
-        <div className = "IDE">
+        <div className = "IDE-Main">
             <div className = "IDE-Header">
                 <Header/>
             </div>
-            <div className  = "IDE-Main">
+            <div className  = "IDE-Content">
                 <div className = "IDE-Sidebar">
                     <SideBar/>
                 </div>
                 <div className = "IDE-View">
-                    <div className = "IDE-editor">
+                    <div className = "IDE-Editor">
                         <Editor/>
                     </div>
-                    <div className  = "IDE-terminal">
+                    <div className = "IDE-Terminal">
                         <Terminal/>
                     </div>
                 </div>
             </div>
 
         </div>
-    );
-};
+    )
+}
 
-export default IDE;
+export default IdePage

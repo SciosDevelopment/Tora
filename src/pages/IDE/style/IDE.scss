@@ -3,32 +3,40 @@
     src : url('../../../fonts/AppleSDGothicNeoB.ttf')
 }
 
-
-.IDE{
+.IDE-Main {
     font-family: "AppleSDGothicNeoB";
     width: 100%;
     height: 1080px;
     background-color: #1C2239;
     display: flex;
     flex-direction: column;
-    .IDE-Header{
+
+    .IDE-Header {
         width: 100%;
     }
-    .IDE-Main{
+
+    .IDE-Content {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        .IDE-Sidebar{
-        }
-        .IDE-View{
+
+        .IDE-View {
             width: 97.5%;
             display: flex;
             flex-direction: column;
-            .IDE-editor{
+
+            /*
+            .IDE-Sidebar {
+
+            }
+            */
+
+            .IDE-Editor {
                 height: 820px;
                 border-bottom: solid 2px #707070;
             }
-            .IDE-terminal{
+
+            .IDE-Terminal {
                 width: 100%;
                 height: 200px;
             }

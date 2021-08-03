@@ -1,0 +1,41 @@
+.dropdown-main {
+    position : relative;
+    display : inline-block;
+}
+
+.dropdown-btn {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   background : transparent;
+   color : #fff;
+   border : none;
+   font-family: "AppleSDGothicNeoB";
+   font-size : 15px;   
+}
+
+.dropdown-btn:focus {
+   outline : none;
+   border : none;
+}
+
+.dropdown-btn:hover {
+    cursor: pointer;
+    background-color: #30364B;
+}
+
+.dropdown-contents {
+   display : none;
+   position : absolute;
+   min-width : 100px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 99;
+}
+
+.dropdown-contents:hover {
+    display : none;
+}
+
+.dropdown-main:hover .dropdown-contents {
+   display: block;
+}

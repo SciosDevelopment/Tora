@@ -5,19 +5,4 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    .IDE-GitSystem-icon-wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        >img{
-            width: 28px;
-            height: 29px;
-        }
-        >p{
-            margin-top: 4px;
-            color: #ffffff;
-            font-size: 12px;
-        }
-    }
 }

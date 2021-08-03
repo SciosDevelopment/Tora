@@ -1,18 +1,21 @@
-.IDE-SideBar{
+.IDE-SideBar-main {
     width: 100%;
     height: 100%;
-    .IDE-SideBar-button{
+    
+    .IDE-SideBar-button {
         width: 100%;
         height: auto;
         display: flex;
         flex-direction: row;
-        .IDE-SideBar-function{
+
+        .IDE-SideBar-function {
             width: 100%;
             height: 1020px;
             display: flex;
             flex-direction: column;
             border-right: solid 2px #707070;
-            .IDE-SideBar-button-icon{
+
+            .IDE-SideBar-button-icon {
                 width: 55px;
                 margin-top: 20px;
                 background: transparent;
@@ -23,8 +26,9 @@
                     height: 30px;
                 }
             }
-            .IDE-SideBar-button-icon:hover{
-                background-color: #30364B;;
+
+            .IDE-SideBar-button-icon:hover {
+                background-color: #30364B;
                 border: none;
                 >img{
                     width: 30px;
@@ -32,7 +36,7 @@
                 }
             }
         }
-        .IDE-SideBar-contents{
+        .IDE-SideBar-contents {
             width: 100%;
         }
     }
