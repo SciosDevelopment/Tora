@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react'
+import React, {useState} from 'react'
 import './style/IDESideBar.scss'
 import Folder from '../../../img/idefolder.png'
 import ERD from '../../../img/ideerd.png'
@@ -7,17 +7,17 @@ import ImageCoding from '../../../img/imagecoding.png'
 import Share from '../../../img/ideshare.png'
 import SideNav from './SideNav'
 
-import Header from '../Terminal'
+import FileView from '../../../components/common/FileView'
 
-const IDESideBar:FunctionComponent= () => {
+const IDESideBar = () => {
     const [showNav, setShowNav] = useState(-1)
     // temp list, 추후 구현예정
-    //common Component - Folder, ERD, CodeCalendar, ImageCoding, Share.
-    const list = [  <Header/>,
-                    <Header/>,
-                    <Header/>,
-                    <Header/>,
-                    <Header/> ]
+    //common Component - FileView, ERD, CodeCalendar, ImageCoding, Share.
+    const list = [  <FileView/>,
+                    <FileView/>,
+                    <FileView/>,
+                    <FileView/>,
+                    <FileView/> ]
 
     const setSideNav = (num)=>{
         // need toggleBtn active

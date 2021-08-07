@@ -1,11 +1,17 @@
 import React from 'react'
 import './style/IDEEditor.scss'
 import SplitScreen from '../../../img/splitscreen.png'
-import IDEType from '../../../img/idetype.png'
 import FileType from './type'
+import TextEditor from 'src/components/common/TextEditor'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const IDEEditor = () => {
-
+    
+    //const [FileList, setFileList] = useState<File[]>() //temp var
+    // useEffect(()=>{
+    //     alert(curFile)
+    // },[curFile])
     return (
         <div className = "IDE-Editor-main">
             <div className = "IDE-Editor-function">
@@ -20,7 +26,7 @@ const IDEEditor = () => {
                 </div>
             </div>
             <div className = "IDE-Editor-contents">
-                {/* CodeMirror 사용 */}
+                <TextEditor code="test"/>
             </div>
         </div>
     )
