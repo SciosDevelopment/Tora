@@ -7,9 +7,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import TreeItem from '@material-ui/lab/TreeItem'
 import axios from 'axios'
 
-const FileView = () => {
+const FileView = (props) => {
     // example : https://material-ui.com/components/tree-view/
-
+    const {setFile} = props
 
     // another ref : https://www.npmjs.com/package/react-folder-tree
     const [data, setData] = useState({path:'.',name:'loading..', children:null, type:"null", size:0, })
@@ -65,24 +65,14 @@ const FileView = () => {
     const handleSelect = (event, nodeIds) => { 
         if(nodeIds == selected) {
             console.log('handleSelect : ' + nodeIds)
-            // // 여기서 state 변경
-            // let result = axios.get('http://localhost:3001/getFile', {params: {route:nodeIds}})
-            // .then(res => (res.data))
-            // .then(data => {
-            //     if(data.filename != null && data.filetype != null)
-            //         addFileList(data)
-            // }
-            // )
-            // .catch(err=> console.log("this is error " + err))       
+            // 여기서 state 변경
+            let result = axios.get('http://localhost:3001/getFile', {params: {route:nodeIds}})
+            .then(res => res.data)
+            .then(data => setFile(data))
+            .catch(err=> console.log("this is error " + err))       
         }
         else setSelected(nodeIds)
     }
-
-    const addFileList = (fileinfo) => {
-        console.log("addFileList : " + fileinfo)
-    }
-   
-   
 
     return (
         <TreeView

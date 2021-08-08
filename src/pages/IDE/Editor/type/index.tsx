@@ -3,12 +3,12 @@ import './style/FileType.scss'
 import IDEType from '../../../../img/idetype.png'
 
 const FileType = (props) => {
-    const {FileName} = props
+    const {File, onSelected} = props
     
     return (
-        <div className = "IDE-Filetype">
+        <div className = "IDE-Filetype" onClick={onSelected}>
             <img src = {IDEType} alt=""/> {/* temp */}
-            <p>{FileName}</p>
+            <p>{File.filename}</p>
         </div>
     )
 }
