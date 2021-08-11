@@ -3,7 +3,7 @@ import './style/IDE.scss'
 import Header from './Header'
 import SideBar from './SideBar'
 import Editor from './Editor'
-import Terminal from './Terminal'
+import Footer from './Footer'
 
 const IdePage = () => {
     const [curFile, setCurFile] = useState(null)
@@ -12,7 +12,7 @@ const IdePage = () => {
             <div className = "IDE-Header">
                 <Header/>
             </div>
-            <div className  = "IDE-Content">
+            <div className = "IDE-Content">
                 <div className = "IDE-Sidebar">
                     <SideBar onSelect={setCurFile}/>
                 </div>
@@ -20,8 +20,8 @@ const IdePage = () => {
                     <div className = "IDE-Editor">
                         <Editor onSelect={setCurFile} current={curFile}/>
                     </div>
-                    <div className = "IDE-Terminal">
-                        <Terminal/>
+                    <div className = "IDE-Footer">
+                        <Footer/>
                     </div>
                 </div>
             </div>
