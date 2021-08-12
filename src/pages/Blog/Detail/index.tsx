@@ -59,7 +59,7 @@ const BlogDetailMain = (props) => {
         <Header/>
         <div className = "Blog-Detail">
             <div className = "Blog-Detail-left-button">
-                <SideButton/>
+                <SideButton id={id} />
             </div>
             <div className = "Blog-Detail-main">
                 <div className = "Blog-Detail-view">
