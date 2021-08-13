@@ -7,45 +7,29 @@ import IDE from '../../../../img/toralogobutton.png'
 import Chat from '../../../../img/communication80.png'
 import SideMenuItem from '../Item'
 import {history} from '../../../../configureStore'
-import CustomModal from '../../Modal/modal';
 import { useCallback } from 'react'
+import ShareModal from './ShareModal'
 
 
-const ProjectSideMenu = (props) => {
+const ProjectSideMenu = () => {
+    const [Liked,setLiked] = useState(0) //Star
+    const [modalOpen, setModalOpen] = useState(false) //Share Modal
+
+    const openModal = () => setModalOpen(true)
+    const closeModal = () => setModalOpen(false)
 
     const openPage = (url) => { history.push(url) }
 
-    //Star버튼 
-    const [Liked,setLiked] = useState(0)
-
-    //Share버튼
-    const {id} =props;
-    
-    const handleOnShare = useCallback(() => {
-        console.log("프로젝트 정보 : " ,id);
-        openModal();
-    },[])
+    const handleOnShare = useCallback(() => {openModal()},[])
     //Share Modal기능
-    const [modalOpen, setModalOpen] = useState(false)
-    
-        const openModal = () =>{
-            setModalOpen(true)
-        }
-
-        const closeModal = () =>{
-            setModalOpen(false)
-        }
 
     return (
         <div className = "ProjectSideMenu">
-            <button className="like"><SideMenuItem content = {Liked} image = {Star} onAction={()=>setLiked(Liked +1)}/></button>
-            <button><SideMenuItem content = {"Share"} image = {Share} onAction={handleOnShare}/></button>
-            <CustomModal modalOpen ={modalOpen} modalClose = {closeModal} header="Tora Share">
-                공유하시겠습니까?<br />
-                <a href={window.location.href}>{window.location.href}</a>
-            </CustomModal>
+            <SideMenuItem content = {Liked} image = {Star} onAction={()=>setLiked(Liked +1)}/>
+            <SideMenuItem content = {"Share"} image = {Share} onAction={handleOnShare} />
+            <ShareModal modalOpen ={modalOpen} modalClose = {closeModal}/>
             <SideMenuItem content = {"Fork"} image = {Fork} onAction={()=>console.log("Fork")}/>
-            <button><SideMenuItem content = {"IDE"} image = {IDE} onAction={()=>openPage('/IDE')}/></button>
+            <SideMenuItem content = {"IDE"} image = {IDE} onAction={()=>openPage('/IDE')}/>
             <SideMenuItem content = {"Chat"} image = {Chat} onAction={()=>console.log("Chat")}/>
         </div>
     )
