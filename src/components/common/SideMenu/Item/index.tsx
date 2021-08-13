@@ -1,7 +1,6 @@
 import React from 'react'
 import './style/SideMenuItem.scss'
 
-
 const SideMenuItem = (props) => {
     const {key, content, image, onAction, page} = props
 
@@ -12,7 +11,7 @@ const SideMenuItem = (props) => {
             <button type="button" onClick={onAction}>
                 <img src={image} alt=""/>
                 { 
-                    content&&
+                    content !== undefined &&
                     <p>{content}</p>
                 }
             </button>
