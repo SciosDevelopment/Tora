@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import MonacoEditor, {monaco} from 'react-monaco-editor'
 
 const TextEditor = (props) => {
     // https://github.com/react-monaco-editor/react-monaco-editor
     const {code, File} = props
+    const [lang, setLang] = useState("")
     const ref = React.createRef<MonacoEditor>()
     useEffect(()=>{
         init()
@@ -12,6 +13,8 @@ const TextEditor = (props) => {
     
     const init = () => {
         setContextMenu(ref)
+        setLang("javascript")
+        
     }
 
     const setContextMenu = (ref) => {
@@ -24,18 +27,20 @@ const TextEditor = (props) => {
 
             run: () => {
                 alert("TestAlert")
-          }
+            }
         })
     }
     
     const options = {
+        // https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html
         selectOnLineNumbers: false,
         automaticLayout: true,
-        setContextMenu: false
+        contextmenu: true
     }
+
     return ( 
         <MonacoEditor
-        language="javascript"
+        language={lang}
         theme="vs-dark"
         value={code}
         options={options}

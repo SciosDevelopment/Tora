@@ -63,7 +63,7 @@ const IDEEditor = (props) => {
                 </div>
             </div>
             <div className = "IDE-Editor-contents">
-                { curSelected!==-1 && <TextEditor code={curFiletext}/> }
+                { curSelected!==-1 && <TextEditor code={curFiletext} File={current}/> }
             </div>
         </div>
     )

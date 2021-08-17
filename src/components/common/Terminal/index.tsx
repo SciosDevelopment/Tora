@@ -86,5 +86,5 @@ export default TerminalView
 // xterm example : https://codepen.io/ScreaminSauce/pen/ZBRGEE
 // node-pty : Writing a terminal emulater (eg. via xterm.js) : https://github.com/microsoft/node-pty
 // node-pty + ws + xterm example : https://blog.totaljs.com/posts/140289001cx61b/
-
+// node-pty with xterm : https://stackoverflow.com/questions/66058499/how-to-combine-node-pty-and-xterm
 // wetty (Web + tty) 참고자료 : https://github.com/butlerx/wetty
