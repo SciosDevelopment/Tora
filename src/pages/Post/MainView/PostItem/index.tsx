@@ -20,7 +20,7 @@ const PostItem = (Props)=> {
             </Link>
             </div>
             <div className = "Post-item-profile-tag">
-                <p>{item.attributes.tags}</p> {/* tag 구분자에 의한 출력 */}
+                {item.attributes.tags.split(" ").map((data)=>{return <p>{data}</p>})}
             </div>
             <div className = "Post-item-icon-area">
                 <div className = "Post-item-img">

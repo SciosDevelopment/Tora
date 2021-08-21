@@ -10,8 +10,9 @@ import {history} from '../../../configureStore'
 const BlogWritePage = (props) => {
     const editorRef = React.createRef<Editor>()
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [blogs, setBlogs] = useState({title:"", tags:"", content:""})
+    const [blogs, setBlogs] = useState({title:"", tags:"", content:"", temptags:""})
     const [prevBlogs, setPrev] = useState({title:"", tags:"", content:""})
+    const [taglist, setTaglist] = useState(Array())
     const [cookies, setCookies, removeCookies] = useCookies(['tora_blog'])
     const {id} = props.match.params
     
@@ -34,10 +35,12 @@ const BlogWritePage = (props) => {
             const data_ = { 
                 title:posts_attr.title,
                 tags:posts_attr.tags,
-                content:posts_attr.content
-            }
+                content:posts_attr.content,
+                temptags:""}
+
             setPrev(data_)
             setBlogs(data_)
+            setTaglist(data_.tags.split(" "))
         }).catch((e)=>{
             // 404 error : 글이 존재하지 않는 경우
             alert("글이 존재하지 않습니다.")
@@ -50,7 +53,8 @@ const BlogWritePage = (props) => {
 
     // 데이터가 로드되면, editor에 set
     useEffect(()=> { editorRef.current.getInstance().getCodeMirror().setValue(blogs.content) }, [blogs.content])
-    
+    useEffect(()=> { blogs.tags!=="" ? setTaglist(blogs.tags.split(" ")) : setTaglist(Array())}, [blogs.tags])
+
     // 임시저장
     // 5초마다 글 자동저장부분 (임시로 버튼을 눌렀을때, 쿠키에 저장하도록 구현)
     // Ref.Instance 성격상 null 값을 리턴 (SetInterval, SetTimeout 사용 시) 
@@ -61,7 +65,7 @@ const BlogWritePage = (props) => {
     }
 
     const resetContents = () => {
-        setBlogs({title:"", tags:"", content:""})
+        setBlogs({title:"", tags:"", content:"", temptags:""})
         removeCookies('tora_blog')
     }
     
@@ -110,7 +114,27 @@ const BlogWritePage = (props) => {
         })
         .catch((e)=>{alert("server error")})
     }
-
+    
+    const setTagLists = (e) => {
+        if(e.key === " " || e.key === "Enter" || e.key === ",") {
+            e.preventDefault()
+            const Tag = document.getElementById("InputTag").getAttribute("value")
+            if(!Tag) return
+            if(taglist.indexOf(Tag) < 0) setBlogs({...blogs, tags:(blogs.tags + " " + Tag).trim(), temptags:""})
+            else setBlogs({...blogs,temptags:""}) // 중복되는 태그
+        }
+        
+        // remove tag - backspace
+        if(e.key === "Backspace" && !document.getElementById("InputTag").getAttribute("value")) {
+            if(taglist.length !== 0) {
+                const list = taglist.slice(0, taglist.length-1)
+                var tags = ""
+                for(var i = 0; i<list.length; i++) tags += (list[i] + " ")
+                setBlogs({...blogs, tags: tags.trim()})
+            }
+        }
+    }
+    
     return (        
         <>
         <Header/>
@@ -119,11 +143,13 @@ const BlogWritePage = (props) => {
                 <div className = "Blog-write-produce">
                     <div className = "Blog-write-top">
                         <div className = "Blog-write-title">
-                            <input type="text" placeholder="제목을 입력하세요." name="title" required value = {blogs.title} onChange = {handleChange}/>
+                            <input type="text" placeholder="제목을 입력하세요." name="title"
+                             value = {blogs.title} required onChange = {handleChange}/>
                         </div>
                         <div className = "Blog-write-tag">
-                            {/* need : auto tag system impl. */}
-                            <input type="text" placeholder="태그를 입력하세요." name="tags" required value = {blogs.tags} onChange = {handleChange}/>
+                            {taglist.map((data)=>{return <div>{data}</div>})}
+                            <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
+                             value={blogs.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
                         </div>
                     </div>
                     

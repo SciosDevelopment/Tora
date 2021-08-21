@@ -10,7 +10,8 @@ import {history} from '../../../configureStore'
 const PostWritePage = (props) => {
     const editorRef = React.createRef<Editor>()
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [posts, setPosts] = useState({title:"", tags:"", content:""})
+    const [posts, setPosts] = useState({title:"", tags:"", content:"",temptags:""})
+    const [taglist, setTaglist] = useState(Array())
     const [prevPosts, setPrev] = useState({title:"", tags:"", content:""})
     const [cookies, setCookies, removeCookies] = useCookies(['tora_post'])
     const {id} = props.match.params
@@ -33,7 +34,8 @@ const PostWritePage = (props) => {
             const data_ = { 
                 title:posts_attr.title,
                 tags:posts_attr.tags,
-                content:posts_attr.content
+                content:posts_attr.content,
+                temptags:""
             }
             setPrev(data_)
             setPosts(data_)
@@ -49,7 +51,8 @@ const PostWritePage = (props) => {
 
     // 데이터가 로드되면, editor에 set
     useEffect(()=> {editorRef.current.getInstance().getCodeMirror().setValue(posts.content)}, [posts.content])
-
+    useEffect(()=> { posts.tags!=="" ? setTaglist(posts.tags.split(" ")) : setTaglist(Array())}, [posts.tags])
+    
      // 임시저장
     // 5초마다 글 자동저장부분 (임시로 버튼을 눌렀을때, 쿠키에 저장하도록 구현)
     // Ref.Instance 성격상 null 값을 리턴 (SetInterval, SetTimeout 사용 시) 
@@ -60,7 +63,7 @@ const PostWritePage = (props) => {
     }
 
     const resetContents = () => {
-        setPosts({title:"", tags:"", content:""})
+        setPosts({title:"", tags:"", content:"", temptags:""})
         removeCookies('tora_post')
     }
     
@@ -112,7 +115,26 @@ const PostWritePage = (props) => {
         .catch((e)=>{alert("server error")})
     }
 
-
+    const setTagLists = (e) => {
+        if(e.key === " " || e.key === "Enter" || e.key === ",") {
+            e.preventDefault()
+            const Tag = document.getElementById("InputTag").getAttribute("value")
+            if(!Tag) return
+            if(taglist.indexOf(Tag) < 0) setPosts({...posts, tags:(posts.tags + " " + Tag).trim(), temptags:""})
+            else setPosts({...posts,temptags:""}) // 중복되는 태그
+        }
+        
+        // remove tag - backspace
+        if(e.key === "Backspace" && !document.getElementById("InputTag").getAttribute("value")) {
+            if(taglist.length !== 0) {
+                const list = taglist.slice(0, taglist.length-1)
+                var tags = ""
+                for(var i = 0; i<list.length; i++) tags += (list[i] + " ")
+                setPosts({...posts, tags: tags.trim()})
+            }
+        }
+    }
+    
     return (        
         <>
         <Header/>
@@ -124,8 +146,9 @@ const PostWritePage = (props) => {
                             <input type="text" placeholder="제목을 입력하세요." name="title" required value = {posts.title} onChange = {handleChange}/>
                         </div>
                         <div className = "Post-write-tag">
-                           {/* need : auto tag system impl. */}
-                           <input type="text" placeholder="태그를 입력하세요." name="tags" required value = {posts.tags} onChange = {handleChange}/>
+                        {taglist.map((data)=>{return <div>{data}</div>})}
+                            <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
+                             value={posts.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
                         </div>
                     </div>
                 

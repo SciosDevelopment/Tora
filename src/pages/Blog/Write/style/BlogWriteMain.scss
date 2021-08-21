@@ -63,10 +63,25 @@
                     }
     
                     .Blog-write-tag{
+                        display:flex;
+                        flex-wrap: wrap;
                         margin-left: 15px;
                         
+                        > div {
+                            width:auto;
+                            height: 15px;
+                            border: 2px solid black;
+                            padding:3px;
+                            border-radius: 10px;
+                            font-size:15px;
+                            color: green;
+                            font-weight: bold;
+                            word-break: nowrap;
+                            margin: 2px 3px 2px 0px;
+                        }
+                        
                         > input {
-                            width: 97.5%;
+                            width:max-content;
                             font-size:15px;
                             border:none;
                             color: #585A61;

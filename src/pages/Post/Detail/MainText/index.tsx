@@ -24,7 +24,7 @@ const PostMainText = (props) => {
                     </div>
 
                     <div className = "Post-Detail-maintext-tag">
-                        <p>{data.tags}</p> {/* 태그 클릭시 태그 검색결과로 이동 구현 필요 */}
+                        {data.tags.split(" ").map((tag)=>{return <p>{tag}</p>})}
                     </div>
 
                     {/* post 주인과 로그인정보가 일치할 때 보여주기 */}
