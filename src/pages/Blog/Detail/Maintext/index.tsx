@@ -3,7 +3,7 @@ import moment from 'moment'
 import Profile from '../../../../img/profile3.png'
 import Option from '../../../../img/modify.png'
 import { useEffect } from 'react'
-
+import {history} from '../../../../configureStore'
 import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer'
 import '@toast-ui/editor/dist/toastui-editor-viewer.css'
 // aws elastic beanstalk - auto version up
@@ -49,7 +49,9 @@ const BlogDetailMaintext = (props) => {
             </div>
             <div className = "Blog-Detail-maintext-contents"/>
             <div className = "Blog-Detail-view-profile">
-                <img src = {Profile}/> {/* profile image 경로 및 user_id를 통한 id값을 가져오는 부분이 필요 */}
+            <img src = {data.profileImage ? data.profileImage: Profile}
+                 onClick={()=>history.push(`/mypage/${data.user_name}`)} 
+                 onError = {(e)=> {e.currentTarget.src = Profile}}/> 
                 <p>{data.user_name}</p>
             </div>
         </div>
