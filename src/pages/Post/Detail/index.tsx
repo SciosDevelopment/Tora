@@ -1,20 +1,25 @@
-import React from 'react'
-import Header from 'src/components/common/Header/Header'
 import './style/PostDetailMain.scss'
+import Header from 'src/components/common/Header/Header'
 import MainText from './MainText'
 import CommentList from '../../../components/common/CommentList'
+import ConnectButton from '../../../components/common/SideMenu'
+import SideButton from '../../../components/common/SideMenu/ContentsSideMenu'
+
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
 import axios from 'axios'
-import SideButton from '../../../components/common/SideMenu/ContentsSideMenu'
-import ConnectButton from '../../../components/common/SideMenu'
+import {useCookies} from 'react-cookie'
+import useUser from '../../../hooks/useUser'
 
 const PostDetailMain = (props) => {
     const {id} = props.match.params
-    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [Post, setPost] = useState({title:"0", tags:"0",content:"0", created_at:"0", view_cnt:0, score:0, user_id:0, user_name:"", comments_count:0, profileImage:""})
+    const [Post, setPost] = useState({title:"0", tags:"0",content:"0", created_at:"0",
+                                      view_cnt:0, score:0, user_id:0, user_name:"", comments_count:0, profileImage:""})
+    const [cookies] = useCookies(['ToraNoID'])
+    const {onGetUserID} = useUser()
     const [Comments_List, setCommentList] = useState(Array())
     const [isOpen, setIsOpen] = useState(false)
+    const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     
     useEffect(()=> {
         // post list sorted.
@@ -39,7 +44,13 @@ const PostDetailMain = (props) => {
         })   
     }, [])
     
+    const editPost = () => {
+        if(cookies.ToraNoID != Post.user_id && onGetUserID != Post.user_id) return
+        history.push(`/post/edit/${id}`)
+    }
+
     const deletePost = () => {
+        if(cookies.ToraNoID != Post.user_id && onGetUserID != Post.user_id) return
         if(window.confirm("삭제하시겠습니까?") === true ) {
             const data_ = { post: { id: id } }
             axios.put(`${SERVER_IP}/api/v1/posts/destroy`, data_).then((res)=>{
@@ -93,15 +104,13 @@ const PostDetailMain = (props) => {
                     </div>
                 </div>
             </div>
-            {
-                isOpen?
-                    <div className = "Post-Detail-Option">
-                        <button className="btnOption" onClick={()=>history.push(`/post/edit/${id}`)}>수정</button>
-                        <button className="btnOption" onClick={deletePost}>삭제</button>
-                    </div>
-                :
-                <div className = "Post-Detail-Option-disappear"/>
-            }
+            {isOpen?
+            <div className = "Post-Detail-Option">
+                <button className="btnOption" onClick={editPost}>수정</button>
+                <button className="btnOption" onClick={deletePost}>삭제</button>
+            </div>
+            :
+            <div className = "Post-Detail-Option-disappear"/>}
         </div>
         </>
     )

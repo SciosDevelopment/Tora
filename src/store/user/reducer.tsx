@@ -1,14 +1,16 @@
 import { UserState, UserAction } from './types'
 import { createReducer } from 'typesafe-actions'
-import { SET_USERINFO, CLEAR_USERINFO } from './actions'
+import { SET_USERINFO, SET_USERID, CLEAR_USERINFO } from './actions'
 
 const initialUserState: UserState = {
   userInfo: null,
+  userID : null,
 }
 
 const user = createReducer<UserState, UserAction>(initialUserState, {
-  [SET_USERINFO]: (state, action) => ({userInfo: action.payload}),
-  [CLEAR_USERINFO]: (state) => ({userInfo: state.userInfo})
+  [SET_USERINFO]: (state, action) => ({...state, userInfo: action.payload}),
+  [SET_USERID] : (state, action) => ({...state, userID : action.payload}),
+  [CLEAR_USERINFO]: (state) => ({userInfo: state.userInfo, userID: state.userID})
 })
 
 export default user

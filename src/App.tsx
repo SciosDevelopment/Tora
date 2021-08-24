@@ -13,9 +13,8 @@ interface Interface { history : History}
 const App:FunctionComponent<Interface> = ({history} : Interface) => {
   // Router 사용
   const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-  const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID'])
-  const {onSetUserInfo, onGetUserInfo} = useUser()
-  
+  const [cookies, setCookie, removeCookie] = useCookies(['ToraLoginToken', 'ToraID', 'ToraNoID'])
+  const {onSetUserInfo, onGetUserInfo, onSetUserID, onGetUserID} = useUser()
 
   // page이동시 마다 확인 : 임시 체크
   useEffect(()=> {initializeUserInfo()}, [window.location.href])
@@ -29,13 +28,16 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
         ExpiryTime.setMinutes(new Date().getMinutes() + TOKEN_EXPIRY_TIME) // 10분 유지
         setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {expires:ExpiryTime})
         setCookie('ToraID', onGetUserInfo, {expires:ExpiryTime})
+        setCookie('ToraNoID', onGetUserID, {expires:ExpiryTime})
       }
       
       // Cookie가 존재하고 Token이 존재하지 않는경우 : 새로고침시 토큰 및 유저정보 유지
       if(axios.defaults.headers.common['Authorization'] === undefined && cookies.ToraLoginToken !== undefined) {
         axios.defaults.headers.common['Authorization'] = cookies.ToraLoginToken
         var userID_ = cookies.ToraID
+        var userNoID_ = cookies.ToraNoID
         onSetUserInfo(userID_)
+        onSetUserID(userNoID_)
       }
   }
   

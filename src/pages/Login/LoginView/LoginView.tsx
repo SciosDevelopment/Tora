@@ -10,8 +10,8 @@ const LoginView:FunctionComponent<any> = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [userinfo, setUserinfo] = useState({userID:"", password:""})
     const [isChecked, setCheck] = useState(false)
-    const [cookies, setCookie] = useCookies(['ToraLoginToken', 'ToraID'])
-    const {onSetUserInfo, onGetUserInfo} = useUser()
+    const [cookies, setCookie] = useCookies(['ToraLoginToken', 'ToraID', 'ToraNoID'])
+    const {onSetUserInfo, onSetUserID, onGetUserInfo} = useUser()
     
     useEffect(()=>{
         // 로그인이 되어있으면, 메인으로 이동
@@ -41,16 +41,17 @@ const LoginView:FunctionComponent<any> = () => {
         .then((res)=> {
             const accessToken = res.data[`JWT token`]
             axios.defaults.headers.common['Authorization'] = `${accessToken}`
-
+            
             var ExpiryTime = new Date()
             const TOKEN_EXPIRY_TIME = 10
             if(isChecked) ExpiryTime.setDate(new Date().getDate() + TOKEN_EXPIRY_TIME) // 10시간 유지
             else ExpiryTime.setMinutes(new Date().getMinutes() + TOKEN_EXPIRY_TIME) // 10분 유지
             
-
             setCookie('ToraLoginToken', axios.defaults.headers.common['Authorization'], {expires:ExpiryTime})
             setCookie('ToraID', userinfo.userID, {expires:ExpiryTime})
+            setCookie('ToraNoID', res.data[`userInfo`].id, {expires:ExpiryTime})
             onSetUserInfo(userinfo.userID)
+            onSetUserID(res.data[`userInfo`].id)
             alert(`Welcome ${userinfo.userID}`)
             history.replace("/")
         })
