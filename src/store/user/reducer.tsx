@@ -10,7 +10,7 @@ const initialUserState: UserState = {
 const user = createReducer<UserState, UserAction>(initialUserState, {
   [SET_USERINFO]: (state, action) => ({...state, userInfo: action.payload}),
   [SET_USERID] : (state, action) => ({...state, userID : action.payload}),
-  [CLEAR_USERINFO]: (state) => ({userInfo: state.userInfo, userID: state.userID})
+  [CLEAR_USERINFO]: (state) => ({userInfo: null, userID: null})
 })
 
 export default user
