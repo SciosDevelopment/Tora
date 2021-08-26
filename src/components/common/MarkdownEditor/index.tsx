@@ -37,7 +37,7 @@ type EditorProps = {
 
 const MarkdownEditor = (EditorProp) => {
   // https://nhn.github.io/tui.editor/latest/ToastUIEditor
-  const {placeholder, height, minHeight, initialEditType, editorRef, initialValue} = EditorProp
+  const {placeholder, height, minHeight, initialEditType, editorRef, initialValue, onChange} = EditorProp
   const [tempData, setTempData] = useState("")
   useEffect(()=> {
     // console.log(editorRef.current.getInstance().getCodeMirror().getValue())
@@ -45,6 +45,7 @@ const MarkdownEditor = (EditorProp) => {
     // editorRef.current.getInstance().getUI().getToolbar().removeItem(15)
     // editorRef.current.getInstance().getUI().getToolbar().insertItem(15, "test")    
   }, [])
+  
   const uploadImage = async(blob) => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     // 여기서 image url 변환하고 반환
@@ -71,6 +72,7 @@ const MarkdownEditor = (EditorProp) => {
           usageStatistics={false}
           hideModeSwitch={true}
           placeholder={placeholder}
+          onChange={onChange}
           hooks = {
             {
               addImageBlobHook: async(blob, callback) => {

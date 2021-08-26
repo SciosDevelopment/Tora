@@ -14,7 +14,10 @@ const PostWritePage = (props) => {
     const [taglist, setTaglist] = useState(Array())
     const [prevPosts, setPrev] = useState({title:"", tags:"", content:""})
     const [cookies, setCookies, removeCookies] = useCookies(['tora_post'])
+    const [loading, setLoading] = useState(false)
     const {id} = props.match.params
+    const [tempsaving, setTempsaving] = useState(false) // 임시저장중인지 보여주는 ui visible
+    const [timer, setTimer] = useState() // 임시저장 타이머
 
     const handleChange = (e) => {
         const{ name, value} = e.target
@@ -23,12 +26,20 @@ const PostWritePage = (props) => {
 
     // edit과 write의 분기점
     const init = () => {
-        // 임시저장이 존재하는 경우 set
         if(false) console.log("로그인 체크 필요")
-        if(cookies.tora_post !== undefined) setPosts(cookies.tora_post)
+        // 임시저장이 존재하는 경우 set
+        if(cookies.tora_post !== undefined) {
+            setPosts(cookies.tora_post)
+            editorRef.current.getInstance().getCodeMirror().setValue(cookies.tora_post[`content`])
+        }
 
+        //write인 경우
+        if(id === undefined) {
+            setLoading(true)
+            return
+        }
+        
         // edit의 경우에만 axios로 load
-        if(id === undefined) return
         axios.get(`${SERVER_IP}/api/v1/posts/${id}`).then((res)=>{
             const posts_attr = res.data.data.attributes
             const data_ = { 
@@ -39,6 +50,7 @@ const PostWritePage = (props) => {
             }
             setPrev(data_)
             setPosts(data_)
+            setLoading(true)
         }).catch((e)=>{
             // 404 error : 글이 존재하지 않는 경우
             alert("글이 존재하지 않습니다.")
@@ -48,37 +60,47 @@ const PostWritePage = (props) => {
 
     // Component init
     useEffect(()=> { init() }, [])
-
-    // 데이터가 로드되면, editor에 set
-    useEffect(()=> {editorRef.current.getInstance().getCodeMirror().setValue(posts.content)}, [posts.content])
+    useEffect(()=> { if(!loading && id !== undefined) editorRef.current.getInstance().getCodeMirror().setValue(posts.content) }, [posts.content])
     useEffect(()=> { posts.tags!=="" ? setTaglist(posts.tags.split(" ")) : setTaglist(Array())}, [posts.tags])
     
-     // 임시저장
+    // 임시저장
+    // 참고자료 : https://codepen.io/Lance-Jernigan/pen/qrxmpp
     // 5초마다 글 자동저장부분 (임시로 버튼을 눌렀을때, 쿠키에 저장하도록 구현)
     // Ref.Instance 성격상 null 값을 리턴 (SetInterval, SetTimeout 사용 시) 
-    const tempSave = () => {
-        setPosts({...posts, content:editorRef.current.getInstance().getCodeMirror().getValue()})
-        setCookies('tora_post', posts)
-        alert("임시저장이 완료되었습니다.")
+
+    // onChange TextEditor
+    const editValue = (text) => {
+        setPosts({...posts, content:text})
+        const resetTimeout = (id, newID) => {
+            clearTimeout(id)
+            return newID
+        }
+        setTimer(resetTimeout(timer, setTimeout(tempSave, 3000)))
     }
 
+    // 임시저장
+    const tempSave = () => {	
+		setTempsaving(true)
+        setCookies('tora_post', posts)
+		setTimeout(() =>setTempsaving(false), 1000)
+	}
+
+    // 초기화
     const resetContents = () => {
         setPosts({title:"", tags:"", content:"", temptags:""})
         removeCookies('tora_post')
+        clearTimeout(timer)
     }
     
-    const sendPost = () => {
-        if (id === undefined) writePost()
-        else editPost()
-    }
+    const sendPost = () => id === undefined ? writePost() : editPost()
 
     // 게시글 수정
     const editPost = () => {
         const data = {
              post: { id: id, kind: "free_board", title: posts.title, tags: posts.tags,
-             content: editorRef.current.getInstance().getCodeMirror().getValue()
-            } 
+             content: editorRef.current.getInstance().getCodeMirror().getValue()} 
         }
+
         if(prevPosts.content === data.post.content && 
            prevPosts.title === data.post.title && 
            prevPosts.tags === data.post.tags) {
@@ -111,8 +133,7 @@ const PostWritePage = (props) => {
             alert("글쓰기가 완료되었습니다.")
             resetContents()
             history.replace(`/post/${res.data.data.id}`)
-        })
-        .catch((e)=>{alert("server error")})
+        }).catch((e)=>{alert("server error")})
     }
 
     const setTagLists = (e) => {
@@ -134,7 +155,7 @@ const PostWritePage = (props) => {
             }
         }
     }
-    
+
     return (        
         <>
         <Header/>
@@ -153,10 +174,12 @@ const PostWritePage = (props) => {
                     </div>
                 
                     <div className = "Post-write-text">
-                       <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {posts.content}/>
+                       <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {posts.content} 
+                        onChange={() => editValue(editorRef.current.getInstance().getCodeMirror().getValue())}/>
                     </div>
 
                     <div className = "Post-write-button">
+                        {tempsaving && <div>임시저장중...</div>} {/* 디자인 필요 */}
                         <input type='button' value="TempSave" onClick={tempSave}/>
                         <input type='submit' value="Create" onClick={sendPost}/>
                     </div>
