@@ -1,13 +1,13 @@
 .Comment-main {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 15px;
     border: solid 1px #707070;
     background-color: #F6F7FC;
     display: block;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 3%;
+    margin-bottom: 15px;
     
     .Comment-header {
         width:100%;

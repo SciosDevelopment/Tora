@@ -60,9 +60,9 @@ const Comment = (props) => {
                
             <div className = "Comment-footer">
                 <div className="Comment-buttonlist">
-                { data.attributes.depth < 5 && (<button onClick={()=>openReply(data.id, "reply")}>[reply]</button>)}
-                    <button onClick={()=>openReply(data.id, "edit")}>[edit]</button>
-                    <button onClick={removeComment}>[delete]</button>
+                { data.attributes.depth < 5 && (<button onClick={()=>openReply(data.id, "reply")}>reply</button>)}
+                    <button onClick={()=>openReply(data.id, "edit")}>edit</button>
+                    <button onClick={removeComment}>delete</button>
                 </div>
             </div>
         </div>
