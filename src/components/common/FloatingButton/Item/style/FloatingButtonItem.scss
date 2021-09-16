@@ -1,0 +1,30 @@
+.floatingbutton-item {
+    z-index: 1000;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    .floatingbutton-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #6B26BB;
+        color: white;
+        box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.3);
+        
+        > img {
+            width:100%;
+        }
+    }
+
+    .floatingbutton-content {
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        right:100px;
+    }   
+}
