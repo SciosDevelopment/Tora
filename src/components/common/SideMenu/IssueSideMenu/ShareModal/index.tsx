@@ -1,4 +1,4 @@
-import Modal from '../../../Modal/modal'
+import Modal from '../../../Modal'
 
 const ShareModal = (props) => {
     const {modalOpen, modalClose} = props

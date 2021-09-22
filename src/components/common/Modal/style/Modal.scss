@@ -2,15 +2,10 @@
     display:flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 5px;
     
     .title {
         width:100%;
         border-bottom: 1px solid #CCCCCC;
         text-indent: 3px;   
     }
-}
-
-.modal-contents {
-    padding:10px;
 }

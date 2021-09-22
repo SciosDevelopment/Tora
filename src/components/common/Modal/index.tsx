@@ -2,7 +2,7 @@ import {FunctionComponent} from 'react'
 import Modal from 'react-modal'
 import './style/Modal.scss'
 const CustomModal:FunctionComponent<any> = (Props) => {
-    const {modalOpen, modalClose,title} = Props
+    const {modalOpen, modalClose, title} = Props
 
     // https://reactcommunity.org/react-modal 참고
     const customstyle = {
@@ -15,7 +15,7 @@ const CustomModal:FunctionComponent<any> = (Props) => {
             left: '0',
             right: '0',
             margin: 'auto',
-            padding:'3px',
+            padding:'0',
             backgroundColor: '#fefefe',
             boxSizing: 'border-box',
             width: 'max-content',

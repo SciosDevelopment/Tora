@@ -10,7 +10,7 @@ import ChangePassWord from './ChangePassword'
 import { useEffect ,useState} from 'react'
 import axios from 'axios'
 import {history} from '../../../../configureStore'
-import CustomModal from 'src/components/common/Modal/modal'
+import CustomModal from 'src/components/common/Modal'
 
 const AccountSetting = () => {
     const [userdata, setUserData] = useState({about_me:"about_me", email:"email", followers:0, followings:0, name:"name", score:0,photo: null, pw:""})
