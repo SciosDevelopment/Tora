@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './style/ChatCreate.scss'
 import ChatExit from '../../../../img/chatexit.png'
 
@@ -23,7 +23,7 @@ const ChatCreate = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ChatCreate;
+export default ChatCreate

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent, useState} from 'react'
 import './style/ChatRoom.scss'
 import Bell from '../../../../img/bellicon.png'
 import Maximizebutton from '../../../../img/chatmaxicon.png'
@@ -9,8 +9,8 @@ import Modify from '../../../../img/modify.png'
 import FileSend from '../../../../img/filesendicon.png'
 import Emoticon from '../../../../img/emoticonicon.png'
 import TextFunction from '../../../../img/tora-ide-logo@2x.png'
-import ModifyFunction from './ChatRoomFunction/ChatRoomFunction'
-import Searchbar from './ChatRoomSearchBar/ChatRoomSearchbar'
+import ModifyFunction from './Menu'
+import Searchbar from './SearchBar'
 
 const ChatRoom:FunctionComponent = () => {
 
@@ -85,7 +85,7 @@ const ChatRoom:FunctionComponent = () => {
                         <img src = {FileSend}/>
                     </div>
                     <div className = "ChatRoom-write">
-                        <textarea name="Text1" cols= {40 }  ></textarea>
+                        <textarea name="Text1" cols= {40}  ></textarea>
                     </div>
                     <div className = "ChatRoom-emoticon">
                         <img src = {Emoticon}/>

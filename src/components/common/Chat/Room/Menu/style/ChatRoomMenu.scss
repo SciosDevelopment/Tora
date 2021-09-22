@@ -1,4 +1,4 @@
-.ChatRoom-Function{
+.ChatRoom-Menu{
     font-family: "AppleSDGothicNeoM ";
     width: 293px;
     height: 393px;
@@ -7,14 +7,14 @@
     display: flex;
     flex-direction: column;
 
-    .ChatRoom-Function-main{
+    .ChatRoom-Menu-main{
         width: 100%;
         height: 20%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        .ChatRoom-Function-search{
+        .ChatRoom-Menu-search{
             width: 85%;
             display: flex;
             flex-direction: row;
@@ -25,7 +25,7 @@
                 height: 16px;
             }
         }
-        .ChatRoom-Function-exit{
+        .ChatRoom-Menu-exit{
             width: 85%;
             display: flex;
             flex-direction: row;
@@ -37,24 +37,24 @@
             }
         }
     }
-    .ChatRoom-Function-participants{
+    .ChatRoom-Menu-participants{
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
                                                            
-        .ChatRoom-Function-user{
+        .ChatRoom-Menu-user{
             width: 85%;
             display: flex;
             flex-direction: row;
             align-items: center;
-            .ChatRoom-Function-user-profile{
+            .ChatRoom-Menu-user-profile{
                 >img{
                     width: 36px;
                     height: 39px;
                 }
             }
-            .ChatRoom-Function-user-name{
+            .ChatRoom-Menu-user-name{
                 font-size: 15px;
                 margin-left: 13%;
             }

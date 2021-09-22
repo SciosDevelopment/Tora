@@ -1,10 +1,14 @@
 .ChatList{
     width: 100%;
+    height: 100%;
+    
     .ChatList-Header{
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         margin-top: 3%;
+        height: 5%;
+
         .ChatList-searchbar{
             border-bottom: solid 2px #707070;
             width: 79.5%;
@@ -13,15 +17,18 @@
             justify-content: space-between;
             align-items: center;
             height: 20px;
+
             >img{
                 width: 15px;
                 height: 15px;
             }
+
             >input{
                 width: 100%;
                 border: none;
                 font-size: 15px;
             }
+            
             >input:focus{
                 outline: none;
             }
@@ -33,19 +40,23 @@
             align-items: center;
         }
     }
+
     .ChatList-main{
         width: 90%;
-        height: 499px;
+        height: 90%;
         margin-left: 8%;
         margin-top: 6%;
         overflow-y: scroll;
     }
+
     .ChatList-main::-webkit-scrollbar{
-        width: 3px;
+        width: 5px;
     }
+
     .ChatList-main::-webkit-scrollbar-track {
         background-color: transparent;
     }
+
     .ChatList-main::-webkit-scrollbar-thumb{
         background-color: #C4C4C4;
         border-radius: 20px;

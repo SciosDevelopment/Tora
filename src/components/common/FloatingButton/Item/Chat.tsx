@@ -20,8 +20,7 @@ const FloatingChat = () => {
     }
     return (
             <FloatingButtonItem onActivate={()=>setActivate(!activate)} icon={TestImage}>
-                {/* activate && <Chat onClose={()=>{setActivate(false)}}/> */}
-                {activate && <div style={tempStyle}>Hello world</div>}
+                { activate && <Chat onClose={()=>{setActivate(false)}}/>}
             </FloatingButtonItem>    
     )
 }

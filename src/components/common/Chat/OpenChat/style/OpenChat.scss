@@ -1,10 +1,14 @@
 .OpenChat{
     width: 100%;
+    height: 100%;
+
     .OpenChat-Header{
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        height: 5%;
         margin-top: 3%;
+        
         .OpenChat-searchbar{
             border-bottom: solid 2px #707070;
             width: 79.5%;
@@ -35,7 +39,7 @@
     }
     .OpenChat-main{
         width: 90%;
-        height: 499px;
+        height: 90%;
         margin-left: 8%;
         margin-top: 6%;
         overflow-y: scroll;

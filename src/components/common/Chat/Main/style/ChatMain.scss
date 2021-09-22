@@ -1,5 +1,6 @@
 .Chat-Main{
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     .Chat-Main-search{
@@ -33,8 +34,10 @@
     .Chat-Main-main-tab{
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 88%;
+        height: 100%;
         align-items: center;
+        
         .Chat-Main-tab-button{
             width: 100%;
             display: flex;
@@ -52,7 +55,7 @@
         }
         .Chat-Main-tab-body{
             width: 100%;
-            height: 360px;
+            height: 65%;
             margin-top: 8%;
         }
     }
@@ -62,6 +65,7 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+
     .Chat-Main-follow{
         display: flex;
         flex-direction: column;

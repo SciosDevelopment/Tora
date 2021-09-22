@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import './style/OpenChat.scss'
 import Searchicon from '../../../../img/searchNavy@2x.png'
 import OpenChatCreate from '../../../../img/openchatcreate.png'
-import OpenChatItem from './OpenChatItem/OpenChatItem';
+import OpenChatItem from './Item';
 
 const OpenChat:FunctionComponent = () => {
     

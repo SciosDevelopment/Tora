@@ -2,7 +2,7 @@ import React, {FunctionComponent ,useState} from 'react';
 import './style/GroupChatCreate.scss'
 import ChatExit from '../../../../../img/chatexit.png'
 import Searchicon from '../../../../../img/searchNavy@2x.png'
-import GroupChatItem from './GroupChatItem/GroupChatItem';
+import GroupChatItem from './Item'
 
 const GroupChatCreate:FunctionComponent = () => {
 
@@ -51,7 +51,7 @@ const GroupChatCreate:FunctionComponent = () => {
             </div>
             <div className = "GroupChatCreate-button">
                 <div className = "GroupChatCreate-confirm">
-                    <input type = "button" value = "확인"/>
+                    <input type = "button" value = "확인" onClick={()=>alert("확인")}/>
                 </div>
                 <div className = "GroupChatCreate-cancel">
                     <input type = "button" value = "취소"/>

@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import './style/ChatList.scss'
 import Searchicon from '../../../../img/searchNavy@2x.png'
 import OpenChatCreate from '../../../../img/openchatcreate.png'
-import ChatListItem from './ChatListItem/ChatListItem'
+import ChatListItem from './Item'
 
 const ChatList:FunctionComponent = () => {
 
