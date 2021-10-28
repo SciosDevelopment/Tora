@@ -2,17 +2,17 @@ import React from 'react'
 import Terminal from '../../../components/common/Terminal'
 import './style/Footer.scss'
 
-const IDEFooter = () => {
+const IDEFooter = (props) => {
+    const {tokenValue, sessionUrl} = props
     return (
         <div className = "Footer-main">
             <div className="Footer-Tab">
-                <p>terminal</p>
-                <p>test1</p>
-                
+                <p>terminal</p>     
             </div> 
             <div className="Footer-content">
-                <Terminal terminalID="terminal0"/>
-            </div>    
+                <Terminal tokenValue={tokenValue}
+                 sessionUrl={sessionUrl}/>
+            </div>
         </div>
     )
 }

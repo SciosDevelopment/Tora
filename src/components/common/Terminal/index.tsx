@@ -1,84 +1,96 @@
-import { Socket } from 'net'
-import React, {FunctionComponent, useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Terminal } from 'xterm'
-import { AttachAddon } from 'xterm-addon-attach'
 import { FitAddon } from 'xterm-addon-fit'
+import { ssm } from 'ssm-session'
+
 import 'xterm/css/xterm.css'
 import './style/Terminal.scss'
+import axios from 'axios'
+
 
 const options = {
     lineHeight:1.1,
     cursorblink: true,
-    rows: 10,
-    cols: 120,
+    rows: 13,
+    cols: 150,
 }
 
+const textDecoder = new TextDecoder()
+const textEncoder = new TextEncoder()
+
 const TerminalView  = (props) => {
-    const {terminalID, userInfo = "userInfo"} = props
+    var {tokenValue, sessionUrl} = props
     var term : Terminal
-    var cur_line = ''
-    var cursor = 0
+    var socket : WebSocket
+
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const welcomeText = "this is tora command\n\rthis cmd version is 0.0.1\n\n\n\n\n\n\n\n\n\n\n\n"
+    const welcomeText = "this is tora command\n\rthis cmd version is 0.0.1\n\n\n\n\n\n\n\n\n\n"
+    
     useEffect(() => { init() }, [])
-
-    const termEnter = () => {
-        var shellprompt = userInfo + ">"
-        term.write("\r\n" + shellprompt)
-        // send data
-        if(cur_line != "") {
-            console.log(cur_line)
-            cur_line = ''
-        }
-
-    }
-    const termBackspace = () => {
-        if (cur_line.length > 0) {  // 한글에 대해서는 처리가 되지않은 상태
-            // if deletable text has, delete text.
-            cur_line = cur_line.slice(0, -1)
-            term.write('\b \b')
-        }
-    }
-
+    
     const init = async() => {
         var terminalView = document.getElementById('Terminal-main')
         if(terminalView == null) return
-
         var terminal = document.createElement('div')
-        terminal.id = terminalID
+        terminal.id = "terminal"
         terminalView.appendChild(terminal)
         
         if(terminal == null) return // terminal is not activated. (error)
-        var ws = new WebSocket('ws://localhost:9898/')
+        // sessionUrl = "sessinUrl"
+        // tokenValue = "TokenValue"
+        reConnect()
+        if(sessionUrl !== undefined) { // sessionInfo is exist
+            socket = new WebSocket(sessionUrl)
+            socket.binaryType = "arraybuffer"
+
+            socket.addEventListener("open", (event)=>{
+                ssm.init(socket, {
+                    token: tokenValue,
+                    termOptions: options,
+                })
+            })
+    
+            socket.addEventListener("close", async(event)=>{
+                console.log("WebSocket Closed")
+                reConnect()
+            })
+    
+            socket.addEventListener("message", (event)=>{
+                var agentMessage = ssm.decode(event.data)
+                ssm.sendACK(socket, agentMessage)
+                if(agentMessage.payloadType === 1) {
+                    term.write(textDecoder.decode(agentMessage.payload))
+                } else if(agentMessage.payloadType === 17) {
+                    ssm.sendInitMessage(socket, options)
+                }
+            })
+        }
+
         term = new Terminal(options)
         term.open(terminal)
-
-        const attachAddon = new AttachAddon(ws)
-        ws.onopen = function() { term.loadAddon(attachAddon) }
-        ws.onerror = function(e) { console.log(e) }
-        InitUISetting()
-    }
-
-    
-    const InitUISetting = async() => {
+        const fitAddon = new FitAddon()
+        term.loadAddon(fitAddon)
         term.write(welcomeText)
-        termEnter()
-
-        term.onData((data) => {
-            // 참고자료 : https://www.linkedin.com/pulse/xtermjs-local-echo-ioannis-charalampidis/
-            const code_ = data.charCodeAt(0)
-
-            if(code_ > 127) return // 한글입력 임시차단
-
-            if (code_ == 13) termEnter() // Enter
-            else if(code_ == 127) termBackspace() // backspace
-            else if (code_ < 32) return// Control  
-            else { // Visible
-                term.write(data)
-                cur_line += data
-            }
-        })
+        term.onData(data => socket ?
+            ssm.sendText(socket, textEncoder.encode(data)) : alert("Terminal is not Connected"))
+        term.focus()
     }
+    
+    const reConnect = async() => {
+        const data = {"taskid":"1a6df2e7e7ee4b4db304cc78688ce053"} // temp taskid - get by server.
+        console.log(data)
+        // not send, cors err. 재설정이 필요함
+        const API_URL = 'https://example.apiserver.com/'
+        axios.post(API_URL + `/v1/terminal`, data)
+        .then((res)=>{ console.log(res)})
+        .catch((e)=>{ console.log(e)})
+    }
+
+    const stopTerm = ()=> {
+        if(socket) socket.close()
+        term.dispose()
+    }
+
     return (<div id="Terminal-main"/>)
 }
 export default TerminalView
