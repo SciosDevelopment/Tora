@@ -2,38 +2,19 @@ import React, {useState} from 'react';
 import './style/IDEHeader.scss'
 import {Link} from 'react-router-dom'
 import LogoImg from '../../../img/tora-ide-logo@2x.png'
+
+
+import File from './Dropdown/File'
+import Edit from './Dropdown/Edit'
+import View from './Dropdown/View'
+import Run from './Dropdown/Run'
+
+
 import GitControl from './GitSystem'
 import Option from './Option'
-import Dropdown from './Dropdown'
 
-const IDEHeader:React.FC = () => {
-    const testfunc = ()=> console.log("!")
+const IDEHeader = () => {
     
-    // 이 부분 추후에 hooks로 처리할 예정
-    const FileDrop = Array(
-        {title : "op1", shortcut : null, onAction : testfunc},
-        {title : "op2", shortcut : null, onAction : testfunc},
-        {title : "op3", shortcut : null, onAction : testfunc},
-        {title : "op4", shortcut : null, onAction : testfunc})
-
-    const EditDrop = Array(
-        {title : "op1", shortcut : null, onAction : testfunc},
-        {title : "op2", shortcut : null, onAction : testfunc},
-        {title : "op3", shortcut : null, onAction : testfunc},
-        {title : "op4", shortcut : null, onAction : testfunc})
-
-    const TermiDrop = Array(
-        {title : "op1", shortcut : null, onAction : testfunc},
-        {title : "op2", shortcut : null, onAction : testfunc},
-        {title : "op3", shortcut : null, onAction : testfunc},
-        {title : "op4", shortcut : null, onAction : testfunc})
-
-    const GitDrop = Array(
-        {title : "op1", shortcut : null, onAction : testfunc},
-        {title : "op2", shortcut : null, onAction : testfunc},
-        {title : "op3", shortcut : null, onAction : testfunc},
-        {title : "op4", shortcut : null, onAction : testfunc})
-
     return (
         <div className = "IDEHeader">
             <div className = "IDEHeader-left">
@@ -45,10 +26,10 @@ const IDEHeader:React.FC = () => {
                 </Link>
 
                 <div className="IDE-function">
-                    <Dropdown title="File" data={FileDrop}/>
-                    <Dropdown title="Edit" data={EditDrop}/>
-                    <Dropdown title="Terminal" data={TermiDrop}/>
-                    <Dropdown title="Git" data={GitDrop}/>
+                    <File/>
+                    <Edit/>
+                    <View/>
+                    <Run/>
                 </div>
             </div>
             <div className = "IDE-Header-GitSystem">
@@ -58,7 +39,7 @@ const IDEHeader:React.FC = () => {
                 <Option/>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default IDEHeader;
+export default IDEHeader

@@ -27,7 +27,12 @@
         .IDE-function {
             display: flex;
             justify-content: space-evenly;
-            width: 250px;
+            width: auto;
+            margin-left: 10px;
+            > div {
+                margin-left : 3px;
+                margin-right : 3px;
+            }
         }
     }
 
