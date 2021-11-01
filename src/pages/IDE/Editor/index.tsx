@@ -5,8 +5,6 @@ import FileType from './type'
 import TextEditor from 'src/components/common/TextEditor'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { truncateSync } from 'fs'
-
 
 const IDEEditor = (props) => {
     const{onSelect, current} = props
@@ -30,8 +28,10 @@ const IDEEditor = (props) => {
     },[current])
 
     useEffect(()=>{
-        if(curSelected == -1) return
-        setCurFiletext(FileList[curSelected].fileText)
+        if(curSelected == -1) 
+            if(FileList.length <= 0) return
+            else setCurSelected(0)
+        else setCurFiletext(FileList[curSelected].fileText)
     },[curSelected])
 
     const getIndexInFileList = () => {
@@ -46,6 +46,16 @@ const IDEEditor = (props) => {
     // Drag해서 FileTab 순서 변경 참고사이트
     // https://avada.tistory.com/1375
     // https://r4bb1t.tistory.com/26 
+    const removeFileinFileList = async(data)=>{
+        const index_ = FileList.indexOf(data)
+        var newFileList = FileList.filter((item)=> item !== data)
+        await setFileList(newFileList)
+        setCurSelected(newFileList.length > index_ ? index_ : -1)
+        if(newFileList.length == 0) {
+            setFileList([{fileText:"", filename:"untitled", filepath:null, filetype:"text"}])
+            setCurSelected(0)
+        }
+    }
     
     return (
         <div className = "IDE-Editor-main">
@@ -54,7 +64,10 @@ const IDEEditor = (props) => {
                 {
                     FileList.map((data, index)=> {
                         if(data === null) return
-                        return <FileType File={data} onSelected={()=>setCurSelected(index)}/>
+                        return <FileType File={data} index={index}
+                        SelectedIndex = {curSelected}
+                        onSelected={()=>{setCurSelected(index);console.log(data); console.log(index);}}
+                        onClosed={()=>removeFileinFileList(data)}/>
                     })
                 }
                 </div>
