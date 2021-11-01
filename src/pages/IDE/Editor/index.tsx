@@ -66,7 +66,7 @@ const IDEEditor = (props) => {
                         if(data === null) return
                         return <FileType File={data} index={index}
                         SelectedIndex = {curSelected}
-                        onSelected={()=>{setCurSelected(index);console.log(data); console.log(index);}}
+                        onSelected={()=>{setCurSelected(index)}}
                         onClosed={()=>removeFileinFileList(data)}/>
                     })
                 }
