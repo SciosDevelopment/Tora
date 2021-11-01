@@ -15,8 +15,7 @@ const FileDropdown = () => {
         {title : "파일 속성", shortcut : null, onAction : testfunc},
         {title : "파일 삭제", shortcut : null, onAction : testfunc},
         {title : "파일 가져오기", shortcut : null, onAction : testfunc},
-        {title : "스니펫 설정", shortcut : null, onAction : testfunc},
-        {title : "확장프로그램", shortcut : null, onAction : testfunc})
+        {title : "스니펫 설정", shortcut : null, onAction : testfunc})
 
     return <Dropdown title="File" data={FileDrop}/> // render 
 }
