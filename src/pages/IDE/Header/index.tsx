@@ -1,15 +1,7 @@
-import React, {useState} from 'react';
 import './style/IDEHeader.scss'
 import {Link} from 'react-router-dom'
 import LogoImg from '../../../img/tora-ide-logo@2x.png'
-
-
-import File from './Dropdown/File'
-import Edit from './Dropdown/Edit'
-import View from './Dropdown/View'
-import Run from './Dropdown/Run'
-
-
+import DropdownMenu from './DropdownMenu'
 import GitControl from './GitSystem'
 import Option from './Option'
 
@@ -24,13 +16,7 @@ const IDEHeader = () => {
                         <img src={LogoImg} alt="go to main"/>
                     </div>
                 </Link>
-
-                <div className="IDE-function">
-                    <File/>
-                    <Edit/>
-                    <View/>
-                    <Run/>
-                </div>
+                <DropdownMenu/>
             </div>
             <div className = "IDE-Header-GitSystem">
                 <GitControl/>
