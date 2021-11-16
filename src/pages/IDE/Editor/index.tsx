@@ -31,11 +31,11 @@ const IDEEditor = (props) => {
         if(curSelected == -1) 
             if(FileList.length <= 0) return
             else setCurSelected(0)
-        else setCurFiletext(FileList[curSelected].fileText)
+        else setCurFiletext(FileList[curSelected].fileContent)
     },[curSelected])
 
     const getIndexInFileList = () => {
-        // 단순비교 : curdata {filename, filepath, filetype, fileText}
+        // 단순비교 : curdata {filename, filepath, filetype, fileContent}
         var cur_text = JSON.stringify({a:current.filename, b:current.filepath})
         for(var i = 0; i<FileList.length; i++) {
             if(cur_text !== JSON.stringify({a:FileList[i].filename, b:FileList[i].filepath})) continue
@@ -52,7 +52,7 @@ const IDEEditor = (props) => {
         await setFileList(newFileList)
         setCurSelected(newFileList.length > index_ ? index_ : -1)
         if(newFileList.length == 0) {
-            setFileList([{fileText:"", filename:"untitled", filepath:null, filetype:"text"}])
+            setFileList([{fileContent:"", filename:"untitled", filepath:null, filetype:"text"}])
             setCurSelected(0)
         }
     }
