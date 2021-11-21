@@ -18,7 +18,7 @@ const IdePage = () => {
                 </div>
                 <div className = "IDE-View">
                     <div className = "IDE-Editor">
-                        <Editor onSelect={setCurFile} current={curFile}/>
+                        <Editor current={curFile}/>
                     </div>
                     <div className = "IDE-Footer">
                         <Footer/>

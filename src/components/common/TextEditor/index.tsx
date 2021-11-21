@@ -1,22 +1,29 @@
-import React, { forwardRef, useRef, useState } from 'react'
+import React, { forwardRef, useCallback, useRef, useState } from 'react'
 import { useEffect } from 'react'
 import MonacoEditor, {monaco} from 'react-monaco-editor'
 export let target = null // used in the dropdownmenu
 
 const TextEditor = (props) => {
     // https://github.com/react-monaco-editor/react-monaco-editor
-    const {code, File} = props
+    const {model, index, prevFile, setState} = props
     const [lang, setLang] = useState("")
     const ref = React.createRef<MonacoEditor>()
+    
     useEffect(()=>{ init() },[])
+    useEffect(()=>{ if(model!=null) ref.current.editor.setModel(model) },[model])
+    useEffect(()=>{ target = ref },[ref])
 
     const init = () => {
         setContextMenu(ref)
-        setLang("javascript")
+        setLang("javascript")    
     }
+    const onChangeHandle = () =>{
+        if(prevFile.fileState === (prevFile.fileContent!==model.getValue())) return
+        setState(index,!prevFile.fileState)
+    }
+
     
-    useEffect(()=>{ target = ref },[ref])
-    
+
     const setContextMenu = (ref) => {
         // ※ 코드 수정 후 새로고침시 여러번 등록될 수 있음. 실제 프로그램에선 문제없음.
         // 코드 수정 후 저장 + url로 reload하면 해결가능
@@ -46,7 +53,7 @@ const TextEditor = (props) => {
         <MonacoEditor
         language={lang}
         theme="vs-dark"
-        value={code}
+        onChange={onChangeHandle}
         options={options}
         ref={ref}/>
     )
