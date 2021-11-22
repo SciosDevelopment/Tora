@@ -1,6 +1,7 @@
-import React, { forwardRef, useCallback, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
-import MonacoEditor, {monaco} from 'react-monaco-editor'
+import MonacoEditor from 'react-monaco-editor'
+
 export let target = null // used in the dropdownmenu
 
 const TextEditor = (props) => {
@@ -13,40 +14,17 @@ const TextEditor = (props) => {
     useEffect(()=>{ if(model!=null) ref.current.editor.setModel(model) },[model])
     useEffect(()=>{ target = ref },[ref])
 
-    const init = () => {
-        setContextMenu(ref)
-        setLang("javascript")    
-    }
+    const init = () => { setLang("javascript") }
     const onChangeHandle = () =>{
         if(prevFile.fileState === (prevFile.fileContent!==model.getValue())) return
         setState(index,!prevFile.fileState)
-    }
-
-    
-
-    const setContextMenu = (ref) => {
-        // ※ 코드 수정 후 새로고침시 여러번 등록될 수 있음. 실제 프로그램에선 문제없음.
-        // 코드 수정 후 저장 + url로 reload하면 해결가능
-        
-        // remove action : https://stackoverflow.com/questions/48745208/disable-cut-and-copy-in-context-menu-in-monaco-editor
-        // custom add actions + hotkey example : https://microsoft.github.io/monaco-editor/playground.html#interacting-with-the-editor-adding-an-action-to-an-editor-instance
-
-        ref.current.editor.addAction({ // 예시 코드
-            id: "testAlert",
-            label: "testAlert",
-            contextMenuGroupId: "0_testAlert", // number = order
-
-            run: () => {
-                alert("TestAlert")
-            }
-        })
     }
 
     const options = {
         // https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html
         selectOnLineNumbers: false,
         automaticLayout: true,
-        contextmenu: true
+        contextmenu: false
     }
 
     return (

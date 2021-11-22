@@ -1,7 +1,36 @@
 import Dropdown from "."
+import { useEffect } from "react"
 
 const FileDropdown = () => {
     const testfunc = ()=> console.log("Hello")
+    // hotkey mapping : https://medium.com/nerd-for-tech/using-custom-hooks-to-handle-keyboard-shortcuts-in-react-a91649a81c87
+    const handleKeyDown = (event:KeyboardEvent) : void => {
+        if(event.ctrlKey) {
+            if(event.code === "KeyS") {
+                saveFile()
+                event.preventDefault()
+            }           
+        }
+    }
+    
+    const saveFile = ()=> {
+
+    }
+    
+    const rightClick = (event:MouseEvent) : void => {
+        console.log("rightClick")
+        console.log(event.target)
+        event.preventDefault()
+    }
+
+    useEffect(()=>{
+        window.addEventListener("contextmenu", rightClick)
+        window.addEventListener("keydown", handleKeyDown)
+        return ()=>{
+            window.removeEventListener("keydown",handleKeyDown)
+            window.removeEventListener("contextmenu", rightClick)
+        }
+    },[])
 
     const FileDrop = Array(
         {title : "새로만들기", shortcut : null, onAction : testfunc},
