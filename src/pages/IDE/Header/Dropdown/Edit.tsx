@@ -42,12 +42,12 @@ export const func_replace = () => {
 
 const EditDropdown = () => {
     const EditDrop = [
-        {title : "되돌리기", shortcut : null, onAction : func_undo},
-        {title : "다시실행", shortcut : null, onAction : func_redo},
-        {title : "라인 주석추가 / 제거", shortcut : null, onAction : func_toggle_comment},
-        {title : "블럭 주석추가 / 제거", shortcut : null, onAction : func_toggle_comment2},
-        {title : "찾기", shortcut : null, onAction : func_find},
-        {title : "찾아바꾸기", shortcut : null, onAction : func_replace}]
+        {title : "되돌리기", shortcut : "Ctrl+Z", onAction : func_undo},
+        {title : "다시실행", shortcut : "Ctrl+Y", onAction : func_redo},
+        {title : "라인 주석추가 / 제거", shortcut : "Ctrl+/", onAction : func_toggle_comment},
+        {title : "블럭 주석추가 / 제거", shortcut : "Ctrl+Shift+A", onAction : func_toggle_comment2},
+        {title : "찾기", shortcut : "Ctrl+F", onAction : func_find},
+        {title : "찾아바꾸기", shortcut : "Ctrl+H", onAction : func_replace}]
 
     return <Dropdown title="Edit" data={EditDrop}/> // render 
 }

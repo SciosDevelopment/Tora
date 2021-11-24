@@ -1,6 +1,3 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
-import LogoImg from '../../../img/tora-ide-logo@2x.png'
 import DropdownItem from './Item'
 import './style/Dropdown.scss'
 
@@ -15,6 +12,7 @@ const Dropdown = (props) => {
                 data.map((item) => 
                     <DropdownItem 
                      title = {item.title}
+                     shortcut = {item.shortcut}
                      onAction={item.onAction}/>)}
             </div>               
         </div>
