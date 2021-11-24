@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react'
 import './style/FileType.scss'
 import IDEType from '../../../../img/idetype.png'
 
 const FileType = (props) => {
-    const {File, onSelected, Saved, onClosed, Selected} = props
-    /*{Saved ? 'x' : '0'}*/
+    const {File, onSelected, CanSaved, onClosed, Selected} = props
     
     return (
         <div className={`IDE-Filetype${Selected ? ' active': ''}`}
             onClick={onSelected} title={File.filename}>
-            <img src = {Saved ? null : IDEType} alt=""/> {/* temp */}
+            <img src = {IDEType} alt=""/> {/* temp */}
             <p>{File.filename}</p>
-            <div className = "IDE-Filetype-close" onClick={onClosed}>X</div>
+            <div className = "IDE-Filetype-close" onClick={onClosed}>{CanSaved ? '*' : 'X'}</div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect ,useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import {monaco} from 'react-monaco-editor'
 import TextEditor from '../../../components/common/TextEditor'
 import FileType from './type'
@@ -11,6 +11,7 @@ export let fileSave = null // 임시방식, 추후 변경
 
 export const IDEEditor = (props) => {
     const {current} = props
+    // const [openHistory, setOpenHistory] = useState([])
     const [FileList, setFileList] = useState([]) // 동기화 전용 데이터 (Editor 데이터와 비교 및 서버 데이터)
     const [curSelected, setCurSelected] = useState(-1)
     const [models, setModels] = useState([])
@@ -57,7 +58,7 @@ export const IDEEditor = (props) => {
         await setModels(newModels)
         
         setCurSelected(newFileList.length > index_ ? index_ : -1) // error handling
-        if(newFileList.length == 0) setCurSelected(-1)
+        if(newFileList.length === 0) setCurSelected(-1)
     }
     
     const setFileCheck = (index, boolean) => {
@@ -71,8 +72,8 @@ export const IDEEditor = (props) => {
         return FileList.map((data, index)=> {
             if(data === null) return
             return <FileType File={data}
-            Selected = {curSelected == index}
-            Saved = {data.fileState}
+            Selected = {curSelected === index}
+            CanSaved = {data.fileState}
             onSelected={()=>{setCurSelected(index)}}
             onClosed={()=>removeFileinFileList(data)}/>
         })
