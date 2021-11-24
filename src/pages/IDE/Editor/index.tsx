@@ -7,12 +7,14 @@ import './style/IDEEditor.scss'
 
 //https://blog.expo.dev/building-a-code-editor-with-monaco-f84b3a06deaf : 참고 사이트
 
-const IDEEditor = (props) => {
+export let fileSave = null // 임시방식, 추후 변경
+
+export const IDEEditor = (props) => {
     const {current} = props
     const [FileList, setFileList] = useState([]) // 동기화 전용 데이터 (Editor 데이터와 비교 및 서버 데이터)
     const [curSelected, setCurSelected] = useState(-1)
     const [models, setModels] = useState([])
-
+    
     useEffect(()=>{
         // FileView에서 선택했을때, FileList 추가
         if(current === null) return
@@ -32,7 +34,7 @@ const IDEEditor = (props) => {
         setFileList(tempList)
         setCurSelected(FileList.length-1)
     },[current])
-
+    
     const getIndexInFileList = () => {
         // 단순비교 : curdata {filename, filepath, filetype, fileContent}
         var cur_text = JSON.stringify({a:current.filename, b:current.filepath})
@@ -42,7 +44,7 @@ const IDEEditor = (props) => {
         }
         return -1 // not exist.
     }
-
+    
     // Drag해서 FileTab 순서 변경 참고사이트
     // https://avada.tistory.com/1375
     // https://r4bb1t.tistory.com/26 
@@ -50,32 +52,43 @@ const IDEEditor = (props) => {
         const index_ = FileList.indexOf(data)
         var newFileList = FileList.filter((_, index)=> index !== index_)
         var newModels = models.filter((_, index) => index !== index_)
-
+        
         await setFileList(newFileList)
         await setModels(newModels)
-
+        
         setCurSelected(newFileList.length > index_ ? index_ : -1) // error handling
         if(newFileList.length == 0) setCurSelected(-1)
     }
-
+    
     const setFileCheck = (index, boolean) => {
         var Files_ = FileList
-        if(boolean === Files_[index].state) return
+        if(boolean === Files_[index].fileState) return
         Files_[index].fileState = boolean
         setFileList([...Files_])
     }
-
+    
     const loadFileList = () => {
         return FileList.map((data, index)=> {
             if(data === null) return
             return <FileType File={data}
-                Selected = {curSelected == index}
-                Saved = {data.fileState}
-                onSelected={()=>{setCurSelected(index)}}
-                onClosed={()=>removeFileinFileList(data)}/>
+            Selected = {curSelected == index}
+            Saved = {data.fileState}
+            onSelected={()=>{setCurSelected(index)}}
+            onClosed={()=>removeFileinFileList(data)}/>
         })
     }
-
+    
+    const saveFile = async() => {
+        var Files_ = FileList
+        if(curSelected < 0) return
+        if(!Files_[curSelected].fileState) return
+        Files_[curSelected].fileState = false //need not save state
+        Files_[curSelected].fileContent = models[curSelected].getValue() 
+        setFileList([...Files_])
+    }
+    
+    fileSave = saveFile
+    
     return (
         <div className = "IDE-Editor-main">
             <div className = "IDE-Editor-function">

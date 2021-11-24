@@ -1,5 +1,9 @@
 import Dropdown from "."
 import { useEffect } from "react"
+import { target } from "../../../../components/common/TextEditor"
+import { fileSave } from "../../Editor"
+
+export const func_saveFile = ()=> {fileSave()} 
 
 const FileDropdown = () => {
     const testfunc = ()=> console.log("Hello")
@@ -7,14 +11,10 @@ const FileDropdown = () => {
     const handleKeyDown = (event:KeyboardEvent) : void => {
         if(event.ctrlKey) {
             if(event.code === "KeyS") {
-                saveFile()
+                func_saveFile()
                 event.preventDefault()
             }           
         }
-    }
-    
-    const saveFile = ()=> {
-
     }
     
     const rightClick = (event:MouseEvent) : void => {
@@ -37,7 +37,7 @@ const FileDropdown = () => {
         {title : "열기 / 최근파일열기", shortcut : null, onAction : testfunc},
         {title : "닫기", shortcut : null, onAction : testfunc},
         {title : "모두 닫기", shortcut : null, onAction : testfunc},
-        {title : "저장", shortcut : null, onAction : testfunc},
+        {title : "저장", shortcut : null, onAction : func_saveFile},
         {title : "이름 변경", shortcut : null, onAction : testfunc},
         {title : "파일 복제", shortcut : null, onAction : testfunc},
         {title : "파일 삭제", shortcut : null, onAction : testfunc},
