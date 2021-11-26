@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useEffect } from 'react'
 import MonacoEditor from 'react-monaco-editor'
 
@@ -7,14 +7,13 @@ export let target = null // used in the dropdownmenu
 const TextEditor = (props) => {
     // https://github.com/react-monaco-editor/react-monaco-editor
     const {model, index, prevFile, setState} = props
-    const [lang, setLang] = useState("")
     const ref = React.createRef<MonacoEditor>()
     
     useEffect(()=>{ init() },[])
     useEffect(()=>{ if(model!=null) ref.current.editor.setModel(model) },[model])
     useEffect(()=>{ target = ref },[ref])
 
-    const init = () => { setLang("javascript") }
+    const init = () => {}
     const onChangeHandle = () =>{
         if(prevFile.fileState === (prevFile.fileContent!==model.getValue())) return
         setState(index,!prevFile.fileState)
@@ -29,7 +28,6 @@ const TextEditor = (props) => {
 
     return (
         <MonacoEditor
-        language={lang}
         theme="vs-dark"
         onChange={onChangeHandle}
         options={options}
