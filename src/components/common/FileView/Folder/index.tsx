@@ -1,7 +1,8 @@
 import TreeItem from '@material-ui/lab/TreeItem'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import FileTreeItemFile from './File'
+import { useEffect, useState, useRef} from 'react'
+import FileTreeItemFile from '../File'
+import ContextMenu from './ContextMenu'
 
 const FileTreeItemFolder = (props) => {
     const {info, projectId} = props
@@ -9,7 +10,8 @@ const FileTreeItemFolder = (props) => {
     const [isLoading, setIsLoading] = useState(false)
     const [directories, setDirectories] = useState([])
     const [files, setFiles] = useState([])
-
+    const ref_ = useRef<HTMLDivElement>()
+    
     const renderData = async() => {
         await axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/directory`, {project:{directory_name:info.path}})
         .then((res) => {
@@ -46,12 +48,13 @@ const FileTreeItemFolder = (props) => {
         })
     }
     
-    return (
-        <TreeItem key={info.path} nodeId={info.path} label={info.name} onClick={handleSelect}>
+    return (<>
+        <TreeItem key={info.path} nodeId={info.path} label={info.name} ref={ref_} onClick={handleSelect}>
             {renderFolder()}
             {renderFile()}
         </TreeItem>
-    )
+        <ContextMenu target={ref_}/>
+    </>)
 }
 
 export default FileTreeItemFolder

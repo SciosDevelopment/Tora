@@ -1,0 +1,11 @@
+.ContextMenu-item {
+    min-width: 120px;
+    display: flex;
+    padding:4px;
+    justify-content: space-between;
+}
+
+.ContextMenu-item:hover {
+    background-color: gray;
+    cursor:pointer;
+}
