@@ -1,6 +1,6 @@
 import TreeItem from '@material-ui/lab/TreeItem'
 import axios from 'axios'
-import { useEffect, useState, useRef} from 'react'
+import {useState, useRef} from 'react'
 import FileTreeItemFile from '../File'
 import ContextMenu from './ContextMenu'
 
@@ -25,9 +25,7 @@ const FileTreeItemFolder = (props) => {
                 var status = e.response.status // or use message
                 console.log(e.response)
             }
-            else if(e.request) {
-                
-            }
+            else if(e.request) {}
             else console.log('Error', e.message)
         })
         setIsLoading(true)
@@ -53,7 +51,7 @@ const FileTreeItemFolder = (props) => {
             {renderFolder()}
             {renderFile()}
         </TreeItem>
-        <ContextMenu target={ref_}/>
+        <ContextMenu target={ref_} route={info.path} id={projectId}/>
     </>)
 }
 

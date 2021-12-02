@@ -1,12 +1,13 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import MonacoEditor from 'react-monaco-editor'
+import ContextMenu from './ContextMenu'
 
 export let target = null // used in the dropdownmenu
 
 const TextEditor = (props) => {
     // https://github.com/react-monaco-editor/react-monaco-editor
     const {model, index, prevFile, setState} = props
+    const EditorContainer = React.createRef<HTMLDivElement>()
     const ref = React.createRef<MonacoEditor>()
     
     useEffect(()=>{ init() },[])
@@ -26,12 +27,20 @@ const TextEditor = (props) => {
         contextmenu: false
     }
 
+    const divStyle = {
+        width:'100%',
+        height:'100%',
+    }
+
     return (
-        <MonacoEditor
-        theme="vs-dark"
-        onChange={onChangeHandle}
-        options={options}
-        ref={ref}/>
+        <div className="EditorContainer" ref={EditorContainer} style={divStyle}>
+            <MonacoEditor
+            theme="vs-dark"
+            onChange={onChangeHandle}
+            options={options}
+            ref={ref}/>
+        <ContextMenu target={EditorContainer}/> 
+        </div>
     )
 }
 

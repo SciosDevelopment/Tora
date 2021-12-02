@@ -6,7 +6,7 @@ const FileTreeItemFile = (props) => {
     const ref_ = useRef<HTMLDivElement>()
 
     return <><TreeItem key={info.path} nodeId={info.path} label={info.name} ref={ref_}/>
-    <ContextMenu target={ref_}/></>
+    <ContextMenu target={ref_} info={info}/></>
 }
 
 export default FileTreeItemFile

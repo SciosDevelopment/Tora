@@ -21,7 +21,8 @@ const ContextMenu = (props) => {
     // close method : https://stackoverflow.com/questions/50538072/which-events-should-i-listen-for-to-hide-a-custom-context-menu-in-javascript
     const closeMenu = () => setVisibility(false)
     window.onblur = () => setVisibility(false)
-    document.onmousedown = (e) => { if((e.target as Element).className !== "ContextMenu-item" && (e.target as Element).className !== "ContextMenu-item-text") setVisibility(false) }
+    // temp : 좌클릭으로 ContextMenuItem을 선택했을때만 실행
+    document.onmousedown = (e) => { if(e.button===0 && ((e.target as Element).className === "ContextMenu-item" || (e.target as Element).className === "ContextMenu-item-text")) return; else setVisibility(false)}
     document.onkeydown = (e) => { if (e.key === 'Escape' || e.which === 27 || e.keyCode === 27) setVisibility(false)}
 
     useEffect(()=>{
