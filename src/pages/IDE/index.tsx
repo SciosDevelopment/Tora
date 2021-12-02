@@ -8,7 +8,7 @@ import Footer from './Footer'
 const IdePage = () => {
     const [curFile, setCurFile] = useState(null)
     return (
-        <div className = "IDE-Main">
+        <div className = "IDE-Main" onContextMenu={(e)=>{e.preventDefault()}}>
             <div className = "IDE-Header">
                 <Header/>
             </div>

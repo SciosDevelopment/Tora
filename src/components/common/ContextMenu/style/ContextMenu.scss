@@ -1,6 +1,8 @@
 .ContextMenu {
     position:fixed;
     z-index:300;
+    padding-top : 10px;
+    padding-bottom: 10px;
     background-color: #fcfce8; // temp
     
     .ContextMenu-hr {

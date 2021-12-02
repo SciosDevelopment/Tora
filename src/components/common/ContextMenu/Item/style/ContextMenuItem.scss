@@ -1,8 +1,16 @@
 .ContextMenu-item {
-    min-width: 120px;
     display: flex;
     padding:4px;
     justify-content: space-between;
+
+    > p {
+        min-width: 60px;
+        margin:0 5px;
+    }
+
+    >p:nth-child(2) {
+        text-align: right;
+    }
 }
 
 .ContextMenu-item:hover {
