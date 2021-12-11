@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState} from 'react'
 import {Link} from 'react-router-dom'
-import './style/AllProjectView.scss'
-import AllProjectItem from './AllProjectItem'
+import AllProjectItem from './Item'
 import Searchbar from '../../../../components/common/Searchbar'
 // PC : Pagination, Mobile : Infinite Scroll UI.
 const AllProjectView:FunctionComponent = () =>{
@@ -43,55 +42,45 @@ const AllProjectView:FunctionComponent = () =>{
     }
     return (
         <div className="AllProjectView">
-        <div className="APVTitle">
-            
-            <div className="APVSearch">
-                <Searchbar/>
-            </div>
-            <div className = "APVSubject">
-                <select name="subject" id="select-id">
-                    <option value="Topic">Topic</option>
-                    <option value="Covid-19">Covid-19</option>
-                    <option value="Game">Game</option>
-                    <option value="Study">Study</option>
-                </select>
-            </div>
-            <div className = "APVSort">
-                <div className = "APVSort-container">
-                    <div className = "sort-wrapper">
-                        <div className = "sort-wrapper-sub1">
-                            <a >Best</a>
+            <div className="header">
+                <div className="search">
+                    <Searchbar/>
+                </div>
+                <div className = "topic">
+                    <select name="topic" id="select-id">
+                        <option value="topic">topic</option>
+                        <option value="Covid-19">Covid-19</option>
+                        <option value="Game">Game</option>
+                        <option value="Study">Study</option>
+                    </select>
+                </div>
+                <div className = "sort">
+                    <div className = "container">
+                        <div className = "wrapper">
+                            <div className = "wrapper-sub1"><a>Best</a></div>
+                            <div className = "wrapper-sub2"><a>Newest</a></div>
                         </div>
-                        <div className = "sort-wrapper-sub2">
-                            <a >Newest</a>
+                        <div className = "newproject">
+                            <input type='submit' value="New project"/>
                         </div>
-                    </div>
-
-                    <div className = "sort-newproject">
-                    <input type='submit' value="New project"></input>
                     </div>
                 </div>
+            </div> {/* End header */}
+            <div className="list">
+                    {
+                        ProjectList.map(item => {
+                            return (
+                            <Link to="/find">
+                                <AllProjectItem key={item.key} title={item.title} desc={item.desc} lang={item.lang} like={item.like}/>
+                            </Link>
+                            )
+                        })
+                    }
             </div>
-          
+            <div className="plus">
+                    <button onClick={addItem}/>
+            </div>
         </div>
-        <div className="APVList">
-                {
-                    ProjectList.map(item => {
-                        return (
-                        <Link to="/find">
-                            <AllProjectItem key={item.key} title={item.title} desc={item.desc} lang={item.lang} like={item.like}/>
-                        </Link>
-                        )
-                    })
-                }
-        </div>
-        
-
-
-        <div className="APVListBtnArea">
-                <button onClick={addItem} id="BtnAPVListAdd"/>
-        </div>
-    </div>
     )
 }
 

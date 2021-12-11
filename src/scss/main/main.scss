@@ -1,0 +1,170 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.mainpage {
+    & .contents {
+        display:grid;
+        grid-template-columns: repeat(36, 1fr);
+        margin : 0 auto;
+    }
+    
+    & .section {
+        grid-column-start: 7;
+        grid-column-end: 30;
+        
+        & .AllProjectView {
+            font-family: "AppleSDGothicNeoB";
+            grid-template-columns: repeat(24, 1fr); 
+            width: 100%;
+            
+            & > div {
+                margin-top: 50px;
+            }
+            
+            & .header {
+                width: 100%;
+                display:grid;
+                grid-template-columns: repeat(24, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                height:100px;
+    
+                & .search {
+                    grid-column: 6/20;
+                    grid-row:1;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    height: 40px;
+                }
+    
+                & .topic {
+                    grid-column: 1/3;
+                    grid-row: 2;
+                    padding-top: 9px;
+    
+                    & > select {
+                        cursor: pointer;
+                        width: 90%;
+                        border: none;
+                        background: transparent;
+                        font-size: 15px;
+                        appearance:none;
+                        background:url('../../img/arrowicon.png') no-repeat right 1% center;
+                        & > option { font-size:15px; }
+                    }
+    
+                    & > select:focus {
+                        outline: none;
+                    }
+                }
+    
+                & .sort{
+                    grid-column: 19/25;
+                    display : flex;
+                
+                    & .container {
+                        width : 100%;  
+                        display : flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        
+                        & .wrapper {
+                            width: 65%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            padding-top: 9px;
+                            font-size: 12px;
+                            
+                            & .wrapper-sub1 { padding-right: 15px; }
+                            & .wrapper-sub2 { padding-right: 0px; }
+                        }
+                        
+                        & .newproject {
+                            width: 30%;
+    
+                            & > input {
+                                width: 90px;
+                                height : 25px;
+                                border : 1px solid #1C2239;
+                                background : #F6F7FC;
+                                border-radius: 15px;
+                                font-family: "AppleSDGothicNeoB";
+                                font-size : 13px;
+                                font-weight : 400;
+                            }
+                        }
+                    }
+                }
+            } // AllProjectView header
+            
+            & .list {
+                width:100%;
+                display:grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: 21px;
+                grid-row-gap: 21px;
+            }
+    
+            & .plus {
+                margin-top: 60px;
+                width:100%;
+                height: 100%;
+                text-align: center;
+                
+                & button {
+                    border: solid red;
+                    width:35px;
+                    height: 35px;
+                    background: url(../../img/folder.png) no-repeat;
+                    background-size: cover;
+                    border:none;
+                }
+            }
+
+            // 이 부분을 지우면, Css Error 발생. 수정 필요.
+            @media (max-width:1290px) {
+                .test P { 
+                    font-size:18px;
+                }
+            }
+            
+            @media (max-width:1085px) {
+               
+            }
+            // 이 부분 끝
+        } // end AllProjectView 
+    } // end section
+    
+    & .aside {
+        top: 12%;
+        position: fixed;
+        width: 55px;
+        height: 40%;
+        right: 14%;
+
+        & > div {
+            margin-top: 50px;
+        }    
+    } // end aside
+}
+
+@media  (max-width:1280px) {
+    .mainpage {
+        & .contents {
+            display:grid;
+            grid-template-columns: repeat(12, 1fr);
+            margin : 0 auto;
+    
+            & .section {
+                grid-column-start: 3;
+                grid-column-end: 11;
+            }
+    
+            & .aside {
+                display:none; // fixed button으로 확인    
+            }
+        }
+    }
+}

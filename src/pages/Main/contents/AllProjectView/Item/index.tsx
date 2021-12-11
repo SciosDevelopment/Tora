@@ -1,9 +1,9 @@
 import React, { FunctionComponent} from 'react'
 import './style/AllProjectItem.scss'
-import likeImg from '../../../../img/heart64.png'
-import profile from '../../../../img/profile.png'
-import communication from '../../../../img/communication80.png'
-import videomessage from '../../../../img/videomessage80.png'
+import likeImg from '../../../../../img/heart64.png'
+import profile from '../../../../../img/profile.png'
+import communication from '../../../../../img/communication80.png'
+import videomessage from '../../../../../img/videomessage80.png'
 
 
 interface ProjectProps {
