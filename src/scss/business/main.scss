@@ -1,30 +1,30 @@
 @font-face {
     font-family: "AppleSDGothicNeoB";
-    src : url('../../../fonts/AppleSDGothicNeoB.ttf')
+    src : url('../../fonts/AppleSDGothicNeoB.ttf')
 }
 
-.Business-main {
+.business {
     font-family: "AppleSDGothicNeoB";
     display: grid;
     grid-template-columns: repeat(36, 1fr);
 
-    .Business-title {
+    & .title {
         margin-top: 6%;
         grid-column: 13/26;
         font-size: 40px;
         font-weight: bold;
     }
 
-    .Business-view {
+    & .content {
         margin-top: 4%;
         grid-column: 7/31;
         height: 100%;
 
-        .business-view-main {
+        & .container {
             display: grid;
             grid-template-columns: repeat(24, 1fr);
             
-            .business-view-free {
+            & .free {
                 grid-column: 4/10;
                 display: flex;
                 flex-direction: column;
@@ -36,7 +36,7 @@
                 box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
                 border: solid 2px #FFB600;
 
-                .business-view-free-title {
+                & .title {
                     margin-top: 10%;
                     height: 20%;
                     font-size: 25px;
@@ -44,21 +44,21 @@
                     color: #FFB600;
                 }
 
-                .business-view-free-price {
+                & .price {
                     height: 9%;
                     font-size: 50px;
                     font-weight: bold;
                     color: #FFB600;
                 }
 
-                .business-view-free-term {
+                & .term {
                     font-size: 20px;
                     font-weight: bold;
                     height: 15%;
                     color: #FFB600;
                 }
 
-                .business-view-free-text {
+                & .text {
                     font-size: 18px;
                     display: flex;
                     height: 8%;
@@ -66,11 +66,11 @@
                     justify-content: space-between;
                 }
 
-                .business-view-free-button {
+                & .button {
                     width: 85%;
                     margin-top: 75%;
 
-                    >input {
+                    & > input {
                         font-size: 20px;
                         border-radius: 30px;
                         width: 100%;
@@ -81,9 +81,9 @@
                         background-color: #FFB600;
                     }
                 }
-            }
+            } // end free
 
-            .business-view-premium {
+            & .premium {
                 grid-column: 11/17;
                 height: 700px;
                 max-width: 300px;
@@ -95,7 +95,7 @@
                 box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
                 border: solid 2px #AD30FF;
 
-                .business-view-premium-title {
+                & .title {
                     margin-top: 10%;
                     height: 20%;
                     font-size: 25px;
@@ -103,21 +103,21 @@
                     color: #AD30FF;
                 }
 
-                .business-view-premium-price {
+                & .price {
                     height: 9%;
                     font-size: 50px;
                     font-weight: bold;
                     color: #AD30FF;
                 }
 
-                .business-view-premium-term {
+                & .term {
                     font-size: 20px;
                     font-weight: bold;
                     height: 15%;
                     color: #AD30FF;
                 }
 
-                .business-view-premium-text {
+                & .text {
                     font-size: 18px;
                     display: flex;
                     height: 19%;
@@ -125,11 +125,11 @@
                     justify-content: space-between;
                 }
 
-                .business-view-premium-button {
+                & .button {
                     width: 85%;
                     margin-top: 49%;
                 
-                    >input {
+                    & > input {
                         font-size: 18px;
                         font-weight: bold;
                         border-radius: 30px;
@@ -140,9 +140,9 @@
                         background-color: #AD30FF;
                     }
                 }
-            }
+            } // end premium
 
-            .business-view-enterprise {
+            & .enterprise {
                 grid-column: 18/24;
                 background-color: #ffffff;
                 max-width: 300px;
@@ -154,7 +154,7 @@
                 box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
                 border: solid 2px #1700FF;
 
-                .business-view-enterprise-title {
+                & .title {
                     margin-top: 10%;
                     height: 20%;
                     font-size: 25px;
@@ -162,21 +162,21 @@
                     color: #1700FF;
                 }
 
-                .business-view-enterprise-price {
+                & .price {
                     height: 9%;
                     font-size: 50px;
                     font-weight: bold;
                     color: #1700FF;
                 }
 
-                .business-view-enterprise-term {
+                & .term {
                     font-size: 20px;
                     font-weight: bold;
                     height: 15%;
                     color: #1700FF;
                 }
 
-                .business-view-enterprise-text {
+                & .text {
                     font-size: 18px;
                     display: flex;
                     height: 30%;
@@ -184,11 +184,11 @@
                     justify-content: space-between;
                 }
 
-                .business-view-enterprise-button {
+                & .button {
                     width: 85%;
                     margin-top: 23%;
                 
-                    >input {
+                    & > input {
                         font-size: 18px;
                         font-weight: bold;
                         border-radius: 30px;
@@ -199,7 +199,7 @@
                         background-color: #1700FF;
                     }
                 }
-            }
+            } // end enterprise
         }
     }
 }
