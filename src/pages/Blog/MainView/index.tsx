@@ -1,5 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react'
-import './style/MainView.scss'
+import React, { useState, useEffect } from 'react'
 import BlogItem from './BlogItem'
 import Searchbar from '../../../components/common/Searchbar'
 import axios from 'axios'
@@ -9,7 +8,7 @@ import {history} from '../../../configureStore'
 const BlogMainView = (props) =>{
     var {query, sorted} = props.props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [BlogList, setBlogList] = useState(Array())
+    const [BlogList, setBlogList] = useState([])
     const [mIndex, setmIndex] = useState(16)
     
     useEffect(()=>{
@@ -17,7 +16,7 @@ const BlogMainView = (props) =>{
         if(query==="\n") query=""
         const data = {"post": {"kind": "blog", "search_text": query, "sort": sorted }}
         axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => {setBlogList(res.data.data)})
-        .catch((e)=>{setBlogList(Array())})
+        .catch((e)=>{setBlogList([])})
         window.addEventListener('scroll', infiniteScroll, true)
     }, [query])
     
@@ -40,48 +39,45 @@ const BlogMainView = (props) =>{
     }
 
     return (
-        <div className="Blog-View">
-        <div className="Blog-View-Title">
-            
-            <div className="Blog-View-Search">
-                <Searchbar onClick={Search}/>
-            </div>
-            <div className = "Blog-View-Sort">
-                <div className = "Blog-View-container">
-                    <div className = "Blog-View-wrapper">
-                        <div className = "Blog-View-wrapper-sub1">
-                            <div onClick={()=>history.push('/blog/best/\n')}>Best</div>
+        <div className="blogview">
+            <div className="header">
+                <div className="search">
+                    <Searchbar onClick={Search}/>
+                </div>
+                <div className = "sort">
+                    <div className = "container">
+                        <div className = "wapper">
+                            <div className = "sub1">
+                                <div onClick={()=>history.push('/blog/best/\n')}>Best</div>
+                            </div>
+                            <div className = "sub2">
+                                <div onClick={()=>history.push('/blog')}>Newest</div>
+                            </div>
                         </div>
-                        <div className = "Blog-View-wrapper-sub2">
-                            <div onClick={()=>history.push('/blog')}>Newest</div>
+                        <div className = "newproject">
+                            <input type='submit' value="Write blog" onClick={()=>history.push('/blog/write')}></input>
                         </div>
-                    </div>
-
-                    <div className = "Blog-View-newproject">
-                    <input type='submit' value="Write blog" onClick={()=>history.push('/blog/write')}></input>
                     </div>
                 </div>
             </div>
-          
+            <div className="list">
+                    {
+                        BlogList.length !== 0 ?
+                        BlogList.map((item, index) => {
+                        if(index >= mIndex) return
+                        return <BlogItem id={item.id}
+                                    title={item.attributes.title}
+                                    desc={item.attributes.content}
+                                    user_name={item.attributes.user_name}
+                                    user_image={item.attributes.user_photo.url}
+                                    score={item.attributes.score}
+                            />})
+                        : 
+                        /* 임시 : page 중요*/
+                        <div>Contents is nothing</div> 
+                    }
+            </div>
         </div>
-        <div className="Blog-View-List">
-                {
-                    BlogList.length !== 0 ?
-                    BlogList.map((item, index) => {
-                    if(index >= mIndex) return
-                    return <BlogItem id={item.id}
-                                  title={item.attributes.title}
-                                  desc={item.attributes.content}
-                                  user_name={item.attributes.user_name}
-                                  user_image={item.attributes.user_photo.url}
-                                  score={item.attributes.score}
-                        />})
-                    : 
-                    /* 임시 : page 중요*/
-                    <div>Contents is nothing</div> 
-                }
-        </div>
-    </div>
     )
 }
 

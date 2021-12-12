@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './style/BlogDetailList.scss'
 import moment from 'moment'
 
 const ContentList = (props) => {
@@ -12,34 +11,34 @@ const ContentList = (props) => {
     },[data])
 
     return (
-        <div className = "Blog-Detail-List">
-            <div className = "Blog-Detail-List-title">
-                <div className = "Blog-Detail-List-title-subject">
+        <div className = "wrapper">
+            <div className = "header">
+                <div className = "title">
                     <p>목록</p>
                 </div>
-                <div className = "Blog-Detail-List-title-date">
+                <div className = "date">
                     <p>작성일</p>
                 </div>
             </div>
             
-            {            
-                !loading && data.map((datum) => {
-                    return (
-                        <div className = "Blog-Detail-List-text">
-                            <div className = "Blog-Detail-List-text-subject">
-                                {/* 임시 처리 */}
-                                {/*<p onClick={()=> history.push(`/blog/${datum.id}`)}>{datum.title}</p>*/}
-                                <a href={"/blog/" + datum.id}>
-                                    <p>{datum.title}</p>
-                                </a>
-                            </div>
-                            
-                            <div className = "Blog-Detail-List-text-date">
-                                <p>{moment(datum.created_at).format("YYYY.MM.DD")}</p>
-                            </div>
+            {
+            !loading && data.map((datum) => {
+                return (
+                    <div className = "row">
+                        <div className = "title">
+                            {/* 임시 처리 */}
+                            {/*<p onClick={()=> history.push(`/blog/${datum.id}`)}>{datum.title}</p>*/}
+                            <a href={"/blog/" + datum.id}>
+                                <p>{datum.title}</p>
+                            </a>
                         </div>
-                    )
-                })
+                        
+                        <div className = "date">
+                            <p>{moment(datum.created_at).format("YYYY.MM.DD")}</p>
+                        </div>
+                    </div>
+                )
+            })
             }
         </div>
     )    

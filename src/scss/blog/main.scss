@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../fonts/AppleSDGothicNeoB.ttf');
+}
+
+.blogPage {
+    & .content {
+        display:grid;
+        grid-template-columns: repeat(36, 1fr);
+        margin : 0 auto;
+        
+    }
+    
+    & .section {
+        grid-column:7/30;
+        margin-top:50px;
+       
+        & .blogview {
+            font-family: "AppleSDGothicNeoB";
+            width: 100%;
+
+            & .header {
+                width: 100%;
+                display:grid;
+                grid-template-columns: repeat(24, 1fr); 
+                grid-template-rows: repeat(2, 1fr);
+                height:100px;
+
+                & .search {
+                    grid-column:6/20;
+                    grid-row:1;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    height: 40px;
+                }
+                
+                & .sort {
+                    grid-column: 19/25;
+                    display : flex;
+                    
+                    & .container {
+                        width : 100%;  
+                        display : flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+
+                        & .wapper {
+                            width: 65%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            padding-top: 7px;
+                            font-size: 12px;
+                            
+                            & .sub1 { padding-right: 15px; }
+                            & .sub2 { padding-right: 0px; }
+                        }
+
+                        & .newproject {
+                            width: 30%;
+
+                            & > input {
+                                width: 90px;
+                                height : 25px;
+                                border : 1px solid #1C2239;
+                                background : #F6F7FC;
+                                border-radius: 15px;
+                                font-family: "AppleSDGothicNeoB";
+                                font-size : 13px;
+                                font-weight : 400;
+                            }
+                        }
+                    }
+                }                
+                // APV Classified SelectionBox
+                select::-ms-expand {display:none;} // IE10,11의 네이티브 화살표 숨기기
+            }
+        }
+
+        & .list{
+            width:100%;
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: 21px;
+            grid-row-gap: 21px;
+        }
+    }
+    
+    & .aside {
+        grid-column: 31/32;
+        border: solid gray;
+    }
+}

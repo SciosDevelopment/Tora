@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import Header from 'src/components/common/Header/Header';
+import Header from '../../../components/common/Header/Header'
 import MarkdownEditor from 'src/components/common/MarkdownEditor'
-import './style/BlogWriteMain.scss'
 import { Editor } from '@toast-ui/react-editor'
 import axios from 'axios'
 import {useCookies} from 'react-cookie'
@@ -13,7 +12,7 @@ const BlogWritePage = (props) => {
     const [blogs, setBlogs] = useState({title:"", tags:"", content:"", temptags:""})
     const [prevBlogs, setPrev] = useState({title:"", tags:"", content:""})
     const [loading, setLoading] = useState(false)
-    const [taglist, setTaglist] = useState(Array())
+    const [taglist, setTaglist] = useState([])
     const [cookies, setCookies, removeCookies] = useCookies(['tora_blog'])
     const {id} = props.match.params
     const [tempsaving, setTempsaving] = useState(false) // 임시저장중인지 보여주는 ui visible
@@ -61,7 +60,7 @@ const BlogWritePage = (props) => {
     // Component init
     useEffect(()=> { init() }, [])
     useEffect(()=> { if(!loading && id !== undefined) editorRef.current.getInstance().getCodeMirror().setValue(blogs.content) }, [blogs.content])
-    useEffect(()=> { blogs.tags!=="" ? setTaglist(blogs.tags.split(" ")) : setTaglist(Array())}, [blogs.tags])
+    useEffect(()=> { blogs.tags!=="" ? setTaglist(blogs.tags.split(" ")) : setTaglist([])}, [blogs.tags])
 
     // 임시저장
     // 참고자료 : https://codepen.io/Lance-Jernigan/pen/qrxmpp
@@ -154,37 +153,37 @@ const BlogWritePage = (props) => {
     }
     
     return (        
-        <>
-        <Header/>
-        <div className = "Blog-write-main">
-            <div className = "Blog-write-view">
-                <div className = "Blog-write-produce">
-                    <div className = "Blog-write-top">
-                        <div className = "Blog-write-title">
-                            <input type="text" placeholder="제목을 입력하세요." name="title"
-                             value = {blogs.title} required onChange = {handleChange}/>
+        <div className = "blogwritepage">
+            <Header/>
+            <div className = "main">
+                <div className = "container">
+                    <div className = "wrapper">
+                        <div className = "header">
+                            <div className = "title">
+                                <input type="text" placeholder="제목을 입력하세요." name="title"
+                                value = {blogs.title} required onChange = {handleChange}/>
+                            </div>
+                            <div className = "tag">
+                                {taglist.map((data)=>{return <div>{data}</div>})}
+                                <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
+                                value={blogs.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
+                            </div>
                         </div>
-                        <div className = "Blog-write-tag">
-                            {taglist.map((data)=>{return <div>{data}</div>})}
-                            <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
-                             value={blogs.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
+                        
+                        <div className = "editor">
+                            <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {blogs.content}
+                            onChange={() => editValue(editorRef.current.getInstance().getCodeMirror().getValue())}/>
                         </div>
-                    </div>
-                    
-                    <div className = "Blog-write-text">
-                       <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {blogs.content}
-                       onChange={() => editValue(editorRef.current.getInstance().getCodeMirror().getValue())}/>
-                    </div>
 
-                    <div className = "Blog-write-button">
-                        {tempsaving && <div>임시저장중...</div>} {/* 디자인 필요 */}
-                        <input type='button' value="TempSave" onClick={tempSave}/>
-                        <input type='submit' value="Create" onClick={sendBlog}/>
+                        <div className = "buttonlist">
+                            {tempsaving && <div>임시저장중...</div>} {/* 디자인 필요 */}
+                            <input type='button' value="TempSave" onClick={tempSave}/>
+                            <input type='submit' value="Create" onClick={sendBlog}/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </>
     )
 }
 

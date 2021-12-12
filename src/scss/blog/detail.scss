@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+@font-face{
+    font-family: "AppleSDGothicNeoM";
+    src: url(../../fonts/AppleSDGothicNeoM.ttf);
+}
+
+.blogdetailpage {
+    & .container {
+        display: grid;
+        font-family: "AppleSDGothicNeoM";
+        grid-template-columns: repeat(36, 1fr);
+    
+        & .sidebutton {
+            position: fixed;
+            left: 21%;
+            top: 10%;
+            height: 315px;
+            border:1px solid gray;
+            border-radius: 5px;
+        }
+    
+        & .content {
+            grid-column: 11/27;
+            margin-top: 2%;
+            margin-bottom: 20px;
+
+            & .container {
+                width: 100%;
+                height: 100%;
+                background-color: #ffffff;
+                border-radius: 15px;
+                box-shadow : 6px 20px 60px -20px rgba(112,112,112,0.4);
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+    
+                & .maintext {
+                    width: 98%;
+                    margin: 1%;
+
+                    & .wrapper {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        flex-direction: column;
+                        
+                        & .header {
+                            display: grid;
+                            width: 100%;
+                            grid-template-columns: repeat(24, 1fr);
+                            grid-template-rows: repeat(2, 25px);
+
+                            & .title {
+                                grid-column: 1/18;
+                                display:flex;
+                                width:100%;            
+                                font-size: 24px;
+                                font-weight: bold; 
+                                margin-left : 3px;
+                            }
+                            
+                            & .tag {
+                                grid-column: 1/18;
+                                display: flex;
+                                align-items: center;
+                                overflow-x: hidden;
+                                
+                                & > p {
+                                    height:15px;
+                                    padding:0px 5px;
+                                    margin-left:3px;
+                                    margin-right:3px;
+                                    font-size: 11px;
+                                    color: #3f7aa5;
+                                    font-weight: bold;
+                                    background-color: #D5E3F5;
+                                }
+                            }
+                            
+                            & .option {
+                                display:flex;
+                                grid-column: 19/25;
+                                grid-row: 1/2;
+                                flex-direction: row-reverse;
+                                
+                                & > img {
+                                    width:20px;
+                                    height:20px;
+                                    margin:3px;
+                                }
+                            }
+                            
+                            & .detailinfo {   
+                                display:flex;
+                                grid-column: 18/25;
+                                grid-row:2/3;
+                                
+                                & .wrapper {
+                                    display:flex;
+                                    padding:5px;
+                                    font-size:11px;
+                                    flex-direction: row-reverse;
+                    
+                                    & .hits { margin-left:5px; }
+                    
+                                    & .comments { margin-left:5px; }
+                    
+                                    & .date {
+                                        color: #707070;
+                                        margin-left:5px;
+                                    }
+                                }
+                            }
+                        }
+                    
+                        & .blogdetail {
+                            width:100%;
+                            margin-top:2%;
+                            height: auto;
+                            min-height: 120px;
+                        }
+                    
+                        & .profile {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            margin-bottom: 5%;
+                            
+                            & > img {
+                                width: 35px;
+                                height: 35px;
+                            }
+                    
+                            & > p {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+    
+                & .contentlist {
+                    display: block;
+                    margin-top: 3%;
+                    margin-bottom: 2%;
+                    width: 98%;
+
+                    & .wrapper {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        height: 130px;
+                        & .header {
+                            display: flex;
+                            flex-direction: row;
+                            border-bottom: solid 1px #707070;
+                            justify-content: space-between;
+                            margin-bottom: 1%;
+
+                            & .title {
+                                margin-bottom: 0.5%;
+
+                                & > p {
+                                    font-size: 13px;
+                                    color: #707070;
+                                }
+                            }
+
+                            & .date {
+                                & > p{
+                                    font-size: 13px;
+                                    color: #707070;
+                                }
+                            }
+                        }
+                        & .row {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            border-bottom: solid 1px #707070;
+                            margin-bottom: 1%;
+                            & .title {
+                                margin-bottom: 0.5%;
+                                & > p {
+                                    font-size: 12px;
+                                    color: #1C2239;
+                                }
+                            }
+                            & .date {
+                                & > p{
+                                    font-size: 10px;
+                                    color: #707070;
+                                }
+                            }
+                        }
+                    }
+                    
+                    &> div {
+                        margin-bottom: 15px;
+                    }
+                }
+
+                & .list-pagination { }
+    
+                & .commentlist {
+                    width: 98%;
+                    margin-top: 3%;
+                    margin-bottom: 1%;
+                }
+            }
+        }
+    
+        &.option {
+            position:relative;
+            top:30px;
+            left:-10px;
+            width: 65px;
+            height: 70px;
+            z-index: 30;
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+    
+            & > .btnOption {
+                font-family: "AppleSDGothicNeoM";
+                font-size:18px;
+                width: 100%;
+                margin-left : 0;
+                margin-right: 0;
+                height: 50%;    
+                border:none;
+            }
+        }
+    
+        & .optionMenuClose {
+            position:relative;
+            top:30px;
+            left:-10px;
+            width: 67px;
+            height: 72px;
+            z-index: 30;
+            border:none;
+            overflow: hidden;
+
+            & > .btnOption {
+                display: none;
+            }
+        }
+    }
+}

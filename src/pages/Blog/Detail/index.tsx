@@ -1,15 +1,14 @@
-import './style/BlogDetailMain.scss'
-import Header from 'src/components/common/Header/Header'
+import Header from '../../../components/common/Header/Header'
 import Maintext from './Maintext'
 import ContentList from './ContentList'
 import CommentList from '../../../components/common/CommentList'
 import Pagination from '../../../components/common/Pagination'
-import SideButton from 'src/components/common/SideMenu/ContentsSideMenu'
+import SideButton from '../../../components/common/SideMenu/ContentsSideMenu'
 
 import { useState, useEffect } from 'react'
-import {history} from '../../../configureStore'
+import { history } from '../../../configureStore'
 import axios from 'axios'
-import {useCookies} from 'react-cookie'
+import { useCookies } from 'react-cookie'
 import useUser from '../../../hooks/useUser'
 
 const BlogDetailMain = (props) => {
@@ -18,8 +17,8 @@ const BlogDetailMain = (props) => {
                                                view_cnt:0, score:0, user_id:0, user_name:"", comments_count:0, profileImage:""})
     const [cookies] = useCookies(['ToraNoID'])
     const {onGetUserID} = useUser()
-    const [WritingList, setWritingList] = useState(Array())
-    const [Comments_List, setCommentList] = useState(Array())
+    const [WritingList, setWritingList] = useState([])
+    const [Comments_List, setCommentList] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST    
     const [curPage, setCurPage] = useState(1)
@@ -96,37 +95,36 @@ const BlogDetailMain = (props) => {
     }
     
     return (
-        <>
-        <Header/>
-        <div className = "Blog-Detail">
-            <div className = "Blog-Detail-left-button">
-                <SideButton id={id} />
-            </div>
-            <div className = "Blog-Detail-main">
-                <div className = "Blog-Detail-view">
-                    <div className = "Blog-Detail-maintext-view">
-                        <Maintext data={BlogPost} showOptions={()=>setIsOpen(!isOpen)}/>
-                    </div>
-                    <div className = "Blog-Detail-list-view">
-                        <ContentList data={currentPosts(WritingList)}/>                        
-                    </div>
-                    <div className  = "Blog-Detail-list-pagination">
-                        <Pagination postsPerPage={postsPerPage} totalPosts={WritingList.length} paginate={setCurPage}/>
-                    </div>
-                    <div className = "Blog-Detail-comments-view">
-                        <CommentList list={Comments_List} post_id={id}/>
+        <div className="blogdetailpage">
+            <Header/>
+            <div className = "container">
+                <div className = "sidebutton">
+                    <SideButton id={id} />
+                </div>
+                <div className = "content">
+                    <div className = "container">
+                        <div className = "maintext">
+                            <Maintext data={BlogPost} showOptions={()=>setIsOpen(!isOpen)}/>
+                        </div>
+                        <div className = "contentlist">
+                            <ContentList data={currentPosts(WritingList)}/>                        
+                        </div>
+                        <div className = "list-pagination">
+                            <Pagination postsPerPage={postsPerPage} totalPosts={WritingList.length} paginate={setCurPage}/>
+                        </div>
+                        <div className = "commentlist">
+                            <CommentList list={Comments_List} post_id={id}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {isOpen?
-                <div className = "Blog-Detail-Option">
+                {
+                <div className = {isOpen ? "optionMenu" : "optionMenuClose"} >
                     <button className="btnOption" onClick={editPost}>수정</button>
                     <button className="btnOption" onClick={deletePost}>삭제</button>
                 </div>
-                :
-                <div className = "Blog-Detail-Option-disappear"/>}
+                }
+            </div>
         </div>
-        </>
     )
 }
 
