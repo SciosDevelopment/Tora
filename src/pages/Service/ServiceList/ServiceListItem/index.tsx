@@ -13,14 +13,15 @@ const ServiceListItem:React.FC<Interface> = (props:Interface) => {
     const {isComment} = props
 
     const renderComment = () => {
+        // parameter 필요
         if(isComment === true) {
             return (
-                <>
+                <>  
                     <div className = "Service-listitem-comment-wrapper">
-                        <Comment/>
+                        {/*<Comment/>*/}
                     </div>
                     <div className = "Service-listitem-commentpost-wrapper">
-                        <CommentPost/>
+                        {/*<CommentPost/>*/}
                     </div>
                 </>
             )

@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react'
-import './style/ServiceList.scss'
 import ServiceListItem from './ServiceListItem'
 import Header from '../../../components/common/Header/Header'
 import {history} from '../../../configureStore'
@@ -31,56 +30,52 @@ const ServiceList = (props) => {
         switch(tabValue){
             case 0 : {
                 return(
-                    <div className = "Service-list-item">
+                    <>
                         <ServiceListItem isComment={true}/>
                         <ServiceListItem isComment={true}/>
                         <ServiceListItem isComment={true}/>
                         <ServiceListItem isComment={true}/>
                         <ServiceListItem isComment={false}/>
                         <ServiceListItem isComment={false}/>
-                    </div>
+                        </>
                 )
             }
             case 1 : {
                 return(
-                    <div className = "Service-list-item">
-                        1
-                    </div>
+                    <>1</>
                 )
             }
             case 2 : {
                 return(
-                    <div className = "Service-list-item">
-                        2
-                    </div>
+                    <>2</>
                 )
             }
         }
     }
 
     return (
-        <>
-        <Header/>
-        <div className = "Service-list-main">
-            <div className = "Service-list-title">
-                <p>Welcome to the Tora Help center</p>
-            </div>
-            <div className = "Service-list-view">
-                <div className = "Service-list-tab">
-                    <div className = "Service-list-tab-button">
-                        <div className = {tabValue === 0 ? `Service-list-tab-clicked` : `Service-list-tab`} onClick={()=>changeURL('asking')}>Asking</div>
-                        <div className = {tabValue === 1 ? `Service-list-tab-clicked` : `Service-list-tab`} onClick={()=>changeURL('answering')}>Answering</div>
-                        <div className = {tabValue === 2 ? `Service-list-tab-clicked` : `Service-list-tab`} onClick={()=>changeURL('myaccount')}>My Account</div>
-                    </div> 
-                    <div className = "Service-list-tab-body">
-                        {
-                            switchTab(tabValue)
-                        } 
+        <div className="servicelistPage">
+            <Header/>
+            <div className = "main">
+                <div className = "title">
+                    <p>Welcome to the Tora Help center</p>
+                </div>
+                <div className = "container">
+                    <div className = "wrapper">
+                        <div className = "tablist">
+                            <div className = {tabValue === 0 ? `tab-clicked` : `tab`} onClick={()=>changeURL('asking')}>Asking</div>
+                            <div className = {tabValue === 1 ? `tab-clicked` : `tab`} onClick={()=>changeURL('answering')}>Answering</div>
+                            <div className = {tabValue === 2 ? `tab-clicked` : `tab`} onClick={()=>changeURL('myaccount')}>My Account</div>
+                        </div> 
+                        <div className = "itemlist">
+                            {
+                                switchTab(tabValue)
+                            } 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </>
     )
 
    
