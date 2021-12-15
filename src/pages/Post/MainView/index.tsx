@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import './style/MainView.scss'
 import Searchbar from '../../../components/common/Searchbar'
 import PostItem from './PostItem'
 import axios from 'axios'
@@ -9,7 +8,7 @@ import Pagination from '../../../components/common/Pagination'
 const PostMainView = (props) => {
     var {query, sorted} = props.props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [PostList, setPostList] = useState(Array())
+    const [PostList, setPostList] = useState([])
 
     const [curPage, setCurPage] = useState(1)
     const [postsPerPage, _] = useState(10)
@@ -17,7 +16,7 @@ const PostMainView = (props) => {
     const indexOfFirst = indexOfLast - postsPerPage
 
     const currentPosts = (tmp) => {
-        let currentPosts = Array()
+        let currentPosts = []
         currentPosts = tmp.slice(indexOfFirst, indexOfLast)
         return currentPosts
     }
@@ -27,7 +26,7 @@ const PostMainView = (props) => {
         if(query==="\n") query=""
         const data = {"post": {"kind": "free_board", "search_text": query, "sort": sorted }}
         axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => {setPostList(res.data.data)})
-        .catch((e)=>{setPostList(Array())})
+        .catch((e)=>{setPostList([])})
     }, [query])
 
     useEffect(()=>{ // 임시
@@ -46,34 +45,34 @@ const PostMainView = (props) => {
 
     // 데이터 부분
     return (
-        <div className = "Post-Mainview">
-            <div className = "Post-Mainview-title">
-                <div className="Post-Mainview-search">
+        <div className = "main">
+            <div className = "header">
+                <div className="search">
                     <Searchbar onClick={Search}/>
                 </div>
-                <div className ="Post-Mainview-sort">
-                    <div className = "Post-Mainview-sort-btn">
+                <div className ="sortlist">
+                    <div className = "sort">
                         <input type = "button" value = "All"/>
                         <input type = "button" value = "Free Topic"/>
                         <input type = "button" value = "Issue"/>
                     </div>
-                    <div className = "Post-Mainview-container">
-                        <div className = "Post-Mainview-wrapper">
-                            <div className = "Post-Mainview-wrapper-sub1">
+                    <div className = "sort2">
+                        <div className = "wrapper2">
+                            <div className = "sub1">
                             <div onClick={()=>history.push('/post/best/\n')}>Best</div>
                             </div>
-                            <div className = "Post-Mainview-wrapper-sub2">
+                            <div className = "sub2">
                                 <div onClick={()=>history.push('/post')}>Newest</div>
                             </div>
-                        </div>
-                        <div className = "Post-Mainview-newproject">
-                            <input type='button' value="Write Post" onClick={()=>history.push('/post/write')}/>
+                            <div className = "sub3">
+                                <input type='button' value="Write Post" onClick={()=>history.push('/post/write')}/>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div className = "Post-Mainview-list">
+            <div className = "postlist">
                     {
                     currentPosts(PostList).length !== 0 ?
                     currentPosts(PostList).map(

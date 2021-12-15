@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import Header from 'src/components/common/Header/Header'
-import MarkdownEditor from 'src/components/common/MarkdownEditor'
-import './style/PostWritePage.scss'
 import { Editor } from '@toast-ui/react-editor'
 import axios from 'axios'
 import {useCookies} from 'react-cookie'
+import Header from '../../../components/common/Header/Header'
+import MarkdownEditor from '../../../components/common/MarkdownEditor'
 import {history} from '../../../configureStore'
 
 const PostWritePage = (props) => {
     const editorRef = React.createRef<Editor>()
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [posts, setPosts] = useState({title:"", tags:"", content:"",temptags:""})
-    const [taglist, setTaglist] = useState(Array())
+    const [taglist, setTaglist] = useState([])
     const [prevPosts, setPrev] = useState({title:"", tags:"", content:""})
     const [cookies, setCookies, removeCookies] = useCookies(['tora_post'])
     const [loading, setLoading] = useState(false)
@@ -61,7 +60,7 @@ const PostWritePage = (props) => {
     // Component init
     useEffect(()=> { init() }, [])
     useEffect(()=> { if(!loading && id !== undefined) editorRef.current.getInstance().getCodeMirror().setValue(posts.content) }, [posts.content])
-    useEffect(()=> { posts.tags!=="" ? setTaglist(posts.tags.split(" ")) : setTaglist(Array())}, [posts.tags])
+    useEffect(()=> { posts.tags!=="" ? setTaglist(posts.tags.split(" ")) : setTaglist([])}, [posts.tags])
     
     // 임시저장
     // 참고자료 : https://codepen.io/Lance-Jernigan/pen/qrxmpp
@@ -157,37 +156,37 @@ const PostWritePage = (props) => {
     }
 
     return (        
-        <>
+        <div className="postwritepage">
         <Header/>
-        <div className = "Post-write-main">
-            <div className = "Post-write-view">
-                <div className = "Post-write-produce">
-                    <div className = "Post-write-top">
-                        <div className = "Post-write-title">
-                            <input type="text" placeholder="제목을 입력하세요." name="title" required value = {posts.title} onChange = {handleChange}/>
+            <div className = "main">
+                <div className = "container">
+                    <div className = "wrapper">
+                        <div className = "header">
+                            <div className = "title">
+                                <input type="text" placeholder="제목을 입력하세요." name="title" required value = {posts.title} onChange = {handleChange}/>
+                            </div>
+                            <div className = "tag">
+                            {taglist.map((data)=>{return <div>{data}</div>})}
+                                <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
+                                value={posts.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
+                            </div>
                         </div>
-                        <div className = "Post-write-tag">
-                        {taglist.map((data)=>{return <div>{data}</div>})}
-                            <input type="text" placeholder="태그를 입력하세요." name="temptags" id="InputTag"
-                             value={posts.temptags} onChange = {handleChange} required onKeyDown = {(e)=>{setTagLists(e)}}/>
+                    
+                        <div className = "editor">
+                        <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {posts.content} 
+                            onChange={() => editValue(editorRef.current.getInstance().getCodeMirror().getValue())}/>
                         </div>
-                    </div>
-                
-                    <div className = "Post-write-text">
-                       <MarkdownEditor height="100%" editorRef = {editorRef} initialValue = {posts.content} 
-                        onChange={() => editValue(editorRef.current.getInstance().getCodeMirror().getValue())}/>
-                    </div>
 
-                    <div className = "Post-write-button">
-                        {tempsaving && <div>임시저장중...</div>} {/* 디자인 필요 */}
-                        <input type='button' value="TempSave" onClick={tempSave}/>
-                        <input type='submit' value="Create" onClick={sendPost}/>
+                        <div className = "buttonlist">
+                            {tempsaving && <div>임시저장중...</div>} {/* 디자인 필요 */}
+                            <input type='button' value="TempSave" onClick={tempSave}/>
+                            <input type='submit' value="Create" onClick={sendPost}/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </>
-    );
-};
+    )
+}
 
 export default PostWritePage

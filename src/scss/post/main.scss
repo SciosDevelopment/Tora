@@ -1,0 +1,101 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../fonts/AppleSDGothicNeoB.ttf')
+}
+.postPage {
+    & .content{
+        font-family: "AppleSDGothicNeoB";
+        display : grid;
+        grid-template-columns: repeat(36, 1fr);
+        width: 100%;
+        height : 100%;
+    
+        & .wrapper{
+            grid-column: 7/30;
+            margin-top : 50px;
+            width : 100%;
+
+            & .main{
+                display: grid;
+                grid-template-columns: repeat(24, 1fr);
+                width : 100%;
+            
+                & .header {
+                    display: grid;
+                    grid-template-columns: repeat(24, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    width: 100%;
+                    grid-column: 1/25;
+                    height:60px;
+                    margin-bottom: 30px;
+
+                    & .search {
+                        grid-column:6/20;
+                        grid-row:1;
+                        margin-bottom: 20px;
+                        width: 100%;
+                        height: 40px;
+                    }
+                    
+                    & .sortlist {
+                        grid-column: 3/23;
+                        grid-row: 2;
+                        display : flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        
+                
+                        & .sort {
+                            & > input {
+                                font-size: 13px;
+                                border: none;
+                                background: transparent;
+                                cursor: pointer;
+                                margin-top: 4%;
+                            }
+                        }
+                        
+                        & .sort2 {  
+                            width:28%;
+
+                            & .wrapper2 {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-end;
+                                padding-top: 7px;
+                                font-size: 12px;
+                                line-height: auto;
+                                
+                                & .sub1{
+                                    padding-right: 15px;
+                                }
+                
+                                & .sub2 {
+                                    padding-right: 15px;
+                                }
+                                & .sub3 {
+                                    width: 30%;
+                                    & > input {
+                                        width: 80px;
+                                        height : 20px;
+                                        border : 1px solid #1C2239;
+                                        background : #F6F7FC;
+                                        border-radius: 15px;
+                                        font-family: "AppleSDGothicNeoB";
+                                        font-size : 13px;
+                                        font-weight : 400;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                & .postlist {
+                    width: 100%;
+                    grid-column: 3/23;
+                }
+            }
+        } 
+    }
+}

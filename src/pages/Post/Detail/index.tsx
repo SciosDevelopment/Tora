@@ -1,5 +1,4 @@
-import './style/PostDetailMain.scss'
-import Header from 'src/components/common/Header/Header'
+import Header from '../../../components/common/Header/Header'
 import MainText from './MainText'
 import CommentList from '../../../components/common/CommentList'
 import ConnectButton from '../../../components/common/SideMenu'
@@ -17,7 +16,7 @@ const PostDetailMain = (props) => {
                                       view_cnt:0, score:0, user_id:0, user_name:"", comments_count:0, profileImage:""})
     const [cookies] = useCookies(['ToraNoID'])
     const {onGetUserID} = useUser()
-    const [Comments_List, setCommentList] = useState(Array())
+    const [Comments_List, setCommentList] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     
@@ -83,36 +82,34 @@ const PostDetailMain = (props) => {
     }
     
     return (
-        <>
-        <Header/>
-        <div className = "Post-Detail">
-            <div className = "Post-Detail-left-button">
-                <SideButton/>
-            </div>
-            <div className = "Post-Detail-right-button">
-                <ConnectButton/>
-            </div>
+        <div className="postdetailpage">
+            <Header/>
+            <div className = "container">
+                <div className = "sidebutton">
+                    <SideButton/>
+                </div>
+                <div className = "connectbutton">
+                    <ConnectButton/>
+                </div>
 
-            <div className = "Post-Detail-main">
-                <div className = "Post-Detail-view">
-                    <div className = "Post-Detail-maintext-view">
-                        <MainText data={Post} showOptions={()=>setIsOpen(!isOpen)}/>
-                    </div>
+                <div className = "content">
+                    <div className = "container">
+                        <div className = "maintext">
+                            <MainText data={Post} showOptions={()=>setIsOpen(!isOpen)}/>
+                        </div>
 
-                    <div className = "Post-Detail-comments-view">
-                        <CommentList list={Comments_List} post_id={id}/>
+                        <div className = "commentlist">
+                            <CommentList list={Comments_List} post_id={id}/>
+                        </div>
                     </div>
                 </div>
+
+                <div className = {isOpen ? "optionMenu" : "optionMenuClose"} >
+                    <button className="btnOption" onClick={editPost}>수정</button>
+                    <button className="btnOption" onClick={deletePost}>삭제</button>
+                </div>
             </div>
-            {isOpen?
-            <div className = "Post-Detail-Option">
-                <button className="btnOption" onClick={editPost}>수정</button>
-                <button className="btnOption" onClick={deletePost}>삭제</button>
-            </div>
-            :
-            <div className = "Post-Detail-Option-disappear"/>}
         </div>
-        </>
     )
 }
 
