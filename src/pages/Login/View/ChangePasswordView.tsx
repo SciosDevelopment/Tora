@@ -1,11 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { history } from 'src/configureStore'
-import './style/ChangePasswordView.scss'
 
-interface TokenProps {
-    token:string
-}
+interface TokenProps { token:string }
 
 const ChangePasswordView = (tk:TokenProps) => {
     const {token} = tk
@@ -37,10 +34,10 @@ const ChangePasswordView = (tk:TokenProps) => {
 
         const params = { 
                             user: {
-                                    reset_password_token: token,
-                                    new_password:PWgroup.new_password,
-                                    confirm_password: PWgroup.confirm_password
-                                } 
+                                reset_password_token: token,
+                                new_password:PWgroup.new_password,
+                                confirm_password: PWgroup.confirm_password
+                            } 
                         } 
 
         axios.put(`${SERVER_IP}/api/v1/user/reset_password`, params)
@@ -79,35 +76,29 @@ const ChangePasswordView = (tk:TokenProps) => {
     }
 
     return (
-        <div className = "Change-password-view-main">
-            <div className = "Change-password-title-container">
+        <div className = "changePassword">
+            <div className = "title">
                 {`Please fill out the password you want to change`}
             </div>
-            
-            <div className = "Change-password-view-form" >
-                <div className = "Change-password-view-title-change">
+            <div className = "form">
+                <div className = "title">
                     <p>Password to change</p>
                 </div>
-
-                <div className = "Change-password-view-input-container">
-                    <input name ="new_password" type="password" required value = {PWgroup.new_password} onChange={handleChange}/>
+                <div className = "inputcontainer">
+                    <input name = "new_password" type = "password" required value = {PWgroup.new_password} onChange={handleChange}/>
                 </div>
-
-                <div className = "Change-password-view-title-confirm">
+                <div className = "title">
                     <p>Confirm Password to Change</p>
                 </div>
-
-                <div className = "Change-password-view-input-container">
-                    <input name ="confirm_password" type="password" required value = {PWgroup.confirm_password} onChange={handleChange}/>
+                <div className = "inputcontainer">
+                    <input name = "confirm_password" type= "password" required value = {PWgroup.confirm_password} onChange={handleChange}/>
                 </div>
-
-                <div className = "Change-password-view-submit-button">
+                <div className = "submitcontainer">
                     <button onClick={changePw}>Confirm change</button>
                 </div>
             </div>
-
         </div>
-    );
-};
+    )
+}
 
 export default ChangePasswordView

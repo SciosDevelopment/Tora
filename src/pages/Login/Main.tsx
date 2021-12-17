@@ -1,21 +1,34 @@
 import Header from '../../components/common/Header/Header'
-import LoginView from './LoginView/LoginView'
-import Footer from './Footer/Footer'
-import './style/LoginBody.scss'
+import Footer from './Footer'
+import LoginView from './View/LoginView'
+import RegisterView from './View/RegisterView'
+import ResetPasswordView from './View/ResetPasswordView'
+import SecessionView from './View/SecessionView'
 
-const LoginMain = () => {
+const LoginMain = (props) => {
+    const {page} = props    
+    
+    const renderView = () => {    
+        switch(page) {
+            case "login":       return <LoginView/>
+            case "signup":      return <RegisterView/>
+            case "reset_pw":    return <ResetPasswordView/>
+            case "secess":      return <SecessionView/>
+        }
+    }
+
     return (
-        <>
-        <Header/>
-        <div className = "Login-body-wrap">
-            <div className = "Login-body-background">
-                <div className = "Login-body-view">
-                        <LoginView/>
+        <div className="loginPage">
+            <Header/>
+            <div className = "body">
+                <div className = "background">
+                    <div className = "wrapper"> 
+                        {renderView()}
+                    </div>
                 </div>
             </div>
+            <Footer/>
         </div>
-        <Footer/>
-        </>
     )
 }
 

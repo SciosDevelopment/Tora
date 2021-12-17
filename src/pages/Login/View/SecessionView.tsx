@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import './style/SecessionView.scss'
 import useUser from '../../../hooks/useUser'
 import {history} from 'src/configureStore'
 import {useCookies} from 'react-cookie'
@@ -85,11 +84,11 @@ const SecessionView:React.FC = () => {
     }
 
     return (
-        <div className = "Secess-account-view">
-            <div className = "Secess-account-title">
+        <div className = "secess">
+            <div className = "title">
                 {`Are you sure to delete this account ?`}
             </div>
-            <div className = "Secess-account-text-area">
+            <div className = "subtext">
                 {
                     `Once you delete your account,
                     you can not restore your repos,
@@ -101,33 +100,31 @@ const SecessionView:React.FC = () => {
 
             </div>
 
-            <form className = "Secess-account-input-form" onSubmit ={handleSubmit}>
-                <div className = "Secess-account-input-wrapper">
+            <form className = "form" onSubmit ={handleSubmit}>
+                <div className = "wrapper2">
                     {
                         `type in your password to 
                         procede to delete account`
                     }
-                     <div className = "Secess-account-input-container">
+                     <div className = "input">
                         <input type = "input" name="password" required onChange={handleChange}/>
                     </div>
                 </div>
-                
-                <div className = "Secess-account-input-wrapper">
+                <div className = "wrapper2">
                     {
                         `type "delete account" below 
                         to finish deleting your account`
                     }
-                      <div className = "Secess-account-input-container">
+                      <div className = "input">
                         <input type = "input" name="confirmmessage" required onChange={handleChange}/>
                     </div>
                 </div>
-                
-                <div className = "Secess-account-submit-button">
+                <div className = "submit">
                     <button>Delete Account</button>
                 </div>
             </form>
         </div>
-    );
-};
+    )
+}
 
 export default SecessionView

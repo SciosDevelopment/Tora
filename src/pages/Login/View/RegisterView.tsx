@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import {history} from '../../../configureStore'
-import './style/RegisterView.scss'
 
 const RegisterView:React.FC = () => {
     // input data
@@ -76,51 +75,50 @@ const RegisterView:React.FC = () => {
     /* 사용자 등록 끝 */
 
     return (
-        <div className = "Register-view">
-            <div className="Register-view-title-container">
+        <div className = "signup">
+            <div className="title">
                 <p>Sign Up for Tora!</p>
             </div>
-           
-            <div className = "Register-view-container">
-                <div className = "Register-Form">
-                    <div className = "Register-title">
+            <div className = "formcontainer">
+                <div className = "form">
+                    <div className = "title2">
                         <p>UserName</p>
                     </div>
-                    <div className = "Register-form-input-container">   
+                    <div className = "input">   
                         <input type = "input" placeholder = "UserName" name="username" required value = {userInfo.username} onChange = {handleChange}/>
                     </div>
-                    <div className = "Register-title">
+                    <div className = "title2">
                         <p>Email (ID)</p>
                     </div>
-                    <div className = "Register-form-input-container">
+                    <div className = "input">
                         <input type = "input" placeholder = "Email (ID)" required name="email" value = {userInfo.email} onChange = {handleChange}/>
                     </div>
-                    <div className = "Register-title">
+                    <div className = "title2">
                         <p>Password</p>
                     </div>
-                    <div className = "Register-form-input-container">
+                    <div className = "input">
                         <input type = "password" placeholder = "Password" required name="pw" value = {userInfo.pw} onChange = {handleChange}/> 
                     </div>
-                    <div className = "Register-title">
+                    <div className = "title2">
                         <p>Verify-Password</p>
                     </div>
-                    <div className = "Register-form-input-container">
+                    <div className = "input">
                         <input type = "password" placeholder = "Verify-Password" required name="verify_pw" value = {userInfo.verify_pw} onChange = {handleChange}/> 
                     </div>
                 </div>
             </div>
-            <div className = "Register-form-side-container">
-                <div className = "Register-form-side-container1">
+            <div className = "information">
+                <div className = "subinfo">
                     <input type='none' value=""/>
                     <p>500MB 제공</p>
                 </div>
-                <div className = "Register-form-side-container2">
+                <div className = "subinfo">
                     <input type='none' value=""/>
                     <p>화상코딩 50명까지</p>
                 </div>
             </div>
-            <div className = "Register-form-submit-button-container">              
-                    <input type = "submit" value = "Sign-Up" onClick={register}/>
+            <div className = "btn-signup">              
+                <input type = "submit" value = "Sign-Up" onClick={register}/>
             </div>       
         </div>
     )

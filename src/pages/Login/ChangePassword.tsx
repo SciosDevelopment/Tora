@@ -1,24 +1,23 @@
 import Header from '../../components/common/Header/Header'
-import ChangePasswordView from './ChangePasswordView/ChangePasswordView'
-import Footer from './Footer/Footer'
-import './style/LoginBody.scss'
+import ChangePasswordView from './View/ChangePasswordView'
+import Footer from './Footer'
 
 
 const ChangePasswordMain = (props) => {
     const {token} = props.match.params
 
     return (
-        <>
-        <Header/>
-            <div className = "Login-body-wrap">
-                <div className = "Login-body-background">
-                    <div className = "Login-body-view">
+        <div className="loginPage">
+            <Header/>
+                <div className = "body">
+                    <div className = "background">
+                        <div className = "wrapper">
                             <ChangePasswordView token={token}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <Footer/>
-        </>
+            <Footer/>
+        </div>
     )
 }
 

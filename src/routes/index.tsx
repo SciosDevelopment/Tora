@@ -6,9 +6,6 @@ import MainPage from '../pages/Main/index'
 // Login : login, register, findpw, delete
 import Login from '../pages/Login/Main'
 import Logout from '../pages/Login/Logout'
-import Register from '../pages/Login/Register'
-import ResetPw from '../pages/Login/ResetPassword'
-import DeleteAccount from '../pages/Login/Secession'
 import ChangePassword from '../pages/Login/ChangePassword'
 import Confirm from '../pages/Login/Confirm'
 
@@ -53,11 +50,11 @@ const Router:React.FC = () => (
         <Route path = "/" exact component={MainPage}/>
 
         {/* Login */}
-        <Route path = "/login" component={Login}/>
+        <Route path = "/login" render={()=><Login page="login"/>}/>
         <Route path = "/logout" component={Logout}/>
-        <Route path = "/signup" component={Register}/>
-        <Route path = "/reset_pw" component={ResetPw}/>
-        <Route path = "/secess" component={DeleteAccount}/>
+        <Route path = "/signup" render={()=><Login page="signup"/>}/>
+        <Route path = "/reset_pw/" render={()=><Login page="reset_pw"/>}/>
+        <Route path = "/secess" render={()=><Login page="secess"/>}/>
 
         <Route path = "/change_pw" exact component={ChangePassword}/>
         <Route path = "/change_pw/:token" component={ChangePassword}/>

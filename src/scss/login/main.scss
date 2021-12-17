@@ -1,0 +1,588 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../fonts/AppleSDGothicNeoB.ttf')
+}
+
+.loginPage {
+    & .body{
+        display: grid;
+        grid-template-columns: repeat(36, 1fr);
+        height: 100%;
+        width: 100%;
+        
+        & .background {
+            display: grid;
+            grid-column: 1/37;
+            width: 100%;
+            min-height: 802px;
+            height: 100%;
+            background-image: url(../../img/loginbackground.png);
+            background-position: center;
+            background-size: 150% auto;
+
+            & .wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+                // text select prevent
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                
+                // ChangePassword start
+                & .changePassword {
+                    width : 400px;
+                    height : 530px;
+                    border-radius: 30px;
+                    display : flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    background : #fff;
+                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                    font-family: "AppleSDGothicNeoB";
+                    
+                    & .title {
+                        font-size : 30px;
+                        font-weight: bold;
+                        text-align: center;
+                        white-space: pre-line;
+                        color : #1C2239;
+                        line-height: 100%;
+                    }
+                
+                    & .form {
+                        display : flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        height : 300px;
+                        
+                        & .title {
+                            font-size : 18px;
+                            font-weight: bold;
+                            color : #1C2239;
+                        }
+                
+                        & .inputcontainer {
+                            display : flex;
+                            justify-content: center;
+                            width : 300px;
+                            height : 45px;
+                            border-radius: 30px;
+                            box-shadow: 2px 2px 7px 2px #c7c7c7;
+                            margin-bottom: 40px;
+                
+                            & > input {
+                                margin-top : 3px; // temporary margin : to prevent overflow TextField 
+                                width : 90%;
+                                height :85%;
+                                border : none;
+                                outline : none;
+                            }
+                        }                
+                
+                        & .submitcontainer{
+                            width : 200px;
+                            height : 40px;
+                            display : flex;
+                            justify-content: center;
+                            background : #1C2239;
+                            border-radius: 30px;
+                
+                            & > button {
+                                border : none;
+                                outline : none;
+                                background: transparent;
+                                color : #fff;
+                                font-size : 18px;
+                                font-family: "AppleSDGothicNeoB";
+                            }
+                        }
+                    }
+                } // changePassword End
+                
+                // LoginMain start
+                & .loginMain {
+                    display: flex;
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: center;
+                
+                    & .formcontainer {    
+                        width : 100%;
+                        max-width : 400px;
+                        min-width : 350px;
+                        height : 530px;
+                        display : grid;
+                        grid-template-rows : 40px repeat(2,1fr) 65px;
+                        background : #ffffff;
+                        border-radius: 30px;
+                        box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                    
+                        & .form {
+                            height : 330px;
+                            grid-row : 2/3;
+                            display : flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+                
+                            & > div {
+                                & p {  
+                                    margin-left : 10px;
+                                    margin-bottom: 4%;
+                                    font-size : 1.375em;
+                                    font-weight : 800;
+                                    
+                                    & > input { // checkbox size.
+                                        width: 16px;
+                                        height: 16px;
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                
+                                & > div {
+                                    width : 300px;
+                                    height : 60px;
+                                    border-radius: 60px;
+                                    background : #ffffff;
+                                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                            
+                                    & input {
+                                        font-size : 1.2em;
+                                        width : 90%;
+                                        height : 100%;
+                                        background : rgba(0, 0, 0, 0);
+                                        border : none;
+                                    }
+                                    & input:focus { outline : none; }
+                                }
+                            }
+                
+                            & > button {
+                                width : 300px;
+                                height : 60px;
+                                border-radius: 60px;
+                                background : #1C2239;
+                                border : none;
+                                color : #ffffff;
+                                font-size : 1.5em;
+                                margin-top: 7%;
+                            }
+                
+                            & button:focus {
+                                outline : none;
+                            }
+                        }
+                    
+                        & .etcInfo {
+                            display : flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            grid-row : 3/4;
+                            margin-top: 4%;
+                            
+                            & .wrapper2 {
+                                & > p {
+                                    text-align: center;
+                                    text-decoration: underline;
+                                    font-size : 18px;
+                                    margin-bottom : 10px;
+                                }
+                
+                                & p:hover { // 임시 구분
+                                    font-size:19px;
+                                    cursor:pointer;
+                                }
+                            }
+                        }
+                    }
+
+                    & .description {
+                        width: 32%;
+                        display : flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-self: center;
+                        height : 400px;
+                        z-index: 10;
+                        padding-left: 4%;
+                        
+                        & .title {
+                            width : auto;
+                            white-space: pre-line;
+                            font-family: AppleSDGothicNeoB;
+                            font-weight: bold;
+                            font-size : 75px;
+                            line-height: 0.9em;
+                        }
+                
+                        & .detail {
+                            width : auto;
+                            font-family: AppleSDGothicNeoM;
+                            font-size : 26px;
+                            line-height: 1.5em;
+                        }
+                    }
+                } // LoginMain end
+
+                // Signup start                
+                & .signup {
+                    max-width : 710px; 
+                    height : 100%;
+                    max-height: 530px;
+                    display: grid;
+                    grid-template-columns: repeat(10, 1fr);
+                    border-radius: 30px;
+                    background : #fff;
+                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+
+                    & .title {
+                        grid-column: 1/11;
+                        display : flex;
+                        justify-content: center;
+                        align-items: center;
+                        height : 80px;
+
+                        & > p {
+                            font-family: AppleSDGothicNeoB;
+                            font-weight: bold;
+                            font-size : 30px;
+                            text-align: center;
+                        }
+                    }
+
+                    & .formcontainer {
+                        grid-column: 2/6;
+                        width: 95%;
+                        height: 120%;
+
+                        & .form {
+                            display : flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            height : 100%;
+                            
+                            & .title2 {
+                                width : 100%;
+                                align-items: center;
+                                margin-left:-45px;
+
+                                & > p {
+                                    font-size : 20px;
+                                    font-family: AppleSDGothicNeoB;
+                                }
+                            }
+
+
+                            & .input {
+                                display: flex;
+                                width : 300px;
+                                height : 45px;
+                                margin-bottom: 3%;
+                                justify-content: center;
+                                
+                                background : #fff;
+                                border-radius: 35px;
+                                box-shadow: 1px 1px 7px 1px #c7c7c7 ;
+                                
+                                & > input {
+                                    width : 90%;
+                                    background : transparent;
+                                    border : none;
+                                    outline : none;
+                                }
+
+                                & > input::placeholder {
+                                    font-family: AppleSDGothicNeoB;
+                                    font-size : 14px;
+                                }
+                            }
+                        }
+                    }
+                    & .information {
+                        grid-column: 6/11;
+                        padding-left: 12%; 
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 90%;
+                        height: 100%;
+                        
+                        > div { margin-bottom: 30px; } // subinfo margin
+
+                        & .subinfo {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+
+                            > input {
+                                width: 71px;
+                                height: 71px;
+                                background-color: #ffffff;
+                                border: solid 1px black;
+                                border-radius: 100%;
+                            }
+                            
+                            >p {
+                                margin-left:15px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #FFB600;
+                            }    
+                        }
+                    }
+
+                    & .btn-signup {
+                        grid-column: 1/11;
+                        display : flex;
+                        justify-content:center;
+                        margin-top: 10%;
+                        height : 45px;
+                        
+                        & > input {
+                            background : #1C2239;
+                            max-width : 200px;
+                            width : 100%;
+                            color : #fff;
+                            font-family: AppleSDGothicNeoB;
+                            font-size: 18px;
+                            border-radius: 35px;
+                            border : none;
+                            outline : none;
+                        }
+                    }
+                } // Signup End
+
+                // ResetPassword start
+                & .resetPassword {
+                    width : 400px;
+                    height : 530px;
+                    border-radius: 30px;
+                    display : flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    background : #fff;
+                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                    font-family: "AppleSDGothicNeoB";
+                    
+                    & .title {
+                        font-size : 30px;
+                        font-weight: bold;
+                        white-space: pre-line;
+                        color : #1C2239;
+                    }
+                
+                    & .form {
+                        display : flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        height : 300px;
+                        
+                        & .title2 {
+                            font-size : 18px;
+                            font-weight: bold;
+                            color : #1C2239;
+                        }
+                
+                        & .input {
+                            display : flex;
+                            justify-content: center;
+                            width : 300px;
+                            height : 45px;
+                            border-radius: 30px;
+                            box-shadow: 2px 2px 7px 2px #c7c7c7;
+                            margin-bottom: 40px;
+                
+                            & > input {
+                                margin-top : 3px; // temporary margin : to prevent overflow TextField 
+                                width : 90%;
+                                height :85%;
+                                border : none;
+                                outline : none;
+                            }
+                        }
+                
+                        & .alertmessage {
+                            width: 90%;
+                            font-size : 20px;
+                            text-align: center;
+                            white-space: pre-line;
+                            margin-bottom: 40px;
+                            color : #FFB600
+                        }
+                
+                        & .submit {
+                            width : 200px;
+                            height : 40px;
+                            display : flex;
+                            justify-content: center;
+                            background : #1C2239;
+                            border-radius: 30px;
+                
+                            & > button {
+                                border : none;
+                                outline : none;
+                                background: transparent;
+                                color : #fff;
+                                font-size : 18px;
+                                font-family: "AppleSDGothicNeoB";
+                            }
+                        }
+                    }
+                } // ResetPassword End
+
+                // Secess start
+                & .secess {
+                    padding: 20px;
+                    width : 400px;
+                    height : 530px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    background : #fff;
+                    border-radius: 30px;
+                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                
+                    & .title {
+                        height : 50px;
+                        font-family: AppleSDGothicNeoB;
+                        font-weight: bold;
+                        font-size : 20px;
+                    }
+                    
+                    & .subtext {
+                        width : 80%;
+                        margin-bottom: 30px;
+                        text-align : center;
+                        font-family: AppleSDGothicNeoB;
+                        font-size : 15px;
+                        line-height : 110%;
+                    }
+                
+                    & .form {
+                        display: flex;
+                        font-family: AppleSDGothicNeoB;
+                        width : auto;
+                        height : 250px;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-direction: column;
+                
+                        & .wrapper2 {
+                            text-align: center;
+                            font-size : 15px;
+                            white-space: pre-line;
+                            line-height: 1.5;
+                            
+                            & > p { text-decoration: underline; }
+                    
+                            & .input {
+                                width : 300px;
+                                height : 45px;
+                                margin-bottom: 20px;
+                                margin-top: 10px;
+                                display : flex;
+                                justify-content: center;                
+                                border-radius: 35px;
+                                box-shadow: 2px 2px 10px 1px #c7c7c7;
+                    
+                                & > input {
+                                    width : 90%;
+                                    border : none;
+                                    outline : none;
+                                    background : transparent;
+                                }
+                            }
+                            
+                        }
+                        & .submit {
+                            width : 200px;
+                            height : 40px;
+                            display : flex;
+                            justify-content: center;
+                            border-radius: 30px;
+                            background : #1C2239;
+                            
+                            & > button {
+                                width : 90%;
+                                font-family: AppleSDGothicNeoB;
+                                color : #FFB600;
+                                background : none;
+                                outline : none;
+                                border : none;
+                                font-size : 18px;
+                                
+                            }
+                        }
+                    }
+                } // Secess end
+            }
+        }
+    }
+
+    & .footer {
+        grid-column: 1/37;
+        background-color: #1C2239;
+        max-height: 522px;
+        height: 100%;
+        
+        & .hr {
+            width: 80%;
+            height: 50px;
+            margin: 0 auto;
+            border-bottom: 3px solid #ffffff;
+        }
+    
+        & .container{
+            display: flex;
+            width: 100%;
+            max-height: 300px;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 50px;
+    
+            & .column{
+            
+                & .title {
+                    margin-bottom: 50px;
+                    
+                    & > p {
+                        color: white;
+                        font-weight: 400px;
+                        font-size: 15px;
+                        letter-spacing: 5px;
+                    }
+                }
+                & .subtitle {
+                    & > p {
+                        letter-spacing: 5px;
+                        margin-bottom: 20px;
+                        color: white;
+                        font-weight: 400px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    
+    }
+}

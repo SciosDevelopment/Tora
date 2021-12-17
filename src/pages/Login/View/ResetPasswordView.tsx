@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import './style/ResetPasswordView.scss'
 
 const ResetPasswordView:React.FC = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
@@ -49,29 +48,28 @@ const ResetPasswordView:React.FC = () => {
     }
 
     return (
-        <div className = "Reset-password-view-main">
-            <div className = "Reset-password-title-container">
+        <div className = "resetPassword">
+            <div className = "title">
                 {`Reset Your Password`}
             </div>
             
-            <div className = "Reset-password-view-form">
-                <div className = "Reset-password-view-title">
+            <div className = "form">
+                <div className = "title2">
                     <p>type in your username / email</p>
                 </div>
 
                 { checkEmail !== true ?
-                    <div className = "Reset-password-view-input-container">
+                    <div className = "input">
                         <input onChange={handleChange}/>
                     </div>
                 :
-                    <div className = "Reset-password-view-alert-text">
+                    <div className = "alertmessage">
                         your temporary password
                         has been sent to your account
                         [ {emailinfo} ]
                     </div>
                 }
-
-                <div className = "Reset-password-view-submit-button">
+                <div className = "submit">
                     <button onClick = {checkEmailStatus}>Reset Password</button>
                 </div>
             </div>
