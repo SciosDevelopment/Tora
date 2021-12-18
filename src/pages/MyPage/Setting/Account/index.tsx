@@ -1,10 +1,9 @@
 import React from 'react'
-import Title from 'src/components/common/Title/Title'
-import './style/AccountSetting.scss'
+import Title from '../../../../components/common/Title/Title'
 import Profile from '../../../../img/profile4.png'
 import Plus from '../../../../img/plus-gray.png'
 import Minus from '../../../../img/minus-gray.png'
-import SnsAccounts from './SnsAccounts'
+import SnsAccount from './SnsAccount'
 import DeleteAccount from './DeleteAccount'
 import ChangePassWord from './ChangePassword'
 import { useEffect ,useState} from 'react'
@@ -114,72 +113,66 @@ const AccountSetting = () => {
     
     return (
         <div>
-            <div className = "Setting-account-main">
-                <div className = "Setting-account-profile">
+            <div className = "account">
+                <div className = "profile">
                     <Title name = "Profile"/>
-                    <div className = "Setting-account-profile-img">
+                    <div className = "profileimg">
                         <img src = {userdata.photo === null ? Profile : userdata.photo } alt=""/>
-                        <div className = "Setting-account-profile-set">
+                        <div className = "settingbtn">
                             <input type="file" name="file" id="Setting-account-profile-input" accept="image/*" onChange={(e)=>getImageLink(e)}/>
                             <img src = {Plus} alt="" onClick={setImage}/>
                             <img src = {Minus} alt="" onClick={()=>setUserData({...userdata, photo:null})}/>
                         </div>
                     </div>
                 </div>
-                <div className = "Setting-account-region">
+                <div className = "region">
                     <Title name = "Region"/>
                     <input type="text" placeholder="Region" value={"Region"} onChange={()=>console.log("Rg")} disabled/>
                 </div>
-                <div className = "Setting-account-name">
+                <div className = "name">
                     <Title name = "Name"/>
                     <input type="text" name="name" placeholder="Write username" value={userdata.name} onChange={handleChange}/>
                 </div>
 
-                <div className = "Setting-account-password">
+                <div className = "password">
                     <Title name = "Confirm Password" />
                     <input type="password" name="pw" placeholder="Write Password" value={userdata.pw} onChange={handleChange}/>
                 </div>
-                <div className = "Setting-account-description">
+                <div className = "description">
                     <Title name = "Description"/>
                     <textarea name="about_me" placeholder="Write description" value={userdata.about_me} onChange={handleChange}/>
                 </div>
-                <div className = "Setting-account-program-language">
+                <div className = "language">
                     <Title name = "Program Language"/>
                     <input type="text" placeholder="Program Language" value={"Program Language"} onChange={()=>console.log("PL")} disabled/>
                 </div>
-                <div className = "Setting-account-position">
+                <div className = "position">
                     <Title name = "Position"/>
                     <input type="text" placeholder="Position" value={"Position"} onChange={()=>console.log("ps")} disabled/>
                 </div>
-                <div className = "Setting-account-sns-accounts">
+                <div className = "snsAccounts">
                     <Title name = "SNS accounts"/>
-                    <SnsAccounts/>
+                    <SnsAccount/>
                 </div>
-                <div className = "Setting-account-save-button">
+                <div className = "save">
                     <p onClick={handleSubmit}>Save Changes</p>
                 </div>
-                <div className = "Setting-account-button">
-                    <div className = "Setting-account-delete-button">
+                <div className = "buttonlist">
+                    <div className = "delete">
                         <p onClick={()=>setSwitch(swit !== "DA" ? "DA":"")}>Delete My Account</p>
                     </div> 
-                    <div className = "Setting-account-change-button">
+                    <div className = "change">
                         <p onClick={()=>setSwitch(swit !== "CP" ? "CP":"")}>Change Password</p>
                     </div> 
                 </div>
 
             </div>
-            {
-                swit === "DA" &&
-                <CustomModal modalOpen={swit === "DA"} modalClose={()=>setSwitch("")}>
-                        <DeleteAccount getEmail={()=>{return userdata.email}} close={setSwitch}/>
-                </CustomModal>
-            }
-            {
-                swit === "CP" &&
-                <CustomModal modalOpen={swit === "CP"} modalClose={()=>setSwitch("")}>
-                    <ChangePassWord close = {setSwitch}/>
-                </CustomModal>
-            }
+            {<CustomModal modalOpen={swit === "DA"} modalClose={()=>setSwitch("")}>
+                <DeleteAccount getEmail={()=>{return userdata.email}} close={setSwitch}/>
+            </CustomModal>}
+            {<CustomModal modalOpen={swit === "CP"} modalClose={()=>setSwitch("")}>
+                <ChangePassWord close = {setSwitch}/>
+            </CustomModal>}
         </div>
     )
 }

@@ -1,0 +1,173 @@
+@font-face{
+    font-family: "AppleSDGothicNeoB";
+    src : url('../../fonts/AppleSDGothicNeoB.ttf')
+}
+.mypage {
+    & .content {
+        font-family: "AppleSDGothicNeoB";
+        display : grid;
+        grid-template-columns: repeat(36, 1fr);
+        width: 100%;
+        height : 100%;
+    
+        & .section {
+            grid-column: 7/30;
+            margin-top : 50px;
+            width : 100%;
+            //  main in section
+            & .mainview {
+                padding-top: 1%;
+                width : 100%;
+                display : grid;
+                grid-template-columns: repeat(24, 1fr);
+            
+                & .profileContainer {
+                    grid-column: 4/22;
+                    border-bottom: 2px solid #1C2239;
+                    
+                    & .profile {
+                        display: grid;
+                        grid-template-columns: repeat(24, 1fr);
+                    
+                        & .modify {
+                            position: relative;
+                            left: 2350%;
+                            top: 50%;
+                        }
+                    
+                        & .left {
+                            display: grid;
+                            height: 100%;
+                            grid-template-columns: repeat(9, 1fr);
+                            grid-column: 1/17;
+                            // border: solid red;
+                            
+                            & > img {
+                                grid-column: 1/2;
+                                max-width: 66px;
+                                height: 63px;
+                                // border: solid blue;
+                            }
+                    
+                            & .default {
+                                display: grid;
+                                grid-column: 2/10;
+                                grid-template-columns: repeat(10, 1fr);
+                                grid-template-rows: repeat(2, 1fr);
+                                align-items: flex-start;
+                    
+                                & .name {
+                                    grid-column: 1/5;
+
+                                    & > p { font-size: 22px; }
+                                }
+                    
+                                & .description{
+                                    display: -webkit-box;
+                                    grid-column: 5/11;
+                                    grid-row: 1/3;
+                                    word-break: break-all;
+                                    word-wrap: break-word;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    -webkit-line-clamp: 3; 
+                                    -webkit-box-orient: vertical;
+                                    line-height: 1.2em;
+                                    height: 3.6em; 
+                    
+                                    & > p { font-size: 18px; }
+                                }
+                    
+                                & .email {
+                                    grid-column: 1/5;
+                    
+                                    & > p {
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+                    
+                        & .right {
+                            display: grid;
+                            grid-template-columns: repeat(10, 1fr);
+                            width: 100%;
+                            height: 100%;
+                            grid-column: 18/25;
+                    
+                            & .detail {
+                                grid-column: 1/11;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                width: 100%;
+                                height: 95%;
+                                
+                                & .flw {
+                                    display: grid;
+                                    grid-template-columns: repeat(10, 1fr);
+                                    width: 100%;
+                                    margin-top: 5%;
+
+                                    & .follower{
+                                        grid-column: 1/5;
+
+                                        & > p {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                        }
+                                    }
+
+                                    & .following {
+                                        grid-column: 6/11;
+
+                                        & > p {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+
+                                & .positionNlanguage {
+                                    display: grid;
+                                    grid-template-columns: repeat(10, 1fr);
+                                    align-items: center;
+                                    width: 100%;
+                        
+                                    & .position {
+                                        grid-column: 1/5;
+
+                                        & > p {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                        }
+                                    }
+
+                                    & .language {
+                                        grid-column: 6/11;
+
+                                        & > p {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                & .itemlistContainer {
+                    width: 100%;
+                    height: 100%;
+                    grid-column: 4/22;
+                    overflow-y: scroll;
+                }
+
+                & .itemlistContainer::-webkit-scrollbar{ width: 0; }
+            }
+        }
+        
+    }    
+}
