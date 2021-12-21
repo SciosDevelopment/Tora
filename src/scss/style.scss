@@ -3,6 +3,7 @@
 @import "variables.scss";
 @import "reset.scss";
 @import "common.scss";
+@import "popup.scss";
 
 @import "main/style.scss";
 @import "business/style.scss";
@@ -12,3 +13,6 @@
 @import "post/style.scss";
 @import "login/style.scss";
 @import "mypage/style.scss";
+
+// test code
+@import "ide/style.scss";

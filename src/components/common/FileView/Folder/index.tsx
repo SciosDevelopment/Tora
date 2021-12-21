@@ -13,7 +13,7 @@ const FileTreeItemFolder = (props) => {
     const ref_ = useRef<HTMLDivElement>()
     
     const renderData = async() => {
-        await axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/directory`, {project:{directory_name:info.path}})
+        await axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/directory/read`, {inside_path:info.path})
         .then((res) => {
             const directories_ = res.data.directories.filter((data)=>{ return !(data==='.' || data==='..')}) // temp-filter
             const files_ = res.data.files

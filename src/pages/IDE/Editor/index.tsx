@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import {monaco} from 'react-monaco-editor'
 import TextEditor from '../../../components/common/TextEditor'
-import FileType from './type'
+import FileType from './FileType'
 import SplitScreen from '../../../img/splitscreen.png'
-import './style/IDEEditor.scss'
 
 //https://blog.expo.dev/building-a-code-editor-with-monaco-f84b3a06deaf : 참고 사이트
 
 export let fileSave = null // 임시방식, 추후 변경
 
 export const IDEEditor = (props) => {
-    const {current} = props
+    const {current, showAside} = props
     // const [openHistory, setOpenHistory] = useState([])
     const [FileList, setFileList] = useState([]) // 동기화 전용 데이터 (Editor 데이터와 비교 및 서버 데이터)
     const [curSelected, setCurSelected] = useState(-1)
@@ -91,16 +90,18 @@ export const IDEEditor = (props) => {
     fileSave = saveFile
     
     return (
-        <div className = "IDE-Editor-main">
-            <div className = "IDE-Editor-function">
-                <div className ="IDE-Editor-FileList">
+        <div className = "writeBox">                 
+            <div className = "writeHead">
+                <div className ="left">
                     {loadFileList()}
                 </div>
-                <div className = "IDE-Editor-splitscreen">
-                    <img src = {SplitScreen} alt=""/>
+                <div className = "right">
+                    <button className="btnDivider">
+                        <img src = {SplitScreen} alt="divider" onClick={()=> showAside()}/>
+                    </button>
                 </div>
             </div>
-            <div className = "IDE-Editor-contents">
+            <div className = "writeBody">
                 {curSelected !== -1 && <TextEditor model={curSelected >= 0 ? models[curSelected] : null}
                     index = {curSelected >= 0 ? curSelected : null}
                     prevFile = {FileList[curSelected]}

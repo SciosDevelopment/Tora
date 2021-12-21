@@ -36,9 +36,6 @@ import MyPageSetting from '../pages/MyPage/Setting'
 //ProjectMain
 import ProjectMain from '../pages/Project'
 
-//NewProject
-import NewProject from '../pages/NewProject'
-
 //IDE
 import IDE from '../pages/IDE'
 
@@ -80,8 +77,7 @@ const Router:React.FC = () => (
         <Route path = "/blog/:sorted/:query" component={Blog}/>
         <Route path = "/blog/:id" component={BlogDetail}/>
 
-
-        {/* BulletinBoard */}
+        {/* Post */}
         <Route path = "/post" exact component={Post}/>
         <Route path = "/post/edit/:id" component={PostWrite}/>
         <Route path = "/post/write" component={PostWrite}/>
@@ -97,10 +93,6 @@ const Router:React.FC = () => (
         <Route path = "/project" exact component={ProjectMain}/>
         <Route path = "/project/:token" component={ProjectMain}/>
         <Route path = "/project/:token/:id" component={ProjectMain}/>
-
-        {/* NewProject */}
-        <Route path = "/NewProject" exact component={NewProject}/>
-
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>

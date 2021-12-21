@@ -1,0 +1,819 @@
+@charset "utf-8";
+
+.innerShadow {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.innerShadow2 {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popupPR {
+  z-index: 10;
+  position: fixed;
+  top: calc(50% - 250px);
+  top: -webkit-calc(50% - 250px);
+  left: calc(50% - 420px);
+  left: -webkit-calc(50% - 420px);
+  width: 840px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+
+  &.popupComplete {
+    & .text {
+      & .link {
+        & img {
+          height: 17px;
+        }
+      }
+    }
+
+    & .td_text {
+      border: 1px solid #707070;
+    }
+
+    & .completebox {
+      & .box {
+        height: 54px;
+        margin-top: 10px;
+
+        & .fakeSelect {
+          position: relative;
+          border: 1px solid #707070;
+          background: #fff;
+
+          &.on {
+            height: 54px;
+            overflow: hidden;
+          }
+
+          & > button {
+            @include flexbox(space-between, center);
+            padding: 10px 0;
+            width: 100%;
+          }
+
+          & .left {
+            position: relative;
+            @include flexbox(space-between, center);
+            padding-left: 20px;
+
+            & span {
+              font-size: 18px;
+            }
+            & .coin {
+              @include flexbox(space-between, center);
+            }
+            & .coin img {
+              height: 30px;
+              margin: 0 20px;
+            }
+            & .coin span {
+              font-size: 18px;
+            }
+          }
+
+          & .right {
+            @include flexbox(space-between, flex-end);
+            width: 190px;
+            padding-right: 20px;
+
+            & .grade {
+              @include flexbox(center, flex-end);
+              & img {
+                height: 33px;
+              }
+            }
+          }
+        }
+      }
+      & .selectUp {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+      }
+    }
+  }
+
+  & textarea {
+    border: 1px solid #707070;
+    width: 100%;
+    height: 230px;
+    overflow: auto;
+    padding: 10px 0;
+    resize: none;
+    margin-top: 10px;
+  }
+
+  & .title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  & .subTitle {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  & .contentbox {
+    text-align: left;
+    min-height: 230px;
+
+    & .link,
+    & .subText {
+      @include flexbox(flex-start, center);
+      margin-top: 30px;
+
+      & .label {
+        font-size: 18px;
+        font-weight: bold;
+        width: 160px;
+      }
+      & p {
+        width: calc(100% - 160px);
+        width: -webkit-calc(100% - 160px);
+        font-size: 14px;
+        padding-left: 10px;
+      }
+
+      & b {
+        margin-left: 20px;
+      }
+
+      & input {
+        width: calc(100% - 160px);
+        width: -webkit-calc(100% - 160px);
+        height: 30px;
+        font-size: 14px;
+        padding-left: 0;
+        border: 1px solid #707070;
+      }
+    }
+
+    & .agree {
+      @include notCutToNextLine();
+      margin-top: 30px;
+
+      & label {
+        @include flexbox(flex-start, center);
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      & input {
+        width: 19px;
+        height: 19px;
+      }
+
+      & span {
+        margin-left: 10px;
+      }
+    }
+  }
+  & .btnbox {
+    @include flexbox(center, center);
+    margin-top: 30px;
+
+    & button {
+      padding: 10px 40px;
+      border-radius: 5px;
+    }
+
+    & .btn_send {
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      background: #ffb600;
+    }
+    & .btn_cancel {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+.popupConfirm {
+  z-index: 10;
+  position: fixed;
+  top: calc(50% - 100px);
+  top: -webkit-calc(50% - 100px);
+  left: calc(50% - 260px);
+  left: -webkit-calc(50% - 260px);
+  width: 520px;
+  height: 200px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+
+  & > p {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.3;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    height: 90px;
+    text-align: center;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  & > button {
+    background: #ffb600;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+}
+
+.popupIDE {
+  z-index: 99;
+  width: 100%;
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 300px);
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  padding: 0 0 50px;
+
+  & * {
+    color: #000;
+    font-size: 15px;
+  }
+
+  & .popupHead {
+    @include flexbox(flex-start, center);
+    height: 30px;
+    background: #1c2239;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: 1px solid #fff;
+    padding-left: 15px;
+    font-weight: bold;
+  }
+
+  & .popupBody {
+    padding: 20px;
+  }
+
+  & .popupFoot {
+    @include flexbox(flex-end, center);
+    padding: 0 10px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    & * {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    & .btn button {
+      margin-left: 10px;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+
+      &.btn_confirm {
+        background-color: $ColorNavy;
+        color: #fff;
+      }
+    }
+  }
+
+  & .title {
+    color: #928a76;
+    font-size: 15px;
+  }
+
+  & select {
+    border: $IDEPopupLine;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+    background-position: 98%;
+    background-repeat: no-repeat;
+  }
+
+  & input[type="number"],
+  & input[type="text"] {
+    border: $IDEPopupLine;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+    text-indent: 0;
+  }
+
+  & .branchStyle {
+    @include flexbox(space-between, center);
+
+    & .title {
+      height: 20px;
+      display: block;
+    }
+
+    & .box {
+      background: #fff;
+      border-radius: 5px;
+      border: $IDEPopupLine;
+      height: 130px;
+    }
+
+    & .left {
+      width: 230px;
+      font-weight: bold;
+
+      & .box {
+        border-radius: 5px 0 0 5px;
+        padding-left: 10px;
+
+        & button {
+          height: 30px;
+          line-height: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+    & .center {
+      width: calc(100% - 270px);
+      width: -webkit-calc(100% - 270px);
+
+      & .box {
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 2px;
+
+        & > * {
+          height: 30px;
+          font-weight: bold;
+          padding: 5px;
+          display: block;
+        }
+
+        & select {
+          width: 100%;
+        }
+      }
+    }
+    & .right {
+      width: 40px;
+
+      & .box {
+        margin-top: 20px;
+        border: $IDEPopupLine;
+        border-radius: 0 5px 5px 0;
+      }
+
+      & .inputWrap {
+        @include flexbox(center, center);
+        height: 30px;
+
+        & input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  } /* // 공용 */
+
+  /* 커밋스테이지 */
+  &.PopupCommit {
+    max-width: 600px;
+    & .commitList {
+      height: 135px;
+      overflow: auto;
+    }
+    & .commitList label {
+      @include flexbox(space-between, center);
+      margin-bottom: 5px;
+
+      & .left {
+        @include flexbox(flex-start, center);
+      }
+      & .left mark {
+        margin-right: 10px;
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        background: #ffb600;
+      }
+      & .left b {
+        color: #000000;
+        font-size: 15px;
+        font-weight: normal;
+
+        &.bold {
+          font-weight: bold;
+        }
+      }
+      & input {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    & .commitInfo {
+      @include flexbox(flex-start, flex-start);
+
+      height: 120px;
+      overflow: auto;
+      border-radius: 5px;
+      border: $IDEPopupLine;
+      overflow: auto;
+      margin-top: 20px;
+
+      & * {
+        font-size: 13px;
+      }
+
+      & .num {
+        padding-left: 2px;
+        width: 30px;
+        height: 100%;
+        border-right: $IDEPopupLine;
+
+        & li {
+          color: #aaa;
+        }
+      }
+
+      & .text {
+        padding-left: 5px;
+        height: 100%;
+        width: calc(100% - 30px);
+        width: -webkit-calc(100% - 30px);
+
+        & .line {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+        }
+      }
+    } /* // commitInfo */
+
+    & .commitContent {
+      border: $IDEPopupLine;
+      background: #fff;
+      margin-top: 5px;
+      border-radius: 5px;
+
+      &::placeholder {
+        color: #d5d5d5;
+        font-size: 15px;
+      }
+
+      & textarea {
+        border: 0;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        resize: none;
+        padding: 10px;
+        text-indent: 0;
+      }
+    }
+  } /* // PopupCommit */
+
+  /* PopupPush */
+  &.PopupPush {
+    max-width: 780px;
+    left: calc(50% - 390px);
+    left: -webkit-calc(50% - 390px);
+
+    & .popupBody {
+    }
+
+    & .popupBody .top {
+      @include flexbox(space-between, center);
+      margin-bottom: 10px;
+
+      & .title {
+        width: 120px;
+      }
+
+      & select {
+      }
+      & input {
+        border: $IDEPopupLine;
+        border-radius: 5px;
+        width: 70%;
+        height: 30px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &.popupPull {
+    max-width: 780px;
+    left: calc(50% - 390px);
+    left: -webkit-calc(50% - 390px);
+
+    & .title {
+      display: inline-block;
+      width: 170px;
+    }
+
+    & .box {
+      @include flexbox(flex-start, center);
+      margin-bottom: 7px;
+
+      & select,
+      & input {
+        width: calc(100% - 170px);
+        width: -webkit-calc(100% - 170px);
+      }
+    }
+  }
+
+  &.popupBranch {
+    max-width: 710px;
+    left: calc(50% - 355px);
+    left: -webkit-calc(50% - 355px);
+
+    & .title {
+      border-bottom: 2px solid transparent;
+    }
+
+    & .title.on {
+      border-bottom: 2px solid #ffb600;
+    }
+
+    & .popupBody {
+      & .btnbox {
+        @include flexbox(flex-start, center);
+        margin-bottom: 30px;
+
+        & .title {
+          display: inline-block;
+          margin-right: 20px;
+          font-weight: bold;
+        }
+      }
+
+      & .box {
+        margin-bottom: 5px;
+        & .title {
+          display: inline-block;
+          text-align: right;
+          width: 100px;
+          padding-right: 5px;
+        }
+
+        & input {
+          width: calc(100% - 100px);
+          width: -webkit-calc(100% - 100px);
+        }
+      }
+    }
+  }
+
+  &.popupNewProject {
+    max-width: 780px;
+    height: 450px;
+    top: 25%;
+    left: calc(50% - 390px);
+    left: -webkit-calc(50% - 390px);
+    padding: 20px 10px 50px !important;
+
+    & .topBtn {
+      @include flexbox(space-between, center);
+      background: #e5e5e5;
+      height: 65px;
+      margin-bottom: 50px;
+    }
+    & .topBtn button {
+      @include flexbox(center, center);
+      width: 32%;
+      height: 100%;
+      background: #d5d5d5;
+      color: #858585;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    & .topBtn button:hover,
+    & .topBtn button.on {
+      background: #fff;
+      color: $ColorNavy;
+    }
+
+    & .form {
+      @include flexbox(space-between, flex-start);
+
+      & .left .title {
+        font-size: 20px;
+        color: #8d909c;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      & .left input,
+      & .left select {
+        width: 365px;
+        height: 65px;
+        border-radius: 5px;
+        border: 1px solid #707070;
+        background-position: 98%;
+        background-repeat: no-repeat;
+      }
+      & .left select {
+      }
+      & .right {
+      }
+      & .right .toggleButton {
+        @include flexbox(center, center);
+        width: 188px;
+        height: 40px;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #d5d5d5;
+        background: #d5d5d5;
+      }
+      & .right .toggleButton button {
+        width: 50%;
+        height: 100%;
+        background: #d5d5d5;
+        font-weight: bold;
+        color: #858585;
+        overflow: hidden;
+
+        &:hover,
+        &.on {
+          border-radius: 5px;
+          background: #f6f7fc;
+          color: $ColorNavy;
+        }
+      }
+    }
+
+    & .fileSelection {
+      & input {
+        position: Fixed;
+        left: -9999px;
+      }
+
+      & p {
+        @include flexbox(center, center);
+        width: 170px;
+        height: 55px;
+        border-radius: 5px;
+        border: 1px solid #858585;
+        font-size: 20px;
+      }
+      font-weight: bold;
+    }
+
+    & .repositoryURL {
+      position: relative;
+    }
+    & .repositoryURL select {
+      height: 65px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #707070;
+      position: relative;
+    }
+    & .repositoryURL .btn_url {
+      @include notCutToNextLine();
+
+      position: absolute;
+      right: 50px;
+      top: 18px;
+      width: 255px;
+      height: 30px;
+      background: #d5d5d5;
+      color: $ColorNavy;
+      font-weight: bold;
+      border: 1px solid #707070;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+  }
+
+  & .type_git {
+    width: 100% !important;
+  }
+
+  & .form .left.type_git input,
+  & .form .left.type_git select {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .popupPR {
+    left: 2.5%;
+    top: 10%;
+    width: 95%;
+    padding: 10px;
+    overflow: auto;
+    max-height: 80%;
+
+    & .contentbox .link,
+    .popupPR .contentbox .subText {
+      margin-top: 10px;
+    }
+
+    & * {
+      font-size: 12px !important;
+    }
+
+    & .title {
+      font-size: 17px !important;
+    }
+
+    & .box .fakeSelect {
+      & * {
+        font-size: 11px !important;
+      }
+
+      & .left {
+        padding-left: 5px !important;
+      }
+
+      & .coin img {
+        height: 20px !important;
+        margin: 0 5px !important;
+      }
+    }
+
+    & .completebox .box .fakeSelect .right .grade img {
+      height: 25px !important;
+    }
+
+    & .contentbox .link .label,
+    & .contentbox .subText .label {
+      width: 110px;
+    }
+  }
+
+  .popupIDE.popupNewProject {
+    left: 0;
+
+    & .popupBody {
+      padding: 0;
+    }
+
+    & .topBtn {
+      margin-bottom: 30px;
+      height: 50px;
+    }
+
+    & .topBtn button {
+      font-size: 12px;
+    }
+
+    & .form {
+      display: block;
+    }
+
+    & .form .left .title {
+      font-size: 12px;
+    }
+
+    & .form .left input,
+    & .form .left select {
+      height: 45px;
+    }
+
+    & .toggleButton {
+      margin-top: 10px;
+    }
+
+    & .fileSelection p {
+      font-size: 14px;
+    }
+
+    & .repositoryURL .btn_url {
+      width: 170px;
+      font-size: 12px;
+      top: 8px;
+    }
+  }
+}

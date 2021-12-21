@@ -4,11 +4,16 @@
     padding: 9px 12px;
     text-decoration: none;
     display: flex;
-    font-size : 14px;
     cursor:pointer;
-    
-    justify-content: space-between;
+
+    > p { font-size : 14px !important; }
     > p:nth-child(2) {
         color:gray;
+        text-align: right;
     }
+}
+
+.dropdown-item:hover {
+    background: gray;
+    color:white;
 }

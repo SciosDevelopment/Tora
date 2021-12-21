@@ -5,6 +5,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import axios from 'axios'
 import FileTreeItemFolder from './Folder'
+import './style/FileView.scss'
+import iconSearch from 'src/img/ide/icon_search.png'
+import iconFork from 'src/img/ide/icon_fork.png'
+import iconArrowDown2 from 'src/img/ide/icon_arrow_down2.png'
+import iconAdd from 'src/img/ide/icon_add.png'
 
 const FileView = (props) => {
     // example : https://material-ui.com/components/tree-view/
@@ -20,7 +25,7 @@ const FileView = (props) => {
           height: '100%',
           padding: 3,
           //flexGrow: 1,
-          maxWidth: 200,
+          maxWidth: 1000,
           overflow: 'hidden',
           overflowY: 'scroll',
           background:'white',
@@ -56,8 +61,8 @@ const FileView = (props) => {
   
             var fileData = { filename: null, filetype: null, filepath: null, fileContent : null}    
             var filetype_ = getFiletype()
-            const data = {"project": { directory_name: filepath_, file_name: filename_ }}
-            axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/file`, data).then(res => res.data)
+            const data = { inside_path: filepath_, file_name: filename_ }
+            axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/file/read`, data).then(res => res.data)
             .then(data => {
                 fileData = {
                     filename: filename_,
@@ -85,17 +90,38 @@ const FileView = (props) => {
     }
 
     return (
-        <TreeView
-            className={classes.root}
-            defaultCollapseIcon={<ExpandMoreIcon/>}
-            defaultExpanded={['root']}
-            defaultExpandIcon={<ChevronRightIcon/>}
-            expanded={expanded}
-            selected={selected}
-            onNodeToggle={handleToggle}
-            onNodeSelect={handleSelect}>       
-            <FileTreeItemFolder info={{path: "/", name:"ProjectName" /* ProjectName 적기 */}} projectId={projectId}/>
-        </TreeView>
+        <div className="fileView">
+            <div className="header">
+                <div className="left">
+                    <button className="btnFolderUser">
+                        <img src={iconFork} alt="fork" />
+                        <span>Master</span>
+                        <img src={iconArrowDown2} className="iconArrowDown2" alt="down" />
+                    </button>
+                </div>
+                <div className="right">
+                    <button className="btnAdd">
+                        <img src={iconAdd} alt="add"/>
+                    </button>
+                    <button className="btnSearch">
+                        <img src={iconSearch} alt="search" />
+                    </button>
+                </div>
+            </div>
+            <div className="body">
+                <TreeView
+                    className={classes.root}
+                    defaultCollapseIcon={<ExpandMoreIcon/>}
+                    defaultExpanded={['root']}
+                    defaultExpandIcon={<ChevronRightIcon/>}
+                    expanded={expanded}
+                    selected={selected}
+                    onNodeToggle={handleToggle}
+                    onNodeSelect={handleSelect}>       
+                    <FileTreeItemFolder info={{path: "/", name:"ProjectName" /* ProjectName 적기 */}} projectId={projectId}/>
+                </TreeView>
+            </div>
+        </div>
     )
 }
 

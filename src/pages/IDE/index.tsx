@@ -1,31 +1,25 @@
 import React, { useState } from 'react'
-import './style/IDE.scss'
 import Header from './Header'
 import SideBar from './SideBar'
 import Editor from './Editor'
-import Footer from './Footer'
+import Aside from './Aside'
+import Terminal from './TerminalView'
 
 const IdePage = () => {
     const [curFile, setCurFile] = useState(null)
+    const [show, setShow] = useState(false)
+    
     return (
-        <div className = "IDE-Main" onContextMenu={(e)=>{e.preventDefault()}}>
-            <div className = "IDE-Header">
-                <Header/>
-            </div>
-            <div className = "IDE-Content">
-                <div className = "IDE-Sidebar">
-                    <SideBar onSelect={setCurFile}/>
+        <div className = "idePage" onContextMenu={(e)=>{e.preventDefault()}}>
+            <Header/>
+            <div className = "ideBody">
+                <SideBar onSelect={setCurFile}/>
+                <div className = "centerWrap">
+                    <Editor current={curFile} showAside={()=>{setShow(!show)}}/>
+                    <Terminal/>
                 </div>
-                <div className = "IDE-View">
-                    <div className = "IDE-Editor">
-                        <Editor current={curFile}/>
-                    </div>
-                    <div className = "IDE-Footer">
-                        <Footer/>
-                    </div>
-                </div>
+                <Aside visible={show}/>
             </div>
-
         </div>
     )
 }

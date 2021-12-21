@@ -1,0 +1,417 @@
+@charset "utf-8";
+
+.idePage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #1c2239;
+  overflow: hidden;
+
+  & .header {
+    @include flexbox(space-between, center);
+    height: 80px;
+    position: relative;
+    
+    & p {
+      width: 100%;
+    }
+    
+    & * {
+      font-weight: bold;
+    }
+    
+    & .left {
+      @include flexbox(center, center);
+      margin-left:15px;
+      
+      & .logo { 
+        height: 46px;
+        
+        & img { height: 100%; }
+      }
+      
+      & nav {
+        margin-left: 40px;
+        
+      }
+      
+      & nav button {
+        margin: 0 5px;
+      }
+    }
+
+    & .center {
+      @include flexbox(center, center);
+    
+      & button {
+        @include flexbox(center, flex-end);
+        flex-wrap: wrap;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        margin: 0 5px;
+
+        & > p {
+          color: #fff;  
+          font-family: "roboto", sans-serif;
+          font-size: 18px;
+        }
+      }
+    }
+
+    & .right {
+      @include flexbox(center, center);
+      margin-right: 15px;
+      
+      & button {
+        margin: 0 0 0 20px;
+      }
+    }
+  } // header
+
+  & .ideBody {
+    @include flexbox(flex-start, flex-start);
+    @include IDEEachBodyHeight();
+    overflow: hidden;
+    border-top: $IDELine;
+
+    & .sidebar {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+ 
+      & .quickMenuBox {
+        min-width: 50px;
+        height: 100%;
+        overflow-y: auto;
+        border-right: $IDELine;
+        text-align: center;
+
+        & button {
+          display: block;
+          margin: 20px auto 0;
+        }
+        
+        & button:hover {
+          background-color: #30364B;
+          border: none;
+        }
+      }
+    } // sidebar
+    
+    /* 폴더영역 */
+    & .folderBox {
+      min-width: 180px;
+      height: 100%;
+      border-right: $IDELine;
+      max-width: calc(100% - 150px);
+      max-width: -webkit-calc(100% - 150px);
+    } // folderBox
+
+    & .centerWrap {
+      @include flexbox(center, flex-start);
+      flex-wrap: wrap;
+      min-width: 150px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      text-align: left;
+      position: relative;
+      
+      & .writeBox {
+        min-height: 150px;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        text-align: left;
+        
+        & .writeHead {
+          @include flexbox(space-between, center);
+          position: relative;
+          height: 30px;
+          border-bottom: $IDELine;
+          
+          & .left {
+            @include flexbox(flex-start, center);
+            height: 100%;
+          }
+          
+          & button {
+            @include notCutToNextLine();
+            display: flex;
+            height: 100%;
+            border-right: $IDELine;
+            padding: 5px 15px;
+            
+            &.on { @include IDEButtonHover(); }
+            
+            & .close {
+              visibility: hidden;
+              margin:3px;
+              color:white;
+            }
+            
+            &:hover {
+              @include IDEButtonHover();
+              .close {
+                visibility:visible;
+                color:white;
+              }
+            }
+            
+            & span { // nametag
+              font-size: 14px;
+              font-weight: bold;
+              padding-left: 5px;
+              white-space: nowrap;
+              color: white;
+            }
+          }
+
+          & .btnDivider {
+            border-right: 0;
+            
+            &:hover {
+              background: none;
+            }
+          }
+        }
+
+        & .writeBody {
+          @include IDEEachBodyHeight();
+          @include flexbox(flex-start, flex-start);
+          overflow-x: auto;
+        }
+      } // writeBox
+
+      & .terminalBox {
+        z-index: 1;
+        position: absolute !important;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-height: 200px;
+        border-top: $IDELine;
+        background-color: $ColorNavy;
+        max-height: 80%;
+
+        & .terminalHead {
+          @include flexbox(space-between, center);
+          @include notCutToNextLine();
+          margin-bottom: 10px;
+
+          & .left {}
+
+          & .left button {
+            font-size: 15px;
+            color: #aaaaaa;
+            padding: 5px 10px;
+            font-weight: bold;
+          }
+          & .left button:hover,
+          & .left button.on {
+            color: #fff;
+          }
+          & .right {
+            @include flexbox(center, center);
+          }
+          & .right button {
+            padding: 5px 10px;
+          }
+          & .right button img {
+          }
+        }
+
+        & .terminalBody {
+          padding: 5px 10px;
+          height: 100%; 
+          background : black; // background color == terminal color
+
+          & * {
+            font-size: 15px;
+          }
+          & > * {
+            margin-bottom: 10px;
+          }
+        }
+      } // terminalBox
+    }
+
+    & .asideBox {
+      min-width: 100px;
+      height: 100%;
+      border-left: $IDELine;
+
+      & * {
+        color:white;
+      }
+      
+      & .asideHead {
+        @include flexbox(flex-start, center);
+        height: 30px;
+        border-bottom: $IDELine;
+
+        & > button {
+          @include notCutToNextLine();
+          display: block;
+          height: 100%;
+          border-right: $IDELine;
+          padding: 5px 15px;
+          font-size: 14px;
+          font-weight: bold;
+
+          &:hover {
+            @include IDEButtonHover();
+          }
+        }
+      }
+
+      & .asideBody {
+        @include IDEEachBodyHeight();
+        padding: 10px;
+
+        & button {
+          @include notCutToNextLine();
+          margin-bottom: 5px;
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        & span {
+          @include notCutToNextLine();
+          font-size: 14px;
+        }
+      }
+    }
+  } // ideBody
+} // ide
+
+@media screen and (max-width: 991px) {
+  .idePage {
+    & .header {
+      padding: 15px 10px;
+
+      & .left nav {
+        margin-left: 20px;
+      }
+
+      & .center button {
+        margin: 0;
+      }
+
+      & * {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idePage {
+    & * {
+      font-size: 12px !important;
+    }
+
+    & .folderBox {
+      display: none;
+    }
+
+    & .popupIDE {
+      left: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    
+
+    & .header {
+      height: 43px;
+      padding: 10px;
+
+      & .center {
+        display: none;
+      }
+
+      & .left .logo { height: 26px; }
+
+      & .left nav {
+        margin-left: 15px;
+
+        & button {
+          font-size: 14px;
+        }
+      }
+
+      & .right {
+        margin-right: 10px;
+        & img {
+          height: 18px;
+        }
+      }
+    }
+
+    & .asideBox {
+      display: none;
+    }
+
+    & .ideBody {
+      & .quickMenuBox button {
+        margin: 20px auto 0;
+      }
+
+      & .folderBox .folderHead {
+        height: 26px;
+      }
+
+      & .folderBox {
+        position: absolute !important;
+        left: 35px;
+        top: 71px;
+        width: 180px;
+        min-height: 300px;
+        border-bottom: $IDELine;
+        background-color: $ColorNavy;
+        z-index: 1;
+      }
+    }
+    & .ideBody .writeBox .writeHead {
+      height: 26px;
+
+      & button {
+        padding: 0 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & img {
+          width: 7px;
+        }
+      }
+      & button span {
+        font-size: 10px !important;
+      }
+
+      & .btnDivider {
+        display: none;
+      }
+    }
+    & .writeBox .writeBody {
+      & * {
+        font-size: 12px !important;
+      }
+
+      & .lineNumber {
+        display: none;
+      }
+    }
+    & .ideBody .quickMenuBox {
+      min-width: 35px;
+
+      & img {
+        width: 20px;
+      }
+    }
+  }
+}

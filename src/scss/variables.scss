@@ -12,11 +12,34 @@ $IDEPopupLine: 2px solid #ddd;
 }
 
 @mixin IDEButtonHover() {
-  background: lighten($ColorNavy, 10%);
+  background-color: #707070;
 }
 
 @mixin IDEEachBodyHeight() {
   height: calc(100% - 40px);
   height: -webkit-calc(100% - 40px);
   overflow-y: auto;
+}
+
+@mixin notCutToNextLine() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin maxWrap() {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+@mixin commonTitleStyle() {
+  background: #f2f2f2;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  height: 50px;
+  padding: 15px;
+  color: #928a76;
+  font-size: 18px;
+  font-weight: bold;
 }
