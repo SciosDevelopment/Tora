@@ -42,9 +42,15 @@ import IDE from '../pages/IDE'
 //Chat
 import Chat from '../components/common/Chat'
 
+//Guide
+import Guide from '../pages/Guide'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
+
+        {/* Guide */}
+        <Route path = "/guide" exact component={Guide}/>
 
         {/* Login */}
         <Route path = "/login" render={()=><Login page="login"/>}/>
