@@ -1,170 +1,300 @@
-@font-face{
-    font-family: "AppleSDGothicNeoB";
-    src : url('../../fonts/AppleSDGothicNeoB.ttf')
-}
+@charset "utf-8";
 
-.mainpage {
-    & .contents {
-        display:grid;
-        grid-template-columns: repeat(36, 1fr);
-        margin : 0 auto;
-    }
-    
-    & .section {
-        grid-column-start: 7;
-        grid-column-end: 30;
-        
-        & .AllProjectView {
-            font-family: "AppleSDGothicNeoB";
-            grid-template-columns: repeat(24, 1fr); 
+.mainPage {
+    color: $ColorNavy;
+    font-size: 18px;
+
+    & .section1 {
+        @include flexbox(flex-start, center);
+        height: 900px;
+        display: flex;
+        background-position: top;
+        background-repeat: no-repeat;
+        flex-wrap: wrap;
+        padding-left: 50px;
+        padding-top: 100px;
+
+        & .introduction {
+            color: $ColorNavy;
+            font-size: 60px;
+            font-weight: bold;
             width: 100%;
-            
-            & > div {
-                margin-top: 50px;
-            }
-            
-            & .header {
-                width: 100%;
-                display:grid;
-                grid-template-columns: repeat(24, 1fr);
-                grid-template-rows: repeat(2, 1fr);
-                height:100px;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
     
-                & .search {
-                    grid-column: 6/20;
-                    grid-row:1;
-                    margin-bottom: 20px;
-                    width: 100%;
-                    height: 40px;
-                }
-    
-                & .topic {
-                    grid-column: 1/3;
-                    grid-row: 2;
-                    padding-top: 9px;
-    
-                    & > select {
-                        cursor: pointer;
-                        width: 90%;
-                        border: none;
-                        background: transparent;
-                        font-size: 15px;
-                        appearance:none;
-                        background:url('../../img/arrowicon.png') no-repeat right 1% center;
-                        & > option { font-size:15px; }
-                    }
-    
-                    & > select:focus {
-                        outline: none;
-                    }
-                }
-    
-                & .sort{
-                    grid-column: 19/25;
-                    display : flex;
-                
-                    & .container {
-                        width : 100%;  
-                        display : flex;
-                        justify-content: space-between;
-                        flex-direction: row;
-                        
-                        & .wrapper {
-                            width: 65%;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: flex-end;
-                            padding-top: 9px;
-                            font-size: 12px;
-                            
-                            & .wrapper-sub1 { padding-right: 15px; }
-                            & .wrapper-sub2 { padding-right: 0px; }
-                        }
-                        
-                        & .newproject {
-                            width: 30%;
-    
-                            & > input {
-                                width: 90px;
-                                height : 25px;
-                                border : 1px solid #1C2239;
-                                background : #F6F7FC;
-                                border-radius: 15px;
-                                font-family: "AppleSDGothicNeoB";
-                                font-size : 13px;
-                                font-weight : 400;
-                            }
-                        }
-                    }
-                }
-            } // AllProjectView header
-            
-            & .list {
-                width:100%;
-                display:grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-column-gap: 21px;
-                grid-row-gap: 21px;
-            }
-    
-            & .plus {
-                margin-top: 60px;
-                width:100%;
-                height: 100%;
-                text-align: center;
-                
-                & button {
-                    border: solid red;
-                    width:35px;
-                    height: 35px;
-                    background: url(../../img/folder.png) no-repeat;
-                    background-size: cover;
-                    border:none;
-                }
-            }
+        & .discription {
+            color: #6c7390;
+            font-size: 24px;
+            font-weight: 500;
+            width: 100%;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
 
-            // 이 부분을 지우면, Css Error 발생. 수정 필요.
-            @media (max-width:1290px) {
-                .test P { 
-                    font-size:18px;
+        & .btn {
+            @include flexbox(flex-start, center);
+            a {
+            @include flexbox(center, center);
+                width: 280px;
+                height: 65px;
+                border: 1px solid $ColorNavy;
+                border-radius: 10px;
+                margin-right: 15px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #000;
+                &:hover {
+                    background: $ColorOrange;
+                    border: 1px solid $ColorOrange;
                 }
             }
-            
-            @media (max-width:1085px) {
-               
-            }
-            // 이 부분 끝
-        } // end AllProjectView 
-    } // end section
-    
-    & .aside {
-        top: 12%;
-        position: fixed;
-        width: 55px;
-        height: 40%;
-        right: 14%;
+        }   
+    }
 
-        & > div {
-            margin-top: 50px;
-        }    
-    } // end aside
+    & .section2 {
+        @include flexbox(center, center);
+        height: 700px;
+        background: #fff;
+        & > img {
+            height: 478px;
+        }
+        & .discription {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+    }
+
+    & .section3 {
+        @include flexbox(center, center);
+        height: 700px;
+        background-color: $ColorNavy;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        padding-right: 50px;
+        & img {
+            height: 478px;
+        }
+        & .discription {
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+            padding-right: 5%;
+            line-height: 1.4;
+        }
+    }
+
+    & .section4 {
+        @include flexbox(center, center);
+        height: 860px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left;
+        & img {
+            width: 571px;
+        }
+        & .discription {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+    }
 }
 
-@media  (max-width:1280px) {
-    .mainpage {
-        & .contents {
-            display:grid;
-            grid-template-columns: repeat(12, 1fr);
-            margin : 0 auto;
-    
-            & .section {
-                grid-column-start: 3;
-                grid-column-end: 11;
+@media screen and (max-width: 991px) {
+
+.mainPage {
+    & .section1,
+    & .section2,
+    & .section3,
+    & .section4 {
+        height: auto;
+    }
+
+    & .section1 {
+        padding-left: 0;
+        justify-content: center;
+        background-size: cover;
+        background-position: bottom;
+        padding: 180px 25px 0;
+        text-align: center;
+
+        & .introduction {
+        font-size: 48px;
+        line-height: 1.2;
+        }
+
+        & .btn {
+        justify-content: center;
+            & a:last-child {
+                margin-right: 0;
             }
-    
-            & .aside {
-                display:none; // fixed button으로 확인    
+        }
+
+        & img {
+        margin-top: 40px;
+        }
+    }
+
+    & .section2 {
+        display: block;
+        text-align: center;
+        padding: 100px 0;
+
+        & .discription {
+        font-size: 32px;
+        }
+
+        & img {
+        margin-top: 50px;
+        }
+    }
+
+    & .section3 {
+        position: relative;
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 50px 0;
+
+        & .discription {
+            order: 0;
+            font-size: 32px;
+            padding-right: 0;
+        }
+        & img {
+            order: 1;
+        }
+
+        & .section3Heart {
+            height: 80px;
+            position: absolute;
+            right: 5%;
+            top: 50px;
+        }
+    }
+
+    & .section4 {
+        padding: 175px 0 50px;
+        flex-wrap: wrap;
+        background-position: bottom;
+        background-size: cover;
+
+        & .discription {
+            order: 0;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        & img {
+            order: 1;
+        }
+    }
+}
+}   
+
+@media screen and (max-width: 767px) {
+
+.mainPage {
+    & .section1 {
+        padding: 180px 0 0;
+
+        & .btn,
+        & .introduction,
+        & .discription {
+        word-break: keep-all;
+        padding: 0 15px;
+        }
+
+        & .introduction {
+            font-size: 32px;
+        }
+
+        & .discription {
+            font-size: 16px;
+        }
+
+        & .btn a {
+            width: 50%;
+            height: 45px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    & .section2 {
+        padding: 70px 0;
+
+        & .discription {
+            font-size: 24px;
+            padding: 0 35px;
+            word-break: keep-all;
+        }
+
+        & img {
+            width: 80%;
+            height: auto;
+        }
+    }
+
+    & .section3 {
+        padding: 60px 0;
+
+        & .discription {
+            font-size: 24px;
+            padding: 0 35px;
+            word-break: keep-all;
+        }
+
+        & img {
+            width: 90%;
+            height: auto;
+
+            &.section3Heart {
+                width: 54px;
+                height: auto;
+                top: 20px;
             }
         }
     }
+
+    & .section4 {
+        & .discription {
+            font-size: 24px;
+            padding: 0 35px;
+        }
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    & .footer {
+        padding: 0 15px;
+
+        & .box {
+            height: auto;
+            display: block;
+            padding: 30px 0;
+        }
+
+        & .link {
+            display: flex;
+            margin-bottom: 20px;
+
+            & a:first-child {
+                order: 1;
+            }
+            & a:last-child {
+                order: 0;
+            }
+        }
+    }
+}
 }

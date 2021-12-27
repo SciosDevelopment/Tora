@@ -41,16 +41,11 @@ import IDE from '../pages/IDE'
 
 //Chat
 import Chat from '../components/common/Chat'
-
-//Guide
-import Guide from '../pages/Guide'
+import OpenSource from 'src/pages/OpenSource'
 
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
-
-        {/* Guide */}
-        <Route path = "/guide" exact component={Guide}/>
 
         {/* Login */}
         <Route path = "/login" render={()=><Login page="login"/>}/>
@@ -108,6 +103,8 @@ const Router:React.FC = () => (
         <Route path = "/chat/:token" component={Chat}/>
         <Route path = "/chat/:token/:id" component={Chat}/>
 
+        {/* OpenSource */}
+        <Route path = "/opensource" component={OpenSource}/>
     </Switch>
 )
 

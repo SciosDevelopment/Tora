@@ -1,0 +1,27 @@
+footer {
+    width: 100%;
+    height: 100px;
+    background: #3a3f52;
+    margin-top: 80px;
+  
+    & .wrap {
+      @include maxWrap();
+      @include flexbox(space-between, center);
+      height: 100px;
+      padding: 0 10px;
+    }
+  
+    & .link {
+    }
+    
+    & .link button {
+      font-size: 14px;
+      color: #fff;
+      margin-right: 50px;
+    }
+  
+    & .copyright {
+      font-size: 14px;
+      color: #aaa;
+    }
+}

@@ -1,0 +1,16 @@
+.GoTop {
+    display: flexbox(center,center);
+    z-index: 1;
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: #1c2239;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  
+    &:hover {
+      bottom: 50px;
+    }
+}
