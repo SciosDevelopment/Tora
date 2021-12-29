@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import TreeView from '@material-ui/lab/TreeView'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -10,6 +10,7 @@ import iconSearch from 'src/img/ide/icon_search.png'
 import iconFork from 'src/img/ide/icon_fork.png'
 import iconArrowDown2 from 'src/img/ide/icon_arrow_down2.png'
 import iconAdd from 'src/img/ide/icon_add.png'
+import { ReadFile } from './File/ContextMenu'
 
 const FileView = (props) => {
     // example : https://material-ui.com/components/tree-view/
@@ -19,7 +20,7 @@ const FileView = (props) => {
     // another ref : https://www.npmjs.com/package/react-folder-tree
     const [expanded, setExpanded] = useState([])
     const [selected, setSelected] = useState([])
-
+    
     const useStyles = makeStyles({
         root: {
           height: '100%',
@@ -45,48 +46,14 @@ const FileView = (props) => {
     const handleToggle = (event, nodeIds) => {
         let difference = nodeIds.filter(x => !expanded.includes(x))
                         .concat(expanded.filter(x => !nodeIds.includes(x)))
-        console.log(difference)
         setExpanded(nodeIds)
     }
   
     // OnSelected
     const handleSelect = (event, nodeIds) => { 
-        if(nodeIds == selected) { // double click시 
-            try {
-                // directory인 경우, Error로 return
-                var filename_ = nodeIds.match(/[^\\/\n]+$/)[0]
-                var filepath_ = nodeIds?.replace(filename_, '')
-            }
-            catch(e) {return}
-  
-            var fileData = { filename: null, filetype: null, filepath: null, fileContent : null}    
-            var filetype_ = getFiletype()
-            const data = { inside_path: filepath_, file_name: filename_ }
-            axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/file/read`, data).then(res => res.data)
-            .then(data => {
-                fileData = {
-                    filename: filename_,
-                    filetype: filetype_,
-                    filepath: filepath_, 
-                    fileContent: data.content
-                }
-                setFile(fileData)
-            })
-            .catch(err=> console.log("this is error " + err)) // error handling 필요       
-        }
+        if(nodeIds == selected)  // double click시 
+            ReadFile(projectId, nodeIds, setFile)
         else setSelected(nodeIds)
-    }
-    
-    // temp - 더 추가해야함
-    const getFiletype = (extension = "text") => {
-        switch(extension) {
-            case 'js': case 'jsx': case 'ts': case 'tsx':
-                return 'javascript'
-            case 'py': 
-                return 'python'
-            default:
-                return 'text'
-        }
     }
 
     return (
@@ -118,7 +85,10 @@ const FileView = (props) => {
                     selected={selected}
                     onNodeToggle={handleToggle}
                     onNodeSelect={handleSelect}>       
-                    <FileTreeItemFolder info={{path: "/", name:"ProjectName" /* ProjectName 적기 */}} projectId={projectId}/>
+                    <FileTreeItemFolder 
+                        info={{path: "/", name:"ProjectName" /* ProjectName 적기 */}}
+                        projectId={projectId}
+                        setFile={setFile}/>
                 </TreeView>
             </div>
         </div>
