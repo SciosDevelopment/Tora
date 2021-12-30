@@ -43,6 +43,9 @@ import IDE from '../pages/IDE'
 import Chat from '../components/common/Chat'
 import OpenSource from 'src/pages/OpenSource'
 
+//Project2
+import Project2 from '../pages/Project2'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -105,6 +108,11 @@ const Router:React.FC = () => (
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
+
+        {/* Project2 */}
+        <Route path = "/project2" exact component={Project2}/>
+        <Route path = "/project2/:token" component={Project2}/>
+        <Route path = "/project2/:token/:id" component={Project2}/>
     </Switch>
 )
 

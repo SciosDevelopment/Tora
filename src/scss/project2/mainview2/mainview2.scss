@@ -1,0 +1,304 @@
+.MainView2 {
+    @include maxWrap();
+    padding: 0 0;
+    & .publishFile {
+        @include flexbox(space-between, flex-start);
+        position: relative;
+        height: 565px;
+
+        & > div {
+            height: 100%;
+            border-radius: 0 0 20px 20px;
+        }
+
+        & > div > .top_title {
+            @include commonTitleStyle();
+            @include flexbox(center, center);
+        }
+
+        & .titlebox {
+            text-align: center;
+            background: #fff;
+            width: calc(100% - 450px);
+            width: -webkit-calc(100% - 450px);
+            margin-right: 20px;
+
+            & .btm {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80%;
+
+                & button {
+                font-size: 32px;
+                font-weight: bold;
+                padding: 10px;
+                border: 1px solid #707070;
+                border-radius: 15px;
+                }
+            }
+        }
+
+        & .feedbox {
+            width: 460px;
+            height: 100%;
+            background: #f6f7fc;
+            overflow: hidden;
+
+            & .btm {
+                overflow: auto;
+                padding: 15px;
+                height: calc(100% - 50px);
+                height: -webkit-calc(100% - 50px);
+
+                & > p {
+                    padding-left: 15px;
+                    margin: 2px 0;
+                }
+
+                & .line {
+                    position: relative;
+                    @include flexbox(flex-start, flex-start);
+
+                    & > * {
+                        margin-right: 20px;
+                    }
+
+                    & .img_user_sample {
+                        position: relative;
+                        top: 2px;
+                    }
+
+                    & p {
+                        top: 5px;
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                    & mark {
+                        background: #efcb72;
+                        border-radius: 10px;
+                        padding: 1px 10px;
+                    }
+
+                    & .date {
+                        display: inline-block;
+                        font-size: 10px;
+                        position: absolute;
+                        right: 5px;
+                        top: -17px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.coinContent {
+    margin-top: 30px;
+
+    & .head {
+        @include flexbox(space-between, center);
+        @include commonTitleStyle();
+    
+        & .left button {
+            font-size: 18px;
+            color: #928a76;
+            margin: 0 15px;
+        }
+    
+        & .right .moreTag {
+            background-repeat: no-repeat;
+            background-position: right;
+            border: 1px solid #717f90;
+            font-size: 18px;
+            height: 34px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 0 15px;
+            margin-right: 30px;
+        }
+    }
+}
+
+.coinContentBody {
+    &.borderTop {
+        border-top: 1px solid $ColorNavy;
+    }
+    
+    & .item {
+        text-align: center;
+        @include flexbox(space-between, center);
+        padding: 15px;
+        border-bottom: 1px solid $ColorNavy;
+    
+        & > * {
+            margin: 0 5px;
+        }
+    }
+    
+    & .iconbox {
+        margin-right: 40px;
+    }
+    
+    & .textbox {
+        @include notCutToNextLine();
+        display: inline-block;
+    
+        width: 100%;
+        text-align: left;
+    
+        & .text1 {
+            & .skillMark {
+                margin-left: 10px;
+            }
+    
+            & span {
+                font-size: 18px;
+                max-width: 100%;
+            }
+        }
+    
+        & .text2 {
+            font-size: 14px;
+            color: #888;
+            padding-left: 20px;
+        }
+    }
+    
+    & .num1box {
+        width: 100px;
+    }
+    & .num2box {
+        width: 100px;
+    }
+    & .gradebox {
+        & img {
+            margin-bottom: 5px;
+        }
+        & p {
+            font-size: 14px;
+        }
+    }
+    
+    & .userbox {
+        width: 150px;
+        & p {
+            color: #707070;
+            font-size: 12px;
+        }
+        & img {
+            margin-top: 15px;
+        }
+    }
+}
+
+.readme {
+    margin-top: 40px;
+    & .head {
+        @include commonTitleStyle();
+        font-weight: normal;
+    }
+
+    & .body {
+        background: #f2f2f2;
+        padding: 15px;
+        border-radius: 0 0 20px 20px;
+
+        & h4 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        & p {
+            margin-top: 30px;
+            font-size: 18px;
+            color: $ColorNavy;
+            line-height: 1.6;
+        }
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .MainView2 {
+        & .publishFile {
+            display: block;
+            height: 100%;
+    
+            & > div > .top_title {
+                font-size: 14px;
+            }
+    
+            & .feedbox,
+            & .titlebox {
+                width: 100%;
+            }
+    
+            & .feedbox {
+                margin-top: 20px;
+    
+                & .btm {
+                    height: 400px;
+                }
+            }
+    
+            & .titlebox {
+                & .btm {
+                    height: 400px;
+                    overflow: auto;
+                }
+                & .btm button {
+                    font-size: 17px;
+                }
+            }
+        }
+        & .coinContent {
+            .head {
+                & .left button {
+                    font-size: 14px;
+                    margin: 0 5px;
+                }
+                & .right .moreTag {
+                    font-size: 14px;
+                    padding: 0 5px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        & .readme{
+            .head {
+                font-size: 14px;
+            }
+        }
+    }
+
+
+    .coinContentBody {
+        & * {
+            font-size: 12px;
+        }
+        & .iconbox {
+            margin-right: 10px;
+    
+            & img {
+                height: 20px;
+            }
+            & p {
+                white-space: nowrap;
+            }
+        }
+        & .userbox img {
+            margin-top: 5px;
+        }
+        & .item {
+            padding: 10px 5px;
+        }
+        & span {
+            font-size: 12px !important;
+        }
+    
+        & .textbox .text2 {
+            font-size: 12px;
+            padding-left: 0;
+        }
+    }
+}
