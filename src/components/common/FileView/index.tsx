@@ -14,9 +14,8 @@ import { ReadFile } from './File/ContextMenu'
 
 const FileView = (props) => {
     // example : https://material-ui.com/components/tree-view/
-    const {setFile} = props
+    const {setFile, projectId} = props
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const projectId = 7 // temp projectID - IDE Set
     // another ref : https://www.npmjs.com/package/react-folder-tree
     const [expanded, setExpanded] = useState([])
     const [selected, setSelected] = useState([])
