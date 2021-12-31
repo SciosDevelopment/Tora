@@ -27,6 +27,7 @@ import arrowCode from '../../img/img2/arrow_code.png';
 
 import MainView2 from './MainView2/MainView2'
 import Issue2 from './Issue2/Issue2'
+import Header from 'src/components/common/Header/Header';
 
 const Project2 = (props) => {
     const [isShowPopupProject, setIsShowPopupProject] = useState(false);
@@ -89,6 +90,7 @@ const Project2 = (props) => {
 
     return (
     <>
+    <Header/>
     <div className= "project2">
         <div className= "project2-tab">
             <div className="location">

@@ -138,7 +138,8 @@
             //-------------------------------leftside-------------------------
         & .leftItems {
             position: fixed;
-            left: 9%;
+            // left: 9%;
+            margin-left: -4.5%;
             top: 230px;
             z-index: 1;
         

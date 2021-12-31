@@ -147,8 +147,9 @@
     
         width: 100%;
         text-align: left;
-    
         & .text1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
             & .skillMark {
                 margin-left: 10px;
             }
@@ -163,6 +164,8 @@
             font-size: 14px;
             color: #888;
             padding-left: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
     
@@ -183,6 +186,7 @@
     
     & .userbox {
         width: 150px;
+        white-space : pre;
         & p {
             color: #707070;
             font-size: 12px;
