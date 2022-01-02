@@ -3,6 +3,7 @@ import { CreateFile } from '../File/ContextMenu'
 import axios from 'axios'
 const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
 
+// 디렉토리 열기
 export const LoadDirectory = async(projectId, path, setDirectories, setFiles)=>{
     await axios.post(`${SERVER_IP}/api/v1/projects/${projectId}/directory/read`, {inside_path:path})
         .then((res) => {
@@ -20,6 +21,8 @@ export const LoadDirectory = async(projectId, path, setDirectories, setFiles)=>{
             else console.log('Error', e.message)
         })
 }
+
+// 디렉토리 생성
 export const CreateDirectory = (projectId, dirname, path, callback) => {
     // dirname : null -> input form 제공
     // path : null 인 경우에 대한 처리 필요
@@ -48,6 +51,7 @@ export const CreateDirectory = (projectId, dirname, path, callback) => {
     } catch(e) {return}
 }
 
+// 디렉토리 이름 변경
 export const RenameDirectory = (projectId, changeName, path, callback) => {
     // { "directory_name": "testt", "change_directory_name": "lib2", "inside_path": "" }
 
@@ -76,7 +80,34 @@ export const RenameDirectory = (projectId, changeName, path, callback) => {
         })
     } catch(e) {return}
 }
-// 남은 목록 : update(put), rename(put), delete(delete)
+
+// 디렉토리 삭제
+export const DeleteDirectory = (projectId, path, callback) => {
+    try {
+        var dirname = path.slice(0, -1).match(/[^\\/\n]+$/)[0]
+        var inside_path = path?.slice(0, -1).replace(dirname, '').slice(0, -1)
+        const data = { directory_name: dirname , inside_path : inside_path }
+        
+        // cors error : backend에 delete option 추가 필요
+        axios.delete(`${SERVER_IP}/api/v1/projects/${projectId}/directory/delete`, {data:data}).then(() => { callback ? callback() : alert("refresh Error")})
+        .catch(e=> {
+            if(e.response) {
+                var status = e.response.status // or use message
+                // 404 : Project could not be found, User could not be found, Directory does not exist, File already exist
+                if(status === 404) {alert("경로를 찾을수 없거나, 디렉토리가 이미 삭제되었습니다.")}
+                // 401, 403 : do not have project permission
+                else if(status === 403 || status === 401) {alert(" 해당 프로젝트에 대한 권한이 없습니다.")}
+                // 409 : error create file <40x>
+                else if(status === 409) {alert("디렉토리가 이미 삭제되었습니다.")}
+                // 400 - 500 : not-handling error
+                else if(status >= 400 && status < 500) alert("디렉토리 삭제에 에러가 발생했습니다. 다시 시도해주세요.")
+                else alert("server is dead")
+            }
+            else if(e.request) alert("server is dead") 
+            else console.log('Error', e.message)
+        })
+    } catch(e) {return}
+}
 
 const FolderContextMenu = (props) => {
     const {target, route, projectId, refresh} = props
@@ -85,7 +116,7 @@ const FolderContextMenu = (props) => {
         { title: '새폴더 만들기', shortcut: null, onClick: ()=>{CreateDirectory(projectId, null, route, refresh)}},
         { title: '복사', shortcut: "Ctrl+C", onClick: () => {alert(route)}},
         { title: '붙여넣기', shortcut: "Ctrl+V", onClick: () => {alert('Item 3 clicked')}},
-        { title: '삭제', shortcut: "Delete", onClick: () => {alert('Item 4 clicked')}},
+        { title: '삭제', shortcut: "Delete", onClick: () => {DeleteDirectory(projectId, route, refresh)}},
         { title: '이름변경', shortcut: "F2", onClick: () => {RenameDirectory(projectId, null, route, refresh )}},
         { title: '경로복사', shortcut: null, onClick: () => {alert('Item 6 clicked')}},
         { title: '폴더공유하기', shortcut: null, onClick: () => {alert('Item 7 clicked')}},

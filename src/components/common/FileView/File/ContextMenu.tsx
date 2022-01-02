@@ -67,7 +67,6 @@ export const CreateFile = (projectId, filename, path, callback) => {
         })
     } catch(e) {return}
 }
-
 // 파일명 변경
 export const RenameFile = (projectId, changeName, path, callback) => {
     try {
@@ -99,7 +98,7 @@ export const RenameFile = (projectId, changeName, path, callback) => {
         })
     } catch(e) {return}
 }
-
+// 파일 저장
 export const UpdateFile = (projectId, filename, path, filecontent) => {
     try {
         const data = { file_name : filename, inside_path : path.slice(0, -1), file_content: filecontent }
@@ -126,7 +125,37 @@ export const UpdateFile = (projectId, filename, path, filecontent) => {
 
     return true
 }
-// 남은 목록 : delete(delete)
+// 파일 삭제
+export const DeleteFile = (projectId, path, callback) => {
+    try {
+        var filename_ = path.match(/[^\\/\n]+$/)[0]
+        var path_ = path?.replace(filename_, '').slice(0, -1)
+        // 임시로 capsule화
+        // cors setting - delete부분 필요
+        const data = { data: { file_name : filename_, inside_path : path_ } }
+        axios.delete(`${SERVER_IP}/api/v1/projects/${projectId}/file/delete`, data).then(() => { 
+            callback ? callback() : alert("refresh Error")
+            handleFileList_({filename:filename_, filepath:path?.replace(filename_, '')}, "delete")
+        })
+        .catch(e=> {
+            console.log(e.request)
+            if(e.response) {
+                var status = e.response.status // or use message
+                // 404 : Project could not be found, User could not be found, Directory does not exist, File already exist
+                if(status === 404) {alert("경로를 찾을수 없거나, 파일이 이미 삭제되었습니다.")}
+                // 401, 403 : do not have project permission
+                else if(status === 403 || status === 401) {alert(" 해당 프로젝트에 대한 권한이 없습니다.")}
+                // 409 : error create file <40x>
+                else if(status === 409) {alert("파일이 이미 삭제되었습니다.")}
+                // 400 - 500 : not-handling error
+                else if(status >= 400 && status < 500) alert("파일 삭제에 에러가 발생했습니다. 다시 시도해주세요.")
+                else alert("server is dead")
+            }
+            else if(e.request) alert("server is dead") 
+            else console.log('Error', e.message)
+        })
+    } catch(e) {return}
+}
 
 const FileContextMenu = (props) => {
     const {target, info, projectId, setFile, refresh} = props
@@ -135,7 +164,7 @@ const FileContextMenu = (props) => {
         { title: '새 파일 추가', shortcut: null, onClick: () => CreateFile(projectId, null, info.path, refresh)},
         { title: '파일복사', shortcut: "Ctrl+C", onClick: () => {alert('Item 2 clicked')}},
         { title: '파일붙여넣기', shortcut: "Ctrl+V", onClick: () => {alert('Item 3 clicked')}},
-        { title: '삭제', shortcut: "Delete", onClick: () => {alert('Item 4 clicked')}},
+        { title: '삭제', shortcut: "Delete", onClick: () => {DeleteFile(projectId, info.path, refresh)}},
         { title: '파일명변경', shortcut: "F2", onClick: () => {RenameFile(projectId, null, info.path, refresh)}},
         { title: '경로복사', shortcut: null, onClick: () => {alert('Item 6 clicked')}},
         { title: '파일공유하기', shortcut: null, onClick: () => {alert('Item 7 clicked')}},

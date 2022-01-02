@@ -65,12 +65,12 @@ export const IDEEditor = (props) => {
     // https://avada.tistory.com/1375
     // https://r4bb1t.tistory.com/26
     const removeFileinFileList = async(data)=>{
-        const index_ = FileList.indexOf(data)
+        const index_ = getIndexInFileList(data)
         var newFileList = FileList.filter((_, index)=> index !== index_)
         var newModels = models.filter((_, index) => index !== index_)
         
-        await setFileList(newFileList)
-        await setModels(newModels)
+        setFileList([...newFileList])
+        setModels([...newModels])
         
         setCurSelected(newFileList.length > index_ ? index_ : -1) // error handling
         if(newFileList.length === 0) setCurSelected(-1)
