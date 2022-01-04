@@ -1,6 +1,5 @@
 import {FunctionComponent, useState, useEffect} from 'react'
 import FloatingButtonItem from '.'
-import Note from '../../Chat'
 import TestImage from '../../../../img/ToraLogo@1.png'
 
 // tempfile

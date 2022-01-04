@@ -1,33 +1,33 @@
-.Searchbar-container{
+.saerchbarContainer {
     width : 100%;
     height : 100%;
-
     display : flex;
     flex-direction: row;
     justify-content: center;
-
     border-bottom: 2px solid #1c2239;
     
-    >input[type = input]{
+    & > input[type = input] {
         width : 100%;
         height : 100%;
         background : transparent;
         outline : none;
         border : none;
-        font-size : 20px;
+        font-size : 20px !important;
         margin-left : 10px;
-        
-    }
-    >input[type = input]::placeholder{
+    } 
+
+    & > input[type = input]::placeholder {
         font-size : 20px;
         font-weight : 600;
         color : #1c2239;
     }
-    >div{
+
+    & > div {
         width : 5%;
         padding : 10px;
         margin-right: 5px;
-        >img{
+
+        & > img {
             max-width: 25px;
             max-height: 25px;
         }

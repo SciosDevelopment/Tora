@@ -1,0 +1,33 @@
+.ContextMenu {
+    position:fixed;
+    z-index:300;
+    padding-top : 10px;
+    padding-bottom: 10px;
+    background-color: #fcfce8; // temp
+    
+    & .hr {
+        margin-left:4px;
+        margin-right:4px;
+        border: solid 1px gray;
+    }
+}
+
+.ContextMenuItem {
+    display: flex;
+    padding:4px;
+    justify-content: space-between;
+
+    & > p {
+        min-width: 60px;
+        margin:0 5px;
+    }
+
+    & > p:nth-child(2) {
+        text-align: right;
+    }
+}
+
+.ContextMenuItem:hover {
+    background-color: gray;
+    cursor:pointer;
+}

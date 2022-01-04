@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react'
 import Modal from 'react-modal'
-import './style/Modal.scss'
+
 const CustomModal:FunctionComponent<any> = (Props) => {
     const {modalOpen, modalClose, title} = Props
 

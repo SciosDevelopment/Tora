@@ -2,11 +2,8 @@ import React, { useEffect } from 'react'
 import { Terminal } from 'xterm'
 import { FitAddon } from 'xterm-addon-fit'
 import { ssm } from 'ssm-session'
-
 import 'xterm/css/xterm.css'
-import './style/Terminal.scss'
 import axios from 'axios'
-
 
 const options = {
     lineHeight:1.1,
@@ -29,7 +26,7 @@ const TerminalView  = (props) => {
     useEffect(() => { init() }, [])
     
     const init = async() => {
-        var terminalView = document.getElementById('Terminal-main')
+        var terminalView = document.getElementById('terminalView')
         if(terminalView == null) return
         var terminal = document.createElement('div')
         terminal.id = "terminal"
@@ -90,8 +87,8 @@ const TerminalView  = (props) => {
         if(socket) socket.close()
         term.dispose()
     }
-
-    return (<div id="Terminal-main"/>)
+ 
+    return (<div id="terminalView"/>)
 }
 export default TerminalView
 

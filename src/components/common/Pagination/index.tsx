@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './style/Pagination.scss'
 
 const Pagination = ({ postsPerPage, totalPosts, paginate}) => {
   const pageNumbers = []

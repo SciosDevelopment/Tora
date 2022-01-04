@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
-import ContextMenuItem from "./Item"
-import './style/ContextMenu.scss'
+import ContextMenuItem from "./item"
 
 // contextmenu 참고자료 : https://nmingaleev.medium.com/how-to-create-a-custom-context-menu-with-react-hooks-30d011f205a0
 const ContextMenu = (props) => {
@@ -19,10 +18,13 @@ const ContextMenu = (props) => {
     }
     
     // close method : https://stackoverflow.com/questions/50538072/which-events-should-i-listen-for-to-hide-a-custom-context-menu-in-javascript
+    // temp : 좌클릭으로 ContextMenuItem을 선택했을때만 실행
     const closeMenu = () => setVisibility(false)
     window.onblur = () => setVisibility(false)
-    // temp : 좌클릭으로 ContextMenuItem을 선택했을때만 실행
-    document.onmousedown = (e) => { if(e.button===0 && ((e.target as Element).className === "ContextMenu-item" || (e.target as Element).className === "ContextMenu-item-text")) return; else setVisibility(false)}
+    document.onmousedown = (e) => { 
+        if(e.button===0 && ((e.target as Element).className === "ContextMenu-item" || (e.target as Element).className === "ContextMenu-item-text")) return
+        else setVisibility(false)
+    }
     document.onkeydown = (e) => { if (e.key === 'Escape' || e.which === 27 || e.keyCode === 27) setVisibility(false)}
 
     useEffect(()=>{
@@ -42,15 +44,15 @@ const ContextMenu = (props) => {
 
     const renderMenuItem = ()=>{
         return items.map((item, index) => { 
-            if(item.title === '-') return <hr className="ContextMenu-hr"/>
+            if(item.title === '-') return <hr className="hr"/>
             return <ContextMenuItem item={item} index={index}/> 
         })
     }
 
-    return isvisible ? 
-        (<div className='ContextMenu' style={style}>
+    return isvisible &&
+        <div className='ContextMenu' style={style}>
             {renderMenuItem()}
-        </div>) : null
+        </div>
 }
 
 export default ContextMenu

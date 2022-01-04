@@ -1,4 +1,3 @@
-import './style/Searchbar.scss'
 import SearchIcon from '../../../img/search-navy.png'
 import {useState} from 'react'
 
@@ -13,7 +12,7 @@ const Searchbar = (SearchProp) => {
         setText(value)    
     }
     return (
-        <div className = "Searchbar-container">
+        <div className = "saerchbarContainer">
             <input type = "input" placeholder = 'Search' required value = {queryText} onChange = {handleChange} />
             <div>
                 <img src = {SearchIcon} onClick={Search}/>

@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import FloatingChat from './Item/Chat'
 import FloatingNote from './Item/Note'
-import './style/FloatingButton.scss'
 import Plus from '../../../img/plus.png'
 // 참고자료 : https://wazacs.tistory.com/37 : draggable
 
