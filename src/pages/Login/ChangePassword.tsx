@@ -1,7 +1,6 @@
 import Header from '../../components/common/Header/Header'
+import Footer from '../../components/common/Footer'
 import ChangePasswordView from './View/ChangePasswordView'
-import Footer from './Footer'
-
 
 const ChangePasswordMain = (props) => {
     const {token} = props.match.params

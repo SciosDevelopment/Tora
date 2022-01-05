@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './style/Comment.scss'
 import Replyicon from '../../../img/replyicon.png'
 import Hearticon from '../../../img/yellowstar.png'
 import Profile from '../../../img/profile.png'
@@ -26,50 +25,48 @@ const Comment = (props) => {
 
     return (
         <>
-        <div className = "Comment-main">
-            <div className = "Comment-header">
-                <div className = "Comment-parents">
-                    {/* temp */}
+        <div className = "comment">
+            <div className = "header">
+                <div className = "parents">
                     <p>{parentData === undefined ? null : <a href={`#${parentData}`}>#{parentData}</a>}</p>
                 </div>
-                <div className = "Comment-date">
+                <div className = "date">
                     <p>{moment(data.attributes.created_at).format("YYYY.MM.DD")}</p>
                 </div>
             </div>
-            <div className = "Comment-body">
-                <div className = "Comment-context" id={`content${data.id}`}/>
-                <div className = "Comment-info">
-                    <div className = "Comment-user">
-                        <div className = "Comment-like-reply">
-                            <div className = "Comment-like">
+            <div className = "body">
+                <div className = "context" id={`content${data.id}`}/>
+                <div className = "info">
+                    <div className = "user">
+                        <div className = "like-reply">
+                            <div className = "like">
                                 <img src = {Hearticon}/>
                                 <p>{data.attributes.score}</p>
                             </div>
-                            <div className = "Comment-reply">
+                            <div className = "reply">
                                 <img src = {Replyicon} onClick={()=>setIsOpen(!isOpen)}/>
                                 <p>{data.attributes.comments_list.data.length}</p>
                             </div>
                         </div>
-                        <div className = "Comment-profile">
+                        <div className = "profile">
                             <img src = {Profile}></img>
                             <p>{data.attributes.user_name}</p>
                         </div>
                     </div>
                 </div>
             </div>
-               
-            <div className = "Comment-footer">
-                <div className="Comment-buttonlist">
-                { data.attributes.depth < 5 && (<button onClick={()=>openReply(data.id, "reply")}>reply</button>)}
-                    <button onClick={()=>openReply(data.id, "edit")}>edit</button>
-                    <button onClick={removeComment}>delete</button>
-                </div>
+            
+            <div className="buttonlist">
+            { data.attributes.depth < 5 && (<button onClick={()=>openReply(data.id, "reply")}>reply</button>)}
+                <button onClick={()=>openReply(data.id, "edit")}>edit</button>
+                <button onClick={removeComment}>delete</button>
             </div>
+        
         </div>
         {
             isOpen ? 
             (
-                <div className = "Comment-replylist" style={{ width: "95%", marginLeft: "5%" }}>
+                <div className = "replylist" style={{ width: "95%", marginLeft: "5%" }}>
                     {data.attributes.comments_list.data.map((datum)=><Comment data={datum} onClick={onClick} parentData={parentData === undefined ? data.id : parentData}/>)}
                 </div>
             )

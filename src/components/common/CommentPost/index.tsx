@@ -1,5 +1,4 @@
 import MarkdownEditor from '../MarkdownEditor'
-import './style/CommentPost.scss'
 import React from 'react'
 import {Editor} from '@toast-ui/react-editor'
 import axios from 'axios'
@@ -64,11 +63,11 @@ const CommentPost = (props) => {
     }
 
     return (
-        <div className = "CommentPost-main" style={comment_id !== -1 ? mountedStyle : unmountedStyle}>
-            <div className = "CommentPost-container">
+        <div className = "commentpost" style={comment_id !== -1 ? mountedStyle : unmountedStyle}>
+            <div className = "box">
                 <MarkdownEditor initialEditType="wysiwyg" editorRef = {editorRef}/>
     
-                <div className = "CommentPost-button">
+                <div className = "button">
                     { mode==="reply" && <input type='submit' value="Comment" onClick = {selectMode}/>}
                     { mode==="edit" && <input type='submit' value="Edit" onClick = {selectMode}/>}
                     <input type='submit' value="Cancel" onClick = {Cancel}/>

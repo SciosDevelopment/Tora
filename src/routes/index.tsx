@@ -19,11 +19,6 @@ import ServiceList from '../pages/Service/ServiceList'
 // License
 import LicenseMain from '../pages/License'
 
-// Blog : BlogMain, BlogWrite, BlogDetail
-import Blog from '../pages/Blog'
-import BlogWrite from '../pages/Blog/Write'
-import BlogDetail from '../pages/Blog/Detail'
-
 // Post
 import Post from '../pages/Post'
 import PostWrite from '../pages/Post/Write'
@@ -39,8 +34,7 @@ import ProjectMain from '../pages/Project2'
 //IDE
 import IDE from '../pages/IDE'
 
-//Chat
-import Chat from '../components/common/Chat'
+//OpenSource
 import OpenSource from 'src/pages/OpenSource'
 
 //Project
@@ -74,13 +68,6 @@ const Router:React.FC = () => (
         {/* License */ }
         <Route path = "/license" component={LicenseMain}/>      
 
-        {/* Blog */}
-        <Route path = "/blog" exact component={Blog}/>
-        <Route path = "/blog/edit/:id" component={BlogWrite}/>
-        <Route path = "/blog/write" component={BlogWrite}/>
-        <Route path = "/blog/:sorted/:query" component={Blog}/>
-        <Route path = "/blog/:id" component={BlogDetail}/>
-
         {/* Post */}
         <Route path = "/post" exact component={Post}/>
         <Route path = "/post/edit/:id" component={PostWrite}/>
@@ -100,11 +87,6 @@ const Router:React.FC = () => (
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
-
-        {/* Chat */}
-        <Route path = "/chat" exact component={Chat}/>
-        <Route path = "/chat/:token" component={Chat}/>
-        <Route path = "/chat/:token/:id" component={Chat}/>
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>

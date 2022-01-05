@@ -1,4 +1,5 @@
-.Comment-main {
+/* Comment */
+.comment {
     width: 100%;
     height: auto;
     border-radius: 15px;
@@ -9,38 +10,38 @@
     justify-content: space-between;
     margin-bottom: 15px;
     
-    .Comment-header {
+    & .header {
         width:100%;
         display:flex;
         justify-content: space-between;        
 
-        .Comment-parents {
+        & .parents {
             margin-top: 1%;
             margin-left: 1%;
 
-            >p {
+            & > p {
                 color: #707070;
                 font-size: 11px;
             }
         }
 
-        .Comment-date {
+        & .date {
             margin-top: 1%;
             margin-right: 1%;
 
-            >p {
+            & > p {
                 color: #707070;
                 font-size: 11px;
             }
         }
     }
 
-    .Comment-body {
+    & .body {
         margin-top: 5px;
         display:flex;
         margin-bottom: 1%;
 
-        .Comment-context {
+        & .context {
             width: 88%;
             height: auto;
             display: flex;
@@ -49,48 +50,49 @@
             font-size: 14px;     
         }
         
-        .Comment-info{
+        & .info{
             width: 12%;
             margin-right:1%;
             display: flex;
             flex-direction: column;            
             justify-content: space-between;
         
-            .Comment-user{
+            & .user {
                 display: flex;
                 flex-direction: row;
 
-                .Comment-like-reply {
+                & .like-reply {
                     margin: auto 0;
                     
-                    .Comment-like{
+                    & .like {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
 
-                        >img {
+                        & > img {
                             width: 20px;
                             height: 20px;
                         }
-                        >p {
+
+                        & > p {
                             margin-left: 1px;
                             font-size: 8px;
                         }
                     }
 
-                    .Comment-reply {
+                    & .reply {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
 
-                        >p {
+                        & > p {
                             margin-left: 5%;
                             font-size: 8px;
                         }
                     }
                 }
 
-                .Comment-profile {
+                & .profile {
                     width: 100%;
                     height: 100%;
                     display: flex;
@@ -98,12 +100,12 @@
                     align-items: center;
                     justify-content: center;
 
-                    >img {
+                    & > img {
                         width: 30px;
                         height: auto;
                     }
                     
-                    >p {
+                    & > p {
                         font-size: 10px;
                         margin-top: 3px;
                     }
@@ -112,26 +114,112 @@
         }
     }
 
-    .Comment-buttonlist {
+    & .buttonlist {
         width:100%;
         margin-right:1%;
         height: 25px;
         margin-bottom: 1%;
 
-        >button {
+        & > button {
+            background:transparent;
             width: 80px;
             height: 100%;
             margin-left: 10px;
             margin-right: 10px;
         }
     }  
+}
 
-    .Comment-replylist {
-        width:93%;
-        display:flex;
+@keyframes inAnimation {
+    0% {
+        bottom: -300px;
+    }
+
+    100% {
+      bottom: 10px;  
+    }
+}
+  
+  @keyframes outAnimation {
+    0% {
+        bottom: 10px;
+    }
+    
+    100% {
+        bottom: -300px; 
+    }
+}
+/* CommentPost */
+.commentpost {
+    position:fixed;
+    width: 43.2%;
+    height: auto;
+    border-radius: 15px;
+    background-color: #F8F8FC;
+    border: solid 1px #707070;
+    bottom: 10px;
+
+    & .box {
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        
+        & .button {
+            width: 100%;
+            height: 0;
+            display: flex;
+            justify-content: flex-end;
+
+            & > input {
+                position: relative;
+                right:5px;
+                bottom:25px;
+                border-radius: 15px;
+                width: 60px;
+                height: 22px;
+                font-size: 8px;
+                font-weight: bold;
+                background-color: #FFB600;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+// CommentList
+
+.commentlist {
+    & .info {
+        display: flex;
+        width:100%;
         height: auto;
-        justify-content: space-between;
-        margin:0 auto;
-        margin-bottom: 1%;
+        margin-bottom: 5px;
+        
+        & .cnt {
+            margin-top:5px;
+            width:100%;      
+            border-bottom: 1px solid black;
+        }
+
+        & .addbtn {
+            width: 100%;
+            text-align: right;
+            & > input {
+                width:50px;
+                height:30px;
+            }
+        }
+    }
+    
+    & .notExist {
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        border-radius: 15px;
+        border: solid 1px #707070;
+        background-color: #F6F7FC;
+        text-align: center;
+        margin : 0 auto;
+        margin-bottom: 15px;
     }
 }

@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import './style/CommentList.scss'
 import Comment from '../Comment'
 import CommentPost from '../CommentPost'
 
@@ -21,15 +20,15 @@ const CommentList = (props) => {
     const cancel = () => setCommentID(-1)
 
     return (
-        <div className="CommentList">
-            <div className="CommentList-info">
-                <div className="CommentList-cnt" onClick={()=>setOpened(!opened)}>댓글 {list.length} {opened ? "▽" : "▷"}</div>
+        <div className="commentlist">
+            <div className="info">
+                <div className="cnt" onClick={()=>setOpened(!opened)}>댓글 {list.length} {opened ? "▽" : "▷"}</div>
             </div>
-            { list.length === 0 && <div className="Comment-NotExist">"댓글이 존재하지 않습니다"</div> /* 댓글이 존재하지 않을때 */}
+            { list.length === 0 && <div className="notExist">"댓글이 존재하지 않습니다"</div> /* 댓글이 존재하지 않을때 */}
             { opened && list.map((data_)=><Comment data={data_} onClick={setCommentID_}/>) } 
             <CommentPost comment_id={comment_id} post_id={post_id} post_content = {pc} mode={mode} Cancel={cancel}/>
-            <div className="CommentList-info">
-                <div className="CommentList-add">
+            <div className="info">
+                <div className="addbtn">
                         <input type="button" className="CommentBtn" id="Comment-reply" value="reply" onClick={()=>setCommentID_(post_id, "reply")}/>    
                 </div>    
             </div>

@@ -1,5 +1,5 @@
 import Header from '../../components/common/Header/Header'
-import Footer from './Footer'
+import Footer from '../../components/common/Footer'
 import LoginView from './View/LoginView'
 import RegisterView from './View/RegisterView'
 import ResetPasswordView from './View/ResetPasswordView'

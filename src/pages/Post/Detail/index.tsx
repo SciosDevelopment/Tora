@@ -98,7 +98,7 @@ const PostDetailMain = (props) => {
                             <MainText data={Post} showOptions={()=>setIsOpen(!isOpen)}/>
                         </div>
 
-                        <div className = "commentlist">
+                        <div className = "comments">
                             <CommentList list={Comments_List} post_id={id}/>
                         </div>
                     </div>
