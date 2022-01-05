@@ -1,4 +1,4 @@
-.MainView2 {
+.MainView {
     @include maxWrap();
     padding: 0 0;
     & .publishFile {
@@ -223,7 +223,7 @@
 }
 
 @media screen and (max-width: 780px) {
-    .MainView2 {
+    .MainView {
         & .publishFile {
             display: block;
             height: 100%;

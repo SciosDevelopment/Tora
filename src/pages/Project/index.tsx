@@ -1,125 +1,62 @@
 import React, {useEffect, useState} from 'react';
-import Header from 'src/components/common/Header/Header';
-import './style/ProjectMain.scss'
-import MainView from '../Project/MainView'
-import IssueView from '../Project/Issue'
-import IssueWrite from '../Project/Issue/Write/ProjectIssueWrite'
-import IssueDetail from '../Project/Issue/Detail/index'
-import FileList from './File/ProjectFile'
-import FileDetail from './File/Detail/FileDetail'
-import CodeCalendar from './CodeCalendar/ProjectCodeCalendar'
-import Follow from './Follow/ProjectFollow'
-import License from './License/ProjectLicense'
-import LicenseWrite from './License/Write/ProjectLicenseWrite'
 
 import {history} from '../../configureStore'
 
-const ProjectMain = (props) => {
+import iconArrowExpend from '../../img/img2/icon_arrow_expend.png';
+import menuDot from '../../img/img2/menu_dot.png';
+import iconHeadUp from '../../img/img2/icon_head_up.png';
+import iconHeadDown from '../../img/img2/icon_head_down.png';
+
+import MainView from './MainView'
+import Issue from './Issue'
+import Header from 'src/components/common/Header/Header';
+import SideLeft from 'src/components/common/SideItem/SideLeft';
+import SideRight from 'src/components/common/SideItem/SideRight';
+
+const Project = (props) => {
+    const [isShowPopupProject, setIsShowPopupProject] = useState(false);
+    const [isShowAsideMenu, setIsShowAsideMenu] = useState(false);
+    const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true);
+
+    const clickNavDepth1 = (e) => {
+        if( e.target.parentElement.classList.value == 'on' ) {
+            e.target.parentElement.classList.remove('on')
+        }else{
+            e.target.parentElement.classList.add('on')
+        }
+    }
+
     const {token, id} = props.match.params
     const [tabValue, setTabValue] = useState<Number>(0);
 
-    enum token_ { NOTHING=-1, Main, CodeCalendar, Follow, File, Issue, License, IssueWrite, IssueDetail, FileDetail, LicenseWrite }
+    enum token_ { NOTHING=-1, Main, Issues}
 
     const setToken = ()=> {
         switch(token) {
             case "main": 
                 return token_.Main
-            case "codecalendar": 
-                return token_.CodeCalendar
-            case "follow":
-                return token_.Follow
-            case "file":
-                return token_.File
-            case "issue":
-                return token_.Issue
-            case "license":
-                return token_.License
-            case "issuewrite":
-                return token_.IssueWrite
-            case "issuedetail":
-                return token_.IssueDetail
-            case "filedetail":
-                return token_.FileDetail
-            case "licensewrite":
-                return token_.LicenseWrite
+            case "issues": 
+                return token_.Issues
             default:
                 return token_.Main
         }
     }
-
     const changeURL = async(token) => history.push(`/project/${token}`)
-
     useEffect(()=>{setTabValue(setToken())}, [token])
 
     const switchTab = (tabValue) => {
         switch(tabValue){
             case 0 : {
                 return(
-                    <div className = "Project-main-mainview">
+                    <div className = "tab-mainview">
                         <MainView/>
                     </div>
                 )
             }
             case 1 : {
                 return(
-                    <div className = "Project-main-codecalendar">
-                        <CodeCalendar/>
-                    </div>
-                )
-            }
-            case 2 : {
-                return(
-                    <div className = "Project-main-follow">
-                        <Follow/>
-                    </div>
-                )
-            }
-            case 3 : {
-                return(
-                    <div className = "Project-main-file">
-                        <FileList/>
-                    </div>
-                )
-            }
-            case 4 : {
-                return(
-                    <div className = "Project-main-issue">
-                        <IssueView/>
-                    </div>
-                )
-            }
-            case 5 : {
-                return(
-                    <div className = "Project-main-license">
-                        <License/>
-                    </div>
-                )
-            }
-            case 6 : {
-                return(
-                    <div className = "Project-main-issue-click">
-                        <IssueWrite/>
-                    </div>
-                )
-            }
-            case 7 : {
-                return(
-                    <div className = "Project-main-issue-click">
-                        <IssueDetail/>
-                    </div>
-                )
-            }
-            case 8 : {
-                return(
-                    <div className = "Project-main-file-click">
-                        <FileDetail/>
-                    </div>
-                )
-            }
-            case 9 : {
-                return(
-                    <div className = "Project-main-file-click">
-                        <LicenseWrite/>
+                    <div className = "tab-issue">
+                        <Issue/>
                     </div>
                 )
             }
@@ -127,28 +64,63 @@ const ProjectMain = (props) => {
     }
 
     return (
-        <>
-        <Header/>
-        <div className = "Project-main">
-            <div className = "Project-main-tab">
-                <div className = "Project-main-tab-button">
-                    <div className = {tabValue === 0 ? `Project-main-tab-clicked` : `Project-main-tab-closed` } onClick = {()=>changeURL('main')}>Main</div>
-                    <div className = {tabValue === 1 ? `Project-main-tab-clicked` : `Project-main-tab-closed`} onClick = {()=>changeURL('codecalendar')}>Code Calendar</div>
-                    <div className = {tabValue === 2 ? `Project-main-tab-clicked` : `Project-main-tab-closed`} onClick = {()=>changeURL('follow')}>Follow</div>
-                    <div className = {tabValue === 3 ? `Project-main-tab-clicked` : `Project-main-tab-closed`} onClick = {()=>changeURL('file')}>File</div>
-                    <div className = {tabValue === 4 ? `Project-main-tab-clicked` : `Project-main-tab-closed`} onClick = {()=>changeURL('issue')}>lssue</div>
-                    <div className = {tabValue === 5 ? `Project-main-tab-clicked` : `Project-main-tab-closed`} onClick = {()=>changeURL('license')}>License</div>
-                </div> 
-                <div className = "Project-main-tab-tab-body">
+    <>
+    <Header/>
+    <div className= "project">
+        <div className= "project-tab">
+            <div className="location">
+                <span>Support</span>
+                <img src={iconArrowExpend} alt="expend" />
+                <span>FAQ</span>
+                <img src={iconArrowExpend} alt="expend" />
+                <span>Product</span>
+                <img src={iconArrowExpend} alt="expend" />
+                <span>Git 서비스 사용 방법</span>
+            </div>
+
+            <div className="top_tab">
+                <div className="btnbox">
+                    <div className = {tabValue === 0 ? `btnbox-open` : `btnbox-close` } onClick = {()=>changeURL('main')}>Main</div>
+                    <div className = {tabValue === 1 ? `btnbox-open` : `btnbox-close` } onClick = {()=>changeURL('issues')}>Issues</div>
+                </div>
+                <div className="aside_menu">
+                    <button onClick={clickBtnMenu}><img src={menuDot} alt="menu" /></button>
                     {
-                        switchTab(tabValue)
-                    } 
+                        isShowAsideMenu && 
+                        <ul className="depth2">
+                            <li>
+                                <button onClick={clickNavDepth1}>
+                                    Project
+                                    <img src={iconHeadUp} className='icon_head_up' alt="arrow" />
+                                    <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
+                                </button>
+                                <ul>
+                                    <li><button>Main</button></li>
+                                    <li><button>Issues</button></li>
+                                    <li><button>Files</button></li>
+                                    <li><button>collaborators</button></li>
+                                </ul>
+                            </li>
+                            <li><button>Settings</button></li>
+                            <li><button>Project status</button></li>
+                        </ul>
+                    }
                 </div>
             </div>
+            <div className="publishFile">
+                <SideLeft/>
+                <SideRight/>
+            </div>
+
+            <div className = "project-view">
+                {
+                    switchTab(tabValue)
+                } 
+            </div>
         </div>
-        </>
-    )
-}
+    </div>
+    </>
+    );
+};
 
-
-export default ProjectMain;
+export default Project;

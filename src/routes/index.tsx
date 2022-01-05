@@ -34,7 +34,7 @@ import MyPage from '../pages/MyPage'
 import MyPageSetting from '../pages/MyPage/Setting'
 
 //ProjectMain
-import ProjectMain from '../pages/Project'
+import ProjectMain from '../pages/Project2'
 
 //IDE
 import IDE from '../pages/IDE'
@@ -43,8 +43,8 @@ import IDE from '../pages/IDE'
 import Chat from '../components/common/Chat'
 import OpenSource from 'src/pages/OpenSource'
 
-//Project2
-import Project2 from '../pages/Project2'
+//Project
+import Project from '../pages/Project'
 
 const Router:React.FC = () => (
     <Switch>
@@ -94,9 +94,9 @@ const Router:React.FC = () => (
         <Route path = "/mypage" exact component={MyPage}/>
         
         {/* Project */}
-        <Route path = "/project" exact component={ProjectMain}/>
-        <Route path = "/project/:token" component={ProjectMain}/>
-        <Route path = "/project/:token/:id" component={ProjectMain}/>
+        <Route path = "/project" exact component={Project}/>
+        <Route path = "/project/:token" component={Project}/>
+        <Route path = "/project/:token/:id" component={Project}/>
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
@@ -110,9 +110,9 @@ const Router:React.FC = () => (
         <Route path = "/opensource" component={OpenSource}/>
 
         {/* Project2 */}
-        <Route path = "/project2" exact component={Project2}/>
-        <Route path = "/project2/:token" component={Project2}/>
-        <Route path = "/project2/:token/:id" component={Project2}/>
+        <Route path = "/project2" exact component={ProjectMain}/>
+        <Route path = "/project2/:token" component={ProjectMain}/>
+        <Route path = "/project2/:token/:id" component={ProjectMain}/>
     </Switch>
 )
 

@@ -1,37 +1,22 @@
 import React from 'react';
-import './style/ProjectMainview.scss'
-import ProjectErd from '../MainView/Erd/ProjectErd'
-import ProjectFeed from './Feed/ProjectFeed'
-import ProjectCodeofConduct from '../MainView/CodeofConduct/ProjectCodeofConduct'
-import ProjectInfo from '../MainView/Info/ProjectInfo'
-import Sidebutton from '../../../components/common/SideMenu/ProjectSideMenu'
-import ConnectButton from '../../../components/common/SideMenu'
 
-import { NavLink } from 'react-router-dom';
+import ProjectBoard from './ProjectBoard'
+import ProjectFeed from './ProjectFeed'
+import CoinContainer from './CoinContainer';
+import ProjectRead from './ProjectRead';
 
-const ProjectMain = () => {
+const MainView = () => {
+
     return (
-        <div className = "Project-main-view">
-            <div className = "Project-left-button">
-                <Sidebutton/>
-            </div>
-            <div className = "Project-right-button">
-                <ConnectButton/>
-            </div>
-            <div className = "Project-main-view-erd">
-                <ProjectErd/>
-            </div>
-            <div className = "Project-main-view-use">
+        <div className="MainView">
+            <div className="publishFile">
+                <ProjectBoard/>
                 <ProjectFeed/>
             </div>
-            <div className = "Project-main-view-readme">
-                <ProjectCodeofConduct/>
-            </div>
-            <div className = "Project-main-view-info">
-                <ProjectInfo/>
-            </div>
+            <CoinContainer/>
+            <ProjectRead/>
         </div>
     );
 };
 
-export default ProjectMain;
+export default MainView;

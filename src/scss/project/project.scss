@@ -1,0 +1,200 @@
+.project{
+    width: 100%;
+    & .project-tab{
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 10px;
+        
+        & .location {
+            @include flexbox(flex-start, center);
+            padding: 30px 0;
+        
+            & span {
+                color: #928a76;
+                font-size: 14px;
+            }
+            & img {
+                margin: 0 5px;
+            }
+        } 
+            
+        & .top_tab {
+            @include flexbox(space-between, center);
+            border-bottom: 1px solid #707070;
+            padding: 10px 5px 0;
+            margin-bottom: 10px;
+        
+            & .btnbox {
+                @include flexbox(flex-start, center);
+                & .btnbox-open {
+                    font-size: 18px;
+                    color: $ColorNavy;
+                    font-weight: bold;
+                    padding: 8px 15px;
+                    border: 2px solid transparent;
+                    border-radius: 5px 5px 0 0;
+                    margin: 0 5px;
+                    border : 2px solid #ffb600;
+                    border-bottom: 0; 
+                }
+
+                & .btnbox-close {
+                    font-size: 18px;
+                    color: $ColorNavy;
+                    font-weight: bold;
+                    padding: 5px 15px;
+                    border: 2px solid transparent;
+                    border-bottom: 0;
+                    border-radius: 5px 5px 0 0;
+                    margin: 0 5px;
+                    border-bottom: 0;
+                    &:hover{
+                    border: 2px solid #ffb600;
+                    border-bottom: 0;
+                    }
+                }
+            }
+        
+            & .aside_menu {
+            position: relative;
+            z-index: 1;
+                & .depth2 {
+                    position: absolute;
+                    left: auto;
+                    right: -10px;
+                    top: 25px;
+                }
+                & ul.depth2 {
+                    z-index: 1;
+                    border-radius: 10px;
+                    padding: 25px;
+                    background: #fff;
+                    line-height: 20px;
+                    position: absolute;
+                    top: 25px;
+                    width: 240px;
+                    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+                
+                    & li {
+                        margin-bottom: 15px;
+                    }
+                    & li:last-child {
+                        margin-bottom: 0;
+                    }
+                
+                    & li button {
+                        font-size: 20px;
+                        color: #1c2239;
+                        font-weight: bold;
+                        line-height: 1.6;
+                        display: block;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        width: 100%;
+                        text-align: left;
+                    }
+                
+                    & li button:hover,
+                    & li.on > button {
+                        background: #ffb600;
+                    }
+                
+                    & li ul {
+                        display: none;
+                    }
+                    & li .icon_head_up {
+                        display: none;
+                    }
+                    & li .icon_head_down {
+                        display: block;
+                    }
+                    & li.on .icon_head_up {
+                        display: block;
+                    }
+                    & li.on .icon_head_down {
+                        display: none;
+                    }
+                    & li.on ul {
+                        display: block;
+                        padding: 5px 0;
+                    }
+                
+                    & > li > button {
+                        @include flexbox(space-between, center);
+                        margin: 0;
+                    }
+                    & > li > ul > li {
+                        margin-bottom: 5px;
+                    }
+                    & > li > ul > li > button {
+                        color: #595d65;
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .sideright {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1540px) {
+    .sideleft {
+        display: none;
+    }
+}
+
+// @media screen and (max-width: 1140px) {
+//     ul.depth2 {
+//         position: relative;
+//         top: 0;
+//         width: auto;
+//         box-shadow: none;
+//         padding: 0;
+
+//         & li {
+//             margin-top: 0;
+//             margin-bottom: 0;
+
+//             & button {
+//                 font-size: 15px;
+//                 font-weight: 500;
+//             }
+//         }
+//     }
+// }
+
+@media screen and (max-width: 780px) {
+    .project{
+        & .project-tab{
+            & .location {
+                & span {
+                    font-size: 11px;
+                }
+                & img {
+                    margin: 0;
+                }   
+            }
+
+            & .top_tab {
+                & .btnbox {
+                        & .btnbox-open{
+                            font-size: 14px;
+                            padding: 5px;
+                        }
+                        & .btnbox-close{
+                            font-size: 14px;
+                            padding: 5px;
+                        }
+                }
+            }
+        }
+    }
+    
+}
