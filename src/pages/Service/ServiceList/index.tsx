@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import ServiceListItem from './ServiceListItem'
+import ServiceItem from './ServiceListItem'
 import Header from '../../../components/common/Header/Header'
 import {history} from '../../../configureStore'
 const ServiceList = (props) => {
@@ -31,12 +31,12 @@ const ServiceList = (props) => {
             case 0 : {
                 return(
                     <>
-                        <ServiceListItem isComment={true}/>
-                        <ServiceListItem isComment={true}/>
-                        <ServiceListItem isComment={true}/>
-                        <ServiceListItem isComment={true}/>
-                        <ServiceListItem isComment={false}/>
-                        <ServiceListItem isComment={false}/>
+                        <ServiceItem isComment={true}/>
+                        <ServiceItem isComment={true}/>
+                        <ServiceItem isComment={true}/>
+                        <ServiceItem isComment={true}/>
+                        <ServiceItem isComment={false}/>
+                        <ServiceItem isComment={false}/>
                         </>
                 )
             }

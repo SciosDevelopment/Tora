@@ -1,4 +1,3 @@
-import './style/PostItem.scss'
 import HeartLogo from '../../../../img/heart64.png'
 import Profile11 from '../../../../img/profile11.png'
 import { Link } from 'react-router-dom'
@@ -8,35 +7,35 @@ const PostItem = (Props)=> {
     const {item} = Props
     
     return (
-        <div className = "Post-item-main-container">
-            <div className = "Post-item-name-text-area">
+        <div className = "postitem">
+            <div className = "description">
             <Link to={`/post/${item.id}`}>
-                <div className = "Post-item-name-area">
+                <div className = "title">
                     <p> {item.attributes.title} </p>
                 </div>
-                <div className = "Post-item-text-area">
+                <div className = "summary">
                     <p>{item.attributes.content}</p>
                 </div>
             </Link>
             </div>
-            <div className = "Post-item-profile-tag">
-                {item.attributes.tags.split(" ").map((data)=>{return <p>{data}</p>})}
+            <div className = "tag">
+                {item.attributes.tags.split(" ").map((data)=>{return data && <p>{data}</p>})}
             </div>
-            <div className = "Post-item-icon-area">
-                <div className = "Post-item-img">
+            <div className = "userinfo">
+                <div className = "profile">
                     <img src = {item.attributes.user_photo.url === null 
                         ? Profile11 : `${SERVER_IP}/${item.attributes.user_photo.url}`}/>
                     <p>{item.attributes.user_name}</p>
                 </div>
 
-                    <div className = "Post-item-icon">
-                        <div className = "Post-item-icon2">
+                    <div className = "statistics">
+                        <div className = "items">
                             <p>조회수 {item.attributes.view_cnt}</p>
                         </div>
-                        <div className = "Post-item-icon3">
+                        <div className = "items">
                             <p>댓글 {item.attributes.comments_count}</p>
                         </div>
-                        <div className = "Post-item-icon4">
+                        <div className = "items">
                             <img src = {HeartLogo}/>
                             <p>{item.attributes.collection_count}</p>
                         </div>

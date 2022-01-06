@@ -1,16 +1,17 @@
-.Service-listitem-main {
+.serviceitem {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     border-bottom: solid 3px #707070;
-    .Service-listitem-list{
+
+    & > .barview {
         grid-column: 1/25;
         width: 100%;
         height: 50px;
         display: flex;
         flex-direction: row;
-        .Service-listitem-text {
+        & > .title {
             width: 60%;
             display: flex;
             justify-content: start;
@@ -19,7 +20,7 @@
             margin-left: 4%;
         }
     
-        .Service-listitem-date {
+        & > .date {
             width: 34%;
             display: flex;
             align-items: center;
@@ -27,59 +28,47 @@
             font-size: 11px;
         }
         
-        .Service-listitem-detail-button{
+        & > .arrowbtn {
             width: 4%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            // border: solid red;
-            .Service-listitem-arrow{
+            
+            & > div {
                 width: 0;
                 height: 0;
-                border-top: 12px solid #1C2239;/* 화살표 */
+                border-top: 12px solid #1C2239; /* 화살표 */
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent;
             }
         }
     }
     
-    .Service-listitem-detail{
+    & > .detail{
         grid-column: 1/25;
         height: 100%;
-        .Service-listitem-open{
+
+        & > .body {
             width: 100%;
             border-top: solid 3px #707070;
             display: flex;
             flex-direction: column;
-            .Service-listitem-modify{
+            & > .modify {
                 width: 99%;
                 margin-top: 1%;
                 display: flex;
                 justify-content: flex-end;
-                // border: solid red;
             }
-            .Service-listitem-text-wrapper{
+
+            & > .content { 
                 width: 85%;
                 display: flex;
                 flex-direction: column;
                 margin-left: 6.5%;
-                margin-top: 2%;
-                // border: solid red;
+                margin-top: 2%;            
                 line-height: 50px;
-            }
-            .Service-listitem-comment-wrapper{
-                width: 87%;
-                margin-left: 6.5%;
-                margin-top: 6%;
-            }
-            .Service-listitem-commentpost-wrapper{
-                width: 87%;
-                margin-left: 6.5%;
-                margin-top: 3%;
-                margin-bottom: 2%;
             }
         }
     }
-
 }

@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
-import './style/ServiceListItem.scss'
-import Comment from '../../../../../src/components/common/Comment'
-import CommentPost from '../../../../../src/components/common/CommentPost'
 import modify from '../../../../img/modify.png'
 
 interface Interface {
     isComment:boolean
 }
 
-const ServiceListItem:React.FC<Interface> = (props:Interface) => {
+const ServiceItem:React.FC<Interface> = (props:Interface) => {
     const [openStatus, setOpenStatus] = useState<Boolean>(false)
     const {isComment} = props
 
@@ -17,43 +14,35 @@ const ServiceListItem:React.FC<Interface> = (props:Interface) => {
         if(isComment === true) {
             return (
                 <>  
-                    <div className = "Service-listitem-comment-wrapper">
-                        {/*<Comment/>*/}
-                    </div>
-                    <div className = "Service-listitem-commentpost-wrapper">
-                        {/*<CommentPost/>*/}
-                    </div>
                 </>
             )
         }
     }
     
     return (
-        <div className = "Service-listitem-main">
-            <div className = "Service-listitem-list">
-                <div className = "Service-listitem-text">
+        <div className = "serviceitem">
+            <div className = "barview">
+                <div className = "title">
                     <p>What types of questions should I avoid asking?</p>
                 </div>
-                <div className = "Service-listitem-date">
+                <div className = "date">
                     <p>2020.10.23</p>
                 </div>   
-                <div className = "Service-listitem-detail-button" onClick = {()=>setOpenStatus(!openStatus)}>
-                    <div className = "Service-listitem-arrow">
-
-                    </div>
+                <div className = "arrowbtn" onClick = {()=>setOpenStatus(!openStatus)}>
+                    <div/>
                 </div>
             </div>
 
-            <div className = "Service-listitem-detail">
+            <div className = "detail">
                 {
-                    openStatus === false ?     
-                    <div className = "Service-listitem-closed"/>  
-                :
-                    <div className = "Service-listitem-open">
-                        <div className = "Service-listitem-modify">
+                    openStatus &&   
+                      
+                
+                    <div className = "body">
+                        <div className = "modify">
                             <img src ={modify}/>
                         </div>
-                        <div className = "Service-listitem-text-wrapper">
+                        <div className = "content">
                             <p>How do I write a good answer?</p>
                             <p>How do I write a good answer?</p>
                             <p>How do I write a good answer?</p>
@@ -70,4 +59,4 @@ const ServiceListItem:React.FC<Interface> = (props:Interface) => {
  
 }
 
-export default ServiceListItem
+export default ServiceItem

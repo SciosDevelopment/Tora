@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react'
-import './style/LicenseItem.scss'
 
 type licenseMainContents = {
     context : string,
@@ -57,18 +56,17 @@ const LicenseItem:React.FC = () => {
         switch(tabValue){
             case 0 : {
                 return(
-                    <div className = "License-item-description-wrapper">
+                    <div className = "tabcontent">
                     {
                         licenseMainContents.map((value, index)=>{
                             return(
-                                <div key = {index} className = "License-item-description">
-                                    <div className = "License-item-description-list-context">
+                                <div key = {index} className = "container">
+                                    <div className = "title">
                                         {value.context}
                                     </div>
-                                    <div className = "License-item-description-list-status">
+                                    <div className = "content">
                                         <p>{value.status}</p>
                                     </div>
-
                                 </div>
                             )
                             
@@ -95,65 +93,45 @@ const LicenseItem:React.FC = () => {
 
     
     return(
-        <div className = "License-item-main">
-            <div className = "License-item-head-wrapper">
-                <div className = "License-item-title-wrapper">
+        <div className = "licenseitem">
+            <div className = "header">
+                <div className = "title">
                     <p>2-clause BSD license (BSD-2-Clause)</p>
                 </div>
 
-                <div className ="License-item-domain-wrapper">
+                <div className ="domain">
                     <p>관리 기관 Public Domain</p>                   
                 </div>
 
-                <div className = "License-item-more-button-container">
-                    <div className = "License-item-more-button" onClick = {()=>setOpenStatus(!openStatus)}>
+                <div className = "morebutton">
+                    <button onClick = {()=>setOpenStatus(!openStatus)}>
                         <p>More</p>
-                        <img/>
-                    </div>  
+                    </button>  
                 </div>
             </div>
             
-            <div className = "License-item-main-wrapper">
-                {
-                    openStatus === false ? 
-                        <div className = "License-item-main-closed">
-                            {
-                                `원본 라이선스가 종종"BSD-old" 로 참고되어지고 있는만큼, 여기서 파생된3-조항 버전은"BSD-new" 로 불리기도 한다. 다른 이름으로는"New BSD", "revised BSD", "BSD-3" 혹은"3-조항BSD" 이 있다. 참고로 "New BSD"라는 말을 쓰고는 있지만, BSD 라이선스의 가장 최신 버전은 아니다. 이 버전 이후...`
-                            }
-                        </div>
+            <div className = "description">
+                <div className = "summary">
+                    원본 라이선스가 종종"BSD-old" 로 참고되어지고 있는만큼, 여기서 파생된3-조항 버전은"BSD-new" 로 불리기도 한다. 다른 이름으로는"New BSD", "revised BSD", "BSD-3" 혹은"3-조항BSD" 이 있다. 참고로 "New BSD"라는 말을 쓰고는 있지만, BSD 라이선스의 가장 최신 버전은 아니다. 이 버전 이후...
+                </div>
                     
-                    :
                     
-                        <div className = "License-item-main-open">
-                            <div className = "License-item-description-wrapper">
-                                {
-                                    `원본 라이선스가 종종"BSD-old" 로 참고되어지고 있는만큼, 여기서 파생된3-조항 버전은"BSD-new" 로 불리기도 한다. 다른 이름으로는"New BSD", "revised BSD", "BSD-3" 혹은"3-조항BSD" 이 있다. 참고로 "New BSD"라는 말을 쓰고는 있지만, BSD 라이선스의 가장 최신 버전은 아니다. 이 버전 이후...`
-                                }
-                            </div>
-                            <div className = "License-item-label-container">
-                               <label>Version : </label>
-                               <label>Domain : </label>
-                               <label>Related License : </label>
-                               <label>License Category : </label>
-                               <label>Website : </label>
-                            </div>
-                            
-                            <div >
-                                <div className = "License-item-tab-wrapper">
-                                   <div className = "License-item-tab-button-wrapper">
-                                       <div className = {tabValue === 0 ? `License-item-tab-clicked` : `License-item-tab` } onClick = {()=>setTabValue(0)} key = {0}>주요내용</div>
-                                       <div className = {tabValue === 1 ? `License-item-tab-clicked` : `License-item-tab`} onClick = {()=>setTabValue(1)} key = {1}>영어전문</div>
-                                       <div className = {tabValue === 2 ? `License-item-tab-clicked` : `License-item-tab`} onClick = {()=>setTabValue(2)} key = {2}>개발템플릿</div>
-                                    </div> 
-                                    <div className = "License-item-tab-body-wrapper">
-                                        {
-                                            switchTab(tabValue)
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                }
+                { openStatus && (<>
+                <div className = "labellist">
+                    <label>Version : </label>
+                    <label>Domain : </label>
+                    <label>Related License : </label>
+                    <label>License Category : </label>
+                    <label>Website : </label>
+                </div>
+                                            
+                <div className = "tablist">
+                    <div className = {`tab_${tabValue === 0 &&  "clicked"}`} onClick = {()=>setTabValue(0)} key = {0}>주요내용</div>
+                    <div className = {`tab_${tabValue === 1 &&  "clicked"}`} onClick = {()=>setTabValue(1)} key = {1}>영어전문</div>
+                    <div className = {`tab_${tabValue === 2 &&  "clicked"}`} onClick = {()=>setTabValue(2)} key = {2}>개발템플릿</div>
+                </div> 
+                {switchTab(tabValue)}
+                </>)}
             </div>
         </div>
     )

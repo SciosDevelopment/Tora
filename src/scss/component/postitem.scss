@@ -1,40 +1,40 @@
-.Post-item-main-container {
+.postitem {
     width : 100%;
     height : 62px;
     display : grid;
     grid-template-columns: repeat(18, 1fr);
     border-top : 2px solid #707070;
     
-    .Post-item-name-text-area {
+    & > .description {
         grid-column: 1/9;
 
-        .Post-item-name-area {
+        & > .title {
             display: flex;
             align-items: center;
             padding-top: 2%;
 
-            >p { font-size : 18px; }
+            & > p { font-size : 18px; }
         }
 
-        .Post-item-text-area {
+        & .summary {
             width : 88%;
             display: flex;
             flex-direction: row;
             padding-left : 12%;
             padding-top: 2%;
-
-            >p { font-size : 12px; }
+            
+            & > p { font-size : 12px; }
         }
     }
 
-    .Post-item-profile-tag {
+    & > .tag {
         grid-column: 9/14;
         width: 100%;
         height: 100%;
         display:block; // block 말고 다른방법 찾아볼 것
         overflow-y: hidden;
 
-        >p {
+        & > p {
             float:left;
             width:fit-content;
             height: fit-content;
@@ -47,7 +47,7 @@
         }
     }
 
-    .Post-item-icon-area {
+    & > .userinfo {
         grid-column: 15/19;
         width : 100%;
         display : flex;
@@ -55,8 +55,8 @@
         justify-content: space-evenly;
         align-items: center;
 
-        .Post-item-img {
-            width: 10%;
+        & > .profile {
+            width: 20%;
             height : 100%;
             display : flex;
             flex-direction: column;
@@ -64,58 +64,30 @@
             align-items: center;
             font-size: 11px;
 
-            >img {
+            & > img {
                 width: 100%;
                 max-width : 30px;
                 max-height: 30px;
                 border-radius: 50%;
-                height: 40%;
+                height: 100%;
             }
         }
         
-        .Post-item-icon{
+        & > .statistics {
             width: 70%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             height: 60%;
             
-            .Post-item-icon2 {
-                height : 100%;
-                display : flex;
-                flex-direction: row;
-                align-items: center;
-                margin-left: 4%;
-                
-                >img { max-width: 35px; }
-                >p { font-size: 9px; }
-            }
-
-            .Post-item-icon3 {
-                height : 100%;
-                display : flex;
-                flex-direction: row;
-                align-items: center;
-               
-                >img { max-width : 35px; }
-                >p { font-size: 9px; }
-            }
-
-            .Post-item-icon4 {
+            & > .items {
                 height : 100%;
                 display : flex;
                 flex-direction: row;
                 align-items: center;
                 
-                >img {
-                    max-width : 20px;
-                    height: auto;
-                }
-
-                >p {
-                    margin-left: 3px;
-                    font-size: 9px;
-                }
+                & > img { max-width: 35px; }
+                & > p { font-size: 9px; }
             }
         }
     }

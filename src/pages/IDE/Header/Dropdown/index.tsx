@@ -1,13 +1,12 @@
 import DropdownItem from './Item'
-import './style/Dropdown.scss'
 
 const Dropdown = (props) => {
     const {title, data} = props
     
     return (
-        <div className = "dropdown-main">
-            <button className = "dropdown-btn">{title}</button>
-            <div className = "dropdown-contents">
+        <div className = "dropdownmenu">
+            <button className = "title">{title}</button>
+            <div className = "contents">
                 {
                 data.map((item) => 
                     <DropdownItem 
