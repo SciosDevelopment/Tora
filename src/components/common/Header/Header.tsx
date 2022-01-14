@@ -11,20 +11,23 @@ import { useMediaQuery } from 'react-responsive'
 import iconHeadSearch from '../../../img/ic_head_search.png'
 import iconHeadAddMobile from '../../../img/ic_head_add_mobile.png'
 import { Link } from 'react-router-dom'
+import PopupNewProject from '../Modal/PopupNewProject'
+
 const Header = (props) => {
-    const {setIsShowPopupProject, darkMode = true} = props
+    const {darkMode = true} = props
     const [isShowNav, setIsShowNav] = useState(false)
     const [isShowHeadAdd, setIsShowHeadAdd] = useState(false)
     const [isShowSearchByTablet, setIsShowSearchByTablet] = useState(false)
     const isPc = useMediaQuery({ query:"(min-width:1140px)" })
     const isMobile = useMediaQuery({ query:"(max-width:767px)" })
+    const [isShowModalProject, setIsShowModalProject] = useState(false)
 
     const openMenu = () => setIsShowNav(true)
     const closeMenu = () => setIsShowNav(false)
     const clickHeadAdd = () => setIsShowHeadAdd(isShowHeadAdd ? false : true)
     const clickSearch = () => setIsShowSearchByTablet(isShowSearchByTablet ? false : true)
     const clickNewProject = () => {
-        setIsShowPopupProject(true)
+        setIsShowModalProject(true)
         setIsShowHeadAdd(false)
     }
 
@@ -40,8 +43,13 @@ const Header = (props) => {
         )
     }
 
+    const NewProject = () =>{
+        return isShowModalProject && <PopupNewProject isShowPopupProject={isShowModalProject} setIsShowPopupProject={setIsShowModalProject} />
+    }
+    
     return (
         <>
+            <NewProject/>
             <div className={`Header ${darkMode && 'otherStyle'}`}>
                 <div className="left">
                    <Logo/>

@@ -39,6 +39,7 @@ import OpenSource from 'src/pages/OpenSource'
 
 //Project
 import Project from '../pages/Project'
+import Redirect from '../components/common/github/Redirect'
 
 const Router:React.FC = () => (
     <Switch>
@@ -95,6 +96,8 @@ const Router:React.FC = () => (
         <Route path = "/project2" exact component={ProjectMain}/>
         <Route path = "/project2/:token" component={ProjectMain}/>
         <Route path = "/project2/:token/:id" component={ProjectMain}/>
+
+        <Route path = "/authgit" component= {Redirect}/>
     </Switch>
 )
 

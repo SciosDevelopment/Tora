@@ -1,0 +1,347 @@
+@charset "utf-8";
+
+.innerShadow {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.innerShadow2 {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popupIDE {
+  z-index: 99;
+  width: 100%;
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 300px);
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  padding: 0 0 50px;
+
+  & * {
+    color: #000;
+    font-size: 15px;
+  }
+
+  & .popupHead {
+    @include flexbox(flex-start, center);
+    height: 30px;
+    background: #1c2239;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: 1px solid #fff;
+    padding-left: 15px;
+    font-weight: bold;
+  }
+
+  & .popupBody {
+    padding: 20px;
+  }
+
+  & .popupFoot {
+    @include flexbox(flex-end, center);
+    padding: 0 10px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    & * {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    & .btn button {
+      margin-left: 10px;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+
+      &.btn_confirm {
+        background-color: $ColorNavy;
+        color: #fff;
+      }
+    }
+  }
+
+  & .title {
+    color: #928a76;
+    font-size: 15px;
+  }
+
+  & select {
+    border: $IDEPopupLine;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+    background-position: 98%;
+    background-repeat: no-repeat;
+  }
+
+  & input[type="number"],
+  & input[type="text"] {
+    border: $IDEPopupLine;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+    text-indent: 0;
+  }
+
+  & .branchStyle {
+    @include flexbox(space-between, center);
+
+    & .title {
+      height: 20px;
+      display: block;
+    }
+
+    & .box {
+      background: #fff;
+      border-radius: 5px;
+      border: $IDEPopupLine;
+      height: 130px;
+    }
+
+    & .left {
+      width: 230px;
+      font-weight: bold;
+
+      & .box {
+        border-radius: 5px 0 0 5px;
+        padding-left: 10px;
+
+        & button {
+          height: 30px;
+          line-height: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+    & .center {
+      width: calc(100% - 270px);
+      width: -webkit-calc(100% - 270px);
+
+      & .box {
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 2px;
+
+        & > * {
+          height: 30px;
+          font-weight: bold;
+          padding: 5px;
+          display: block;
+        }
+
+        & select {
+          width: 100%;
+        }
+      }
+    }
+    & .right {
+      width: 40px;
+
+      & .box {
+        margin-top: 20px;
+        border: $IDEPopupLine;
+        border-radius: 0 5px 5px 0;
+      }
+
+      & .inputWrap {
+        @include flexbox(center, center);
+        height: 30px;
+
+        & input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  } /* // 공용 */
+
+
+  &.popupNewProject {
+    max-width: 780px;
+    height: 450px;
+    top: 25%;
+    left: calc(50% - 390px);
+    left: -webkit-calc(50% - 390px);
+    padding: 20px 10px 50px !important;
+
+    & .topBtn {
+      @include flexbox(space-between, center);
+      background: #e5e5e5;
+      height: 65px;
+      margin-bottom: 50px;
+    }
+    & .topBtn button {
+      @include flexbox(center, center);
+      width: 32%;
+      height: 100%;
+      background: #d5d5d5;
+      color: #858585;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    & .topBtn button:hover,
+    & .topBtn button.on {
+      background: #fff;
+      color: $ColorNavy;
+    }
+
+    & .form {
+      @include flexbox(space-between, flex-start);
+
+      & .left .title {
+        font-size: 20px;
+        color: #8d909c;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      & .left input,
+      & .left select {
+        width: 365px;
+        height: 65px;
+        border-radius: 5px;
+        border: 1px solid #707070;
+        background-position: 98%;
+        background-repeat: no-repeat;
+      }
+      & .left select {
+      }
+      & .right {
+      }
+      & .right .toggleButton {
+        @include flexbox(center, center);
+        width: 188px;
+        height: 40px;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #d5d5d5;
+        background: #d5d5d5;
+      }
+      & .right .toggleButton button {
+        width: 50%;
+        height: 100%;
+        background: #d5d5d5;
+        font-weight: bold;
+        color: #858585;
+        overflow: hidden;
+
+        &:hover,
+        &.on {
+          border-radius: 5px;
+          background: #f6f7fc;
+          color: $ColorNavy;
+        }
+      }
+    }
+
+    & .fileSelection {
+      & input {
+        position: Fixed;
+        left: -9999px;
+      }
+
+      & p {
+        @include flexbox(center, center);
+        width: 170px;
+        height: 55px;
+        border-radius: 5px;
+        border: 1px solid #858585;
+        font-size: 20px;
+      }
+      font-weight: bold;
+    }
+
+    & .repositoryURL {
+      position: relative;
+    }
+    & .repositoryURL select {
+      height: 65px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #707070;
+      position: relative;
+    }
+    & .repositoryURL .btn_url {
+      @include notCutToNextLine();
+
+      position: absolute;
+      right: 50px;
+      top: 18px;
+      width: 255px;
+      height: 30px;
+      background: #d5d5d5;
+      color: $ColorNavy;
+      font-weight: bold;
+      border: 1px solid #707070;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+  }
+
+  & .type_git {
+    width: 100% !important;
+  }
+
+  & .form .left.type_git input,
+  & .form .left.type_git select {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .popupIDE.popupNewProject {
+    left: 0;
+
+    & .popupBody {
+      padding: 0;
+    }
+
+    & .topBtn {
+      margin-bottom: 30px;
+      height: 50px;
+    }
+
+    & .topBtn button {
+      font-size: 12px;
+    }
+
+    & .form {
+      display: block;
+    }
+
+    & .form .left .title {
+      font-size: 12px;
+    }
+
+    & .form .left input,
+    & .form .left select {
+      height: 45px;
+    }
+
+    & .toggleButton {
+      margin-top: 10px;
+    }
+
+    & .fileSelection p {
+      font-size: 14px;
+    }
+
+    & .repositoryURL .btn_url {
+      width: 170px;
+      font-size: 12px;
+      top: 8px;
+    }
+  }
+}
