@@ -5,17 +5,17 @@ import Editor from './Editor'
 import Aside from './Aside'
 import Terminal from './TerminalView'
 
-const IdePage = () => {
+const IdePage = (props) => {
     const [curFile, setCurFile] = useState(null)
     const [show, setShow] = useState(false)
-    
+    const projectId = 7 // temp projectID - IDE Set
     return (
         <div className = "idePage" onContextMenu={(e)=>{e.preventDefault()}}>
             <Header/>
             <div className = "ideBody">
-                <SideBar onSelect={setCurFile}/>
+                <SideBar onSelect={setCurFile} projectId={projectId}/>
                 <div className = "centerWrap">
-                    <Editor current={curFile} showAside={()=>{setShow(!show)}}/>
+                    <Editor current={curFile} showAside={()=>{setShow(!show)}} projectId={projectId}/>
                     <Terminal/>
                 </div>
                 <Aside visible={show}/>

@@ -8,12 +8,12 @@ import SideNav from './SideNav'
 import FileView from '../../../components/common/FileView'
 
 const IDESideBar = (props) => {
-    const {onSelect} = props
+    const {onSelect, projectId} = props
     const [showNav, setShowNav] = useState(-1)
     
     // temp list, 추후 구현예정
     //common Component - FileView, ERD, CodeCalendar, ImageCoding, Share.
-    const list = [  <FileView setFile={onSelect}/>,
+    const list = [  <FileView setFile={onSelect} projectId ={projectId}/>,
                     <FileView/>,
                     <FileView/>,
                     <FileView/>,
