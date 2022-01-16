@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ProjectBox = () => {
     return (
@@ -10,7 +10,7 @@ const ProjectBox = () => {
             </div>
         </div>{/* // titlebox */}
         </>
-    );
-};
+    )
+}
 
-export default ProjectBox;
+export default ProjectBox

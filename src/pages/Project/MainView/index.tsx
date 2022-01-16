@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 import ProjectBoard from './ProjectBoard'
-import ProjectFeed from './ProjectFeed'
-import CoinContainer from './CoinContainer';
-import ProjectRead from './ProjectRead';
+import FeedList from './FeedList'
+import IssueList from './IssueList'
+import ProjectDescription from './Description'
 
 const MainView = () => {
 
@@ -11,12 +11,12 @@ const MainView = () => {
         <div className="MainView">
             <div className="publishFile">
                 <ProjectBoard/>
-                <ProjectFeed/>
+                <FeedList/>
             </div>
-            <CoinContainer/>
-            <ProjectRead/>
+            <IssueList/>
+            <ProjectDescription/>
         </div>
-    );
-};
+    )
+}
 
-export default MainView;
+export default MainView

@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const ProjectRead = () => {
+const ProjectDescription = () => {
+
+    // body에 추후 markup viewer 적용
     return (
-        <>
         <div className="readme innerShadow2">
             <div className="head">README.md</div>
             <div className="body">
@@ -20,8 +21,7 @@ const ProjectRead = () => {
                 </p>
             </div>
         </div>
-        </>
-    );
-};
+    )
+}
 
-export default ProjectRead;
+export default ProjectDescription

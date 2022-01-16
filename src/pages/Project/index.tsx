@@ -1,22 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 
 import {history} from '../../configureStore'
 
-import iconArrowExpend from '../../img/img2/icon_arrow_expend.png';
-import menuDot from '../../img/img2/menu_dot.png';
-import iconHeadUp from '../../img/img2/icon_head_up.png';
-import iconHeadDown from '../../img/img2/icon_head_down.png';
+import iconArrowExpend from '../../img/img2/icon_arrow_expend.png'
+import menuDot from '../../img/img2/menu_dot.png'
+import iconHeadUp from '../../img/img2/icon_head_up.png'
+import iconHeadDown from '../../img/img2/icon_head_down.png'
 
 import MainView from './MainView'
 import Issue from './Issue'
-import Header from 'src/components/common/Header/Header';
-import SideLeft from 'src/components/common/SideItem/SideLeft';
-import SideRight from 'src/components/common/SideItem/SideRight';
+import Header from 'src/components/common/Header/Header'
+import SideLeft from 'src/components/common/SideItem/SideLeft'
+import SideRight from 'src/components/common/SideItem/SideRight'
 
 const Project = (props) => {
-    const [isShowPopupProject, setIsShowPopupProject] = useState(false);
-    const [isShowAsideMenu, setIsShowAsideMenu] = useState(false);
-    const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true);
+    const [isShowPopupProject, setIsShowPopupProject] = useState(false)
+    const [isShowAsideMenu, setIsShowAsideMenu] = useState(false)
+    const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true)
 
     const clickNavDepth1 = (e) => {
         if( e.target.parentElement.classList.value == 'on' ) {
@@ -27,7 +27,7 @@ const Project = (props) => {
     }
 
     const {token, id} = props.match.params
-    const [tabValue, setTabValue] = useState<Number>(0);
+    const [tabValue, setTabValue] = useState<Number>(0)
 
     enum token_ { NOTHING=-1, Main, Issues}
 
@@ -120,7 +120,7 @@ const Project = (props) => {
         </div>
     </div>
     </>
-    );
-};
+    )
+}
 
-export default Project;
+export default Project

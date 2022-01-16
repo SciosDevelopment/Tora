@@ -94,7 +94,7 @@
     }
 }
 
-.coinContent {
+.issueList {
     margin-top: 30px;
 
     & .head {
@@ -121,7 +121,7 @@
     }
 }
 
-.coinContentBody {
+.issueListBody {
     &.borderTop {
         border-top: 1px solid $ColorNavy;
     }
@@ -255,7 +255,7 @@
                 }
             }
         }
-        & .coinContent {
+        & .issueList {
             .head {
                 & .left button {
                     font-size: 14px;
@@ -276,7 +276,7 @@
     }
 
 
-    .coinContentBody {
+    .issueListBody {
         & * {
             font-size: 12px;
         }

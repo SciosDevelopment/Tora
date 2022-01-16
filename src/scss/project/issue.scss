@@ -1,4 +1,4 @@
-.issue2 {
+.issue {
     @include maxWrap();
     position: relative;
     min-height: 800px;
@@ -242,31 +242,24 @@
                     border-radius: 0 0 5px 5px;
                     padding: 15px 10px;
                     overflow: auto;
-                }
-            }
 
-            & .content_open {
-                background: #0f9444;
-            }
-            & .content_reviewing {
-                background: #fbf8a4;
-            }
-            & .content_closed {
-                background: #fc9191;
+                    & > div {
+                        margin-bottom: 5px;
+                    }
+                }
             }
         }
     }
 }
 
 @media screen and (max-width: 991px) {
-
-    .issue2 .contentbox .content > * {
+    .issue .contentbox .content > * {
         min-width: 92%;
     }
 }
 
 @media screen and (max-width: 780px) {
-    .issue2 {
+    .issue {
         padding: 0;
     
         & .contentbox .content .innerContent .head .left button {
