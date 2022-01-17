@@ -193,14 +193,15 @@
         width: 100%;
         min-height: 200px;
         border-top: $IDELine;
-        background-color: $ColorNavy;
+        background-color: black;
         max-height: 80%;
 
         & .terminalHead {
           @include flexbox(space-between, center);
           @include notCutToNextLine();
           margin-bottom: 10px;
-
+          background-color: $ColorNavy;
+          
           & .left {}
 
           & .left button {
@@ -225,7 +226,6 @@
 
         & .terminalBody {
           padding: 5px 10px;
-          height: 100%; 
           background : black; // background color == terminal color
 
           & * {

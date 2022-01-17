@@ -7,8 +7,8 @@ import axios from 'axios'
 const options = {
     lineHeight:1.1,
     cursorblink: true,
-    rows: 15,
-    cols: 150,
+    rows: 12,
+    cols: 180,
 }
 
 export let term : Terminal
