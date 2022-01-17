@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Terminal } from 'xterm'
-import { FitAddon } from 'xterm-addon-fit'
 import { ssm } from 'ssm-session'
 import 'xterm/css/xterm.css'
 import axios from 'axios'
@@ -8,17 +7,18 @@ import axios from 'axios'
 const options = {
     lineHeight:1.1,
     cursorblink: true,
-    rows: 13,
+    rows: 15,
     cols: 150,
 }
+
+export let term : Terminal
 
 const textDecoder = new TextDecoder()
 const textEncoder = new TextEncoder()
 
 const TerminalView  = (props) => {
-    var {tokenValue, sessionUrl} = props
-    var term : Terminal
-    var socket : WebSocket
+    let {tokenValue, sessionUrl} = props
+    let socket : WebSocket
 
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const welcomeText = "this is tora command\n\rthis cmd version is 0.0.1\n\n\n\n\n\n\n\n\n\n"
@@ -65,8 +65,6 @@ const TerminalView  = (props) => {
 
         term = new Terminal(options)
         term.open(terminal)
-        const fitAddon = new FitAddon()
-        term.loadAddon(fitAddon)
         term.write(welcomeText)
         term.onData(data => socket ?
             ssm.sendText(socket, textEncoder.encode(data)) : alert("Terminal is not Connected"))
@@ -78,9 +76,9 @@ const TerminalView  = (props) => {
         console.log(data)
         // not send, cors err. 재설정이 필요함
         const API_URL = 'https://example.apiserver.com/'
-        axios.post(API_URL + `/v1/terminal`, data)
-        .then((res)=>{ console.log(res)})
-        .catch((e)=>{ console.log(e)})
+        // axios.post(API_URL + `/v1/terminal`, data)
+        // .then((res)=>{ console.log(res)})
+        // .catch((e)=>{ console.log(e)})
     }
 
     const stopTerm = ()=> {
@@ -97,3 +95,4 @@ export default TerminalView
 // node-pty + ws + xterm example : https://blog.totaljs.com/posts/140289001cx61b/
 // node-pty with xterm : https://stackoverflow.com/questions/66058499/how-to-combine-node-pty-and-xterm
 // wetty (Web + tty) 참고자료 : https://github.com/butlerx/wetty
+// xterm resize : https://www.tabnine.com/code/javascript/functions/xterm/rows
