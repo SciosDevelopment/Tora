@@ -12,12 +12,14 @@ const FileTreeItemFile = (props) => {
             nodeId={info.path}
             label={info.name}
             ref={ref_}/>
-        <ContextMenu 
+
+        {setFile != null && <ContextMenu 
             target={ref_} 
             info={info}
             projectId={projectId}
             setFile={setFile}
             refresh={refresh}/>
+        }
     </>
 }
 

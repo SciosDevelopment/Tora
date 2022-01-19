@@ -42,11 +42,13 @@ const FileTreeItemFolder = (props) => {
             {renderFile()}
         </TreeItem>
         
+        {setFile != null && 
         <ContextMenu target={ref_}
             route={info.path} 
             projectId={projectId}
             setFile={setFile}
             refresh={refresh}/>
+        }
     </>)
 }
 
