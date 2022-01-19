@@ -1,0 +1,16 @@
+.SideImageButton {
+    display: block;
+    text-align: center;
+    width: 70px;
+    margin-bottom: 20px;
+    & > img { margin-bottom: 5px; }
+    & > p { font-weight: 700; }
+}
+
+.SideButton {
+    display: block;
+    text-align: center;
+    width: 70px;
+    margin-bottom: 20px;
+    & > p { font-weight: 700; border : 1px solid black; border-radius: 10px;}
+}

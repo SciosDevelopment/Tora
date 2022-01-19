@@ -1,8 +1,6 @@
 import Header from '../../../components/common/Header/Header'
 import MainText from './MainText'
 import CommentList from '../../../components/common/CommentList'
-import ConnectButton from '../../../components/common/SideMenu'
-import SideButton from '../../../components/common/SideMenu/ContentsSideMenu'
 
 import { useState, useEffect } from 'react'
 import {history} from '../../../configureStore'
@@ -86,10 +84,7 @@ const PostDetailMain = (props) => {
             <Header/>
             <div className = "container">
                 <div className = "sidebutton">
-                    <SideButton/>
-                </div>
-                <div className = "connectbutton">
-                    <ConnectButton/>
+                    {/* 사이드버튼 준비 */}
                 </div>
 
                 <div className = "content">

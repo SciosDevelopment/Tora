@@ -10,10 +10,11 @@ import iconHeadDown from '../../img/img2/icon_head_down.png'
 import MainView from './MainView'
 import Issue from './Issue'
 import Header from 'src/components/common/Header/Header'
-import SideLeft from 'src/components/common/SideItem/SideLeft'
-import SideRight from 'src/components/common/SideItem/SideRight'
+import ProjectLeftSidebar from 'src/components/common/Sidebar/ProjectLeftSidebar'
+import ProjectRightSidebar from 'src/components/common/Sidebar/ProjectRightSidebar'
 
 const Project = (props) => {
+    const {id = 0} = props.match.params
     const [isShowPopupProject, setIsShowPopupProject] = useState(false)
     const [isShowAsideMenu, setIsShowAsideMenu] = useState(false)
     const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true)
@@ -26,23 +27,8 @@ const Project = (props) => {
         }
     }
 
-    const {token, id} = props.match.params
-    const [tabValue, setTabValue] = useState<Number>(0)
-
     enum token_ { NOTHING=-1, Main, Issues}
-
-    const setToken = ()=> {
-        switch(token) {
-            case "main": 
-                return token_.Main
-            case "issues": 
-                return token_.Issues
-            default:
-                return token_.Main
-        }
-    }
-    const changeURL = async(token) => history.push(`/project/${token}`)
-    useEffect(()=>{setTabValue(setToken())}, [token])
+    const [tabValue, setTabValue] = useState<token_>(token_.Main)
 
     const switchTab = (tabValue) => {
         switch(tabValue){
@@ -65,60 +51,58 @@ const Project = (props) => {
 
     return (
     <>
-    <Header/>
-    <div className= "project">
-        <div className= "project-tab">
-            <div className="location">
-                <span>Support</span>
-                <img src={iconArrowExpend} alt="expend" />
-                <span>FAQ</span>
-                <img src={iconArrowExpend} alt="expend" />
-                <span>Product</span>
-                <img src={iconArrowExpend} alt="expend" />
-                <span>Git 서비스 사용 방법</span>
-            </div>
-
-            <div className="top_tab">
-                <div className="btnbox">
-                    <div className = {tabValue === 0 ? `btnbox-open` : `btnbox-close` } onClick = {()=>changeURL('main')}>Main</div>
-                    <div className = {tabValue === 1 ? `btnbox-open` : `btnbox-close` } onClick = {()=>changeURL('issues')}>Issues</div>
+        <Header/>
+        <div className= "project">
+            <div className= "project-tab">
+                <div className="location">
+                    <span>Support</span>
+                    <img src={iconArrowExpend} alt="expend" />
+                    <span>FAQ</span>
+                    <img src={iconArrowExpend} alt="expend" />
+                    <span>Product</span>
+                    <img src={iconArrowExpend} alt="expend" />
+                    <span>Git 서비스 사용 방법</span>
                 </div>
-                <div className="aside_menu">
-                    <button onClick={clickBtnMenu}><img src={menuDot} alt="menu" /></button>
-                    {
-                        isShowAsideMenu && 
-                        <ul className="depth2">
-                            <li>
-                                <button onClick={clickNavDepth1}>
-                                    Project
-                                    <img src={iconHeadUp} className='icon_head_up' alt="arrow" />
-                                    <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
-                                </button>
-                                <ul>
-                                    <li><button>Main</button></li>
-                                    <li><button>Issues</button></li>
-                                    <li><button>Files</button></li>
-                                    <li><button>collaborators</button></li>
-                                </ul>
-                            </li>
-                            <li><button>Settings</button></li>
-                            <li><button>Project status</button></li>
-                        </ul>
-                    }
-                </div>
-            </div>
-            <div className="publishFile">
-                <SideLeft/>
-                <SideRight/>
-            </div>
 
-            <div className = "project-view">
-                {
-                    switchTab(tabValue)
-                } 
+                <div className="top_tab">
+                    <div className="btnbox">
+                        <div className = {tabValue === 0 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(0)}>Main</div>
+                        <div className = {tabValue === 1 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(1)}>Issues</div>
+                    </div>
+                    <div className="aside_menu">
+                        <button onClick={clickBtnMenu}><img src={menuDot} alt="menu" /></button>
+                        {
+                            isShowAsideMenu && 
+                            <ul className="depth2">
+                                <li>
+                                    <button onClick={clickNavDepth1}>
+                                        Project
+                                        <img src={iconHeadUp} className='icon_head_up' alt="arrow" />
+                                        <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
+                                    </button>
+                                    <ul>
+                                        <li><button>Main</button></li>
+                                        <li><button>Issues</button></li>
+                                        <li><button>Files</button></li>
+                                        <li><button>collaborators</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>Settings</button></li>
+                                <li><button>Project status</button></li>
+                            </ul>
+                        }
+                    </div>
+                </div>
+                <div className="publishFile">
+                    <ProjectLeftSidebar projectId={id}/>
+                    <ProjectRightSidebar projectId={id}/>
+                </div>
+
+                <div className = "project-view"> 
+                    {switchTab(tabValue)}
+                </div>
             </div>
         </div>
-    </div>
     </>
     )
 }

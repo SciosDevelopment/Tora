@@ -28,9 +28,6 @@ import PostDetail from '../pages/Post/Detail'
 import MyPage from '../pages/MyPage'
 import MyPageSetting from '../pages/MyPage/Setting'
 
-//ProjectMain
-import ProjectMain from '../pages/Project2'
-
 //IDE
 import IDE from '../pages/IDE'
 
@@ -83,19 +80,13 @@ const Router:React.FC = () => (
         
         {/* Project */}
         <Route path = "/project" exact component={Project}/>
-        <Route path = "/project/:token" component={Project}/>
-        <Route path = "/project/:token/:id" component={Project}/>
+        <Route path = "/project/:id" component={Project}/>
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
-
-        {/* Project2 */}
-        <Route path = "/project2" exact component={ProjectMain}/>
-        <Route path = "/project2/:token" component={ProjectMain}/>
-        <Route path = "/project2/:token/:id" component={ProjectMain}/>
 
         <Route path = "/authgit" component= {Redirect}/>
     </Switch>

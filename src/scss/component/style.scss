@@ -11,8 +11,7 @@
 @import "pagination.scss";
 @import "searchbar.scss";
 @import "title.scss";
-@import "sideleft.scss";
-@import "sideright.scss";
+
 @import "comment.scss";
 @import "dropdown.scss";
 
@@ -22,6 +21,10 @@
 @import "serviceitem.scss";
 @import "issuecard.scss";
 
+// sidebar
+@import "sidebutton.scss";
+@import "projectleftsidebar.scss";
+@import "projectrightsidebar.scss";
 
 // temp items
 @import "popup.scss";
