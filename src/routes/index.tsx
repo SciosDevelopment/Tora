@@ -38,6 +38,9 @@ import OpenSource from 'src/pages/OpenSource'
 import Project from '../pages/Project'
 import Redirect from '../components/common/github/Redirect'
 
+//Chat2
+import Chat2 from '../components/common/Chat2'
+
 const Router:React.FC = () => (
     <Switch>
         <Route path = "/" exact component={MainPage}/>
@@ -89,6 +92,9 @@ const Router:React.FC = () => (
         <Route path = "/opensource" component={OpenSource}/>
 
         <Route path = "/authgit" component= {Redirect}/>
+
+        {/* Chat2 */}
+        <Route path = "/chat2" component={Chat2}/>
     </Switch>
 )
 
