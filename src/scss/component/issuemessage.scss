@@ -1,0 +1,49 @@
+.issuehistory {
+    @include flexbox(center, center);
+    flex-direction: column;
+    & * {
+        font-size:14px;
+        color:white;
+    }
+    & > div {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    & > .sorted {
+        @include flexbox(flex-start, center);
+        background-color: #2D3243;
+        border-bottom: $IDELine;
+        
+        & > p {
+            margin: 3px 8px 3px 3px;
+            color: gray;
+        }
+
+        & >p.selected {
+            color:white;
+        }
+    }
+
+    & > .historyData {
+        background-color: #2D3243;
+        color:white;
+
+        & > button {
+            @include flexbox(flex-start, flex-start);
+            & > img {
+                margin-right:5px;
+            }
+
+            & > span {
+                margin-top:2px;
+                overflow: hidden;
+                font-size: 12px;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}

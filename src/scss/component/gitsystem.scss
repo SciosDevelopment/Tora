@@ -1,0 +1,56 @@
+.gitsystem {
+    height:100%;
+    background-color: $ColorNavy;
+    
+    & > .header {
+        @include flexbox(space-between, center);
+        height: 38px;
+        line-height: 38px;
+        padding: 10px 7px;
+        border-bottom: $IDELine;
+        background: #1c2239;
+        
+        & > .left {
+            padding: 0 5px;
+            
+            & > button {
+                color: #fff;
+                padding: 0 5px;
+                letter-spacing: 1px;
+            }                 
+        }
+        
+        & > .right {
+            @include flexbox(center, center);
+            margin-right:10px;
+            & button { margin-left: 10px; }
+        }
+    }
+    & > .tab {
+        @include flexbox(space-between, center);
+        
+        & > div {
+            @include flexbox(center, center);   
+            width: 50%;
+            height: 40px;
+            border-right : $IDELine;
+            border-bottom : $IDELine;
+            font-size:14px;
+            color : white;
+        }
+
+        & > div:last-child {
+            border-right: none;
+        }
+
+        & .on {
+            background-color: black;
+            color : #FFB600;
+        }
+
+    }
+
+    & > .body {
+        height: 100%;
+    }
+}

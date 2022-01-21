@@ -6,6 +6,8 @@ import ImageCoding from '../../../img/imagecoding.png'
 import Share from '../../../img/ideshare.png'
 import SideNav from './SideNav'
 import FileView from '../../../components/common/FileView'
+import GitSystem from './GitSystem'
+import SidebarShare from './Share'
 
 const IDESideBar = (props) => {
     const {onSelect, projectId} = props
@@ -13,11 +15,11 @@ const IDESideBar = (props) => {
     
     // temp list, 추후 구현예정
     //common Component - FileView, ERD, CodeCalendar, ImageCoding, Share.
-    const list = [  <FileView setFile={onSelect} projectId ={projectId}/>,
-                    <FileView/>,
-                    <FileView/>,
-                    <FileView/>,
-                    <FileView/> ]
+    const list = [  <FileView setFile={onSelect} projectId ={projectId} isIde={true}/>,
+                    <GitSystem projectId={projectId}/>,
+                    <div/>,
+                    <div/>,
+                    <SidebarShare projectId={projectId}/> ]
 
     const setSideNav = (num)=>{
         // need toggleBtn active

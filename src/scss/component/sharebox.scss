@@ -1,0 +1,53 @@
+// <div className="sharebox">
+//             <div className="header"> Shared address</div>
+//             <div className="body">
+//                 <input type='text'/>
+//                 <div>
+//                     <button>a</button>
+//                     <button>b</button>
+//                 </div>
+//             </div>
+//         </div>
+
+.sharebox {
+    height: 100%;
+    background: $ColorNavy;
+   
+    & > .header {
+        @include flexbox(flex-start, center);
+        height:30px;
+        border-bottom: $IDELine;
+        color: white;
+        font-size: 15px;
+        text-indent: 7px;
+    }
+
+    & > .body {
+        flex-direction: column;
+        @include flexbox(center, center);
+
+        & > input {
+            width: 95%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        & > div {
+            width:100%;
+            @include flexbox(space-between, center);
+
+            & > button {
+                @include flexbox(center, center);   
+                width: 50%;
+                margin: 10px;
+                height: 25px;
+                font-size:14px;
+                border-radius: 5px;
+                background-color: #967421; 
+                color: white;
+            }
+
+            & > button:hover { background-color:#FFB600; }
+        }
+    }
+}
