@@ -3,7 +3,7 @@ import iconBitcoin from '../../../img/img2/icon_bitcoin.png'
 import iconStar from '../../../img/img2/icon_star.png'
 import iconPerson from '../../../img/img2/icon_person.png'
 
-const IssueItem = (props) => {
+const IssuePostItem = (props) => {
     // Issue DataStructure가 정해지면 작성예정
     const {data} = props
     return (
@@ -36,4 +36,4 @@ const IssueItem = (props) => {
     )
 }
 
-export default IssueItem
+export default IssuePostItem

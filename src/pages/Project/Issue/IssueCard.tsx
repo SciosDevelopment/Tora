@@ -17,10 +17,10 @@ const IssueCard = (props) => {
                     API From users repos to fork owner
                 </p>
                 <div className="marks">
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
                 </div>
                 <div className="kind">
                     <span className='red'>Bug</span>

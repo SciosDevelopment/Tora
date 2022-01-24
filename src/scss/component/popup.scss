@@ -492,6 +492,98 @@
     }
   }
 }
+.objectivePopup {
+  z-index: 1;
+  position: absolute;
+  top: 35px;
+  left: -21px;
+  width: 320px;
+  height: 230px;
+  border: 1px solid #1c2239;
+  border-radius: 5px;
+  background: #f2f2f2;
+  padding: 5px 10px;
+  & * {
+    font-size: 12px !important;
+  }
+  & .searchbox {
+      position: relative;
+
+      & input {
+          border: 1px solid #1c2239;
+          border-radius: 5px;
+          height: 23px;
+          width: 100%;
+      }
+
+      & .btn_search {
+          position: absolute;
+          right: 5px;
+          top: 3px;
+      }
+  }
+
+  & h5 {
+      font-size: 12px;
+      color: #928a76;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 5px;
+  }
+
+  & .items {
+      position: relative;
+      background: #fff;
+      border-radius: 5px;
+      padding: 5px;
+      border: 1px solid #1c2239;
+      height: 120px;
+      overflow: auto;
+
+      & button {
+          position: relative;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width: 100%;
+          text-align: left;
+          padding-left: 20px;
+          padding-bottom: 5px;
+          font-weight: bold;
+          font-size: 12px;
+
+          & img {
+              position: absolute;
+              left: 0;
+              top: -3px;
+          }
+      }
+  }
+
+  & .btnbox {
+      @include flexbox(center, center);
+      text-align: center;
+      margin-top: 15px;
+
+      & > * {
+          margin: 0 20px;
+          font-size: 12px;
+      }
+
+      & .btn_confirm {
+          width: 105px;
+          height: 28px;
+          color: #fff !important;
+          border-radius: 5px;
+          background: #1c2239;
+          font-weight: bold;
+      }
+      & .btn_del {
+          color: #f95656 !important;
+          font-weight: bold;
+      }
+  }
+} /* //objectivePopup */
 
 @media screen and (max-width: 780px) {
   .popupIDE.popupNewProject {
