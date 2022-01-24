@@ -26,7 +26,7 @@ const ProjectLeftSidebar = (props) => {
     ]
     return (
         <>
-        <div className="projectLeftSidebar">
+        <div className="ProjectLeftSidebar">
             <div className="wrap">
                 {
                     buttonlist.map((item,idx)=>{
