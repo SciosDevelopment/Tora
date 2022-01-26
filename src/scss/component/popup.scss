@@ -585,6 +585,39 @@
   }
 } /* //objectivePopup */
 
+.searchpopup {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  z-index: 99;
+  width: 252px;
+  
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  padding: 5px 0 20px 0;
+
+  & > .taglist {
+    @include flexbox(space-around, center);
+    flex-wrap: wrap;
+
+    & > mark {
+      flex-basis: 20%;
+    }
+  
+  }
+ & > .option {
+  color:#595D65;
+
+  & > p {
+    margin-left:30px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+ }
+}
+
 @media screen and (max-width: 780px) {
   .popupIDE.popupNewProject {
     left: 0;

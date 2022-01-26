@@ -15,21 +15,11 @@
             & > * {
                 margin-left: 20px;
             }
+            & > .search {
+                width:200px;
+                height: 100%;
+            }  
         }
-
-        & .right .moreTag {
-            background-repeat: no-repeat;
-            background-position: right;
-            border: 1px solid #717f90;
-            font-size: 18px;
-            height: 34px;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 0 15px;
-            margin-right: 30px;
-        }
-
-       
     }
 }
 

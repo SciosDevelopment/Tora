@@ -14,6 +14,7 @@ import Slider from "react-slick"
 import { useMediaQuery } from 'react-responsive'
 import { Sortable } from 'sortablejs'
 import IssueBoard from './IssueBoard'
+import Searchbar from 'src/components/common/Searchbar'
 
 const IssueList = (props) => {
     const {setMode = null, mode = false} = props
@@ -115,11 +116,9 @@ const IssueList = (props) => {
                     <button>Closed</button>
                 </div>
                 <div className="right">
-                    <select className="moreTag" style={{backgroundImage:`url(${iconSelect2})`}}>
-                        <option>More Tag</option>
-                        <option>More Tag1</option>
-                        <option>More Tag2</option>
-                    </select>
+                    <div className="search">
+                        <Searchbar details={true}/>
+                    </div>
                     <button className='btn_menu'><img src={iconMenu}  alt="menu" onClick={()=>setMode(!mode)}/></button>
                 </div>
             </div>
