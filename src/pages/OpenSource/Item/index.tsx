@@ -6,10 +6,10 @@ import userProfile from '../../../img/user_profile.png'
 
 
 const ProjectItem = (props) => {
-    const {data, idx} = props
+    const {data, id} = props
     
     return (
-        <li key={idx}>
+        <li key={id} onClick={()=>{alert(id)}}>
             <div className="item innerShadow">
                 <div className="top">
                     <img src={imgSample} alt="thumbnail" />
@@ -17,27 +17,28 @@ const ProjectItem = (props) => {
                 <div className="btm">
                     <div className="star">
                         <img src={iconStar} alt="star" />
-                        <span>250</span>
+                        <span>{data.like ? data.like : 0}</span>
                     </div>
                     <div className="textbox">
-                        <h4>AWS project new</h4>
+                        <h4>{data.name}</h4>
                         <div className="textInner">
                             <span className="text">
-                            Gestalt: A set of React UI componets that supports .......supports .......supports .......supports .......supports A set of React UI componets that supports .......supports .......supports .......supports .......supports A set of React UI componets that supports .......supports .......supports .......supports .......supports
+                                this is description area. this is empty in db.
+                                this is description area. this is empty in db.
+                                this is description area. this is empty in db.
+                                this is description area. this is empty in db.
                             </span>
-                            <mark className="skillMark">design</mark>
-                            <mark className="skillMark">node.js</mark>
-                            <mark className='skillMark mark_red'>django</mark>
+                            <mark className="skillMark">{data.program_language}</mark>
                         </div>
                     </div>
                 </div>
                 <div className="iconbox">
                     <div className="icon_left">
                         <img src={iconLogoMini} alt="logo" />
-                        <div className="text_comment">
+                        {/* <div className="text_comment">
                             <img src={iconComment} alt="comment" />
                             <span>345</span>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="icon_right">

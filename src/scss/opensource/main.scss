@@ -25,6 +25,8 @@ mark.skillMark {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
 
+  & .options { width:300px; }
+
   & .skillBox {
     width: calc(100% - 230px);
     width: -webkit-calc(100% - 230px);
