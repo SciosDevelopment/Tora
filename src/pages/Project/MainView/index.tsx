@@ -10,11 +10,11 @@ const MainView = (props) => {
     return (
         <div className="MainView">
             <div className="publishFile">
-                <ProjectBoard/>
-                <FeedList/>
+                <ProjectBoard projectId={projectId}/>
+                <FeedList projectId={projectId}/>
             </div>
             <IssueList projectId={projectId}/>
-            <ProjectDescription/>
+            <ProjectDescription projectId={projectId}/>
         </div>
     )
 }

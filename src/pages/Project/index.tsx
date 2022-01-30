@@ -9,12 +9,17 @@ import iconHeadDown from '../../img/img2/icon_head_down.png'
 
 import MainView from './MainView'
 import Issue from './Issue'
+import ProjectCode from './Code'
 import Header from 'src/components/common/Header/Header'
 import ProjectLeftSidebar from 'src/components/common/Sidebar/ProjectLeftSidebar'
 import ProjectRightSidebar from 'src/components/common/Sidebar/ProjectRightSidebar'
+import ProjectCollaborator from './Collaborator'
 
 const Project = (props) => {
-    const {id = 0} = props.match.params
+    const {id = 0, tab} = props.match.params
+    
+    useEffect(()=>{setTabValue(tab)},[tab])
+
     const [isShowPopupProject, setIsShowPopupProject] = useState(false)
     const [isShowAsideMenu, setIsShowAsideMenu] = useState(false)
     const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true)
@@ -27,25 +32,15 @@ const Project = (props) => {
         }
     }
 
-    enum token_ { NOTHING=-1, Main, Issues}
-    const [tabValue, setTabValue] = useState<token_>(token_.Main)
+    enum token_ { Main ="main", Issues="issues", Tree="tree", Collabor="collaborators"}
+    const [tabValue, setTabValue] = useState(token_.Main)
 
     const switchTab = (tabValue) => {
         switch(tabValue){
-            case 0 : {
-                return(
-                    <div className = "tab-mainview">
-                        <MainView/>
-                    </div>
-                )
-            }
-            case 1 : {
-                return(
-                    <div className = "tab-issue">
-                        <Issue/>
-                    </div>
-                )
-            }
+            case token_.Main : return <MainView projectId={id}/>
+            case token_.Issues : return <Issue projectId={id}/>
+            case token_.Tree :  return  <ProjectCode projectId={id}/>
+            case token_.Collabor: return <ProjectCollaborator projectId={id}/>
         }
     }
 
@@ -66,8 +61,10 @@ const Project = (props) => {
 
                 <div className="top_tab">
                     <div className="btnbox">
-                        <div className = {tabValue === 0 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(0)}>Main</div>
-                        <div className = {tabValue === 1 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(1)}>Issues</div>
+                        <div className = {tabValue === token_.Main ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/main`)}>Main</div>
+                        <div className = {tabValue === token_.Issues ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/issues`)}>Issues</div>
+                        <div className = {tabValue === token_.Tree ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/tree`)}>Code</div>
+                        <div className = {tabValue === token_.Collabor ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/collaborators`)}>collaborators</div>
                     </div>
                     <div className="aside_menu">
                         <button onClick={clickBtnMenu}><img src={menuDot} alt="menu" /></button>
@@ -94,8 +91,8 @@ const Project = (props) => {
                     </div>
                 </div>
                 <div className="publishFile">
-                    <ProjectLeftSidebar projectId={id}/>
-                    <ProjectRightSidebar projectId={id}/>
+                    {/* <ProjectLeftSidebar projectId={id}/>
+                    <ProjectRightSidebar projectId={id}/> */}
                 </div>
 
                 <div className = "project-view"> 

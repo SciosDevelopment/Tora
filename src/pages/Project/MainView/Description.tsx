@@ -1,7 +1,7 @@
 import React from 'react'
 
-const ProjectDescription = () => {
-
+const ProjectDescription = (props) => {
+    const {projectId} = props
     // body에 추후 markup viewer 적용
     return (
         <div className="readme innerShadow2">

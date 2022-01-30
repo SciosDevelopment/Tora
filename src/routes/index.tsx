@@ -83,7 +83,8 @@ const Router:React.FC = () => (
         
         {/* Project */}
         <Route path = "/project" exact component={Project}/>
-        <Route path = "/project/:id" component={Project}/>
+        <Route path = "/project/:id/:tab/:dir" component={Project}/>
+        <Route path = "/project/:id/:tab" component={Project}/>
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>

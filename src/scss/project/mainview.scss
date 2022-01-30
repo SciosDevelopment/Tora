@@ -1,6 +1,6 @@
 .MainView {
     @include maxWrap();
-    padding: 0 0;
+    
     & .publishFile {
         @include flexbox(space-between, flex-start);
         position: relative;

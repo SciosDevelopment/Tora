@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ProjectBox = () => {
+const ProjectBox = (props) => {
+    const {projectId} = props
     return (
         <>
         <div className="titlebox">
