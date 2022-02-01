@@ -1,0 +1,77 @@
+.projectSetting {
+    @include maxWrap();    
+    min-height: 720px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    border:1px solid#DBDBDB;
+    overflow: hidden;
+    
+    & > div {
+        margin-bottom: 20px;
+        
+        & > * { margin-top:10px; margin-left:5px;}
+        & *::placeholder {
+            color:#DBDBDB;
+            font-weight: bold;
+        }
+        & input[type=text] {
+            border: 1px solid#DBDBDB;
+            border-radius: 5px;
+            height: 40px;
+        }
+        & > .title { color:#928A76; }
+        
+        & > input[type=text] {
+            width:500px;
+        }
+        & > textarea {
+            border: 1px solid#DBDBDB;
+            border-radius: 5px;
+            width:60%;
+            min-width: 400px;
+            height:200px;
+            resize: none;
+        }
+
+        & > div { // license
+            & > img { width: 100%;}
+
+            & > input { 
+                width:485px;
+                // border-left: none !important;
+                // border-radius: 0 5px 5px 0 !important;
+            }
+        }
+        
+        & > .socialInfo { // Social information
+            @include flexbox(space-between, center);
+            flex-wrap: wrap;
+            & > div {
+                width:50%;
+                margin-bottom: 10px;
+                @include flexbox(flex-start, center);
+                & > input {
+                    width: 60%;
+                    min-width:150px;
+                }
+            }   
+        }
+    }
+
+    & > .btnlist {
+        @include flexbox(center, center);
+
+        & > button {
+            border: 1px solid black;
+            width: 110px;
+            height: 35px;
+            margin: 6px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        & > button:first-child {
+            background-color: $ColorNavy;
+            color: white;
+        }
+    }
+}
