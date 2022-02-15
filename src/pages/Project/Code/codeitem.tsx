@@ -1,4 +1,4 @@
-import iconFolder from '../../../img/img2/icon_left_live.png'
+import iconFolder from '../../../img/icon_left_live.png'
 const CodeItem = (props) => {
     const {projectId} = props    
 

@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 
-import iconPlus from '../../../img/img2/icon_plus.png'
-import imgSample2 from '../../../img/img2/img_sample2.png'
-import iconGit from '../../../img/img2/icon_git.png'
-import iconFacebook from '../../../img/img2/icon_facebook.png'
-import iconYoutube from '../../../img/img2/icon_youtube.png'
-import iconClone from '../../../img/img2/icon_clone.png'
-import arrowCode from '../../../img/img2/arrow_code.png'
+import iconPlus from '../../../img/icon_plus.png'
+import imgSample2 from '../../../img/img_sample2.png'
+import iconGit from '../../../img/icon_git.png'
+import iconFacebook from '../../../img/icon_facebook.png'
+import iconYoutube from '../../../img/icon_youtube.png'
+import iconClone from '../../../img/icon_clone.png'
+import arrowCode from '../../../img/arrow_code.png'
 
 const ProjectRightSidebar = (props) => {
     const {projectId} = props

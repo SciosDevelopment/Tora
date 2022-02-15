@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import iconBranchArrowDownBlack from 'src/img/img2/icon_branch_arrow_down_black.png'
-import iconBranchSearchNavy from 'src/img/img2/icon_branch_search_navy.png'
+import iconBranchArrowDownBlack from 'src/img/icon_branch_arrow_down_black.png'
+import iconBranchSearchNavy from 'src/img/icon_branch_search_navy.png'
 
 const PopupBranchview = (props) => {
     const {projectId, cur, setCur, isIde} = props

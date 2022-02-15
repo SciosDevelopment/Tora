@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
 
-import iconMenu from '../../../img/img2/icon_menu2.png'
-import iconSelect2 from '../../../img/img2/ic_select2.png'
+import iconMenu from '../../../img/icon_menu2.png'
 import IssuePostItem from './IssuePostItem'
-import iconBranchSearch from '../../../img/img2/icon_branch_search.png'
-import iconBranchArrowDownBlack from '../../../img/img2/icon_branch_arrow_down_black.png'
-import iconBranchSearchNavy from '../../../img/img2/icon_branch_search_navy.png'
-import iconArrowIssueTitle from '../../../img/img2/icon_arrow_issue_title.png'
-import iconObjectiveMenu from '../../../img/img2/icon_objective_menu.png'
-import iconObjectiveAdd from '../../../img/img2/icon_objective_add.png'
-import iconIssueDown from '../../../img/img2/icon_issue_down.png'
+import iconBranchArrowDownBlack from '../../../img/icon_branch_arrow_down_black.png'
+import iconBranchSearchNavy from '../../../img/icon_branch_search_navy.png'
+import iconArrowIssueTitle from '../../../img/icon_arrow_issue_title.png'
+import iconObjectiveMenu from '../../../img/icon_objective_menu.png'
+import iconObjectiveAdd from '../../../img/icon_objective_add.png'
+import iconIssueDown from '../../../img/icon_issue_down.png'
 import Slider from "react-slick"
 import { useMediaQuery } from 'react-responsive'
 import { Sortable } from 'sortablejs'
 import IssueBoard from './IssueBoard'
-import Searchbar from 'src/components/common/Searchbar'
+import Searchbar from '../../../components/common/Searchbar'
 
 const IssueList = (props) => {
     const {setMode = null, mode = false} = props

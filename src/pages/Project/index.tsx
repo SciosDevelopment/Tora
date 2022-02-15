@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
 import {history} from '../../configureStore'
-import iconArrowExpend from '../../img/img2/icon_arrow_expend.png'
+import iconArrowExpend from '../../img/icon_arrow_expend.png'
 import MainView from './MainView'
 import Issue from './Issue'
 import ProjectCode from './Code'

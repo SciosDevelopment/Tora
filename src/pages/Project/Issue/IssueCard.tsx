@@ -1,7 +1,7 @@
 import React from 'react'
 
-import iconIssueCoin from '../../../img/img2/icon_issue_coin.png'
-import userSample from '../../../img/img2/user_sample.png'
+import iconIssueCoin from '../../../img/icon_issue_coin.png'
+import userSample from '../../../img/user_sample.png'
 
 const IssueCard = (props) => {
     return (

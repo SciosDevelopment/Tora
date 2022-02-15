@@ -61,15 +61,13 @@ const AsideItems = (props) => {
                         </button>
                         <ul>
                             <li><button>Repository</button></li>
-                            <li><button>Issues</button></li>
                             <li><button>Community</button></li>
+                            <li><button>Issues</button></li>
                             <li><button>Follow</button></li>
-                            <li><button>Snippets</button></li>
                         </ul>
                     </li>
-                    <li><button>Wallet</button></li>
+                    <li><button>Bounty</button></li>
                     <li><button>Account</button></li>
-                    <li><button>activities</button></li>
                 </ul>
                 }
             </li>

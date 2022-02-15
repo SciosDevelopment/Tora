@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Nav from "./Nav"
 import AsideItems from "./AsideItems"
-import logo from '../../../img/guide/logo.png'
+import logo from '../../../img/logo.png'
 import logoWhite from '../../../img/logo_white.png'
 import iconMenuWhite from '../../../img/ic_menu_white.png'
 import iconHeadAdd from '../../../img/ic_head_add.png'

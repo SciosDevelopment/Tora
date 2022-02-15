@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
-import menuDot from '../../../img/img2/menu_dot.png'
-import iconIssueRight from '../../../img/img2/icon_issue_right.png'
-import iconObjectiveAdd from '../../../img/img2/icon_objective_add.png'
+import menuDot from '../../../img/menu_dot.png'
+import iconIssueRight from '../../../img/icon_issue_right.png'
+import iconObjectiveAdd from '../../../img/icon_objective_add.png'
 import IssueBoardItem from './IssueCard'
 import { Sortable } from 'sortablejs'
 

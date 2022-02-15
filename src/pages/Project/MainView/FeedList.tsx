@@ -1,5 +1,5 @@
 import React from 'react'
-import feedLine from '../../../img/img2/feed_line.png'
+import feedLine from '../../../img/feed_line.png'
 import FeedItem from './FeedItem'
 
 const FeedList = (props) => {

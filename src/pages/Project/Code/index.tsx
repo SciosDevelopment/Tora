@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import iconArrowIssueTitle from '../../../img/img2/icon_arrow_issue_title.png'
-import iconFolder from '../../../img/img2/icon_left_live.png'
+import iconArrowIssueTitle from '../../../img/icon_arrow_issue_title.png'
+import iconFolder from '../../../img/icon_left_live.png'
 import CodeDetail from './codeDetail'
 import CodeItem from './codeitem'
 const ProjectCode = (props) => {

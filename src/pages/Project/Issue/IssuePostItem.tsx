@@ -1,7 +1,7 @@
 import React from 'react'
-import iconBitcoin from '../../../img/img2/icon_bitcoin.png'
-import iconStar from '../../../img/img2/icon_star.png'
-import iconPerson from '../../../img/img2/icon_person.png'
+import iconBitcoin from '../../../img/icon_bitcoin.png'
+import iconStar from '../../../img/icon_star.png'
+import iconPerson from '../../../img/icon_person.png'
 
 const IssuePostItem = (props) => {
     // Issue DataStructure가 정해지면 작성예정

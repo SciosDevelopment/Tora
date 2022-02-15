@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import {history} from '../../../configureStore'
-import Bell from 'src/img/ide/icon_bell.png'
-import iconUser from 'src/img/ide/icon_user.png'
-import iconExit from 'src/img/ide/icon_exit.png'
+import Bell from 'src/img/icon_bell.png'
+import iconUser from 'src/img/icon_user.png'
+import iconExit from 'src/img/icon_exit.png'
 
 const IDEHeaderOption = () => {
     const openPage = (url) => { history.push(url) }
