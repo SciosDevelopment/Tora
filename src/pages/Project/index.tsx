@@ -7,8 +7,9 @@ import Issue from './Issue'
 import ProjectCode from './Code'
 import Header from 'src/components/common/Header/Header'
 import ProjectCollaborator from './Collaborator'
-import ProjectStatus from './Status'
 import ProjectSetting from './Setting'
+import ProjectLeftSidebar from 'src/components/common/Sidebar/ProjectLeftSidebar'
+import ProjectRightSidebar from 'src/components/common/Sidebar/ProjectRightSidebar'
 
 const Project = (props) => {
     const {id = 0, tab} = props.match.params
@@ -27,7 +28,7 @@ const Project = (props) => {
         }
     }
 
-    enum token_ { Main ="main", Issues="issues", Tree="tree", Collabor="collaborators", Status="status", Setting="setting"}
+    enum token_ { Main ="main", Issues="issues", Tree="tree", Collabor="collaborators", Setting="setting"}
     const [tabValue, setTabValue] = useState(token_.Main)
 
     const switchTab = (tabValue) => {
@@ -36,7 +37,6 @@ const Project = (props) => {
             case token_.Issues : return <Issue projectId={id}/>
             case token_.Tree :  return  <ProjectCode projectId={id}/>
             case token_.Collabor: return <ProjectCollaborator projectId={id}/>
-            case token_.Status : return <ProjectStatus projectId={id}/>
             case token_.Setting : return <ProjectSetting projectId={id}/>
         }
     }
@@ -66,13 +66,12 @@ const Project = (props) => {
                     </div>
                     {/* right */}
                     <div className="btnbox">
-                        <div className = {tabValue === token_.Status ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/status`)}>Status</div>
                         <div className = {tabValue === token_.Setting ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/setting`)}>Setting</div>
                     </div>
                 </div>
                 <div className="publishFile">
-                    {/* <ProjectLeftSidebar projectId={id}/>
-                    <ProjectRightSidebar projectId={id}/> */}
+                    <ProjectLeftSidebar projectId={id}/>
+                    <ProjectRightSidebar projectId={id}/>
                 </div>
 
                 <div className = "project-view"> 

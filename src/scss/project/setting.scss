@@ -34,6 +34,7 @@
         }
 
         & > div { // license
+            
             & > img { width: 100%;}
 
             & > input { 
@@ -42,7 +43,17 @@
                 // border-radius: 0 5px 5px 0 !important;
             }
         }
-        
+
+        & > .delete {            
+            width: 150px;
+            height: 40px;
+            border: 1px solid #707070;
+            border-radius: 5px;
+            background: #F2F2F2;
+            color: red;
+            font-weight: bold;
+        }
+
         & > .socialInfo { // Social information
             @include flexbox(space-between, center);
             flex-wrap: wrap;

@@ -23,34 +23,12 @@ const ProjectSetting = (props) => {
                 </div>
             </div>
             <div>
-                <div className="title">Social information</div>
-                <div className="socialInfo">
-                    <div>
-                        <img src="#" alt="email"/>
-                        <input type="text" placeholder="이메일 주소를 입력해주세요"/>
-                    </div>
-                    <div>
-                        <img src="#" alt="youtube"/>
-                        <input type="text" placeholder="유튜브 주소를 입력해주세요"/>
-                    </div>
-                    <div>
-                        <img src="#" alt="github"/>
-                        <input type="text" placeholder="Github 계정을 입력해주세요"/>
-                    </div>
-                    <div>
-                        <img src="#" alt="gitlab"/>
-                        <input type="text" placeholder="GitLab 계정을 입력해주세요"/>
-                    </div>
-                    <div>
-                        <img src="#" alt="facebook"/>
-                        <input type="text" placeholder="페이스북 주소를 입력해주세요"/>
-                    </div>
-                    <div>
-                        <img src="#" alt="twiter"/>
-                        <input type="text" placeholder="트위터 계정을 입력해주세요"/>
-                    </div>
-                </div>
+                <div className="title">Delete</div>
+                <button className="delete" onClick={()=>alert("delete")}>
+                    Delete Project
+                </button>
             </div>
+
             <div className="btnlist">
                 <button onClick={()=>alert("확인")}>
                     Save changes
