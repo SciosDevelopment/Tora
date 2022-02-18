@@ -9,25 +9,33 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
     const [projectname, setProjectname] = useState("")
     const [pub, setPub] = useState(true)
     const [lang, setLang] = useState(null)
+    const langData = [ {value:"clang", text:"C/C++"},
+                       {value:"csharp", text:"C#"}, 
+                       {value:"html", text:"HTML/CSS/JS"},
+                       {value:"python", text:"python"},
+                       {value:"django", text:"Django"},
+                       {value:"java", text:"Java"},
+                       {value:"spring", text:"Spring"},
+                       {value:"react", text:"React"},
+                       {value:"reactnative", text:"React Native"},
+                       {value:"vuejs", text:"Vue.js"},
+                       {value:"nodejs", text:"Node.js"},
+                       {value:"ruby", text:"Ruby"},
+                       {value:"rails", text:"Rails"},
+                       {value:"golang", text:"Go"},
+                       {value:"php", text:"PHP"}]
+                       
     const clickTab = (e) => setTab(e)
     const clickClose = () => setIsShowPopupProject(false)
     const clickConfirm = () => {
         switch(tab) {
-            case 'new':
-                return NewProjectFromTora()
-            case 'from':
-                return ImportFromProject()
-            case 'git':
-                return ImportFromGithub()
+            case 'new': return NewProjectFromTora()
+            case 'git': return ImportFromGithub()
         }
     }
 
     const NewProjectFromTora = () => {
         CreateNewProject("tora")
-    }
-
-    const ImportFromProject = () => {
-        // CreateNewProject("tora")
     }
 
     const ImportFromGithub = () => {
@@ -80,8 +88,7 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
                     <div className="h40"/>
                     <p className="title">Program Language</p>
                     <select style={{backgroundImage:`url(${iconSelect3})`}} onChange={handleChangeSelect} value={lang}>
-                        <option value="javascript">javascript</option>
-                        <option value="python">python</option>
+                        {langData.map((data)=>{return <option value={data.value}>{data.text}</option>})}
                     </select>
                 </div>
                 <div className="right">
@@ -91,29 +98,6 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
                     </div>
                 </div>
            </>
-        )
-    }
-
-    const ImportFromProjectView = () => {
-        return ( // from 
-            <>
-                <div className="left">
-                    <p className="title">Import from project</p>
-                    <input type="text"/>
-                    <div className="h40"/>
-                    <p className="title">project import</p>
-                    <label className="fileSelection">
-                        <input type="file"/>
-                        <p>File Selection</p>
-                    </label>
-                </div>
-                <div className="right">
-                    <div className="toggleButton innerShadow">
-                        <button className= {pub && "on"} onClick={()=>setPub(true)}>Public</button>
-                        <button className= {!pub && "on"} onClick={()=>setPub(false)}>Private</button>
-                    </div>
-                </div>
-            </>
         )
     }
 
@@ -136,15 +120,11 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
 
     const FormBody = () => {
         switch(tab) {
-            case 'new':
-                return <CreateNewProjectView/>
-            case 'from':
-                return <ImportFromProjectView/>
-            case 'git':
-                return <ImportFromGithubView/>
+            case 'new': return <CreateNewProjectView/>
+            case 'git': return <ImportFromGithubView/>
         }
-
     }
+
     return (
         <>
         {
@@ -154,7 +134,6 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
                     <div className="popupBody">
                         <div className="topBtn">
                             <button onClick={() => clickTab('new')} className={tab == 'new' && 'on'}>Create new project</button>
-                            <button onClick={() => clickTab('from')} className={tab == 'from' && 'on'}>Import from project</button>
                             <button onClick={() => clickTab('git')} className={tab == 'git' && 'on'}>Import from Github</button>
                         </div>
                         <div className="form">

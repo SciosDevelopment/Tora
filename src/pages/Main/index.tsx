@@ -15,6 +15,7 @@ import { useMediaQuery } from 'react-responsive'
 import Header from '../../components/common/Header/Header'
 import GoTop from '../../components/common/Header/GoTop'
 import Footer from '../../components/common/Footer'
+import { Link } from 'react-router-dom'
 
 const MainPage = () => {
 
@@ -44,20 +45,18 @@ const MainPage = () => {
                     and rewards through follow and open source projects
                 </div>
                 <div className="btn">
-                    <a href="#">Try Project</a>
-                    <a href="#">Try Community</a>
+                    <Link to="/opensource">Try Project</Link>
+                    <Link to="/post">Try Community</Link>
                 </div>
             </div>
 
             {
-                !isPc && <img src={section1Mobile} alt="section1" />
+                !isPc && <img src={section1Mobile} alt="section1"/>
             }
         </div>
 
         <div className="section2">
-            {
-            isPc && <img src={img2} alt="section2 img" />
-            }
+            { isPc && <img src={img2} alt="section2 img"/> }
             
             <div className = "discription">
                 Use the translation function of
@@ -67,9 +66,7 @@ const MainPage = () => {
                 opinions with people around the world
             </div>
 
-            {
-                !isPc && <img src={img2Mobile} alt="section2 img" />
-            }
+            { !isPc && <img src={img2Mobile} alt="section2 img" /> }
         </div>
 
         

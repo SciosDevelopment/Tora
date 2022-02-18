@@ -9,9 +9,6 @@ import Logout from '../pages/Login/Logout'
 import ChangePassword from '../pages/Login/ChangePassword'
 import Confirm from '../pages/Login/Confirm'
 
-// Business
-import Business from '../pages/Business'
-
 // Service : ServiceMain, ServiceList
 import ServiceMain from '../pages/Service'
 import ServiceList from '../pages/Service/ServiceList'
@@ -49,7 +46,7 @@ const Router:React.FC = () => (
         <Route path = "/login" render={()=><Login page="login"/>}/>
         <Route path = "/logout" component={Logout}/>
         <Route path = "/signup" render={()=><Login page="signup"/>}/>
-        <Route path = "/reset_pw/" render={()=><Login page="reset_pw"/>}/>
+        <Route path = "/reset_pw" render={()=><Login page="reset_pw"/>}/>
         <Route path = "/secess" render={()=><Login page="secess"/>}/>
 
         <Route path = "/change_pw" exact component={ChangePassword}/>
@@ -57,9 +54,6 @@ const Router:React.FC = () => (
 
         <Route path = "/confirm/signup/:token"  component={Confirm}/>
         <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
-
-        {/* Business */}
-        <Route path = "/business" component={Business}/>
 
         {/* Service */}
         <Route path = "/service" exact component={ServiceMain}/>
@@ -88,11 +82,12 @@ const Router:React.FC = () => (
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
+        <Route path = "/ide/:projectid" component={IDE}/>
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
 
-        <Route path = "/authgit" component= {Redirect}/>
+        <Route path = "/authgit" component={Redirect}/>
 
         {/* Chat2 */}
         <Route path = "/chat2" component={Chat2}/>
