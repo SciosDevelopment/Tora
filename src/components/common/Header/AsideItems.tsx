@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import iconBell from '../../../img/ic_bell.png'
-import iconWallet from '../../../img/ic_wallet.png'
 import iconPerson from '../../../img/ic_person.png'
-import iconBellWhite from '../../../img/ic_bell_white.png'
-import iconWalletWhite from '../../../img/ic_wallet_white.png'
 import iconPersonWhite from '../../../img/icon_person_white.png'
 import iconDownWhite from '../../../img/ic_arrow_down.png'
 import iconHeadDown from '../../../img/icon_head_down.png'
@@ -12,6 +8,7 @@ import iconHeadUp from '../../../img/icon_head_up.png'
 import {useCookies} from 'react-cookie'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { history } from 'src/configureStore'
 
 const AsideItems = (props) => {
     const {isMain} = props    
@@ -22,6 +19,7 @@ const AsideItems = (props) => {
 
     const clickUserButton = () => {
         if( !isMain ) { setIsShowPopupUser(isShowPopupUser ? false : true) }
+        else history.push("/dashboard")
     }
 
     const clickNavDepth1 = (e) => {
@@ -33,7 +31,8 @@ const AsideItems = (props) => {
     }
     const AlreadyLogin = () => {
         return <>
-            <li>
+            {/* 기능 연결시 사용 */}
+            {/* <li>
                 <button>
                     <img src={isMain ? iconBell : iconBellWhite} alt="알림" />
                 </button>
@@ -42,7 +41,7 @@ const AsideItems = (props) => {
                 <button>
                     <img src={isMain ? iconWallet : iconWalletWhite} alt="지갑" />
                 </button>
-            </li>
+            </li> */}
             <li>
                 <button className="btn_head_user" onClick={clickUserButton}>
                     <img src={isMain ? iconPerson : iconPersonWhite} className="iconPerson" alt="내정보" />
@@ -76,11 +75,23 @@ const AsideItems = (props) => {
 
     const NotLogin = () =>{
         return (
-            <Link to="/login">
-                <button className="btn_head_user">
-                    <img src={isMain ? iconPerson : iconPersonWhite} alt="Login" />    
-                </button>
-            </Link>
+            <>
+            <div className="RightTextMenu">
+                <Link to="/login">
+                    {/* <button className="btn_head_user">
+                        <img src={isMain ? iconPerson : iconPersonWhite} alt="Login" />
+                    </button> */}
+                    Sign in
+                </Link>
+                
+                <Link to="/signup">
+                    {/* <button className="btn_head_user">
+                        <img src={isMain ? iconPerson : iconPersonWhite} alt="Signup"/>    
+                    </button> */}
+                    Sign up
+                </Link>
+            </div>
+            </>
         )
     }
     return (isLogin ? <AlreadyLogin/> : <NotLogin/>)

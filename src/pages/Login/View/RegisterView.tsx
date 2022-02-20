@@ -76,50 +76,36 @@ const RegisterView:React.FC = () => {
 
     return (
         <div className = "signup">
-            <div className="title">
-                <p>Sign Up for Tora!</p>
-            </div>
-            <div className = "formcontainer">
-                <div className = "form">
-                    <div className = "title2">
-                        <p>UserName</p>
+            <div>
+            <p>We always support you!</p>
+                <div className = "formcontainer">
+                    <div className = "form">
+                        <div className = "title"><p>UserName</p></div>
+                        <div className = "container">   
+                            <input type = "text" name="username" required value = {userInfo.username} onChange = {handleChange}/>
+                        </div>
+                        <div className = "title"><p>Email Address</p></div>
+                        <div className = "container">
+                            <input type = "text" required name="email" value = {userInfo.email} onChange = {handleChange}/>
+                        </div>
+                        <div className = "title"><p>Password</p></div>
+                        <div className = "container">
+                            <input type = "password" required name="pw" value = {userInfo.pw} onChange = {handleChange}/> 
+                        </div>
+                        <div className = "title"><p>Verify-Password</p></div>
+                        <div className = "container">
+                            <input type = "password" required name="verify_pw" value = {userInfo.verify_pw} onChange = {handleChange}/> 
+                        </div>
+                        <button onClick={register}>Create account</button>
                     </div>
-                    <div className = "input">   
-                        <input type = "input" placeholder = "UserName" name="username" required value = {userInfo.username} onChange = {handleChange}/>
-                    </div>
-                    <div className = "title2">
-                        <p>Email (ID)</p>
-                    </div>
-                    <div className = "input">
-                        <input type = "input" placeholder = "Email (ID)" required name="email" value = {userInfo.email} onChange = {handleChange}/>
-                    </div>
-                    <div className = "title2">
-                        <p>Password</p>
-                    </div>
-                    <div className = "input">
-                        <input type = "password" placeholder = "Password" required name="pw" value = {userInfo.pw} onChange = {handleChange}/> 
-                    </div>
-                    <div className = "title2">
-                        <p>Verify-Password</p>
-                    </div>
-                    <div className = "input">
-                        <input type = "password" placeholder = "Verify-Password" required name="verify_pw" value = {userInfo.verify_pw} onChange = {handleChange}/> 
+
+                    <div className = "etcInfo">
+                        <div className = "wrapper">
+                            <p>By clicking Register, I agree that I have read and <br/> accepted the ToraPod <a>Terms of Use and Privacy</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className = "information">
-                <div className = "subinfo">
-                    <input type='none' value=""/>
-                    <p>500MB 제공</p>
-                </div>
-                <div className = "subinfo">
-                    <input type='none' value=""/>
-                    <p>화상코딩 50명까지</p>
-                </div>
-            </div>
-            <div className = "btn-signup">              
-                <input type = "submit" value = "Sign-Up" onClick={register}/>
-            </div>       
         </div>
     )
 }

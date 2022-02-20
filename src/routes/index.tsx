@@ -37,6 +37,7 @@ import Redirect from '../components/common/github/Redirect'
 
 //Chat2
 import Chat2 from '../components/common/Chat2'
+import NotFound from 'src/pages/etc/NotFound'
 
 const Router:React.FC = () => (
     <Switch>
@@ -47,7 +48,6 @@ const Router:React.FC = () => (
         <Route path = "/logout" component={Logout}/>
         <Route path = "/signup" render={()=><Login page="signup"/>}/>
         <Route path = "/reset_pw" render={()=><Login page="reset_pw"/>}/>
-        <Route path = "/secess" render={()=><Login page="secess"/>}/>
 
         <Route path = "/change_pw" exact component={ChangePassword}/>
         <Route path = "/change_pw/:token" component={ChangePassword}/>
@@ -91,6 +91,8 @@ const Router:React.FC = () => (
 
         {/* Chat2 */}
         <Route path = "/chat2" component={Chat2}/>
+        {/* 404 */}
+        <Route path = "*" component={NotFound} />
     </Switch>
 )
 

@@ -11,8 +11,8 @@ const ChangePasswordView = (tk:TokenProps) => {
 
     useEffect(()=>{
         if(token === undefined) {
-            alert("token is invalid") 
-            history.replace("/")
+            // alert("token is invalid") 
+            //history.replace("/")
         }
     },[])
 
@@ -78,24 +78,23 @@ const ChangePasswordView = (tk:TokenProps) => {
     return (
         <div className = "changePassword">
             <div className = "title">
-                {`Please fill out the password you want to change`}
+                <p>Please fill out the password you want to change</p>
             </div>
             <div className = "form">
                 <div className = "title">
                     <p>Password to change</p>
                 </div>
-                <div className = "inputcontainer">
+                <div className = "container">
                     <input name = "new_password" type = "password" required value = {PWgroup.new_password} onChange={handleChange}/>
                 </div>
                 <div className = "title">
                     <p>Confirm Password to Change</p>
                 </div>
-                <div className = "inputcontainer">
+                <div className = "container">
                     <input name = "confirm_password" type= "password" required value = {PWgroup.confirm_password} onChange={handleChange}/>
                 </div>
-                <div className = "submitcontainer">
-                    <button onClick={changePw}>Confirm change</button>
-                </div>
+                
+                <button onClick={changePw}>Confirm change</button>
             </div>
         </div>
     )

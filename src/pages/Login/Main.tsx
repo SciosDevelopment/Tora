@@ -3,7 +3,6 @@ import Footer from '../../components/common/Footer'
 import LoginView from './View/LoginView'
 import RegisterView from './View/RegisterView'
 import ResetPasswordView from './View/ResetPasswordView'
-import SecessionView from './View/SecessionView'
 
 const LoginMain = (props) => {
     const {page} = props    
@@ -13,7 +12,6 @@ const LoginMain = (props) => {
             case "login":       return <LoginView/>
             case "signup":      return <RegisterView/>
             case "reset_pw":    return <ResetPasswordView/>
-            case "secess":      return <SecessionView/>
         }
     }
 
