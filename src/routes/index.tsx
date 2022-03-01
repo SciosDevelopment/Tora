@@ -16,10 +16,10 @@ import ServiceList from '../pages/Service/ServiceList'
 // License
 import LicenseMain from '../pages/License'
 
-// Post
-import Post from '../pages/Post'
-import PostWrite from '../pages/Post/Write'
-import PostDetail from '../pages/Post/Detail'
+// Community
+import CommunityMain from '../pages/Community'
+import PostWrite from '../pages/Community/Post/Write'
+import PostDetail from '../pages/Community/Post/Detail'
 
 //MyPage
 import MyPage from '../pages/MyPage'
@@ -38,6 +38,7 @@ import Redirect from '../components/common/github/Redirect'
 //Chat2
 import Chat2 from '../components/common/Chat2'
 import NotFound from 'src/pages/etc/NotFound'
+
 
 const Router:React.FC = () => (
     <Switch>
@@ -64,12 +65,12 @@ const Router:React.FC = () => (
         <Route path = "/license" component={LicenseMain}/>      
 
         {/* Post */}
-        <Route path = "/post" exact component={Post}/>
-        <Route path = "/post/edit/:id" component={PostWrite}/>
-        <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/:sorted/:query" component={Post}/>
-        <Route path = "/post/:id" component={PostDetail}/>
-
+        <Route path = "/community/post/edit/:id" component={PostWrite}/>
+        <Route path = "/community/post/write" component={PostWrite}/>
+        <Route path = "/community/post/:id" component={PostDetail}/>
+        <Route path = "/community/:page" exact component={CommunityMain}/>
+        <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
+        
         {/* MyPage */}
         <Route path = "/mypage/me/setting" exact component={MyPageSetting}/>
         <Route path = "/mypage/:username" component={MyPage}/>
@@ -91,6 +92,7 @@ const Router:React.FC = () => (
 
         {/* Chat2 */}
         <Route path = "/chat2" component={Chat2}/>
+
         {/* 404 */}
         <Route path = "*" component={NotFound} />
     </Switch>

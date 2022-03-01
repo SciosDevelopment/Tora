@@ -64,12 +64,14 @@ const Nav = (props) => {
           </button>
           <ul className="dropdown">
             <li> 
-              <Link to="/post">
+              <Link to="/community/post">
                 <button onClick={clickNavDepth1}>Community</button>
               </Link>
             </li>
             <li>
+              <Link to="/community/bounty">
               <button onClick={clickNavDepth1}>Issue bounties</button>
+              </Link>
             </li>
           </ul>
         </li>

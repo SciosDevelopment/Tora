@@ -1,12 +1,12 @@
 import { useEffect, useState} from 'react'
 import moment from 'moment'
-import Profile from '../../../../img/profile4.png'
-import Option from '../../../../img/modify.png'
-import {history} from '../../../../configureStore'
+import Profile from '../../../../../img/profile4.png'
+import Option from '../../../../../img/modify.png'
+import {history} from '../../../../../configureStore'
 import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer'
 import '@toast-ui/editor/dist/toastui-editor-viewer.css'
 import {useCookies} from 'react-cookie'
-import useUser from '../../../../hooks/useUser'
+import useUser from '../../../../../hooks/useUser'
 
 const PostMainText = (props) => {
     const {data, showOptions} = props

@@ -46,7 +46,7 @@ const MainPage = () => {
                 </div>
                 <div className="btn">
                     <Link to="/opensource">Try Project</Link>
-                    <Link to="/post">Try Community</Link>
+                    <Link to="/community/post">Try Community</Link>
                 </div>
             </div>
 

@@ -1,12 +1,12 @@
-import Header from '../../../components/common/Header/Header'
+import Header from '../../../../components/common/Header/Header'
 import MainText from './MainText'
-import CommentList from '../../../components/common/CommentList'
+import CommentList from '../../../../components/common/CommentList'
 
 import { useState, useEffect } from 'react'
-import {history} from '../../../configureStore'
+import {history} from '../../../../configureStore'
 import axios from 'axios'
 import {useCookies} from 'react-cookie'
-import useUser from '../../../hooks/useUser'
+import useUser from '../../../../hooks/useUser'
 
 const PostDetailMain = (props) => {
     const {id} = props.match.params
@@ -21,7 +21,7 @@ const PostDetailMain = (props) => {
     useEffect(()=> {
         // post list sorted.
         if(id === "best" || id === "new") {
-            history.replace(`/post/${id}/\n`) 
+            history.replace(`/community/post/${id}/\n`) 
             return
         }
 
@@ -43,7 +43,7 @@ const PostDetailMain = (props) => {
     
     const editPost = () => {
         if(cookies.ToraNoID != Post.user_id && onGetUserID != Post.user_id) return
-        history.push(`/post/edit/${id}`)
+        history.push(`/community/post/edit/${id}`)
     }
 
     const deletePost = () => {

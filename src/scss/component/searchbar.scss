@@ -1,7 +1,7 @@
 .searchbarContainer {
     width:100%;
     position:relative;
-    @include flexbox("center","center");
+    @include flexbox(center,center);
 
     & > * {margin-left:10px;}
     & > .searchbar {

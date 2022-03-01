@@ -49,6 +49,9 @@ const AsideItems = (props) => {
                         !isMain && <img src={iconDownWhite} className="icon_down_white" alt="하위메뉴보기" />
                     }
                 </button>
+                <button className="btn_head_user" onClick={()=> {history.push("/logout")}}>
+                    <img src={isMain ? iconPerson : iconPersonWhite} className="iconPerson" alt="로그아웃" /> {/*아이콘 변경 필요*/}
+                </button>
                 {
                 isShowPopupUser && 
                 <ul className="dropdown">
@@ -76,7 +79,7 @@ const AsideItems = (props) => {
     const NotLogin = () =>{
         return (
             <>
-            <div className="RightTextMenu">
+            <div className={`RightTextMenu ${isMain ? '': 'white'}`}>
                 <Link to="/login">
                     {/* <button className="btn_head_user">
                         <img src={isMain ? iconPerson : iconPersonWhite} alt="Login" />

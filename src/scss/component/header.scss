@@ -1,5 +1,5 @@
 .Header {
-    z-index: 999;
+    z-index: 900;
     position: absolute;
     top: 0;
     left: 0;
@@ -82,6 +82,10 @@
         // Header - Signin, Signup
         & > .RightTextMenu > * {
           padding: 5px 10px;
+          color : black;
+        }
+
+        & > .RightTextMenu.white > * {
           color : white;
         }
 
@@ -119,7 +123,7 @@
 
 // DropdownMenu
 ul.dropdown {
-    z-index: 999;
+    z-index: 990;
     border-radius: 10px;
     padding: 25px;
     background: #fff;
@@ -335,7 +339,7 @@ ul.dropdown {
     }
   
     .navMobile {
-      z-index: 1;
+      z-index: 999;
       position: fixed;
       top: 0;
       left: 100%;

@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Editor } from '@toast-ui/react-editor'
 import axios from 'axios'
 import {useCookies} from 'react-cookie'
-import Header from '../../../components/common/Header/Header'
-import MarkdownEditor from '../../../components/common/MarkdownEditor'
-import {history} from '../../../configureStore'
+import Header from '../../../../components/common/Header/Header'
+import MarkdownEditor from '../../../../components/common/MarkdownEditor'
+import {history} from '../../../../configureStore'
 
 const PostWritePage = (props) => {
     const editorRef = React.createRef<Editor>()
@@ -112,7 +112,7 @@ const PostWritePage = (props) => {
         .then((res)=>{
             alert("글수정이 완료되었습니다.")
             resetContents()
-            history.replace(`/post/${res.data.data.id}`)
+            history.replace(`/community/post/${res.data.data.id}`)
         })
         .catch((e)=>{alert("server error")})
     }
@@ -131,7 +131,7 @@ const PostWritePage = (props) => {
         .then((res)=>{
             alert("글쓰기가 완료되었습니다.")
             resetContents()
-            history.replace(`/post/${res.data.data.id}`)
+            history.replace(`/community/post/${res.data.data.id}`)
         }).catch((e)=>{alert("server error")})
     }
 
