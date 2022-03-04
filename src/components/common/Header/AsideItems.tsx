@@ -4,18 +4,19 @@ import iconPersonWhite from '../../../img/icon_person_white.png'
 import iconDownWhite from '../../../img/ic_arrow_down.png'
 import iconHeadDown from '../../../img/icon_head_down.png'
 import iconHeadUp from '../../../img/icon_head_up.png'
+import iconBell from '../../../img/ic_bell.png'
+import iconBellWhite from '../../../img/ic_bell_white.png'
+// temp img
+import iconLogout from '../../../img/tora-logout-icon.png'
+import iconLogoutWhite from '../../../img/tora-logout-icon@2x.png'
 
-import {useCookies} from 'react-cookie'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { history } from 'src/configureStore'
 
 const AsideItems = (props) => {
-    const {isMain} = props    
+    const {isMain, isLogin} = props    
     const [isShowPopupUser, setIsShowPopupUser] = useState(false)    
-    // temp
-    const [cookies,] = useCookies(['ToraLoginToken'])
-    const isLogin = axios.defaults.headers.common['Authorization'] !== undefined && cookies.ToraLoginToken === axios.defaults.headers.common['Authorization']
+    
 
     const clickUserButton = () => {
         if( !isMain ) { setIsShowPopupUser(isShowPopupUser ? false : true) }
@@ -29,19 +30,19 @@ const AsideItems = (props) => {
             e.target.parentElement.classList.add('on')
         }
     }
+
+    const movePage = (page) =>{
+        history.push(page)
+    }
     const AlreadyLogin = () => {
         return <>
             {/* 기능 연결시 사용 */}
-            {/* <li>
-                <button>
+
+            <li>
+                <button onClick={()=>movePage("dashboard/log")}>
                     <img src={isMain ? iconBell : iconBellWhite} alt="알림" />
                 </button>
             </li>
-            <li>
-                <button>
-                    <img src={isMain ? iconWallet : iconWalletWhite} alt="지갑" />
-                </button>
-            </li> */}
             <li>
                 <button className="btn_head_user" onClick={clickUserButton}>
                     <img src={isMain ? iconPerson : iconPersonWhite} className="iconPerson" alt="내정보" />
@@ -49,9 +50,12 @@ const AsideItems = (props) => {
                         !isMain && <img src={iconDownWhite} className="icon_down_white" alt="하위메뉴보기" />
                     }
                 </button>
+            </li>
+            <li>
                 <button className="btn_head_user" onClick={()=> {history.push("/logout")}}>
-                    <img src={isMain ? iconPerson : iconPersonWhite} className="iconPerson" alt="로그아웃" /> {/*아이콘 변경 필요*/}
+                    <img src={isMain ? iconLogout : iconLogoutWhite} className="iconPerson" alt="로그아웃" /> {/*아이콘 변경 필요*/}
                 </button>
+            </li>
                 {
                 isShowPopupUser && 
                 <ul className="dropdown">
@@ -62,17 +66,16 @@ const AsideItems = (props) => {
                             <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
                         </button>
                         <ul>
-                            <li><button>Repository</button></li>
-                            <li><button>Community</button></li>
-                            <li><button>Issues</button></li>
-                            <li><button>Follow</button></li>
+                            <li onClick={()=>movePage("dashboard/project")}><button>Repository</button></li>
+                            <li onClick={()=>movePage("dashboard/community")}><button>Community</button></li>
+                            <li onClick={()=>movePage("dashboard/issues")}><button>Issues</button></li>
+                            <li onClick={()=>movePage("dashboard/follow")}><button>Follow</button></li>
                         </ul>
                     </li>
-                    <li><button>Bounty</button></li>
-                    <li><button>Account</button></li>
+                    {/* <li><button>Bounty</button></li> */}
+                    <li onClick={()=>movePage("dashboard/myaccount")}><button>Account</button></li>
                 </ul>
                 }
-            </li>
         </>
     }
 

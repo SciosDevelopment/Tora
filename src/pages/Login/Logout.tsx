@@ -17,7 +17,7 @@ const LogoutPage = () => {
         removeCookie('ToraNoID')
         axios.defaults.headers.common['Authorization'] = null
         alert("로그아웃하셨습니다.")
-        history.replace('/')
+        history.goBack()
     }
     
     return <></>

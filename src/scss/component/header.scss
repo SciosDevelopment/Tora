@@ -352,7 +352,10 @@ ul.dropdown {
   
       & > ul {
         @include flexbox(flex-start, center);
-  
+        & > div > * {
+          margin-right : 20px;
+        }
+
         & > li {
           margin-right: 20px;
         }

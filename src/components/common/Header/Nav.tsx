@@ -33,25 +33,6 @@ const Nav = (props) => {
       <ul>
         <li>
           <button onClick={clickNavDepth1}>
-            <span>Product</span>
-            <img src={isMain ? iconDown : iconDownWhite} alt="하위메뉴보기" />
-          </button>
-          <ul className="dropdown">
-            <li>
-              <Link to="/project">
-                <button onClick={clickNavDepth1}>Git ToraPod</button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/business">
-                <button onClick={clickNavDepth1}>Issue system</button>
-              </Link>
-            </li>
-            <li><button onClick={clickNavDepth1}>Communication</button></li>
-          </ul>
-        </li>
-        <li>
-          <button onClick={clickNavDepth1}>
             <Link to="/opensource">
               <span>Open source</span>
             </Link>
@@ -73,27 +54,6 @@ const Nav = (props) => {
               <button onClick={clickNavDepth1}>Issue bounties</button>
               </Link>
             </li>
-          </ul>
-        </li>
-        <li>
-          <button onClick={clickNavDepth1}>
-            <span>Support</span>
-            <img src={isMain ? iconDown : iconDownWhite} alt="하위메뉴보기" />
-          </button>
-          <ul className="dropdown">
-            <li>
-              <button onClick={clickNavDepth2}>
-                FAQ
-                <img src={iconHeadUp} className='icon_head_up' alt="arrow" />
-                <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
-              </button>
-              <ul>
-                <li><button>Product</button></li>
-                <li><button>Project</button></li>
-                <li><button>Community</button></li>
-              </ul>
-            </li>
-            <li><button>Question</button></li>
           </ul>
         </li>
       </ul>

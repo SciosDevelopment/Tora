@@ -13,9 +13,9 @@ const LoginView:FunctionComponent<any> = () => {
     
     useEffect(()=>{
         // 로그인이 되어있으면, 메인으로 이동
-        if(onGetUserInfo !== null || cookies.ToraLoginToken || axios.defaults.headers.common['Authorization']) {
+        if(onGetUserInfo !== null || axios.defaults.headers.common['Authorization']) {
             alert("already login")
-            history.replace("/")
+            history.goBack()
             return
         }
     },[])
@@ -93,7 +93,7 @@ const LoginView:FunctionComponent<any> = () => {
                     </div>
                     <div>
                         <p>Password</p>
-                        <p onClick = {gotoReset}>Forgot your password?</p>
+                        <p className="link" onClick = {gotoReset}>Forgot your password?</p>
                     </div>
                     <div className='container'>
                         <input name = "password" type = "password" required value = {userinfo.password} onChange = {handleChange}/>

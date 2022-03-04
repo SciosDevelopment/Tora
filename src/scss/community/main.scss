@@ -31,9 +31,10 @@
           flex-direction: row;
 
           & >p {
-            margin: 3px 5px;
-            padding: 3px 5px;
+            margin: 0px 5px;
+            padding: 0px 5px;
           }
+          
           & > .selected {
             color: $ColorOrange;
           }
