@@ -1,5 +1,4 @@
 import React from 'react'
-import Title from 'src/components/common/Title/Title'
 import Profile from 'src/img/profile4.png'
 import Plus from 'src/img/plus-gray.png'
 import Minus from 'src/img/minus-gray.png'
