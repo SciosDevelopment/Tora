@@ -1,0 +1,214 @@
+.dashboard{
+    width: 100%;
+
+    & > .dashboard-tab{
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 10px;
+        
+        & > .location {
+            @include flexbox(flex-start, center);
+            padding: 30px 0;
+        
+            & > span {
+                color: #928a76;
+                font-size: 14px;
+            }
+            & > img {
+                margin: 0 5px;
+            }
+        } 
+        
+        & > .profiles {
+            @include flexbox(center, center);
+            flex-direction: row;
+            height: 110px;
+
+            & > div {
+                @include flexbox(center, center);
+                height: 100%;
+                flex-direction: column;
+                padding: 5px;
+
+                & > div {
+                    @include flexbox(flex-start, center);  
+                    margin: 3px 5px;
+
+                    & > img {
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    & > p {
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+            } 
+            & > .details {
+                @include flexbox(flex-start, flex-start);
+            }   
+
+            & > .proimg {
+                & > img {
+                    width:90px;
+                    height:90px;
+                    border-radius: 50%;
+                }
+            }
+
+            & > .desc {
+                width:100%;
+                @include flexbox(flex-start, flex-start); 
+
+                & > p { padding: 5px; }
+
+                & > p:first-child {
+                    font-size: 24px;
+                    font-weight: bold;
+                    height: 20%;
+                }
+
+                & > p:last-child { 
+                    height:70%; 
+                    margin-top: 10px;
+                }
+            }
+
+            & > .star {
+                & > img {
+                    width:90px;
+                    height:90px;
+                    border-radius: 50%;
+                }
+
+                & > p {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        & > .toptab {
+            @include flexbox(space-between, center);
+            padding: 10px 5px 0;
+            margin-bottom: 10px;
+            flex-direction: column;
+
+            & > .Upper {
+                width:100%;
+                @include flexbox(space-between, center);
+                border-bottom: 1px solid #707070;
+                padding: 10px 5px 0;
+                
+
+                & > .btnbox {
+                    @include flexbox(flex-start, center);
+
+                    & > .btnbox-open {
+                        font-size: 18px;
+                        color: $ColorNavy;
+                        font-weight: bold;
+                        padding: 8px 15px;
+                        margin: 0 5px;
+                        border-bottom: 3px solid #ffb600; 
+                    }
+    
+                    & > .btnbox-close {
+                        font-size: 18px;
+                        color: $ColorNavy;
+                        font-weight: bold;
+                        padding: 8px 15px;
+                        margin: 0 5px;
+    
+                        &:hover{
+                            border-bottom: 3px solid #ffb600; 
+                        }
+                    }
+                }
+            }
+            & > .Under {
+                width:100%;
+                @include flexbox(space-between, flex-start);
+                padding: 10px 5px 0;
+                margin-bottom: 10px;
+                
+                & > .btnbox {
+                    @include flexbox(flex-start, center);
+                    
+                    & > .btnbox-open {
+                        font-size: 18px;
+                        color: $ColorNavy;
+                        font-weight: bold;
+                        padding: 5px 15px;
+                        margin: 0 5px;
+                        background:#ffb600;
+                    }
+    
+                    & > .btnbox-close {
+                        font-size: 18px;
+                        color: white;
+                        font-weight: bold;
+                        padding: 5px 15px;
+                        margin: 0 5px;
+                        background:#ffb600;
+
+                        &:hover{ color:black; }
+                    }
+                }
+            }
+        }
+    
+        & > .dashboardview {
+            & > div > p {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            & > .follow { @include flexbox(center,center); gap:5%; }
+            & > .follow > div {
+                width:50%;
+
+                & > p {
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+   
+}
+
+@media screen and (max-width: 780px) {
+    .dashboard{
+        & > .dashboard-tab{
+            & > .location {
+                & > span {
+                    font-size: 11px;
+                }
+                & > img {
+                    margin: 0;
+                }   
+            }
+
+            & > .toptab {
+                & > .Upper {
+                    & > .btnbox {
+                        & > .btnbox-open{
+                            font-size: 14px;
+                            padding: 5px;
+                        }
+                        & > .btnbox-close{
+                            font-size: 14px;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

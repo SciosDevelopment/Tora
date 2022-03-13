@@ -20,7 +20,7 @@ const AsideItems = (props) => {
 
     const clickUserButton = () => {
         if( !isMain ) { setIsShowPopupUser(isShowPopupUser ? false : true) }
-        else history.push("/dashboard")
+        else history.push("/dashboard/me/project")
     }
 
     const clickNavDepth1 = (e) => {
@@ -39,7 +39,7 @@ const AsideItems = (props) => {
             {/* 기능 연결시 사용 */}
 
             <li>
-                <button onClick={()=>movePage("dashboard/log")}>
+                <button onClick={()=>movePage("/dashboard/me/activities")}>
                     <img src={isMain ? iconBell : iconBellWhite} alt="알림" />
                 </button>
             </li>
@@ -66,14 +66,14 @@ const AsideItems = (props) => {
                             <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
                         </button>
                         <ul>
-                            <li onClick={()=>movePage("dashboard/project")}><button>Repository</button></li>
-                            <li onClick={()=>movePage("dashboard/community")}><button>Community</button></li>
-                            <li onClick={()=>movePage("dashboard/issues")}><button>Issues</button></li>
-                            <li onClick={()=>movePage("dashboard/follow")}><button>Follow</button></li>
+                            <li onClick={()=>movePage("/dashboard/me/project")}><button>Repository</button></li>
+                            <li onClick={()=>movePage("/dashboard/me/community")}><button>Community</button></li>
+                            <li onClick={()=>movePage("/dashboard/me/issues")}><button>Issues</button></li>
+                            <li onClick={()=>movePage("/dashboard/me/follow")}><button>Follow</button></li>
                         </ul>
                     </li>
                     {/* <li><button>Bounty</button></li> */}
-                    <li onClick={()=>movePage("dashboard/myaccount")}><button>Account</button></li>
+                    <li onClick={()=>movePage("/dashboard/me/setting")}><button>Account</button></li>
                 </ul>
                 }
         </>

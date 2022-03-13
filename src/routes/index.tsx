@@ -21,10 +21,6 @@ import CommunityMain from '../pages/Community'
 import PostWrite from '../pages/Community/Post/Write'
 import PostDetail from '../pages/Community/Post/Detail'
 
-//MyPage
-import MyPage from '../pages/MyPage'
-import MyPageSetting from '../pages/MyPage/Setting'
-
 //IDE
 import IDE from '../pages/IDE'
 
@@ -38,6 +34,7 @@ import Redirect from '../components/common/github/Redirect'
 //Chat2
 import Chat2 from '../components/common/Chat2'
 import NotFound from 'src/pages/etc/NotFound'
+import DashboardMain from 'src/pages/DashBoard'
 
 
 const Router:React.FC = () => (
@@ -71,11 +68,9 @@ const Router:React.FC = () => (
         <Route path = "/community/:page" exact component={CommunityMain}/>
         <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
         
-        {/* MyPage */}
-        <Route path = "/mypage/me/setting" exact component={MyPageSetting}/>
-        <Route path = "/mypage/:username" component={MyPage}/>
-        <Route path = "/mypage" exact component={MyPage}/>
-        
+        {/* DashBoard */}
+        <Route path = "/dashboard/:username/:tab" component={DashboardMain}/>
+
         {/* Project */}
         <Route path = "/project" exact component={Project}/>
         <Route path = "/project/:id/:tab/:dir" component={Project}/>
@@ -87,11 +82,13 @@ const Router:React.FC = () => (
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
-
-        <Route path = "/authgit" component={Redirect}/>
-
+        
         {/* Chat2 */}
         <Route path = "/chat2" component={Chat2}/>
+
+        {/* etc */}
+        <Route path = "/authgit" component={Redirect}/>
+
 
         {/* 404 */}
         <Route path = "*" component={NotFound} />
