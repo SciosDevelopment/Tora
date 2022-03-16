@@ -20,7 +20,10 @@ import LicenseMain from '../pages/License'
 import CommunityMain from '../pages/Community'
 import PostWrite from '../pages/Community/Post/Write'
 import PostDetail from '../pages/Community/Post/Detail'
+import IssueWrite from '../pages/Community/IssueBounty/Write'
 
+// Dashboard
+import DashboardMain from 'src/pages/DashBoard'
 //IDE
 import IDE from '../pages/IDE'
 
@@ -34,7 +37,7 @@ import Redirect from '../components/common/github/Redirect'
 //Chat2
 import Chat2 from '../components/common/Chat2'
 import NotFound from 'src/pages/etc/NotFound'
-import DashboardMain from 'src/pages/DashBoard'
+
 
 
 const Router:React.FC = () => (
@@ -65,6 +68,7 @@ const Router:React.FC = () => (
         <Route path = "/community/post/edit/:id" component={PostWrite}/>
         <Route path = "/community/post/write" component={PostWrite}/>
         <Route path = "/community/post/:id" component={PostDetail}/>
+        <Route path = "/community/issue/write" component={IssueWrite}/>
         <Route path = "/community/:page" exact component={CommunityMain}/>
         <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
         
