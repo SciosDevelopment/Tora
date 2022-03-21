@@ -1,9 +1,9 @@
 import React from 'react'
 import Parser from 'html-react-parser'
-import iconFeedUser from '../../../img/img2/icon_feed_user.png'
-import iconFeedCheck from '../../../img/img2/icon_feed_check.png'
-import iconFeedEyes from '../../../img/img2/icon_feed_eyes.png'
-import userSample from '../../../img/img2/user_sample.png'
+import iconFeedUser from '../../../img/icon_feed_user.png'
+import iconFeedCheck from '../../../img/icon_feed_check.png'
+import iconFeedEyes from '../../../img/icon_feed_eyes.png'
+import userSample from '../../../img/user_sample.png'
 
 
 

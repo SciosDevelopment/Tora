@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
-import iconBranchDown from 'src/img/img2/icon_branch_down.png'
-import iconBranchShare from 'src/img/img2/icon_branch_share.png'
-import iconBranchAdd from 'src/img/img2/icon_branch_add.png'
-import iconBranchSearch from 'src/img/img2/icon_branch_search.png'
-import iconBranchClose from 'src/img/img2/icon_branch_close.png'
+import iconBranchDown from 'src/img/icon_branch_down.png'
+import iconBranchShare from 'src/img/icon_branch_share.png'
+import iconBranchAdd from 'src/img/icon_branch_add.png'
+import iconBranchSearch from 'src/img/icon_branch_search.png'
+import iconBranchClose from 'src/img/icon_branch_close.png'
 import PopupBranchview from '../Modal/PopupBranchview'
 
 const FileViewHeader = (props) => {

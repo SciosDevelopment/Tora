@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Draggable from 'react-draggable'
 import iconSelect3 from '../../../img/ic_select3.png'
@@ -5,78 +6,98 @@ import iconSelect3 from '../../../img/ic_select3.png'
 // temp file : need refactoring
 const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
     const [tab, setTab] = useState('new') // new, from, git
-
+    const [projectname, setProjectname] = useState("")
+    const [pub, setPub] = useState(true)
+    const [lang, setLang] = useState(null)
+    const langData = [ {value:"clang", text:"C/C++"},
+                       {value:"csharp", text:"C#"}, 
+                       {value:"html", text:"HTML/CSS/JS"},
+                       {value:"python", text:"python"},
+                       {value:"django", text:"Django"},
+                       {value:"java", text:"Java"},
+                       {value:"spring", text:"Spring"},
+                       {value:"react", text:"React"},
+                       {value:"reactnative", text:"React Native"},
+                       {value:"vuejs", text:"Vue.js"},
+                       {value:"nodejs", text:"Node.js"},
+                       {value:"ruby", text:"Ruby"},
+                       {value:"rails", text:"Rails"},
+                       {value:"golang", text:"Go"},
+                       {value:"php", text:"PHP"}]
+                       
     const clickTab = (e) => setTab(e)
     const clickClose = () => setIsShowPopupProject(false)
     const clickConfirm = () => {
         switch(tab) {
-            case 'new':
-                return CreateNewProject()
-            case 'from':
-                return ImportFromProject()
-            case 'git':
-                return ImportFromGithub()
+            case 'new': return NewProjectFromTora()
+            case 'git': return ImportFromGithub()
         }
     }
 
-    const CreateNewProject = () => {
-        alert("test")
-    }
-
-    const ImportFromProject = () => {
-        alert("test2")
+    const NewProjectFromTora = () => {
+        CreateNewProject("tora")
     }
 
     const ImportFromGithub = () => {
-        alert("test3")
+        // CreateNewProject("github")
+    }
+
+    const CreateNewProject = (type) => {
+        const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
+        const data = {
+            project: { 
+                name: projectname, 
+                program_language: lang,
+                project_type: pub ? "type_public" : "type_private", 
+                create_type: type, 
+                state: "use" 
+            } 
+        }
+        
+        axios.post(`${SERVER_IP}/api/v1/projects/create`,data).then((res)=>{
+            // 201 생성 성공
+            alert("프로젝트가 생성되었습니다. Mypage에서 확인해주세요.")
+        }).catch(e=>{
+            if(e.response) {
+                var status = e.response.status // or use message
+                // 로그인이 필요
+                if(status === 401) {
+                    alert("로그인이 필요합니다")
+                }
+                if(status === 400) alert("프로젝트 생성에 실패했습니다. 다시 시도해주세요.")
+                // 서버 연결 문제일때 : temp-status
+                if(status >= 500) alert("server is dead")
+            }
+            else if(e.request) {
+                // temp
+                alert("server is dead")
+                console.log(e.request)
+            }
+            else console.log('Error', e.message)
+        }) 
     }
 
     const CreateNewProjectView = () => {
-        const create = () => {
-
-        }
+        const handleChangeSelect = (e)=>{setLang(e.target.value)}
+        const handleChangeProjectName = (e) =>{setProjectname(e.target.value.trim())}
         return ( // new 
             <>
                 <div className="left">
                     <p className="title">Name your project</p>
-                    <input type="text"/>
+                    <input type="text" onChange={handleChangeProjectName} value={projectname} autoFocus/>
                     <div className="h40"/>
                     <p className="title">Program Language</p>
-                    <select style={{backgroundImage:`url(${iconSelect3})`}}>
-                        <option>javascript</option>
-                        <option>python</option>
+                    <select style={{backgroundImage:`url(${iconSelect3})`}} onChange={handleChangeSelect} value={lang}>
+                        {langData.map((data)=>{return <option value={data.value}>{data.text}</option>})}
                     </select>
                 </div>
                 <div className="right">
                     <div className="toggleButton innerShadow">
-                        <button className="on">Public</button>
-                        <button>Private</button>
+                        <button className= {pub && "on"} onClick={()=>setPub(true)}>Public</button>
+                        <button className= {!pub && "on"} onClick={()=>setPub(false)}>Private</button>
                     </div>
                 </div>
            </>
-        )
-    }
-
-    const ImportFromProjectView = () => {
-        return ( // from 
-            <>
-                <div className="left">
-                    <p className="title">Import from project</p>
-                    <input type="text"/>
-                    <div className="h40"/>
-                    <p className="title">project import</p>
-                    <label className="fileSelection">
-                        <input type="file"/>
-                        <p>File Selection</p>
-                    </label>
-                </div>
-                <div className="right">
-                    <div className="toggleButton innerShadow">
-                        <button className="on">Public</button>
-                        <button>Private</button>
-                    </div>
-                </div>
-            </>
         )
     }
 
@@ -99,15 +120,11 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
 
     const FormBody = () => {
         switch(tab) {
-            case 'new':
-                return <CreateNewProjectView/>
-            case 'from':
-                return <ImportFromProjectView/>
-            case 'git':
-                return <ImportFromGithubView/>
+            case 'new': return <CreateNewProjectView/>
+            case 'git': return <ImportFromGithubView/>
         }
-
     }
+
     return (
         <>
         {
@@ -117,7 +134,6 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
                     <div className="popupBody">
                         <div className="topBtn">
                             <button onClick={() => clickTab('new')} className={tab == 'new' && 'on'}>Create new project</button>
-                            <button onClick={() => clickTab('from')} className={tab == 'from' && 'on'}>Import from project</button>
                             <button onClick={() => clickTab('git')} className={tab == 'git' && 'on'}>Import from Github</button>
                         </div>
                         <div className="form">

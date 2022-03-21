@@ -6,13 +6,21 @@ export let target = null // used in the dropdownmenu
 
 const TextEditor = (props) => {
     // https://github.com/react-monaco-editor/react-monaco-editor
-    const {model, index, prevFile, setState} = props
+    const {model, index, prevFile, setState, readonly=null} = props
     const EditorContainer = React.createRef<HTMLDivElement>()
     const ref = React.createRef<MonacoEditor>()
     
     useEffect(()=>{ init() },[])
     useEffect(()=>{ if(model!=null) ref.current.editor.setModel(model) },[model])
-    useEffect(()=>{ target = ref },[ref])
+    useEffect(()=>{ target = ref
+        if(readonly && ref)  {
+            const messageContribution = ref.current.editor.getContribution('editor.contrib.messageController')
+            // 이부분 수정해서 popup disable + cursor disable
+            ref.current.editor.onDidAttemptReadOnlyEdit(()=>{
+                (messageContribution as any).closeMessage()
+            })
+        }
+    },[ref])
 
     const init = () => {}
     const onChangeHandle = () =>{
@@ -24,22 +32,36 @@ const TextEditor = (props) => {
         // https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html
         selectOnLineNumbers: false,
         automaticLayout: true,
-        contextmenu: false
+        contextmenu: false,
+        readonly:false,
+        minimap : {
+            enabled:true
+        }
     }
 
+    const ReadOnlyOptions = {
+        // https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html
+        selectOnLineNumbers: false,
+        automaticLayout: true,
+        contextmenu: false,
+        readOnly: true,
+        minimap : {
+            enabled:false
+        }
+    }
     const divStyle = {
         width:'100%',
         height:'100%',
     }
-
+    
     return (
         <div className="EditorContainer" ref={EditorContainer} style={divStyle}>
             <MonacoEditor
-            theme="vs-dark"
+            theme={readonly? "vs": "vs-dark"}
             onChange={onChangeHandle}
-            options={options}
+            options={readonly ? ReadOnlyOptions : options}
             ref={ref}/>
-        <ContextMenu target={EditorContainer}/> 
+        {!readonly && <ContextMenu target={EditorContainer}/>}
         </div>
     )
 }

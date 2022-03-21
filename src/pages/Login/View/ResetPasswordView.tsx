@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { history } from 'src/configureStore'
 
 const ResetPasswordView:React.FC = () => {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [checkEmail, setCheckEmail] = useState<boolean>(false)
-    const [emailinfo, setEmailinfo] = useState<string>("example@email.com")
+    const [emailinfo, setEmailinfo] = useState<string>("test@email.com")
     
     // email 유효성 검사
     const checkEmailStatus = () => {
@@ -49,28 +50,38 @@ const ResetPasswordView:React.FC = () => {
 
     return (
         <div className = "resetPassword">
-            <div className = "title">
-                {`Reset Your Password`}
-            </div>
-            
-            <div className = "form">
-                <div className = "title2">
-                    <p>type in your username / email</p>
-                </div>
-
-                { checkEmail !== true ?
-                    <div className = "input">
-                        <input onChange={handleChange}/>
+            <div>
+                <p>Find your password?</p>
+                <div className = "form">
+                    { checkEmail !== true ?
+                        <>
+                        <div className = "title">
+                            <p>Email Address</p>
+                        </div>
+                        <div className = "container">
+                            <input type="text" onChange={handleChange}/>
+                        </div>
+                        <div className="desc"><p>Enter your ToraPod user account's verified email address</p></div>
+                        <div className = "submit">
+                            <button onClick = {checkEmailStatus}>Send email</button>
+                        </div>
+                        </>
+                    :   
+                        <>
+                            <div className = "alertmessage">
+                                You successfully sent an email <br/>
+                                Please check your email
+                                <p>[ {emailinfo} ]</p>
+                            </div>
+                            <div>
+                                <button onClick = {()=>history.replace("/")}>OK</button>
+                            </div>
+                        </>
+                    }
+                   
+                    <div className="desc">
+                        <p>Don't have an account? <a onClick = {()=>history.push("/signup")}>Sign up for Tora</a></p>
                     </div>
-                :
-                    <div className = "alertmessage">
-                        your temporary password
-                        has been sent to your account
-                        [ {emailinfo} ]
-                    </div>
-                }
-                <div className = "submit">
-                    <button onClick = {checkEmailStatus}>Reset Password</button>
                 </div>
             </div>
         </div>

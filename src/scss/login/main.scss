@@ -16,9 +16,9 @@
             width: 100%;
             min-height: 802px;
             height: 100%;
-            background-image: url(../../img/loginbackground.png);
-            background-position: center;
-            background-size: 150% auto;
+            // background-image: url(../../img/loginbackground.png);
+            // background-position: center;
+            // background-size: 150% auto;
 
             & .wrapper {
                 width: 100%;
@@ -35,149 +35,157 @@
                 user-select: none;
                 
                 // ChangePassword start
-                & .changePassword {
-                    width : 400px;
-                    height : 530px;
-                    border-radius: 30px;
-                    display : flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    background : #fff;
-                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-                    font-family: "AppleSDGothicNeoB";
-                    
-                    & .title {
-                        font-size : 30px;
-                        font-weight: bold;
+                & > .changePassword {
+                    & > div { width:400px; }
+
+                    & > div > p {
                         text-align: center;
-                        white-space: pre-line;
-                        color : #1C2239;
-                        line-height: 100%;
+                        font-size:24px;
+                        font-weight: 800;
+                        padding: 15px;
+                        margin-bottom: 10px;
+                        word-break: normal;
+                        line-height: 1.2;
                     }
                 
-                    & .form {
+                    & > .form {
+                        font-family: "AppleSDGothicNeoB";
+                        width : 400px;
+                        border-radius: 10px;
                         display : flex;
                         flex-direction: column;
                         align-items: center;
-                        justify-content: space-between;
-                        height : 300px;
+                        background : #fff;
+                        box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                        padding: 10px 0px;
                         
-                        & .title {
-                            font-size : 18px;
-                            font-weight: bold;
-                            color : #1C2239;
-                        }
-                
-                        & .inputcontainer {
-                            display : flex;
-                            justify-content: center;
+                        & > div {
                             width : 300px;
-                            height : 45px;
-                            border-radius: 30px;
-                            box-shadow: 2px 2px 7px 2px #c7c7c7;
-                            margin-bottom: 40px;
-                
+                            background : #ffffff;
+                            display: flex;
+                            justify-content: space-between;
+
+                            & > p:first-child {
+                                margin-bottom: 10px;
+                                font-size : 16px;
+                                font-weight : 800;
+                            }
+                            & > p:nth-child(2) {
+                                font-size: 12px;
+                                padding-top:10px;
+                            }
+
                             & > input {
-                                margin-top : 3px; // temporary margin : to prevent overflow TextField 
-                                width : 90%;
-                                height :85%;
+                                font-size : 16px;
+                                width : 95%;
+                                height : 100%;
+                                background : rgba(0, 0, 0, 0);
                                 border : none;
-                                outline : none;
                             }
-                        }                
-                
-                        & .submitcontainer{
-                            width : 200px;
-                            height : 40px;
-                            display : flex;
-                            justify-content: center;
-                            background : #1C2239;
-                            border-radius: 30px;
-                
-                            & > button {
-                                border : none;
-                                outline : none;
-                                background: transparent;
-                                color : #fff;
-                                font-size : 18px;
-                                font-family: "AppleSDGothicNeoB";
-                            }
+
+                            & > input:focus { outline : none; }
+                        }
+
+                        & > .container {
+                            flex-direction: column;
+                            justify-content: space-between;
+                            border: 1px solid black;
+                            border-radius: 5px;
+                            height: 50px;
+                            margin-bottom: 15px;
+                        }
+            
+                        & > button {
+                            width : 300px;
+                            height : 50px;
+                            background : #ffb600;
+                            border : none;
+                            border-radius: 5px;
+                            color : #ffffff;
+                            font-size : 15px;
+                        }
+            
+                        & > button:focus {
+                            outline : none;
                         }
                     }
                 } // changePassword End
                 
                 // LoginMain start
-                & .loginMain {
+                & > .loginMain {
                     display: flex;
                     width: 100%;
                     flex-direction: row;
                     justify-content: center;
-                
-                    & .formcontainer {    
+                    
+                    & > div > p {
+                        text-align: center;
+                        font-size:24px;
+                        font-weight: 800;
+                        padding: 15px;
+                        margin-bottom: 10px;
+                    }
+
+                    & > div > .formcontainer {    
                         width : 100%;
                         max-width : 400px;
                         min-width : 350px;
-                        height : 530px;
-                        display : grid;
-                        grid-template-rows : 40px repeat(2,1fr) 65px;
                         background : #ffffff;
-                        border-radius: 30px;
+                        border-radius: 10px;
                         box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-                    
-                        & .form {
-                            height : 330px;
-                            grid-row : 2/3;
+                        padding-bottom: 10px;
+                        & > .form {
                             display : flex;
                             flex-direction: column;
-                            justify-content: space-between;
                             align-items: center;
-                
+                            margin-bottom:15px;
+
+                            & > div:first-child { margin-top: 15px; }
+
                             & > div {
-                                & p {  
-                                    margin-left : 10px;
-                                    margin-bottom: 4%;
-                                    font-size : 1.375em;
+                                width : 300px;
+                                background : #ffffff;
+                                display: flex;
+                                justify-content: space-between;
+
+                                & > p:first-child {
+                                    margin-bottom: 10px;
+                                    font-size : 16px;
                                     font-weight : 800;
-                                    
-                                    & > input { // checkbox size.
-                                        width: 16px;
-                                        height: 16px;
-                                        margin-bottom: 10px;
-                                    }
                                 }
-                
-                                & > div {
-                                    width : 300px;
-                                    height : 60px;
-                                    border-radius: 60px;
-                                    background : #ffffff;
-                                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                            
-                                    & input {
-                                        font-size : 1.2em;
-                                        width : 90%;
-                                        height : 100%;
-                                        background : rgba(0, 0, 0, 0);
-                                        border : none;
-                                    }
-                                    & input:focus { outline : none; }
+                                & > p:nth-child(2) {
+                                    font-size: 12px;
+                                    padding-top:10px;
                                 }
+
+                                & > input {
+                                    font-size : 16px;
+                                    width : 95%;
+                                    height : 100%;
+                                    background : rgba(0, 0, 0, 0);
+                                    border : none;
+                                }
+
+                                & > input:focus { outline : none; }
+                            }
+
+                            & > .container {
+                                flex-direction: column;
+                                justify-content: space-between;
+                                border: 1px solid black;
+                                border-radius: 5px;
+                                height: 50px;
+                                margin-bottom: 15px;
                             }
                 
                             & > button {
                                 width : 300px;
-                                height : 60px;
-                                border-radius: 60px;
-                                background : #1C2239;
+                                height : 50px;
+                                background : #ffb600;
                                 border : none;
+                                border-radius: 5px;
                                 color : #ffffff;
-                                font-size : 1.5em;
-                                margin-top: 7%;
+                                font-size : 15px;
                             }
                 
                             & button:focus {
@@ -185,354 +193,240 @@
                             }
                         }
                     
-                        & .etcInfo {
+                        & > .etcInfo {
                             display : flex;
-                            flex-direction: column;
-                            justify-content: space-evenly;
+                            justify-content: center;
                             align-items: center;
-                            grid-row : 3/4;
-                            margin-top: 4%;
                             
-                            & .wrapper2 {
-                                & > p {
-                                    text-align: center;
-                                    text-decoration: underline;
-                                    font-size : 18px;
-                                    margin-bottom : 10px;
-                                }
-                
-                                & p:hover { // 임시 구분
-                                    font-size:19px;
-                                    cursor:pointer;
-                                }
-                            }
-                        }
-                    }
+                            & > .wrapper {
+                                display:flex;
 
-                    & .description {
-                        width: 32%;
-                        display : flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        align-self: center;
-                        height : 400px;
-                        z-index: 10;
-                        padding-left: 4%;
-                        
-                        & .title {
-                            width : auto;
-                            white-space: pre-line;
-                            font-family: AppleSDGothicNeoB;
-                            font-weight: bold;
-                            font-size : 75px;
-                            line-height: 0.9em;
-                        }
+                                & > p {
+                                    margin-left:3px;
+                                    margin-right:3px;
+                                    font-size: 14px;
+                                }
+                                & > p:last-child {
+                                    color: #ffb600;
+                                    text-align: center;
+                                }
                 
-                        & .detail {
-                            width : auto;
-                            font-family: AppleSDGothicNeoM;
-                            font-size : 26px;
-                            line-height: 1.5em;
+                                & > p:last-child:hover { cursor:pointer; }
+                            }
                         }
                     }
                 } // LoginMain end
 
                 // Signup start                
-                & .signup {
-                    max-width : 710px; 
-                    height : 100%;
-                    max-height: 530px;
-                    display: grid;
-                    grid-template-columns: repeat(10, 1fr);
-                    border-radius: 30px;
-                    background : #fff;
-                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-
-                    & .title {
-                        grid-column: 1/11;
-                        display : flex;
-                        justify-content: center;
-                        align-items: center;
-                        height : 80px;
-
-                        & > p {
-                            font-family: AppleSDGothicNeoB;
-                            font-weight: bold;
-                            font-size : 30px;
-                            text-align: center;
-                        }
+                & > .signup {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                   
+                    & > div > p {
+                        text-align: center;
+                        font-size:24px;
+                        font-weight: 800;
+                        padding: 15px;
+                        margin-bottom: 10px;
                     }
 
-                    & .formcontainer {
-                        grid-column: 2/6;
-                        width: 95%;
-                        height: 120%;
+                    & > div > .formcontainer {    
+                        width : 400px;
+                        background : #ffffff;
+                        border-radius: 10px;
+                        box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
+                        padding-bottom: 10px;
 
-                        & .form {
+                        & > .form {
                             display : flex;
                             flex-direction: column;
-                            justify-content: space-evenly;
                             align-items: center;
-                            height : 100%;
+                            margin-bottom:15px;
+
+                            & > div:first-child { margin-top: 15px; }
+
+                            & > div {
+                                width : 300px;
+                                background : #ffffff;
+                                display: flex;
+                                justify-content: space-between;
+
+                                & > p:first-child {
+                                    margin-bottom: 10px;
+                                    font-size : 16px;
+                                    font-weight : 800;
+                                }
+                                & > p:nth-child(2) {
+                                    font-size: 12px;
+                                    padding-top:10px;
+                                }
+
+                                & > input {
+                                    font-size : 16px;
+                                    width : 95%;
+                                    height : 100%;
+                                    background : rgba(0, 0, 0, 0);
+                                    border : none;
+                                }
+
+                                & > input:focus { outline : none; }
+                            }
+
+                            & > .container {
+                                flex-direction: column;
+                                justify-content: space-between;
+                                border: 1px solid black;
+                                border-radius: 5px;
+                                height: 50px;
+                                margin-bottom: 15px;
+                            }
+                
+                            & > button {
+                                width : 300px;
+                                height : 50px;
+                                background : #ffb600;
+                                border : none;
+                                border-radius: 5px;
+                                color : #ffffff;
+                                font-size : 15px;
+                            }
+                
+                            & > button:focus {
+                                outline : none;
+                            }
+                        }
+                    
+                        & > .etcInfo {
+                            display : flex;
+                            justify-content: center;
+                            align-items: center;
                             
-                            & .title2 {
-                                width : 100%;
-                                align-items: center;
-                                margin-left:-45px;
+                            & > .wrapper {
+                                display:flex;
 
                                 & > p {
-                                    font-size : 20px;
-                                    font-family: AppleSDGothicNeoB;
+                                    margin-left:3px;
+                                    margin-right: 3px;
+                                    font-size: 14px;
                                 }
+                                & > p > a { color: #ffb600; }
+                                & > p > a:hover { cursor:pointer; }
                             }
-
-
-                            & .input {
-                                display: flex;
-                                width : 300px;
-                                height : 45px;
-                                margin-bottom: 3%;
-                                justify-content: center;
-                                
-                                background : #fff;
-                                border-radius: 35px;
-                                box-shadow: 1px 1px 7px 1px #c7c7c7 ;
-                                
-                                & > input {
-                                    width : 90%;
-                                    background : transparent;
-                                    border : none;
-                                    outline : none;
-                                }
-
-                                & > input::placeholder {
-                                    font-family: AppleSDGothicNeoB;
-                                    font-size : 14px;
-                                }
-                            }
-                        }
-                    }
-                    & .information {
-                        grid-column: 6/11;
-                        padding-left: 12%; 
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        width: 90%;
-                        height: 100%;
-                        
-                        > div { margin-bottom: 30px; } // subinfo margin
-
-                        & .subinfo {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-
-                            > input {
-                                width: 71px;
-                                height: 71px;
-                                background-color: #ffffff;
-                                border: solid 1px black;
-                                border-radius: 100%;
-                            }
-                            
-                            >p {
-                                margin-left:15px;
-                                font-size: 18px;
-                                font-weight: bold;
-                                color: #FFB600;
-                            }    
-                        }
-                    }
-
-                    & .btn-signup {
-                        grid-column: 1/11;
-                        display : flex;
-                        justify-content:center;
-                        margin-top: 10%;
-                        height : 45px;
-                        
-                        & > input {
-                            background : #1C2239;
-                            max-width : 200px;
-                            width : 100%;
-                            color : #fff;
-                            font-family: AppleSDGothicNeoB;
-                            font-size: 18px;
-                            border-radius: 35px;
-                            border : none;
-                            outline : none;
                         }
                     }
                 } // Signup End
 
                 // ResetPassword start
-                & .resetPassword {
-                    width : 400px;
-                    height : 530px;
-                    border-radius: 30px;
-                    display : flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    background : #fff;
-                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-                    font-family: "AppleSDGothicNeoB";
+                & > .resetPassword {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
                     
-                    & .title {
-                        font-size : 30px;
-                        font-weight: bold;
-                        white-space: pre-line;
-                        color : #1C2239;
+                    & > div > p {
+                        text-align: center;
+                        font-size:24px;
+                        font-weight: 800;
+                        padding: 15px;
+                        margin-bottom: 10px;
                     }
-                
-                    & .form {
+
+                    & > div > .form {    
+                        width : 460px;
+                        max-width : 400px;
+                        min-width : 350px;
+                        background : #ffffff;
+                        border-radius: 10px;
+                        box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
                         display : flex;
                         flex-direction: column;
                         align-items: center;
-                        justify-content: space-between;
-                        height : 300px;
-                        
-                        & .title2 {
-                            font-size : 18px;
-                            font-weight: bold;
-                            color : #1C2239;
-                        }
-                
-                        & .input {
-                            display : flex;
-                            justify-content: center;
-                            width : 300px;
-                            height : 45px;
-                            border-radius: 30px;
-                            box-shadow: 2px 2px 7px 2px #c7c7c7;
-                            margin-bottom: 40px;
-                
+                        padding-bottom: 15px;
+
+                        & > div:first-child { margin-top: 15px; }
+
+                        & > div {
+                            width : 360px;
+                            background : #ffffff;
+                            display: flex;
+
+                            & > p:first-child {
+                                margin-bottom: 10px;
+                                font-size : 16px;
+                                font-weight : 800;
+                            }
+                            & > p:nth-child(2) {
+                                font-size: 12px;
+                                padding-top:10px;
+                            }
+
                             & > input {
-                                margin-top : 3px; // temporary margin : to prevent overflow TextField 
-                                width : 90%;
-                                height :85%;
+                                font-size : 16px;
+                                width : 95%;
+                                height : 100%;
+                                background : rgba(0, 0, 0, 0);
                                 border : none;
+                            }
+
+                            & > input:focus { outline : none; }
+
+                            & > button {
+                                width : 360px;
+                                height : 50px;
+                                background : #ffb600;
+                                border : none;
+                                border-radius: 5px;
+                                color : #ffffff;
+                                font-size : 15px;
+                            }
+                
+                            & button:focus {
                                 outline : none;
                             }
                         }
-                
-                        & .alertmessage {
-                            width: 90%;
-                            font-size : 20px;
-                            text-align: center;
-                            white-space: pre-line;
-                            margin-bottom: 40px;
-                            color : #FFB600
+                        
+                        & > .container {
+                            flex-direction: column;
+                            justify-content: space-between;
+                            border: 1px solid black;
+                            border-radius: 5px;
+                            height: 50px;
                         }
-                
-                        & .submit {
-                            width : 200px;
-                            height : 40px;
-                            display : flex;
-                            justify-content: center;
-                            background : #1C2239;
-                            border-radius: 30px;
-                
-                            & > button {
-                                border : none;
-                                outline : none;
-                                background: transparent;
-                                color : #fff;
-                                font-size : 18px;
-                                font-family: "AppleSDGothicNeoB";
+
+                        & > .desc {
+                            display:flex;
+                            width: 320px;
+                            margin:10px;
+                            & > p {
+                                width:100%;
+                                font-weight: normal !important;
+                                text-align: center;
+                                word-break: initial;
+                                font-size: 14px;
+                            }
+
+                            & > p > a { color: #ffb600; }
+                            & > p > a:hover { cursor:pointer; }
+                        }
+
+                        & > .alertmessage {
+                            display: flex;
+                            width:360px;
+                            font-weight: 300;
+                            text-align: center;
+                            word-break: initial;
+                            font-size: 20px;
+                            line-height: 1.5;
+                            flex-direction: column;
+
+                            & > p {
+                                margin-bottom: 10px;
+                                font-size : 16px !important;
+                                font-weight : 800;
                             }
                         }
                     }
                 } // ResetPassword End
-
-                // Secess start
-                & .secess {
-                    padding: 20px;
-                    width : 400px;
-                    height : 530px;
-                    
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    background : #fff;
-                    border-radius: 30px;
-                    box-shadow : 6px 7px 30px -3px rgba(112,112,112,0.4);
-                
-                    & .title {
-                        height : 50px;
-                        font-family: AppleSDGothicNeoB;
-                        font-weight: bold;
-                        font-size : 20px;
-                    }
-                    
-                    & .subtext {
-                        width : 80%;
-                        margin-bottom: 30px;
-                        text-align : center;
-                        font-family: AppleSDGothicNeoB;
-                        font-size : 15px;
-                        line-height : 110%;
-                    }
-                
-                    & .form {
-                        display: flex;
-                        font-family: AppleSDGothicNeoB;
-                        width : auto;
-                        height : 250px;
-                        justify-content: space-between;
-                        align-items: center;
-                        flex-direction: column;
-                
-                        & .wrapper2 {
-                            text-align: center;
-                            font-size : 15px;
-                            white-space: pre-line;
-                            line-height: 1.5;
-                            
-                            & > p { text-decoration: underline; }
-                    
-                            & .input {
-                                width : 300px;
-                                height : 45px;
-                                margin-bottom: 20px;
-                                margin-top: 10px;
-                                display : flex;
-                                justify-content: center;                
-                                border-radius: 35px;
-                                box-shadow: 2px 2px 10px 1px #c7c7c7;
-                    
-                                & > input {
-                                    width : 90%;
-                                    border : none;
-                                    outline : none;
-                                    background : transparent;
-                                }
-                            }
-                            
-                        }
-                        & .submit {
-                            width : 200px;
-                            height : 40px;
-                            display : flex;
-                            justify-content: center;
-                            border-radius: 30px;
-                            background : #1C2239;
-                            
-                            & > button {
-                                width : 90%;
-                                font-family: AppleSDGothicNeoB;
-                                color : #FFB600;
-                                background : none;
-                                outline : none;
-                                border : none;
-                                font-size : 18px;
-                                
-                            }
-                        }
-                    }
-                } // Secess end
             }
         }
     }

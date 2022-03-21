@@ -1,7 +1,7 @@
 import React from 'react'
 
-import iconIssueCoin from '../../../img/img2/icon_issue_coin.png'
-import userSample from '../../../img/img2/user_sample.png'
+import iconIssueCoin from '../../../img/icon_issue_coin.png'
+import userSample from '../../../img/user_sample.png'
 
 const IssueCard = (props) => {
     return (
@@ -17,10 +17,10 @@ const IssueCard = (props) => {
                     API From users repos to fork owner
                 </p>
                 <div className="marks">
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
-                    <mark className='tag'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
+                    <mark className='skillMark'>node.js</mark>
                 </div>
                 <div className="kind">
                     <span className='red'>Bug</span>

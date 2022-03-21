@@ -2,19 +2,19 @@ import React from 'react'
 
 import ProjectBoard from './ProjectBoard'
 import FeedList from './FeedList'
-import IssueList from './IssueList'
+import IssueList from '../Issue/IssueList'
 import ProjectDescription from './Description'
 
-const MainView = () => {
-
+const MainView = (props) => {
+    const {projectId} = props
     return (
         <div className="MainView">
             <div className="publishFile">
-                <ProjectBoard/>
-                <FeedList/>
+                <ProjectBoard projectId={projectId}/>
+                <FeedList projectId={projectId}/>
             </div>
-            <IssueList/>
-            <ProjectDescription/>
+            <IssueList projectId={projectId}/>
+            <ProjectDescription projectId={projectId}/>
         </div>
     )
 }

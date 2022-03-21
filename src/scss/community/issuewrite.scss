@@ -1,0 +1,120 @@
+.issuewrite {
+    @include maxWrap();
+    overflow: hidden;
+    & > div {
+        margin-bottom: 20px;
+        
+        & > * { margin-top:10px; margin-left:5px;}
+
+        & select {
+            width:300px;
+            border: 1px solid#DBDBDB;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 14px;
+            text-indent: 20px;
+        }
+
+        & input[type=text] {
+            border: 1px solid#DBDBDB;
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        & > input[type=text] {  
+            min-width:400px; 
+            width:60%; 
+        }
+
+        & > p.title { 
+            color:#928A76; 
+            font-size:14px; 
+        }
+
+        & > div {
+            & > p.title { 
+                color:#928A76; 
+                font-size:14px; 
+                margin-bottom: 3px;
+            }
+
+            & > input { 
+                width:300px;
+                border: 1px solid#DBDBDB;
+                border-radius: 5px;
+                height: 40px;
+            }
+            
+            & > #projectList {
+                min-width: 400px;
+                width:60%;
+            }
+        }
+
+        & > .issueSort {
+            @include flexbox(center, center);
+            gap: 30px;
+            
+            & > div {
+                border: 1px solid#DBDBDB;
+                border-radius: 5px;
+                width:100%;
+                background: white;   
+                height: 150px;
+                
+                @include flexbox(space-between, center);
+                flex-direction: column;
+
+                & > p {
+                    font-size: 16px;
+                    margin-top: 5px;
+                    color:#928A76;
+                }
+                & > input{
+                    margin-top: 5px;
+                    margin-bottom:5px;
+                }
+            }
+        }
+        
+        & > .infoBox {
+            @include flexbox(flex-start, center);
+            flex-wrap: wrap;
+            flex-direction: row;
+            
+            & > div {
+                display: flex; 
+                width:100%;
+                flex-basis: calc(50% - 40px);  
+                flex-direction: column;
+                margin:10px;
+                margin-left: 0;
+
+                & > p.title {
+                    font-size: 14px;
+                    margin-top: 5px;
+                    color:#928A76;
+                }
+
+            }
+        }
+    }
+
+    & > .btnlist {
+        @include flexbox(center, center);
+
+        & > button {
+            border: 1px solid black;
+            width: 110px;
+            height: 35px;
+            margin: 6px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        & > button:first-child {
+            background-color: $ColorNavy;
+            color: white;
+        }
+    }
+}

@@ -1,9 +1,9 @@
 import React from 'react'
-import feedLine from '../../../img/img2/feed_line.png'
+import feedLine from '../../../img/feed_line.png'
 import FeedItem from './FeedItem'
 
-const FeedList = () => {
-    
+const FeedList = (props) => {
+    const {projectId} = props
     const tempdata = [
         {type: "user", user:"", content: "Nicolas Serrano가 참여하였습니다.", date: "Oct 21 at 12:56"},
         {type: "check", user:"", content: "added the <mark>new-bug</mark>", date: "Oct 21 at 12:56"},

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Resizable } from 're-resizable'
-import iconCoin1 from 'src/img/ide/icon_coin1.png'
+import iconCoin1 from 'src/img/icon_coin1.png'
 
 const Aside = (props) => {
     const {visible} = props

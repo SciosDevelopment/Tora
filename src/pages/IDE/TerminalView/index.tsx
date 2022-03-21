@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Terminal, {term} from '../../../components/common/Terminal'
-import iconDown from 'src/img/ide/icon_down.png'
-import iconClose from 'src/img/ide/icon_close.png'
+import iconDown from 'src/img/icon_down.png'
+import iconClose from 'src/img/icon_close.png'
 import { Resizable } from 're-resizable'
 
 const TerminalView = (props) => {

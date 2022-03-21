@@ -1,4 +1,4 @@
-import iconGoTop from '../../../img/guide/goTop.png'
+import iconGoTop from '../../../img/goTop.png'
 
 const GoTop = () => {
     const moveScrollToBottom = () => window.scrollTo(0,10)

@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import Objective from './Objective'
-import IssueContent from './IssueContent'
+import IssueList from './IssueList'
 
 
-const Issue = () => {
-
+const Issue = (props) => {
+    const {projectId} = props
+    const [status, setStatus] = useState(true) // true : card, false : board
     return (
         <div className= "issue">
             <div className="issuebox">
-                <Objective/>
-                <IssueContent/>
+                <IssueList projectId ={projectId} setMode = {setStatus} mode ={status}/>
             </div>
         </div>
     )

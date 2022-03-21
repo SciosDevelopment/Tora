@@ -1,0 +1,99 @@
+.communityitem {
+    display: flex;
+    @include flexbox(flex-start,flex-start);
+    width : 100%;
+    height : 80px;
+    border-top : 2px solid #707070;
+    border-bottom : 2px solid #707070;
+    // border: 1px solid black;
+    & > div { margin: 0px 5px; }
+
+    & > .thumbnail {
+        @include flexbox(center, center);
+        width:100px;
+        height:60px;
+        margin: 5px 5px;
+
+        & > img {
+            width:72px;
+            height: 100%;
+        }
+    }
+    
+    & > .description {
+        width: 100%;
+        height: 100%;
+        margin: 5px 5px;
+        
+        & > div {
+            display : flex;
+            flex-direction: row;
+
+            & > .title {
+                @include flexbox(flex-start, flex-start);
+                & > p { font-size : 18px; 
+                    white-space: nowrap;
+                    word-break : nowrap;
+                }
+                margin-right: 10px;
+            }
+
+            & > .tag {
+                @include flexbox(flex-start, flex-start);
+
+                & > p {
+                    float:left;
+                    width:fit-content;
+                    height: fit-content;
+                    font-size: 11px;
+                    color: #3f7aa5;
+                    font-weight: bold;
+                    background-color: #D5E3F5; 
+                    margin: 3px 5px;
+                    padding: 1px 10px;
+                    margin-top: 0;
+                }
+            }
+        }
+      
+
+        & .summary {
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+            padding-left: 10px;
+
+            & > p { 
+                font-size : 12px; 
+                overflow: hidden;
+                line-height: 1.2em;
+                max-height: 3.6em;
+            }
+        }
+    }
+
+    & > .details {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        
+        & > .items {
+            @include flexbox(center, center);
+            width: 90px;
+            
+            flex-direction: column;
+            margin: 0px 5px;
+
+            & > img {
+                width: 100%;
+                max-width : 40px;
+                max-height: 40px;                
+                border-radius: 50%;
+                margin-bottom: -10px;
+            }
+
+            & > p { font-size: 10px; }
+        }
+    }
+    
+}

@@ -1,20 +1,21 @@
-import img2 from '../../img/guide/img2.png'
-import img2Mobile from '../../img/guide/img2_mobile.png'
-import img3 from '../../img/guide/img3.png'
-import img4 from '../../img/guide/img4.png'
-import img4Mobile from '../../img/guide/img4_mobile.png'
-import img4Phone from '../../img/guide/img4_phone.png'
-import section1 from '../../img/guide/section1.png'
-import section1Mobile from '../../img/guide/section1_mobile.png'
-import section3Heart from '../../img/guide/section3_heart.png'
-import bg1 from '../../img/guide/bg.png'
-import bg2 from '../../img/guide/bg2.png'
-import bg2Mobile from '../../img/guide/bg2_mobile.png'
+import img2 from '../../img/img2.png'
+import img2Mobile from '../../img/img2_mobile.png'
+import img3 from '../../img/img3.png'
+import img4 from '../../img/img4.png'
+import img4Mobile from '../../img/img4_mobile.png'
+import img4Phone from '../../img/img4_phone.png'
+import section1 from '../../img/section1.png'
+import section1Mobile from '../../img/section1_mobile.png'
+import section3Heart from '../../img/section3_heart.png'
+import bg1 from '../../img/bg.png'
+import bg2 from '../../img/bg2.png'
+import bg2Mobile from '../../img/bg2_mobile.png'
 
 import { useMediaQuery } from 'react-responsive'
 import Header from '../../components/common/Header/Header'
 import GoTop from '../../components/common/Header/GoTop'
 import Footer from '../../components/common/Footer'
+import { Link } from 'react-router-dom'
 
 const MainPage = () => {
 
@@ -44,20 +45,18 @@ const MainPage = () => {
                     and rewards through follow and open source projects
                 </div>
                 <div className="btn">
-                    <a href="#">Try Project</a>
-                    <a href="#">Try Community</a>
+                    <Link to="/opensource">Try Project</Link>
+                    <Link to="/community/post">Try Community</Link>
                 </div>
             </div>
 
             {
-                !isPc && <img src={section1Mobile} alt="section1" />
+                !isPc && <img src={section1Mobile} alt="section1"/>
             }
         </div>
 
         <div className="section2">
-            {
-            isPc && <img src={img2} alt="section2 img" />
-            }
+            { isPc && <img src={img2} alt="section2 img"/> }
             
             <div className = "discription">
                 Use the translation function of
@@ -67,9 +66,7 @@ const MainPage = () => {
                 opinions with people around the world
             </div>
 
-            {
-                !isPc && <img src={img2Mobile} alt="section2 img" />
-            }
+            { !isPc && <img src={img2Mobile} alt="section2 img" /> }
         </div>
 
         

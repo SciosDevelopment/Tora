@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import iconLeftStar from '../../../img/img2/icon_left_star.png'
-import iconLeftLive from '../../../img/img2/icon_left_live.png'
-import iconLeftShare from '../../../img/img2/icon_left_share.png'
+import iconLeftStar from '../../../img/icon_left_star.png'
+import iconLeftLive from '../../../img/icon_left_live.png'
+import iconLeftShare from '../../../img/icon_left_share.png'
 import PopupFileview from '../Modal/PopupFileView'
 import SideButton from './SideButton'
 
@@ -26,7 +26,7 @@ const ProjectLeftSidebar = (props) => {
     ]
     return (
         <>
-        <div className="projectLeftSidebar">
+        <div className="ProjectLeftSidebar">
             <div className="wrap">
                 {
                     buttonlist.map((item,idx)=>{

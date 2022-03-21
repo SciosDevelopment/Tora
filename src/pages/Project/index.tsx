@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react'
 
 import {history} from '../../configureStore'
-
-import iconArrowExpend from '../../img/img2/icon_arrow_expend.png'
-import menuDot from '../../img/img2/menu_dot.png'
-import iconHeadUp from '../../img/img2/icon_head_up.png'
-import iconHeadDown from '../../img/img2/icon_head_down.png'
-
+import iconArrowExpend from '../../img/icon_arrow_expend.png'
 import MainView from './MainView'
 import Issue from './Issue'
+import ProjectCode from './Code'
 import Header from 'src/components/common/Header/Header'
+import ProjectCollaborator from './Collaborator'
+import ProjectSetting from './Setting'
 import ProjectLeftSidebar from 'src/components/common/Sidebar/ProjectLeftSidebar'
 import ProjectRightSidebar from 'src/components/common/Sidebar/ProjectRightSidebar'
 
 const Project = (props) => {
-    const {id = 0} = props.match.params
+    const {id = 0, tab} = props.match.params
+    
+    useEffect(()=>{setTabValue(tab)},[tab])
+
     const [isShowPopupProject, setIsShowPopupProject] = useState(false)
     const [isShowAsideMenu, setIsShowAsideMenu] = useState(false)
     const clickBtnMenu = () => setIsShowAsideMenu(isShowAsideMenu ? false : true)
@@ -27,25 +28,16 @@ const Project = (props) => {
         }
     }
 
-    enum token_ { NOTHING=-1, Main, Issues}
-    const [tabValue, setTabValue] = useState<token_>(token_.Main)
+    enum token_ { Main ="main", Issues="issues", Tree="tree", Collabor="collaborators", Setting="setting"}
+    const [tabValue, setTabValue] = useState(token_.Main)
 
     const switchTab = (tabValue) => {
         switch(tabValue){
-            case 0 : {
-                return(
-                    <div className = "tab-mainview">
-                        <MainView/>
-                    </div>
-                )
-            }
-            case 1 : {
-                return(
-                    <div className = "tab-issue">
-                        <Issue/>
-                    </div>
-                )
-            }
+            case token_.Main : return <MainView projectId={id}/>
+            case token_.Issues : return <Issue projectId={id}/>
+            case token_.Tree :  return  <ProjectCode projectId={id}/>
+            case token_.Collabor: return <ProjectCollaborator projectId={id}/>
+            case token_.Setting : return <ProjectSetting projectId={id}/>
         }
     }
 
@@ -65,32 +57,16 @@ const Project = (props) => {
                 </div>
 
                 <div className="top_tab">
+                    {/* left */}
                     <div className="btnbox">
-                        <div className = {tabValue === 0 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(0)}>Main</div>
-                        <div className = {tabValue === 1 ? `btnbox-open` : `btnbox-close` } onClick = {()=>setTabValue(1)}>Issues</div>
+                        <div className = {tabValue === token_.Main ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/main`)}>Main</div>
+                        <div className = {tabValue === token_.Issues ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/issues`)}>Issues</div>
+                        <div className = {tabValue === token_.Tree ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/tree`)}>Code</div>
+                        <div className = {tabValue === token_.Collabor ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/collaborators`)}>collaborators</div>
                     </div>
-                    <div className="aside_menu">
-                        <button onClick={clickBtnMenu}><img src={menuDot} alt="menu" /></button>
-                        {
-                            isShowAsideMenu && 
-                            <ul className="depth2">
-                                <li>
-                                    <button onClick={clickNavDepth1}>
-                                        Project
-                                        <img src={iconHeadUp} className='icon_head_up' alt="arrow" />
-                                        <img src={iconHeadDown} className='icon_head_down' alt="arrow" />
-                                    </button>
-                                    <ul>
-                                        <li><button>Main</button></li>
-                                        <li><button>Issues</button></li>
-                                        <li><button>Files</button></li>
-                                        <li><button>collaborators</button></li>
-                                    </ul>
-                                </li>
-                                <li><button>Settings</button></li>
-                                <li><button>Project status</button></li>
-                            </ul>
-                        }
+                    {/* right */}
+                    <div className="btnbox">
+                        <div className = {tabValue === token_.Setting ? `btnbox-open` : `btnbox-close` } onClick = {()=>history.push(`/project/${id}/setting`)}>Setting</div>
                     </div>
                 </div>
                 <div className="publishFile">

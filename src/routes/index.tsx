@@ -9,9 +9,6 @@ import Logout from '../pages/Login/Logout'
 import ChangePassword from '../pages/Login/ChangePassword'
 import Confirm from '../pages/Login/Confirm'
 
-// Business
-import Business from '../pages/Business'
-
 // Service : ServiceMain, ServiceList
 import ServiceMain from '../pages/Service'
 import ServiceList from '../pages/Service/ServiceList'
@@ -19,15 +16,14 @@ import ServiceList from '../pages/Service/ServiceList'
 // License
 import LicenseMain from '../pages/License'
 
-// Post
-import Post from '../pages/Post'
-import PostWrite from '../pages/Post/Write'
-import PostDetail from '../pages/Post/Detail'
+// Community
+import CommunityMain from '../pages/Community'
+import PostWrite from '../pages/Community/Post/Write'
+import PostDetail from '../pages/Community/Post/Detail'
+import IssueWrite from '../pages/Community/IssueBounty/Write'
 
-//MyPage
-import MyPage from '../pages/MyPage'
-import MyPageSetting from '../pages/MyPage/Setting'
-
+// Dashboard
+import DashboardMain from 'src/pages/DashBoard'
 //IDE
 import IDE from '../pages/IDE'
 
@@ -38,8 +34,9 @@ import OpenSource from 'src/pages/OpenSource'
 import Project from '../pages/Project'
 import Redirect from '../components/common/github/Redirect'
 
-//Chat2
-import Chat2 from '../components/common/Chat2'
+import NotFound from 'src/pages/etc/NotFound'
+
+
 
 const Router:React.FC = () => (
     <Switch>
@@ -49,17 +46,13 @@ const Router:React.FC = () => (
         <Route path = "/login" render={()=><Login page="login"/>}/>
         <Route path = "/logout" component={Logout}/>
         <Route path = "/signup" render={()=><Login page="signup"/>}/>
-        <Route path = "/reset_pw/" render={()=><Login page="reset_pw"/>}/>
-        <Route path = "/secess" render={()=><Login page="secess"/>}/>
+        <Route path = "/reset_pw" render={()=><Login page="reset_pw"/>}/>
 
         <Route path = "/change_pw" exact component={ChangePassword}/>
         <Route path = "/change_pw/:token" component={ChangePassword}/>
 
         <Route path = "/confirm/signup/:token"  component={Confirm}/>
         <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
-
-        {/* Business */}
-        <Route path = "/business" component={Business}/>
 
         {/* Service */}
         <Route path = "/service" exact component={ServiceMain}/>
@@ -70,31 +63,34 @@ const Router:React.FC = () => (
         <Route path = "/license" component={LicenseMain}/>      
 
         {/* Post */}
-        <Route path = "/post" exact component={Post}/>
-        <Route path = "/post/edit/:id" component={PostWrite}/>
-        <Route path = "/post/write" component={PostWrite}/>
-        <Route path = "/post/:sorted/:query" component={Post}/>
-        <Route path = "/post/:id" component={PostDetail}/>
-
-        {/* MyPage */}
-        <Route path = "/mypage/me/setting" exact component={MyPageSetting}/>
-        <Route path = "/mypage/:username" component={MyPage}/>
-        <Route path = "/mypage" exact component={MyPage}/>
+        <Route path = "/community/post/edit/:id" component={PostWrite}/>
+        <Route path = "/community/post/write" component={PostWrite}/>
+        <Route path = "/community/post/:id" component={PostDetail}/>
+        <Route path = "/community/issue/write" component={IssueWrite}/>
+        <Route path = "/community/:page" exact component={CommunityMain}/>
+        <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
         
+        {/* DashBoard */}
+        <Route path = "/dashboard/:username/:tab" component={DashboardMain}/>
+
         {/* Project */}
         <Route path = "/project" exact component={Project}/>
-        <Route path = "/project/:id" component={Project}/>
+        <Route path = "/project/:id/:tab/:dir" component={Project}/>
+        <Route path = "/project/:id/:tab" component={Project}/>
 
         {/* IDE */}
         <Route path = "/ide" exact component={IDE}/>
+        <Route path = "/ide/:projectid" component={IDE}/>
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
 
-        <Route path = "/authgit" component= {Redirect}/>
+        {/* etc */}
+        <Route path = "/authgit" component={Redirect}/>
 
-        {/* Chat2 */}
-        <Route path = "/chat2" component={Chat2}/>
+
+        {/* 404 */}
+        <Route path = "*" component={NotFound} />
     </Switch>
 )
 
