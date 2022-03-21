@@ -34,8 +34,6 @@ import OpenSource from 'src/pages/OpenSource'
 import Project from '../pages/Project'
 import Redirect from '../components/common/github/Redirect'
 
-//Chat2
-import Chat2 from '../components/common/Chat2'
 import NotFound from 'src/pages/etc/NotFound'
 
 
@@ -86,9 +84,6 @@ const Router:React.FC = () => (
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
-        
-        {/* Chat2 */}
-        <Route path = "/chat2" component={Chat2}/>
 
         {/* etc */}
         <Route path = "/authgit" component={Redirect}/>
