@@ -1,24 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import PostItem from './PostItem'
 import axios from 'axios'
-import {history} from '../../../../configureStore'
 import Pagination from '../../../../components/common/Pagination'
 
 const PostItemView = (props) => {
     var {query, sorted} = props.props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
+    const limit = 10
     const [PostList, setPostList] = useState([])
-
     const [curPage, setCurPage] = useState(1)
-    const [postsPerPage, _] = useState(10)
-    const indexOfLast = curPage * postsPerPage
-    const indexOfFirst = indexOfLast - postsPerPage
-
-    const currentPosts = (tmp) => {
-        let currentPosts = []
-        currentPosts = tmp.slice(indexOfFirst, indexOfLast)
-        return currentPosts
-    }
+    const offset = (curPage - 1) * limit
 
     useEffect(()=>{
         if(sorted !== "new" || sorted !== "best") sorted = "new"
@@ -32,18 +23,20 @@ const PostItemView = (props) => {
     return (
         <div className = "postlist">
                 {
-                currentPosts(PostList).length !== 0 ?
-                currentPosts(PostList).map(
-                        (item) => {return <PostItem item={item}/>}
-                    )
-                    : 
+                PostList.length !== 0 ?
+                PostList.slice(offset, offset+limit).map((item) => {return <PostItem item={item}/>})
+                : 
                     /* 임시 : page 중요 */
-                    <div>Contents is nothing</div> 
+                <div>Contents is nothing</div> 
+                
                 }
                 
                 {
                 PostList.length !== 0 &&
-                    <Pagination postsPerPage={postsPerPage} totalPosts={PostList.length} paginate={setCurPage}/>
+                    <Pagination total={PostList.length}
+                    limit={limit}
+                    page={curPage}
+                    setPage={setCurPage}/>
                 }
         </div>
     )

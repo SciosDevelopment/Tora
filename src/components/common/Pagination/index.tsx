@@ -1,25 +1,28 @@
-import React,{useState} from 'react'
+import { useState } from "react"
 
-const Pagination = ({ postsPerPage, totalPosts, paginate}) => {
-  const pageNumbers = []
-  const [cur_page,setCur] = useState(1)
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i)
-  }
+const Pagination = ({total, limit, page, setPage}) => {
+  const numPages = Math.ceil(total/limit)
+  const [numPageList, _] = useState(Array(numPages).fill(0))
+  const [curListNum, setCurListNum] = useState(1)
+
+  const limits = 10
+  const offset = (curListNum -1) * limits
 
   return (
-      <nav>
-        <ul className="pagination">
-          {pageNumbers.map(number => (
-            <li key={number} className= "page-item">
-              <a onClick={() => {paginate(number); setCur(number);}} className={`page-link ${cur_page === number ? 'active': 'notactive'}`}>
-                {number}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <ul className="pagination">
+        <button onClick={() => { setCurListNum(curListNum - 1); setPage((curListNum-1)*limit+1)}} disabled={curListNum === 1}>&lt;</button>
+        {numPageList.slice(offset, offset+limit).map((_, i) => (
+            <button
+              key={offset + i + 1}
+              onClick={() => setPage(offset + i + 1)}
+              className={page === offset + i + 1 ? "cur" : null}>
+              {offset + i + 1}
+            </button>
+        ))}
+        <button onClick={() => {setCurListNum(curListNum + 1); setPage((curListNum+1)*limit+1)}} disabled={curListNum === Math.ceil(numPages / limit)}>&gt;</button>
+      </ul>
   )
+
 }
 
 export default Pagination
