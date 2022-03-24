@@ -7,17 +7,9 @@ const BountyItemView = (props) => {
     var {query, sorted} = props.props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
     const [BountyList, setBountyList] = useState([])
-
     const [curPage, setCurPage] = useState(1)
-    const [postsPerPage, _] = useState(10)
-    const indexOfLast = curPage * postsPerPage
-    const indexOfFirst = indexOfLast - postsPerPage
-
-    const currentBountys = (tmp) => {
-        let currentBountys = []
-        currentBountys = tmp.slice(indexOfFirst, indexOfLast)
-        return currentBountys
-    }
+    const limit = 10
+    const offset = (curPage - 1) * limit
 
     useEffect(()=>{
         // issue db, api 구현 후 기능 구현 예정.
@@ -31,20 +23,21 @@ const BountyItemView = (props) => {
     // 데이터 부분
     return (
         <div className = "bountylist">
-                {
-                currentBountys(BountyList).length !== 0 ?
-                currentBountys(BountyList).map(
-                        (item) => {return <BountyItem item={item}/>}
-                    )
-                    : 
-                    /* 임시 : page 중요 */
-                    <div>Contents is nothing</div> 
-                }
-                
-                {
-                BountyList.length !== 0 &&
-                    <Pagination postsPerPage={postsPerPage} totalPosts={BountyList.length} paginate={setCurPage}/>
-                }
+            {
+            BountyList.length !== 0 ?
+            BountyList.slice(offset, offset+limit).map((item) => {return <BountyItem item={item}/>})
+            : 
+            /* 임시 : page 중요 */
+            <div>Contents is nothing</div> 
+            }
+
+            {
+            BountyList.length !== 0 &&
+                <Pagination total={BountyList.length}
+                limit={limit}
+                page={curPage}
+                setPage={setCurPage}/>
+            }
         </div>
     )
 }
