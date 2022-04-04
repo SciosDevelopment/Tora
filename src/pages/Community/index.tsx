@@ -154,7 +154,8 @@ const CommunityMain = (props) => {
                     </div>
 
                     <div className="options">
-                        <Searchbar details={true} onClick={(search)}/>
+                        <Searchbar onClick={search} options={[{title:"text", onClick:()=>{alert("text")}},
+                        {title:"text2", onClick:()=>{alert("text2")}}]}/>
                     </div>
                 </div> {/* // skillWrap */}
                 

@@ -115,7 +115,7 @@ const IssueList = (props) => {
                 </div>
                 <div className="right">
                     <div className="search">
-                        <Searchbar details={true}/>
+                        <Searchbar/>
                     </div>
                     <button className='btn_menu'><img src={iconMenu}  alt="menu" onClick={()=>setMode(!mode)}/></button>
                 </div>

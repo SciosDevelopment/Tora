@@ -136,7 +136,7 @@ const OpenSource = (props) => {
                     </div>
 
                     <div className="options">
-                        <Searchbar details={true}/>
+                        <Searchbar/>
                     </div>
                 </div> {/* // skillWrap */}
 

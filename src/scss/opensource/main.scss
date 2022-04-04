@@ -205,18 +205,6 @@ mark.skillMark {
   }
 } /* // openSource */
 
-@media screen and (max-width: 1800px) {
-  .rightItems {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1540px) {
-  .leftItems {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 1140px) {
   .skillWrap {
     padding: 10px;
@@ -277,9 +265,5 @@ mark.skillMark {
   mark.skillMark {
     font-size: 11px;
     width: 50px;
-  }
-
-  footer .wrap {
-      flex-wrap: wrap;
   }
 } /* // 767px */

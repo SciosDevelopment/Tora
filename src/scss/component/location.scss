@@ -11,3 +11,14 @@
       margin: 0 5px;
     }
 } /* // location */
+
+@media screen and (max-width: 780px) {
+  .location {
+    & > span {
+      font-size: 11px;
+    }
+    & > img {
+      margin: 0;
+    }
+  }
+}

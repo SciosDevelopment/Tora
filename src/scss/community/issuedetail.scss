@@ -1,0 +1,886 @@
+.boardCotnent {
+    position: relative;
+  
+    & > .top_title {
+      @include flexbox(space-between, flex-start);
+      margin-bottom: 40px;
+  
+      & > .left {
+        @include flexbox(flex-start, flex-start);
+        width: calc(100% - 120px);
+        width: -webkit-calc(100% - 120px);
+  
+        & > .skillMark { margin-top: 15px; }
+  
+        & > .icon {
+          position: relative;
+          text-align: center;
+  
+          & > p {
+            margin-top: 5px;
+            font-size: 14px;
+          }
+        }
+  
+        & > h3 {
+          color: $ColorNavy;
+          font-size: 32px;
+          font-weight: bold;
+          margin-left: 20px;
+          margin-right: 50px;
+          padding-top: 10px;
+          max-width: calc(100% - 340px);
+          max-width: -webkit-calc(100% - 340px);
+        }
+      }
+  
+      & > .right {
+        & > p {
+          color: #707070;
+          font-size: 14px;
+        }
+        & > button {
+          background: #ffb600;
+          color: #fff;
+          width: 100px;
+          height: 30px;
+          line-height: 30px;
+          border-radius: 5px;
+          text-align: center;
+          font-size: 18px;
+          margin-top: 20px;
+        }
+      }
+    }
+  
+    & > .bountybox {
+      border: 1px solid #928a76;
+      padding: 25px 30px;
+  
+      & > * {
+        font-size: 18px;
+        font-weight: bold;
+      }
+  
+      & li {
+        @include flexbox(flex-start, center);
+        min-height: 45px;
+      }
+      & li > .left {
+        width: 120px;
+      }
+      & li > .right {
+        @include flexbox(flex-start, center);
+  
+        & > img {
+          height: 38px;
+          margin-right: 20px;
+        }
+      }
+    }
+  
+    & h4 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+  
+    & .imgbox {
+      @include flexbox(center, center);
+      height: 205px;
+      width: 100%;
+      background: #fff;
+      margin-bottom: 20px;
+  
+      & img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  
+    & .textbox {
+      & p {
+        font-size: 18px;
+        margin-bottom: 25px;
+        line-height: 1.4;
+      }
+  
+      & h5 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      & ul {
+        padding-left: 30px;
+        margin-bottom: 50px;
+        margin-top: 10px;
+      }
+      & ul li {
+        list-style-type: disc;
+      }
+    }
+  
+    & > .textUser {
+      @include flexbox(space-between, flex-end);
+      padding-left: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $ColorNavy;
+  
+      & > .left {
+        @include flexbox(flex-start, center);
+        width: calc(100% - 293px);
+        width: -webkit-calc(100% - 293px);
+  
+        & > img {
+          height: 60px;
+        }
+        & > .text {
+          margin-left: 20px;
+
+          & > h6 {
+            font-size: 18px;
+            font-weight: normal;
+            padding-bottom: 10px;
+          }
+          & > p {
+            font-size: 14px;
+            color: #707070;
+          }
+        }
+      }
+  
+      & > .right {
+        text-align: right;
+  
+        & > .top {
+          position: relative;
+          padding-bottom: 10px;
+  
+          & > ul.depth2 {
+            left: auto;
+            right: 0;
+            top: 25px;
+            
+            & > li {
+              // detail css
+            }
+          }
+        }
+
+        & > .btm {
+          & button {
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+}
+
+// rightbar
+.rightItems {
+    position: absolute;
+    right: -240px;
+    top: 0;
+    width: 220px;
+    border-radius: 5px !important;
+    padding: 10px;
+    margin-left: 10px;
+    height: auto !important;
+    
+    & .box1 {
+      background: #f2f2f2;
+      border: 1px solid #f2f2f2;
+      padding: 10px;
+      border-radius: 20px;
+    }
+  
+    & .box2 {
+      margin-top: 50px;
+      background: #f2f2f2;
+      border: 1px solid #f2f2f2;
+      padding: 10px;
+      border-radius: 20px;
+    }
+  
+    & * {
+      font-size: 14px;
+    }
+
+    & h4 {
+      margin-top: 0;
+    }
+
+    & .btn_code_wrap {
+      position: relative;
+  
+      &.btn3 {
+        @include flexbox(space-between, center);
+  
+        & button {
+          background: $ColorNavy;
+          height: 37px;
+          border-radius: 5px;
+          width: 32%;
+          color: #fff;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+  
+    & .code_popup {
+      position: absolute;
+      right: 0;
+      top: 35px;
+      width: 295px;
+      height: 155px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid $ColorNavy;
+      background: #fff;
+  
+      & .clonebox {
+        @include flexbox(space-between, flex-end);
+        margin-bottom: 10px;
+  
+        & .left {
+          width: 100%;
+  
+          & h5 {
+            font-size: 14px;
+            font-weight: bold;
+            padding-bottom: 5px;
+          }
+          & input {
+            width: 100%;
+            height: 25px;
+            font-size: 10px;
+            border-radius: 5px;
+            border: 1px solid $ColorNavy;
+          }
+        }
+  
+        & .btn_clone {
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+          border: 1px solid $ColorNavy;
+          margin-left: 10px;
+        }
+      }
+    }
+  
+    & .btn_code {
+      position: relative;
+      background: $ColorNavy;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+      height: 38px;
+    }
+    & .btn_code img {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+    }
+  
+    & .box {
+      border-top: 1px solid #707070;
+      margin-top: 15px;
+      padding-top: 10px;
+  
+      &.item2 {
+        @include flexbox(flex-start, center);
+  
+        & .inner:first-child {
+          margin-right: 30px;
+        }
+      }
+  
+      &.bounty {
+        & ul {
+        }
+        & ul li {
+          @include flexbox(space-between, flex-start);
+          margin: 10px 0;
+  
+          & .left {
+            & span {
+              font-size: 14px;
+              font-weight: bold;
+              color: #928a76;
+              padding-right: 5px;
+            }
+            & img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+  
+          & .right {
+            text-align: right;
+  
+            & p {
+              font-size: 14px;
+              font-weight: bold;
+              color: $ColorNavy;
+            }
+            & span {
+              color: #858585;
+              font-size: 12px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+  
+      & h4 {
+        font-size: 14px;
+        color: #928a76;
+        font-weight: 400;
+        margin-bottom: 10px;
+  
+        &.center {
+          text-align: center;
+        }
+      }
+      & p {
+        font-size: 14px;
+        color: $ColorNavy;
+        font-weight: bold;
+      }
+  
+      & .items_information {
+        @include flexbox(flex-start, flex-start);
+        flex-wrap: wrap;
+        & li {
+          width: 50%;
+          font-weight: bold;
+          letter-spacing: -0.5px;
+  
+          &:nth-child(1),
+          &:nth-child(2) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+  
+      & .user_items {
+        height: 100% !important;
+      }
+  
+      & .number {
+        margin-top: 10px;
+        margin-left: 10px;
+  
+        & span {
+          margin-left: 5px;
+        }
+      }
+  
+      &.btmIcon {
+      }
+      &.btmIcon button {
+        margin: 0 10px;
+      }
+  
+      & .item_visitors {
+        padding-left: 60px !important;
+      }
+    } /* // box */
+  
+    & .user_items {
+      @include flexbox(center, center);
+      flex-wrap: wrap;
+  
+      & .img {
+        width: 20%;
+      }
+    }
+}
+
+.prTable {
+    margin-top: 40px;
+  
+    & table {
+      background: none;
+      width: 100%;
+      border: 1px solid #707070;
+  
+      & .btn_black {
+        display: block;
+        width: 85px;
+        height: 26px;
+        border-radius: 5px;
+        text-align: center;
+        background: $ColorNavy;
+        color: #fff;
+        font-weight: bold;
+        margin: 0 auto;
+      }
+  
+      & thead {
+        height: 50px;
+        border-bottom: 1px solid #707070;
+  
+        & th {
+          color: $ColorNavy;
+          font-size: 14px;
+          font-weight: normal;
+  
+          &.title {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 20px;
+          }
+        }
+      }
+      & tbody {
+        & tr:not(:last-child) {
+          border-bottom: 1px solid #d5d5d5;
+        }
+  
+        & td {
+          & .td_text,
+          & .td_date,
+          & .td_type {
+            @include flexbox(flex-start, flex-start);
+            padding: 20px 10px;
+          }
+  
+          & .td_type,
+          & .td_date {
+            @include flexbox(center, center);
+            font-size: 14px;
+            text-align: center;
+          }
+  
+          & .td_type {
+            &.c_yellow {
+              color: $ColorOrange;
+            }
+  
+            &.c_skyblue {
+              color: #86bdf3;
+            }
+          }
+  
+          & .td_bounty {
+            text-align: center;
+          }
+  
+          &.none {
+            padding: 20px;
+          }
+        }
+      }
+    }
+}
+
+.IssueCommitLog {
+    margin: 30px 0;
+    border-bottom: 1px solid #858585;
+  
+    & > p {
+      padding-left: 15px;
+      font-size: 24px;
+      margin: 5px 0;
+    }
+  
+    & .line {
+      @include flexbox(space-between, center);
+      margin: 5px 0;
+  
+      & .left {
+        @include flexbox(flex-start, center);
+        width: calc(100% - 120px);
+        width: -webkit-calc(100% - 120px);
+  
+        & > * {
+          margin-right: 30px;
+        }
+  
+        & .text mark {
+          background: #efcb72;
+          border-radius: 10px;
+          padding: 1px 10px;
+        }
+      }
+    }
+}
+
+.IssueContentBody {
+    &.borderTop {
+      border-top: 1px solid $ColorNavy;
+    }
+  
+    & .item {
+      text-align: center;
+      @include flexbox(space-between, center);
+      padding: 15px;
+      border-bottom: 1px solid $ColorNavy;
+  
+      & > * {
+        margin: 0 5px;
+      }
+    }
+  
+    & .iconbox {
+      margin-right: 40px;
+    }
+  
+    & .textbox {
+      @include notCutToNextLine();
+      display: inline-block;
+  
+      width: 100%;
+      text-align: left;
+  
+      & .text1 {
+        & .skillMark {
+          margin-left: 10px;
+        }
+  
+        & span {
+          font-size: 18px;
+          max-width: 100%;
+        }
+      }
+  
+      & .text2 {
+        font-size: 14px;
+        color: #888;
+        padding-left: 20px;
+      }
+    }
+  
+    & .num1box {
+      width: 100px;
+    }
+    & .num2box {
+      width: 100px;
+    }
+    & .gradebox {
+      & img {
+        margin-bottom: 5px;
+      }
+      & p {
+        font-size: 14px;
+      }
+    }
+  
+    & .userbox {
+      width: 150px;
+      & p {
+        color: #707070;
+        font-size: 12px;
+      }
+      & img {
+        margin-top: 15px;
+      }
+    }
+}
+
+.td_text {
+  @include flexbox(flex-start, flex-start);
+  padding: 20px 10px;
+
+  & h6 {
+    @include flexbox(flex-start, center);
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 15px;
+
+    & .grade {
+      margin-left: 10px;
+      & img {
+        height: 19px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  & .text {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  & .td_text > img {
+    width: 48px;
+    height: 42px;
+  }
+  & .td_text .text {
+    padding-left: 10px;
+
+    & h6 {
+      color: $ColorNavy;
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    & p {
+      font-size: 14px;
+    }
+  }
+  & .link {
+    @include flexbox(flex-start, flex-start);
+    margin-top: 20px;
+
+    & img {
+      margin-right: 5px;
+    }
+
+    & a {
+      color: #1700ff;
+      font-size: 14px;
+      padding-left: 10px;
+    }
+
+    & span {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .rightItems {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .IssueContentBody {
+    & * {
+      font-size: 12px;
+    }
+    & .iconbox {
+      margin-right: 10px;
+
+      & img {
+        height: 20px;
+      }
+      & p {
+        white-space: nowrap;
+      }
+    }
+    & .userbox img {
+      margin-top: 5px;
+    }
+    & .item {
+      padding: 10px 5px;
+    }
+    & span {
+      font-size: 12px !important;
+    }
+
+    & .textbox .text2 {
+      font-size: 12px;
+      padding-left: 0;
+    }
+  }
+
+  .boardCotnent {
+    & .top_title {
+      display: block;
+
+      & .left {
+        display: block;
+        width: 100%;
+
+        & .icon {
+          @include flexbox(flex-start, center);
+          text-align: left;
+          margin-bottom: 10px;
+
+          & p {
+            margin-top: 0;
+            margin-left: 5px;
+          }
+
+          & img {
+            height: 20px;
+          }
+        }
+
+        & h3 {
+          padding-top: 0;
+          font-size: 20px;
+          max-width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        & .skillMark {
+          margin-top: 0;
+        }
+      }
+
+      & .right {
+        @include flexbox(flex-start, center);
+        margin-top: 10px;
+
+        & button {
+          margin-top: 0;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    & .bountybox {
+      padding: 10px;
+
+      & li {
+        min-height: 30px;
+      }
+
+      & li .left {
+        width: 80px;
+        font-size: 14px;
+      }
+
+      & li .right {
+        & img {
+          height: 20px;
+          margin-right: 5px;
+        }
+      }
+
+      & * {
+        font-size: 14px;
+      }
+    }
+
+    & .imgbox {
+      height: 100px;
+    }
+
+    & .textbox {
+      & p {
+        font-size: 14px;
+      }
+      & h5 {
+        font-size: 14px;
+      }
+    }
+
+    & .textUser {
+      display: block;
+      padding-left: 0;
+
+      & .left {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      & .right .top {
+        padding-bottom: 20px;
+      }
+    }
+  } /* // boardCotnent */
+
+  .prTable {
+    width: 100%;
+    overflow: auto;
+
+    & table {
+      & thead th.title {
+        padding-left: 5px;
+        font-size: 14px;
+      }
+
+      & th:not(:first-child) {
+        display: none;
+      }
+
+      & td {
+        display: block;
+
+        & * {
+          text-align: left;
+        }
+      }
+    }
+    & .td_type,
+    & .td_date,
+    & .td_bounty {
+      text-align: left !important;
+      padding: 5px 10px !important;
+      display: block !important;
+    }
+
+    & .td_type {
+      padding-bottom: 15px !important;
+    }
+  }
+
+  .td_text {
+    display: block !important;
+    padding: 10px 5px !important;
+
+    & .text {
+      padding-top: 0;
+      padding-left: 0;
+    }
+    & h6 {
+      padding-bottom: 5px;
+
+      .grade img {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .IssueCommitLog {
+    & * {
+      font-size: 12px;
+      word-break: break-all;
+    }
+
+    & .line {
+      position: relative;
+      display: block;
+
+      & .left {
+        width: 100%;
+
+        & > *:not(:last-child) {
+          margin-right: 5px;
+        }
+
+        & > *:last-child {
+          margin-right: 0;
+        }
+
+        & .user {
+          width: 110px;
+          padding-right: 5px;
+
+          & * {
+            display: block;
+            line-height: 1;
+          }
+
+          & span {
+            @include notCutToNextLine();
+            width: 100%;
+          }
+        }
+      }
+
+      & .right {
+        width: auto;
+        position: absolute;
+        bottom: -15px;
+        padding-left: 40px;
+        font-size: 10px;
+      }
+    }
+  }
+} /* // 767px */

@@ -4,7 +4,7 @@ import DetailIcon from '../../../img/icon_arrow_issue_title.png'
 import PopupSearchDetails from '../Modal/PopupSearchDetails'
 
 const Searchbar = (SearchProp) => {
-    const {onClick, details=false} = SearchProp
+    const {onClick, options} = SearchProp
     const[queryText, setText] = useState("")
     const[showDetails, setDetails] = useState(false)
     const Search = ()=>onClick(queryText)
@@ -20,8 +20,8 @@ const Searchbar = (SearchProp) => {
                 <input type = "input" placeholder = 'Search' required value = {queryText} onChange = {handleChange} />
                 <img src = {SearchIcon} alt="search" onClick={Search}/>
             </div>
-            {details && <img src = {DetailIcon} alt="detail" onClick={()=>setDetails(!showDetails)}/>}
-            {showDetails && <PopupSearchDetails/>}
+            {options!=null && <img src = {DetailIcon} alt="detail" onClick={()=>setDetails(!showDetails)}/>}
+            {showDetails && <PopupSearchDetails options={options}/>}
         </div>
         </>
     )

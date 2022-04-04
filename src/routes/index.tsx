@@ -21,7 +21,7 @@ import CommunityMain from '../pages/Community'
 import PostWrite from '../pages/Community/Post/Write'
 import PostDetail from '../pages/Community/Post/Detail'
 import IssueWrite from '../pages/Community/IssueBounty/Write'
-
+import IssueDetail from '../pages/Community/IssueBounty/Detail'
 // Dashboard
 import DashboardMain from 'src/pages/DashBoard'
 //IDE
@@ -66,6 +66,7 @@ const Router:React.FC = () => (
         <Route path = "/community/post/edit/:id" component={PostWrite}/>
         <Route path = "/community/post/write" component={PostWrite}/>
         <Route path = "/community/post/:id" component={PostDetail}/>
+        <Route path = "/community/issue/detail" component={IssueDetail}/>
         <Route path = "/community/issue/write" component={IssueWrite}/>
         <Route path = "/community/:page" exact component={CommunityMain}/>
         <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
