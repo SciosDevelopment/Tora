@@ -21,6 +21,7 @@ const ConfirmPage = (props) => {
         }
     
     const ConfirmRegister = ()=> {
+        console.log(token)
         axios.put(`${SERVER_IP}/api/v1/user/comfirm_email/${token}`)
         .then((res) => {
             console.log("your account accepted, you can try login")
@@ -29,7 +30,7 @@ const ConfirmPage = (props) => {
         .catch((e)=>{
             if(e.response) {
                 var status = e.response.status // or use message
-                const {message} =JSON.parse(e.request.response)
+                
                 if(status === 404) // id 존재 x : 404
                     alert("this is invalid token")
                 
@@ -38,7 +39,6 @@ const ConfirmPage = (props) => {
                 
                 if(status === 400) { // default error
                     alert("server is dead. try this again.")
-                    console.log(e.response.message)
                 }
                 // 서버 연결 문제일때 : temp-status
                 if(status >= 500) alert("server is dead")
