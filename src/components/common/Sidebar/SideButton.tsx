@@ -7,6 +7,7 @@ const SideButton = (props) => {
         image ? // image button
         <button className = "SideImageButton" onClick={onAction}>
             <input type="hidden" id="SideMenuKey">{key}</input>
+            {props.children != null && props.children}
             <img src={image} alt=""/>
             {content !== undefined && <p>{content}</p>}
         </button>

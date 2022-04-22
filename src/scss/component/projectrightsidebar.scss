@@ -2,7 +2,7 @@
     position: fixed;
     right: 1.5%;
     top: 14.5%;
-    width: 220px;
+    width: 200px;
     border-radius: 5px !important;
     padding: 10px;
     margin-left: 10px;
@@ -218,5 +218,11 @@
         & .img {
             width: 20%;
         }
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .ProjectRightSidebar {
+      display: none;
     }
 }
