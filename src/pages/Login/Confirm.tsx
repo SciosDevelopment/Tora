@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import {history} from '../../configureStore'
+import queryString from 'query-string'
 const ConfirmPage = (props) => {
     const {token} = props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
@@ -9,22 +10,22 @@ const ConfirmPage = (props) => {
     const confirm = () => {
         const {url} = props.match
         const t = url.split("/")
-
+        
         switch(t[2]) {
             case "reset_pw":
                 history.replace(`/change_pw/${token}`)
                 return
-            case "signup":
-                ConfirmRegister()
+            case "confirmation":
+                ConfirmRegister(queryString.parse(props.location.search))
                 return
-            }
         }
+    }
     
-    const ConfirmRegister = ()=> {
-        console.log(token)
+    const ConfirmRegister = (json)=> {
+        const token = json.confirmation_token
         axios.put(`${SERVER_IP}/api/v1/user/comfirm_email/${token}`)
         .then((res) => {
-            console.log("your account accepted, you can try login")
+            alert("your account accepted, you can try login")
             history.replace("/login")
         })
         .catch((e)=>{

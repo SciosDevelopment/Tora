@@ -13,17 +13,16 @@ import Confirm from '../pages/Login/Confirm'
 import ServiceMain from '../pages/Service'
 import ServiceList from '../pages/Service/ServiceList'
 
-// License
-import LicenseMain from '../pages/License'
-
 // Community
 import CommunityMain from '../pages/Community'
 import PostWrite from '../pages/Community/Post/Write'
 import PostDetail from '../pages/Community/Post/Detail'
 import IssueWrite from '../pages/Community/IssueBounty/Write'
 import IssueDetail from '../pages/Community/IssueBounty/Detail'
+
 // Dashboard
 import DashboardMain from 'src/pages/DashBoard'
+
 //IDE
 import IDE from '../pages/IDE'
 
@@ -35,8 +34,6 @@ import Project from '../pages/Project'
 import Redirect from '../components/common/github/Redirect'
 
 import NotFound from 'src/pages/etc/NotFound'
-
-
 
 const Router:React.FC = () => (
     <Switch>
@@ -50,26 +47,23 @@ const Router:React.FC = () => (
 
         <Route path = "/change_pw" exact component={ChangePassword}/>
         <Route path = "/change_pw/:token" component={ChangePassword}/>
-
-        <Route path = "/confirm/signup/:token"  component={Confirm}/>
+        
         <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
+        <Route path = "/users/:token" component={Confirm}/>
 
         {/* Service */}
         <Route path = "/service" exact component={ServiceMain}/>
         <Route path = "/service/:token" component={ServiceList}/>
-        <Route path = "/service/:token/:id" component={ServiceList}/>
+        <Route path = "/service/:token/:id" component={ServiceList}/> 
 
-        {/* License */ }
-        <Route path = "/license" component={LicenseMain}/>      
-
-        {/* Post */}
+        {/* Post : 이 부분 정리 필요 */}
         <Route path = "/community/post/edit/:id" component={PostWrite}/>
         <Route path = "/community/post/write" component={PostWrite}/>
-        <Route path = "/community/post/:id" component={PostDetail}/>
-        <Route path = "/community/issue/detail" component={IssueDetail}/>
-        <Route path = "/community/issue/write" component={IssueWrite}/>
-        <Route path = "/community/:page" exact component={CommunityMain}/>
         <Route path = "/community/:page/:sorted/:query" component={CommunityMain}/>
+        <Route path = "/community/post/:id" component={PostDetail}/>
+        <Route path = "/community/issue/write" component={IssueWrite}/>
+        <Route path = "/community/issue/:id" component={IssueDetail}/>
+        <Route path = "/community/:page" exact component={CommunityMain}/>
         
         {/* DashBoard */}
         <Route path = "/dashboard/:username/:tab" component={DashboardMain}/>
@@ -85,6 +79,9 @@ const Router:React.FC = () => (
 
         {/* OpenSource */}
         <Route path = "/opensource" component={OpenSource}/>
+        <Route path = "/opensource/:keyword/:option" component={OpenSource}/>
+        <Route path = "/opensource/:keyword" component={OpenSource}/>
+        
 
         {/* etc */}
         <Route path = "/authgit" component={Redirect}/>
