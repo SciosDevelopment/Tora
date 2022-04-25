@@ -71,7 +71,7 @@ const FileView = (props) => {
                     onNodeToggle={handleToggle}
                     onNodeSelect={handleSelect}>       
                     <FileTreeItemFolder 
-                        info={{path: "/", name:"ProjectName" /* ProjectName 적기 */}}
+                        info={{path: "/", name:"root" /* ProjectName 적기 */}}
                         projectId={projectId}
                         setFile={setFile}/>
                 </TreeView>
