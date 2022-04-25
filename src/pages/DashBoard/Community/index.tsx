@@ -9,9 +9,9 @@ const DashBoardCommunity = (props) => {
 
     useEffect(()=>{
         if(userId == -1) return
-        const data = {post: {kind: "free_board", search_text: "", sort: "new" }}
-        axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => {
-            const list = res.data.data.filter(data => data.attributes.user_id == userId)
+        const data = { user_id: userId, search_text: "", kind: "post" }
+        axios.post(`${SERVER_IP}/api/v1/dashboard/community`, data).then(res => {
+            const list = res.data.data
             setPostList(list)
         })
         .catch((e)=>{setPostList([])})

@@ -13,7 +13,7 @@ const ProjectItem = (Props)=> {
                 <img src={Profile11} alt="Thumbnail"/>
             </div>
 
-            <div className = "description" onClick={()=>history.push(`/project/${item.id}`)}>
+            <div className = "description" onClick={()=>history.push(`/project/${item.id}/main`)}>
                 <div>
                     <div className = "title">
                         <p> {item.attributes.name} </p>
@@ -27,14 +27,14 @@ const ProjectItem = (Props)=> {
             
             <div className = "details">
                 <div className = "items">
-                    <div> updated 1시간 전</div>
+                    <div> - 시간 전 {/* timeLine */}</div>
                     <div>
                         <div>
-                            <img src = {IdeBtn} alt="IDE"/>
+                            <img src = {IdeBtn} alt="IDE" onClick={()=>{history.push(`/ide/${item.id}`)}}/>
                         </div>
                         <div>
                             <img src = {ChatBtn} alt="Chat"/>
-                            <p>123</p>
+                            <p>-</p>
                         </div>
                     </div>
                 </div>

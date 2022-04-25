@@ -1,23 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FollowItem from './Item'
-
+import { useCookies } from 'react-cookie'
 const DashBoardFollow = (props) => {
     const {userId} = props
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
-    const [ProjectList, setProjectList] = useState([])
     const [FollowerList, setFollowerList] = useState([])
     const [FollowingList, setFollowingList] = useState([])
+    const [cookies] = useCookies(['ToraNoID'])
     
     useEffect(()=>{
         if(userId == -1) return
-        const data = { project: { search_text: "", sort: "new", user_id: userId } }
-        axios.post(`${SERVER_IP}/api/v1/projects`, data).then(res => {
-            setProjectList(res.data.data)
-            setFollowerList(res.data.data)
-            setFollowingList(res.data.data)
-        })
-        .catch((e)=>{setProjectList([])})
+        const data_flw = {follow_id: userId, current_user_id: cookies.ToraNoID ? cookies.ToraNoID : ""}
+        const data_flwng = {user_id: userId}
+        axios.post(`${SERVER_IP}/api/v1/user/followers`, data_flw).then(res => {setFollowerList(res.data.data)}).catch((e)=>{setFollowerList([])})
+        axios.post(`${SERVER_IP}/api/v1/user/following`, data_flwng).then(res => {setFollowingList(res.data.data)}).catch((e)=>{setFollowingList([])})
     }, [userId])
     
     const Followers = () => {
@@ -43,7 +40,7 @@ const DashBoardFollow = (props) => {
             </div>
         )     
     }
-    // 데이터 부분
+    
     return (
         <div className = "follow">
             <Followers/>

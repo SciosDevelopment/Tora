@@ -67,6 +67,7 @@ const Router:React.FC = () => (
         
         {/* DashBoard */}
         <Route path = "/dashboard/:username/:tab" component={DashboardMain}/>
+        <Route path = "/dashboard" component={DashboardMain}/>
 
         {/* Project */}
         <Route path = "/project" exact component={Project}/>

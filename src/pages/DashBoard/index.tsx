@@ -21,19 +21,20 @@ const DashboardMain = (props) => {
     const [userId, setUserId] = useState(-1)
 
     useEffect(()=>{
+        if(!username) history.replace("/dashboard/me/project")
         const userId = username === "me" ? "mypage": username
         if(username !== "me" && tab == token_.Setting) { history.goBack(); return}
         
         axios.get(`${SERVER_IP}/api/v1/user/${userId}`).then((res)=>{
             const data = res.data.data.attributes
             setUserdata(data)
-            setUserId(res.data.data.id)
-        }).catch(e=>{console.log(e)}) 
+            setUserId(res.data.data.id) // number로 invert
+        }).catch(e=>{console.log(e)})
+
         setTabValue(tab)
         setTabsort((tab === token_.Setting || tab === token_.Acitivities) ? "Account" : "Dashboard")
     },[tab])
     
-
     enum token_ {Project="project", Community="community", Issues="issues", Follow="follow", Setting="setting", Acitivities="activities"}
     const [tabValue, setTabValue] = useState(token_.Project)
     const [tabsort, setTabsort] = useState(null)
@@ -64,19 +65,16 @@ const DashboardMain = (props) => {
         else return <></>
         
     }
+    
     return (
     <>
         <Header/>
         <div className= "dashboard">
             <div className= "dashboard-tab">
                 <div className="location">
-                    <span>Support</span>
+                    <span>DashBoard</span>
                     <img src={iconArrowExpend} alt="expend" />
-                    <span>FAQ</span>
-                    <img src={iconArrowExpend} alt="expend" />
-                    <span>Product</span>
-                    <img src={iconArrowExpend} alt="expend" />
-                    <span>Git 서비스 사용 방법</span>
+                    <span>{tabValue.charAt(0).toUpperCase().concat(tabValue.substring(1))}</span>
                 </div>
                 <div className="profiles">
                     <div className="proimg">
@@ -112,9 +110,10 @@ const DashboardMain = (props) => {
                         <div className="btnbox">
                             <TabList/>
                         </div>
+                        {tabsort !== "Account" && 
                         <div className='searchbar'>
                             <Searchbar/>
-                        </div>
+                        </div>}
                     </div>
                 </div>
 
