@@ -9,10 +9,6 @@ import Logout from '../pages/Login/Logout'
 import ChangePassword from '../pages/Login/ChangePassword'
 import Confirm from '../pages/Login/Confirm'
 
-// Service : ServiceMain, ServiceList
-import ServiceMain from '../pages/Service'
-import ServiceList from '../pages/Service/ServiceList'
-
 // Community
 import CommunityMain from '../pages/Community'
 import PostWrite from '../pages/Community/Post/Write'
@@ -51,11 +47,6 @@ const Router:React.FC = () => (
         <Route path = "/confirm/reset_pw/:token"  component={Confirm}/>
         <Route path = "/users/:token" component={Confirm}/>
 
-        {/* Service */}
-        <Route path = "/service" exact component={ServiceMain}/>
-        <Route path = "/service/:token" component={ServiceList}/>
-        <Route path = "/service/:token/:id" component={ServiceList}/> 
-
         {/* Post : 이 부분 정리 필요 */}
         <Route path = "/community/post/edit/:id" component={PostWrite}/>
         <Route path = "/community/post/write" component={PostWrite}/>
@@ -83,10 +74,8 @@ const Router:React.FC = () => (
         <Route path = "/opensource/:keyword/:option" component={OpenSource}/>
         <Route path = "/opensource/:keyword" component={OpenSource}/>
         
-
         {/* etc */}
         <Route path = "/authgit" component={Redirect}/>
-
 
         {/* 404 */}
         <Route path = "*" component={NotFound} />
