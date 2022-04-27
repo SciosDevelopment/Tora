@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 const ProjectItem = (props) => {
     const {data, id} = props
-    useEffect(()=>{console.log(data)},[])
+    
     return (
         <li key={id} onClick={()=>{history.push(`/project/${id}/main`)}}>
             <div className="item innerShadow">

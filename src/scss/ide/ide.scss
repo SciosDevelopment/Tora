@@ -141,19 +141,31 @@
           
           & button {
             @include notCutToNextLine();
+            @include flexbox(center, center);
             display: flex;
             height: 100%;
             border-right: $IDELine;
             padding: 5px 15px;
             
-            &.on { @include IDEButtonHover(); }
+            &.on {
+              @include IDEButtonHover(); 
+              .close {
+                visibility:visible;
+                color:white;
+              }
+            }
             
             & .close {
               visibility: hidden;
-              margin:3px;
+              @include flexbox(center, center);
               color:white;
+              width:10px;
+              height:10px;
+              margin-left:3px;
+              padding:5px;
+              border:none;
             }
-            
+
             &:hover {
               @include IDEButtonHover();
               .close {

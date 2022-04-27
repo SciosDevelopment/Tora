@@ -8,7 +8,7 @@ const FileType = (props) => {
             onClick={onSelected} title={File.filename}>
             <img src = {IDEType} alt=""/> {/* temp */}
             <span>{File.filename}</span>
-            <div className = "close" onClick={onClosed}>{CanSaved ? '*' : 'X'}</div>
+            <button className = "close" onClick={onClosed}>{CanSaved ? '*' : 'X'}</button>
         </button>
     )
 }

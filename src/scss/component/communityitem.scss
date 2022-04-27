@@ -3,7 +3,6 @@
     @include flexbox(flex-start,flex-start);
     width : 100%;
     height : 80px;
-    border-top : 2px solid #707070;
     border-bottom : 2px solid #707070;
     // border: 1px solid black;
     & > div { margin: 0px 5px; }
@@ -96,4 +95,8 @@
         }
     }
     
+}
+
+.communityitem:first-child {
+    border-top : 2px solid #707070;
 }

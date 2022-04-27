@@ -47,7 +47,6 @@ const ProjectLeftSidebar = (props) => {
         }).catch((e)=>{
             if(e.response) {
                 var status = e.response.status // or use message
-                console.log(e.response.data.message)
                 if(e.response.data.message[0] == "User has already been taken") {
                     EditScore(score)
                 }
