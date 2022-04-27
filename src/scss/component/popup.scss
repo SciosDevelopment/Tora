@@ -598,7 +598,8 @@
   top: 30px;
   right: 0px;
   z-index: 99;
-  width: 252px;
+  width: 100%;
+  min-width:50px;
   
   background: #fff;
   border-radius: 5px;

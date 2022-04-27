@@ -19,8 +19,7 @@ const CommunityMain = (props) => {
      * @summary 헤더 바로 밑 기술 마크 슬라이드
      * @link https://react-slick.neostack.com/docs/example/simple-slider 
      ****************************************************/
-     const slideSkills = ['1','2','3','4','5','6','7', '8','9','10','11','12','13','14']
-
+     const slideSkills = ['C/C++', 'C#', 'HTML/CSS/JS', 'Python', 'Django', 'Java', 'Spring', 'React', 'React Native', 'Vue', 'Node.js', 'Ruby', 'Go', 'PHP']
 
      // 슬라이드 '이전' 버튼
      const SlickArrowLeft = (props) => {
@@ -154,7 +153,8 @@ const CommunityMain = (props) => {
                     </div>
 
                     <div className="options">
-                        <Searchbar details={true} onClick={(search)}/>
+                        <Searchbar onClick={search} options={[{title:"text", onClick:()=>{alert("text")}},
+                        {title:"text2", onClick:()=>{alert("text2")}}]}/>
                     </div>
                 </div> {/* // skillWrap */}
                 

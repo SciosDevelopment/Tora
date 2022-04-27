@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import {history} from '../../configureStore'
+import queryString from 'query-string'
 const ConfirmPage = (props) => {
     const {token} = props.match.params
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
@@ -9,27 +10,28 @@ const ConfirmPage = (props) => {
     const confirm = () => {
         const {url} = props.match
         const t = url.split("/")
-
+        
         switch(t[2]) {
             case "reset_pw":
                 history.replace(`/change_pw/${token}`)
                 return
-            case "signup":
-                ConfirmRegister()
+            case "confirmation":
+                ConfirmRegister(queryString.parse(props.location.search))
                 return
-            }
         }
+    }
     
-    const ConfirmRegister = ()=> {
+    const ConfirmRegister = (json)=> {
+        const token = json.confirmation_token
         axios.put(`${SERVER_IP}/api/v1/user/comfirm_email/${token}`)
         .then((res) => {
-            console.log("your account accepted, you can try login")
+            alert("your account accepted, you can try login")
             history.replace("/login")
         })
         .catch((e)=>{
             if(e.response) {
                 var status = e.response.status // or use message
-                const {message} =JSON.parse(e.request.response)
+                
                 if(status === 404) // id 존재 x : 404
                     alert("this is invalid token")
                 
@@ -38,7 +40,6 @@ const ConfirmPage = (props) => {
                 
                 if(status === 400) { // default error
                     alert("server is dead. try this again.")
-                    console.log(e.response.message)
                 }
                 // 서버 연결 문제일때 : temp-status
                 if(status >= 500) alert("server is dead")

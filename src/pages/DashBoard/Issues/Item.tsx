@@ -1,6 +1,7 @@
 import IconStar from 'src/img/icon_star.png'
 import Profile11 from 'src/img/profile11.png'
 import { history } from 'src/configureStore'
+import { useEffect } from 'react'
 
 const IssueItem = (Props)=> {
     const SERVER_IP = process.env.REACT_APP_BACKEND_HOST
@@ -9,16 +10,18 @@ const IssueItem = (Props)=> {
     return (
         <div className = "dbIssueItem">
             <div className="bounty">
-                <img src="#"/>
-                <p>{item.attributes.comments_count}</p>
+                <img src={IconStar} alt="Bounty"/>
+                <p>{item.attributes.score}</p>
             </div>
-            <div className = "description" onClick={()=>history.push(`/community/post/${item.id}`)}>
+            <div className = "description" onClick={()=>history.push(`/community/issue/${item.id}`)}>
                 <div>
                     <div className = "title">
                         <p> {item.attributes.title} </p>
                     </div>
                     <div className = "tag">
-                        {item.attributes.tags.split(" ").map((data)=>{return data && <p>{data}</p>})}
+                        {item.attributes.tags.split(",").map((data)=>{return data && <p>{data}</p>})}
+                        <p>{item.attributes.issue_grade}</p>
+                        <p>{item.attributes.issue_type}</p>
                     </div>
                 </div>
                 

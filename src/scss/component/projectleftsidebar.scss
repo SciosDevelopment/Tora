@@ -1,6 +1,6 @@
 .ProjectLeftSidebar {
     position: fixed;
-    left :200px;
+    left :7%;
     top: 230px;
     z-index: 30;
 
@@ -13,7 +13,7 @@
             width: 70px;
             margin-bottom: 20px;
 
-            & > img { margin-bottom: 5px; }
+            & > img { width:40px; margin-bottom: 5px; }
             & > p { font-weight: 700; }
         }
     }
@@ -66,5 +66,36 @@
                 }
             }
         }
+    }
+}
+
+.starScore {
+    position: absolute;
+    width:110px;
+    margin-left:-20px;
+
+    &.inactive {
+       visibility: hidden;
+    }
+
+    & > a {
+        & > img {
+            width: 30px;
+            margin-top:-30px;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+    }
+    
+    & > a:first-child, a:last-child {
+        & > img {
+            margin-top:-5px;
+        }
+    }
+}
+
+@media screen and (max-width: 1720px) {
+    .ProjectLeftSidebar {
+      display: none;
     }
 }

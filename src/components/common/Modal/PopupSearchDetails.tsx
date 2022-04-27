@@ -1,5 +1,5 @@
 const PopupSearchDetails = (props) =>{
-    const {tags=['django', 'node.js', 'ruby','c++', 'javscript', '','','']} = props
+    const {tags=['django', 'node.js', 'ruby','c++', 'javscript', '','',''], options} = props
     const Taglist = ()=> {
         return (
             <div className="taglist">
@@ -15,8 +15,7 @@ const PopupSearchDetails = (props) =>{
         <div className="searchpopup innerShadow2">
             {/* <Taglist/> */}
             <div className="option">
-                <p>popularity</p>
-                <p>Created date</p>
+                { options.map((data)=>{return <p onClick={data.onClick}>{data.title}</p>}) }
             </div>
         </div>
         </>

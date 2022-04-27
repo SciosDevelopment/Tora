@@ -8,8 +8,8 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
     const [tab, setTab] = useState('new') // new, from, git
     const [projectname, setProjectname] = useState("")
     const [pub, setPub] = useState(true)
-    const [lang, setLang] = useState(null)
-    const langData = [ {value:"clang", text:"C/C++"},
+    const [lang, setLang] = useState("C/C++")
+    const langData = [ {value:"C/C++", text:"C/C++"},
                        {value:"csharp", text:"C#"}, 
                        {value:"html", text:"HTML/CSS/JS"},
                        {value:"python", text:"python"},
@@ -53,7 +53,7 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
                 state: "use" 
             } 
         }
-        
+        console.log(data)
         axios.post(`${SERVER_IP}/api/v1/projects/create`,data).then((res)=>{
             // 201 생성 성공
             alert("프로젝트가 생성되었습니다. Mypage에서 확인해주세요.")
@@ -78,7 +78,7 @@ const PopupNewProject = ({isShowPopupProject, setIsShowPopupProject}) =>{
     }
 
     const CreateNewProjectView = () => {
-        const handleChangeSelect = (e)=>{setLang(e.target.value)}
+        const handleChangeSelect = (e)=>{console.log(e.target.value);setLang(e.target.value)}
         const handleChangeProjectName = (e) =>{setProjectname(e.target.value.trim())}
         return ( // new 
             <>

@@ -9,9 +9,9 @@ const DashBoardIssues = (props) => {
 
     useEffect(()=>{
         if(userId == -1) return
-        const data = {post: {kind: "free_board", search_text: "", sort: "new" }}
-        axios.post(`${SERVER_IP}/api/v1/posts`, data).then(res => {
-            const list = res.data.data.filter(data => data.attributes.user_id == userId)
+        const data = { user_id: userId, search_text: "", kind: "issue"}
+        axios.post(`${SERVER_IP}/api/v1/dashboard/issue`, data).then(res => {
+            const list = res.data.data
             setIssueList(list)
         })
         .catch((e)=>{setIssueList([])})

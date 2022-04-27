@@ -1,0 +1,49 @@
+.currentTopic {
+    & > h5 {
+        text-align: center;
+    }
+  
+    & > .top {
+        @include flexbox(space-between, flex-start);
+        margin: 15px 0;
+
+        & > * {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        & > button {
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        & > button:hover,
+        & > button.on {
+            border-bottom: 2px solid #ffb600;
+        }
+    }
+
+    & > .list {
+        & * {
+            font-size: 12px;
+        }
+
+        & > li {
+            margin-bottom: 10px;
+
+            & > b {
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+            }
+
+            & > span {
+                @include notCutToNextLine();
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - 20px);
+                width: -webkit-calc(100% - 20px);
+            }
+        }
+    }
+}

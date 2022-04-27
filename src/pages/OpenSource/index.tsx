@@ -5,15 +5,20 @@ import "slick-carousel/slick/slick-theme.css"
 import Header from '../../components/common/Header/Header'
 import iconPrev from '../../img/icon_prev.png'
 import iconNext from '../../img/icon_next.png'
-import iconSelect2 from '../../img/ic_select2.png'
 import ProjectItem from './Item'
 import axios from 'axios'
 import Searchbar from 'src/components/common/Searchbar'
+import Footer from 'src/components/common/Footer'
 
 const OpenSource = (props) => {
     const {keyword="", user=""} = props
     const [isShowPopupProject, setIsShowPopupProject] = useState(false)
+    const [filter, setFilter] = useState(0)
+    const options = [{title:"popularity", onClick:()=>selectedFilter(0)},
+                    {title:"Created date", onClick:()=>selectedFilter(1)}]
 
+    const selectedFilter = (opt)=>{setFilter(opt)}
+    const search = (text)=>{alert(text)}
     /****************************************************
      * @name slickSlider 
      * @summary 헤더 바로 밑 기술 마크 슬라이드
@@ -110,7 +115,8 @@ const OpenSource = (props) => {
 
 
     return (
-        <div className="openSource otherHeaderStyle">
+        <>
+        <div className="openSource">
             <Header setIsShowPopupProject={setIsShowPopupProject}/>
 
             <div className="maxWrap">
@@ -136,7 +142,7 @@ const OpenSource = (props) => {
                     </div>
 
                     <div className="options">
-                        <Searchbar details={true}/>
+                        <Searchbar onClick={search} options={options}/>
                     </div>
                 </div> {/* // skillWrap */}
 
@@ -147,6 +153,8 @@ const OpenSource = (props) => {
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
     )
 }
 

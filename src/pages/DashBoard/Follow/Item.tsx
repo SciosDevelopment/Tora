@@ -1,7 +1,4 @@
-import HeartLogo from 'src/img/heart64.png'
 import Profile11 from 'src/img/profile11.png'
-import IdeBtn from 'src/img/ToraLogo@2x.png'
-import ChatBtn from 'src/img/openchaticon.png'
 import { history } from 'src/configureStore'
 
 const FollowItem = (Props)=> {
@@ -9,9 +6,10 @@ const FollowItem = (Props)=> {
     const {item, Follower} = Props
     const OptionBtn = ()=>{
         return Follower ? 
-        (<button>Follow</button>) : 
-        (<button>UnFollow</button>)
+        (<button>Follower</button>) : 
+        (<button>Following</button>)
     }
+
     return (
         <div className = "dbFollowItem">
             <div className="profiles">
@@ -21,7 +19,7 @@ const FollowItem = (Props)=> {
             <div className = "description" onClick={()=>history.push(`/project/${item.id}`)}>
                 <div>
                     <div className = "title">
-                        <p> {item.attributes.name} </p>
+                        <p> {item.attributes.user_id} </p>
                     </div>
                     <div className = "desc">
                         <p>this is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is descriptionthis is description</p>

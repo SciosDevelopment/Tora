@@ -168,7 +168,7 @@
                 margin-bottom: 15px;
             }
 
-            & > .follow { @include flexbox(center,center); gap:5%; }
+            & > .follow { @include flexbox(center,flex-start); gap:5%; }
             & > .follow > div {
                 width:50%;
 
