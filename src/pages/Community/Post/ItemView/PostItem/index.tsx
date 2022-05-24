@@ -1,5 +1,7 @@
 import HeartLogo from '../../../../../img/heart64.png'
 import Profile11 from '../../../../../img/profile11.png'
+import temp from '../../../../../img/githubicon.png'
+
 import { Link } from 'react-router-dom'
 import { history } from 'src/configureStore'
 
@@ -10,7 +12,7 @@ const PostItem = (Props)=> {
     return (
         <div className = "communityitem">
             <div className="thumbnail">
-                <img src="#"/>
+                <img src={temp} alt="thumbnail"/>
             </div>
             <div className = "description" onClick={()=>history.push(`/community/post/${item.id}`)}>
                 <div>
