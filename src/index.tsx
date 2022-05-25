@@ -5,8 +5,7 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import configureStore, {history} from './configureStore'
 import axios from 'axios'
-import dotenv from 'dotenv'
-dotenv.config()
+
 //axios.defaults.withCredentials = true
 axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*"
 

@@ -5,8 +5,6 @@ import Router from './routes'
 import {History} from 'history'
 import {useCookies} from 'react-cookie'
 import useUser from './hooks/useUser'
-import dotenv from 'dotenv'
-dotenv.config()
 
 interface Interface { history : History}
 
@@ -22,6 +20,7 @@ const App:FunctionComponent<Interface> = ({history} : Interface) => {
   // 이부분 추후 논의
   const initializeUserInfo = async() => {
       // Cookie가 존재하지 않고 Token이 존재하는경우 : 쿠키가 만료됐지만 로그인한 이력이 있는 경우
+      console.log(axios.defaults.headers)
       if(axios.defaults.headers.common['Authorization'] !== undefined && cookies.ToraLoginToken === undefined) {
         var ExpiryTime = new Date()
         const TOKEN_EXPIRY_TIME = 10 

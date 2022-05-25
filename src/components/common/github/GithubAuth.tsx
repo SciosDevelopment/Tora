@@ -1,6 +1,3 @@
-import dotenv from 'dotenv'
-dotenv.config()
-
 const GithubAuth = () => {
     
     const CLIENT_ID = process.env.REACT_APP_GITHUBAPP_ID
